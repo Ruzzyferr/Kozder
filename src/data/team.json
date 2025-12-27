@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Örnek İsim",
+    "role": "Başkan",
+    "bio": "Gençlik çalışmaları ve proje yönetimi konularında deneyimli.",
+    "image": "/images/team/placeholder.jpg"
+  },
+  {
+    "name": "Örnek İsim 2",
+    "role": "Proje Koordinatörü",
+    "bio": "ESC ve Erasmus+ projelerinde uzman.",
+    "image": "/images/team/placeholder.jpg"
+  }
+]
+

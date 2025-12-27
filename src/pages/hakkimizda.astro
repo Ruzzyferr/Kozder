@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import teamData from '../data/team.json';
+
+interface TeamMember {
+  name: string;
+  role: string;
+  bio: string;
+  image?: string;
+}
+---
+
+<BaseLayout 
+  title="Hakkımızda - KOZ-DER"
+  description="KOZ-DER'in misyonu, vizyonu ve değerleri hakkında bilgi edinin."
+>
+  <div class="container mx-auto px-4 py-16 md:py-20 fade-in-up">
+    <!-- Mission -->
+    <!-- Mission & Vision Grid -->
+    <section class="mb-20">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center font-heading uppercase tracking-tight">Hakkımızda</h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Mission -->
+        <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all modern-content relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/></svg>
+          </div>
+          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h2 class="!text-2xl !mt-0 !mb-4 !border-none !text-gray-900">Misyonumuz</h2>
+          <p class="!text-sm">
+            Gençlerin kişisel ve profesyonel gelişimine katkı sağlamak, zeka oyunları ve kodlama 
+            alanlarında yeteneklerini geliştirmelerine destek olmak, uluslararası projeler ve 
+            etkinlikler düzenleyerek gençlerin kültürlerarası deneyim kazanmalarını sağlamak.
+          </p>
+        </div>
+
+        <!-- Vision -->
+        <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all modern-content relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          </div>
+          <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-6">
+             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <h2 class="!text-2xl !mt-0 !mb-4 !border-none !text-gray-900">Vizyonumuz</h2>
+          <p class="!text-sm">
+            Türkiye'de ve Avrupa'da gençlerin eğitim, kültür ve sosyal gelişimine öncülük eden, 
+            yenilikçi projelerle gençlerin hayatlarına değer katan örnek bir sivil toplum kuruluşu olmak.
+          </p>
+        </div>
+
+        <!-- Values -->
+        <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all modern-content lg:col-span-1 md:col-span-2 relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+             <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.86L12 5.84zM17.5 13c-2.485 0-4.5-2.015-4.5-4.5S15.015 4 17.5 4c2.485 0 4.5 2.015 4.5 4.5S19.985 13 17.5 13zM17.5 6c-1.38 0-2.5 1.12-2.5 2.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5S18.88 6 17.5 6zM6.5 13c-2.485 0-4.5-2.015-4.5-4.5S4.015 4 6.5 4c2.485 0 4.5 2.015 4.5 4.5S8.985 13 6.5 13zM6.5 6c-1.38 0-2.5 1.12-2.5 2.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5S7.88 6 6.5 6z"/></svg>
+          </div>
+          <div class="w-14 h-14 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h2 class="!text-2xl !mt-0 !mb-4 !border-none !text-gray-900">Değerlerimiz</h2>
+          <ul class="!list-none !pl-0 text-sm space-y-3">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 mr-3 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><strong class="text-gray-900">Şeffaflık:</strong> Tüm faaliyetlerimizde açık ve şeffaf olmak</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 mr-3 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><strong class="text-gray-900">Katılımcılık:</strong> Gençlerin karar süreçlerine katılımını sağlamak</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 mr-3 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><strong class="text-gray-900">Çeşitlilik:</strong> Farklı kültürlerden gençleri bir araya getirmek</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 mr-3 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+               <span><strong class="text-gray-900">Yenilikçilik:</strong> Yaratıcı ve yenilikçi projeler geliştirmek</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 mr-3 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+               <span><strong class="text-gray-900">Sürdürülebilirlik:</strong> Çevreye ve topluma duyarlı projeler yürütmek</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    {teamData && teamData.length > 0 && (
+      <section class="mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ekibimiz</h2>
+        <p class="text-gray-600 mb-10 max-w-2xl">KOZ-DER'i oluşturan gönüllü ekibimiz</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {teamData.map((member: TeamMember) => (
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center hover:shadow-md transition-shadow">
+              {member.image && (
+                <div class="mb-4">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    class="w-28 h-28 rounded-full mx-auto object-cover border-4 border-gray-100"
+                  />
+                </div>
+              )}
+              <h3 class="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
+              <p class="text-primary-600 font-semibold mb-3 text-sm">{member.role}</p>
+              <p class="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>
+

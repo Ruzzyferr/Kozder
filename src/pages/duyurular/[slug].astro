@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+const { Content } = await post.render();
+const postDate = new Date(post.data.date);
+const formattedDate = postDate.toLocaleDateString('tr-TR', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+---
+
+<BaseLayout 
+  title={`${post.data.title_tr} - KOZ-DER`}
+  description={post.data.summary_tr}
+>
+  <article class="container mx-auto px-4 py-16 max-w-4xl">
+    <header class="mb-8">
+      <div class="flex items-center text-gray-500 mb-4">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <span>{formattedDate}</span>
+      </div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">{post.data.title_tr}</h1>
+      {post.data.tags.length > 0 && (
+        <div class="flex flex-wrap gap-2">
+          {post.data.tags.map(tag => (
+            <span class="px-3 py-1 bg-primary-50 text-primary-600 rounded-full text-sm">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <div class="prose prose-lg max-w-none">
+      <Content />
+    </div>
+
+    <div class="mt-12">
+      <a 
+        href="/duyurular" 
+        class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold"
+      >
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Tüm Duyurulara Dön
+      </a>
+    </div>
+  </article>
+</BaseLayout>
+

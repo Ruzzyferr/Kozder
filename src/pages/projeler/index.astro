@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+const projects = allProjects.sort((a, b) => b.data.year - a.data.year);
+
+// Get unique values for filters
+const allPrograms = [...new Set(projects.map(p => p.data.programType))];
+const allYears = [...new Set(projects.map(p => p.data.year))].sort((a, b) => b - a);
+const allStatuses = [...new Set(projects.map(p => p.data.status))];
+const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
+---
+
+<BaseLayout 
+  title="Projeler - KOZ-DER"
+  description="ESC ve Erasmus+ programları kapsamında yürüttüğümüz projeleri keşfedin."
+>
+  <Breadcrumb 
+    items={[
+      { label: 'Ana Sayfa', href: '/' },
+      { label: 'Projeler', href: '/projeler' }
+    ]}
+    pageTitle="ESC Uzun Dönem Projeleri"
+  />
+  
+  <div class="container mx-auto px-4 py-8 sm:py-12 md:py-16 fade-in-up">
+    
+    <!-- Filters -->
+    <div class="bg-gray-50 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
+      <h2 class="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Filtrele</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div>
+          <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">Program</label>
+          <select id="filter-program" class="w-full px-2.5 sm:px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+            <option value="">Tümü</option>
+            {allPrograms.map(program => (
+              <option value={program}>{program}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">Yıl</label>
+          <select id="filter-year" class="w-full px-2.5 sm:px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+            <option value="">Tümü</option>
+            {allYears.map(year => (
+              <option value={year}>{year}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">Durum</label>
+          <select id="filter-status" class="w-full px-2.5 sm:px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+            <option value="">Tümü</option>
+            {allStatuses.map(status => (
+              <option value={status}>{status}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">Tema</label>
+          <select id="filter-theme" class="w-full px-2.5 sm:px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+            <option value="">Tümü</option>
+            {allThemes.map(theme => (
+              <option value={theme}>{theme}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((project) => (
+        <div 
+          class="project-item"
+          data-program={project.data.programType}
+          data-year={project.data.year}
+          data-status={project.data.status}
+          data-themes={project.data.themes.join(',')}
+        >
+          <ProjectCard
+            title={project.data.title_tr}
+            summary={project.data.summary_tr}
+            coverImage={project.data.coverImage}
+            programType={project.data.programType}
+            year={project.data.year}
+            status={project.data.status}
+            slug={project.slug}
+          />
+        </div>
+      ))}
+    </div>
+
+    <div id="no-results" class="hidden text-center py-12">
+      <p class="text-gray-500 text-lg">Seçilen kriterlere uygun proje bulunamadı.</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const filterProgram = document.getElementById('filter-program');
+  const filterYear = document.getElementById('filter-year');
+  const filterStatus = document.getElementById('filter-status');
+  const filterTheme = document.getElementById('filter-theme');
+  const projectsContainer = document.getElementById('projects-container');
+  const noResults = document.getElementById('no-results');
+  const projectItems = document.querySelectorAll('.project-item');
+
+  function filterProjects() {
+    const program = filterProgram?.value || '';
+    const year = filterYear?.value || '';
+    const status = filterStatus?.value || '';
+    const theme = filterTheme?.value || '';
+
+    let visibleCount = 0;
+
+    projectItems.forEach((item) => {
+      const itemProgram = item.getAttribute('data-program') || '';
+      const itemYear = item.getAttribute('data-year') || '';
+      const itemStatus = item.getAttribute('data-status') || '';
+      const itemThemes = item.getAttribute('data-themes') || '';
+
+      const matchesProgram = !program || itemProgram === program;
+      const matchesYear = !year || itemYear === year;
+      const matchesStatus = !status || itemStatus === status;
+      const matchesTheme = !theme || itemThemes.includes(theme);
+
+      if (matchesProgram && matchesYear && matchesStatus && matchesTheme) {
+        (item as HTMLElement).style.display = '';
+        visibleCount++;
+      } else {
+        (item as HTMLElement).style.display = 'none';
+      }
+    });
+
+    if (visibleCount === 0) {
+      noResults?.classList.remove('hidden');
+      projectsContainer?.classList.add('hidden');
+    } else {
+      noResults?.classList.add('hidden');
+      projectsContainer?.classList.remove('hidden');
+    }
+  }
+
+  filterProgram?.addEventListener('change', filterProjects);
+  filterYear?.addEventListener('change', filterProjects);
+  filterStatus?.addEventListener('change', filterProjects);
+  filterTheme?.addEventListener('change', filterProjects);
+</script>
+

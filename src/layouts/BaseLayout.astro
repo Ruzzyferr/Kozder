@@ -1,0 +1,143 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image = '/og-image.svg' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.site)} />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <title>{title}</title>
+  </head>
+  <body class="bg-light text-dark-text font-body antialiased">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+  }
+
+  /* Fade In Up Animation */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Modern Content Typography (Shared) */
+  .modern-content h2 {
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #1e73be !important;
+    text-transform: uppercase;
+    margin-top: 2.5rem !important;
+    margin-bottom: 1rem !important;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+  }
+
+  .modern-content h3 {
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .modern-content p {
+    font-family: 'Montserrat', sans-serif !important;
+    color: #4b5563 !important;
+    line-height: 1.8 !important;
+    margin-bottom: 1.25rem !important;
+    font-size: 1.05rem !important;
+  }
+
+  .modern-content ul {
+    list-style-type: disc !important;
+    padding-left: 1.5rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .modern-content li {
+    font-family: 'Montserrat', sans-serif !important;
+    color: #4b5563 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .modern-content strong {
+    color: #1e73be !important;
+    font-weight: 700 !important;
+  }
+</style>
+
+<script>
+  // Scroll Animation Observer
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Only animate once
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements with .fade-in-up class
+  document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.fade-in-up');
+    animatedElements.forEach(el => observer.observe(el));
+  });
+</script>
+

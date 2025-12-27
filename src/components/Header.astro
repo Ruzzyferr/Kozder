@@ -1,0 +1,136 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: '/', text: 'Ana Sayfa' },
+  { href: '/hakkimizda', text: 'Hakkımızda' },
+  { href: '/projeler', text: 'Projeler' },
+  { href: '/etkinlikler', text: 'Etkinlikler' },
+  { href: '/duyurular', text: 'Duyurular' },
+  { href: '/iletisim', text: 'İletişim' },
+];
+---
+
+<header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300 border-b border-gray-100" id="main-header">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-3 group animate-fade-in">
+        <div class="relative overflow-hidden">
+          <img 
+            src="/images/logo.png" 
+            alt="KOZ-DER Logo" 
+            class="h-12 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="hidden sm:block">
+          <div class="text-xl font-bold text-gray-900 leading-none group-hover:text-primary-600 transition-colors font-heading tracking-tight">KOZ-DER</div>
+          <div class="text-[0.65rem] text-gray-500 font-medium tracking-wider uppercase mt-1">Gençlik Zeka Oyunları ve Kodlama Derneği</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-1">
+        {navItems.map(item => {
+          const isActive = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+          return (
+            <a 
+              href={item.href}
+              class={`relative px-4 py-2 text-sm font-bold uppercase tracking-wide transition-colors duration-200 group font-heading
+                ${isActive ? 'text-primary-600' : 'text-gray-600 hover:text-primary-600'}`
+              }
+            >
+              <span class="relative z-10">{item.text}</span>
+              {isActive && (
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-600 rounded-full"></span>
+              )}
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-300 group-hover:w-full opacity-50"></span>
+            </a>
+          );
+        })}
+        
+        <!-- CTA Button -->
+        <a 
+          href="/iletisim" 
+          class="ml-4 bg-primary-600 text-white px-5 py-2.5 rounded-md text-sm font-bold uppercase tracking-wider hover:bg-primary-700 transition-all hover:shadow-lg transform hover:-translate-y-0.5 font-heading"
+        >
+          Bize Katıl
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-btn" 
+        class="md:hidden p-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div 
+    id="mobile-menu" 
+    class="md:hidden h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-gray-100"
+  >
+    <div class="container mx-auto px-4 py-4 space-y-2">
+      {navItems.map(item => {
+        const isActive = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+        return (
+          <a 
+            href={item.href}
+            class={`block px-4 py-3 rounded-lg text-sm font-bold uppercase tracking-wide transition-all
+              ${isActive 
+                ? 'bg-primary-50 text-primary-600 pl-6 border-l-4 border-primary-600' 
+                : 'text-gray-600 hover:bg-gray-50 hover:text-primary-600 hover:pl-6'}`
+            }
+          >
+            {item.text}
+          </a>
+        );
+      })}
+       <a 
+        href="/iletisim" 
+        class="block mt-4 px-4 py-3 bg-primary-600 text-white text-center rounded-lg text-sm font-bold uppercase tracking-wider hover:bg-primary-700 transition-colors"
+      >
+        Bize Katıl
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  let isMenuOpen = false;
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      
+      if (isMenuOpen) {
+        mobileMenu.style.height = mobileMenu.scrollHeight + 'px';
+        menuBtn.classList.add('text-primary-600', 'bg-primary-50');
+      } else {
+        mobileMenu.style.height = '0px';
+        menuBtn.classList.remove('text-primary-600', 'bg-primary-50');
+      }
+    });
+  }
+
+  // Sticky Header Effect
+  const header = document.getElementById('main-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header?.classList.add('shadow-md');
+      header?.classList.replace('bg-white/95', 'bg-white/98');
+    } else {
+      header?.classList.remove('shadow-md');
+      header?.classList.replace('bg-white/98', 'bg-white/95');
+    }
+  });
+</script>
+

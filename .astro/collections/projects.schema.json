@@ -1,0 +1,78 @@
+{
+  "$ref": "#/definitions/projects",
+  "definitions": {
+    "projects": {
+      "type": "object",
+      "properties": {
+        "title_tr": {
+          "type": "string"
+        },
+        "title_en": {
+          "type": "string"
+        },
+        "programType": {
+          "type": "string",
+          "enum": [
+            "ESC",
+            "ERASMUS"
+          ]
+        },
+        "year": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Aktif",
+            "Tamamlandı"
+          ]
+        },
+        "themes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "location": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "coverImage": {
+          "type": "string"
+        },
+        "featured": {
+          "type": "boolean",
+          "default": false
+        },
+        "summary_tr": {
+          "type": "string"
+        },
+        "summary_en": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title_tr",
+        "title_en",
+        "programType",
+        "year",
+        "status",
+        "themes",
+        "location",
+        "startDate",
+        "summary_tr",
+        "summary_en"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

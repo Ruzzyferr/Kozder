@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const events = await getCollection('events');
+  return events.map((event) => ({
+    params: { slug: event.slug },
+    props: { event },
+  }));
+}
+
+const { event } = Astro.props;
+
+const { Content } = await event.render();
+const eventDate = new Date(event.data.date);
+const formattedDate = eventDate.toLocaleDateString('tr-TR', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  weekday: 'long'
+});
+---
+
+<BaseLayout 
+  title={`${event.data.title_tr} - KOZ-DER`}
+  description={`${event.data.title_tr} etkinliği hakkında bilgi.`}
+  image={event.data.coverImage}
+>
+  <article class="container mx-auto px-4 py-8 sm:py-16">
+    {event.data.coverImage && (
+      <div class="mb-6 sm:mb-8">
+        <img 
+          src={event.data.coverImage} 
+          alt={event.data.title_tr}
+          class="w-full h-48 sm:h-64 md:h-96 object-cover rounded-lg shadow-lg"
+        />
+      </div>
+    )}
+
+    <header class="mb-6 sm:mb-8">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">{event.data.title_tr}</h1>
+      
+      <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-6 text-gray-600 mb-4 sm:mb-6">
+        <div class="flex items-center">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span>{formattedDate}</span>
+        </div>
+        <div class="flex items-center">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span>{event.data.location}</span>
+        </div>
+      </div>
+
+      {event.data.registrationUrl && (
+        <a 
+          href={event.data.registrationUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block w-full sm:w-auto text-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
+        >
+          Kayıt Ol
+        </a>
+      )}
+    </header>
+
+    <div class="prose prose-lg max-w-none">
+      <Content />
+    </div>
+
+    <div class="mt-12">
+      <a 
+        href="/etkinlikler" 
+        class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold"
+      >
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Tüm Etkinliklere Dön
+      </a>
+    </div>
+  </article>
+</BaseLayout>
+
