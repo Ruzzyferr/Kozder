@@ -136,6 +136,6 @@ Evet, her iki dilde de başlık gereklidir. Eğer İngilizce başlık yoksa, Tü
 ## 🆘 Yardım Gerekiyor mu?
 
 Eğer proje eklerken sorun yaşıyorsanız, lütfen bizimle iletişime geçin:
-- E-posta: info@koz-der.org
+- E-posta: info@kozder.com
 - Telefon: +90 555 123 45 67
 
