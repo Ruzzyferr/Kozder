@@ -165,7 +165,12 @@ const { Content } = await project.render();
           
           <!-- Apply CTA -->
            <div class="mt-8 pt-6 border-t border-gray-200">
-             <a href="/iletisim" class="block w-full bg-primary-600 hover:bg-primary-700 text-white text-center font-bold py-3 rounded-lg shadow-md transition-all hover:shadow-lg uppercase tracking-wide text-sm">
+             <a
+               href={project.data.applicationUrl ?? '/iletisim'}
+               target={project.data.applicationUrl ? '_blank' : undefined}
+               rel={project.data.applicationUrl ? 'noopener noreferrer' : undefined}
+               class="block w-full bg-primary-600 hover:bg-primary-700 text-white text-center font-bold py-3 rounded-lg shadow-md transition-all hover:shadow-lg uppercase tracking-wide text-sm"
+             >
                Başvuru Yap
              </a>
            </div>

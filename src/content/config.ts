@@ -13,6 +13,7 @@ const projectsCollection = defineCollection({
     startDate: z.string(),
     endDate: z.string().optional(),
     coverImage: z.string().optional(),
+    applicationUrl: z.string().url().optional(),
     featured: z.boolean().default(false),
     summary_tr: z.string(),
     summary_en: z.string(),
