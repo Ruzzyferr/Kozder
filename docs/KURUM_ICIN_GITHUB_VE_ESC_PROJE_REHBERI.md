@@ -47,7 +47,8 @@ themes:
 location: "Ankara, Turkiye"
 startDate: "2026-02-01"
 endDate: "2026-11-30"
-coverImage: "/images/logo.png"
+coverImage: "/images/projects/esc-dijital-mentorluk-2026.jpg"
+applicationUrl: "https://turnaportal.ua.gov.tr/bireysel/basvurulist?ilanGuidId=58d1fe7b-b51b-429c-a22a-03f99cc7dd24&ilanGuidAnahtar=d1670505-4f42-49b5-8f48-71a4ecd75c7b"
 featured: true
 summary_tr: "18-30 yas arasi genclere dijital beceri, kariyer planlama ve gonulluluk odakli mentorluk destegi sunan ESC projesi."
 summary_en: "An ESC project providing mentorship on digital skills, career planning, and volunteering for young people aged 18-30."
@@ -74,12 +75,19 @@ ESC Dijital Mentorluk Programi, genclerin dijital donusume uyumunu artirmak ve i
 Gorsel yoksa gecici olarak mevcut bir dosya kullanabilirsiniz:
 - `coverImage: "/images/logo.png"`
 
-## 6) PR Metni Ornegi
+## 6) Basvuru Linki Ekleme (Basvuru Yap Butonu)
+
+Proje detay sayfasindaki `Basvuru Yap` butonu, `applicationUrl` alanini kullanir.
+
+- Ornek:
+  - `applicationUrl: "https://turnaportal.ua.gov.tr/..."`
+- Bu alan yoksa buton varsayilan olarak `/iletisim` sayfasina gider.
+## 7) PR Metni Ornegi
 
 - Baslik: `ESC Dijital Mentorluk Programi 2026 eklendi`
 - Aciklama: `src/content/projects/esc-dijital-mentorluk-2026.mdx dosyasi eklendi ve proje bilgileri girildi.`
 
-## 7) Son Kontrol Listesi
+## 8) Son Kontrol Listesi
 
 - [ ] Dosya `src/content/projects/` altinda
 - [ ] Dosya uzantisi `.mdx`
@@ -87,4 +95,5 @@ Gorsel yoksa gecici olarak mevcut bir dosya kullanabilirsiniz:
 - [ ] `title_tr`, `title_en`, `summary_tr`, `summary_en` dolu
 - [ ] Tarihler `YYYY-MM-DD` formatinda
 - [ ] `coverImage` yolu dogru (varsa)
+- [ ] `applicationUrl` dogru (varsa)
 

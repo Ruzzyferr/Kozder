@@ -45,6 +45,10 @@
         "coverImage": {
           "type": "string"
         },
+        "applicationUrl": {
+          "type": "string",
+          "format": "uri"
+        },
         "featured": {
           "type": "boolean",
           "default": false
