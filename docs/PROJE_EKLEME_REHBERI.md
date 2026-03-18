@@ -137,5 +137,5 @@ Evet, her iki dilde de başlık gereklidir. Eğer İngilizce başlık yoksa, Tü
 
 Eğer proje eklerken sorun yaşıyorsanız, lütfen bizimle iletişime geçin:
 - E-posta: info@kozder.com
-- Telefon: +90 555 123 45 67
+- Telefon: +90 551 123 45 67
 

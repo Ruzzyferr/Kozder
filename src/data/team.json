@@ -1,15 +1,33 @@
 [
   {
-    "name": "Örnek İsim",
+    "name": "Mevlide Özkaraca",
     "role": "Başkan",
-    "bio": "Gençlik çalışmaları ve proje yönetimi konularında deneyimli.",
-    "image": "/images/team/placeholder.jpg"
+    "bio": "Eğitimci kimliğiyle gençlik, gönüllülük ve toplumsal gelişime liderlik eder.",
+    "image": "/images/team/mevlide_ozkaraca.jpeg"
   },
   {
-    "name": "Örnek İsim 2",
-    "role": "Proje Koordinatörü",
-    "bio": "ESC ve Erasmus+ projelerinde uzman.",
-    "image": "/images/team/placeholder.jpg"
+    "name": "Halil Özkaraca",
+    "role": "Başkan Yardımcısı",
+    "bio": "ESC ve Erasmus+ projelerinde uzman, gençlik çalışmalarında deneyimli koordinatör.",
+    "image": "/images/team/halil_ozkaraca.jpeg"
+  },
+  {
+    "name": "Hasan Özyıldız",
+    "role": "Sayman",
+    "bio": "Mali işler ve finansal süreçler alanında uzman.",
+    "image": "/images/team/hasan_ozyildiz.jpeg"
+  },
+  {
+    "name": "Ayten Özyıldız",
+    "role": "Asil Üye",
+    "bio": "Dernek faaliyetlerine aktif katkı sunan asil üyemizdir.",
+    "image": "/images/team/ayten-ozyildiz.jpeg"
+  },
+  {
+    "name": "Mustafa Özkaraca",
+    "role": "Genel Sekreter",
+    "bio": "Kurumsal iletişim ve organizasyon süreçlerinin koordinasyonunu yürütür.",
+    "image": "/images/team/mustafa_ozkaraca.jpeg"
   }
 ]
 
