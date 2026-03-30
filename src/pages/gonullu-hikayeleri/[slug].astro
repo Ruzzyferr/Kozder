@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const stories = await getCollection('stories');
+  return stories.map((story) => ({
+    params: { slug: story.slug },
+    props: { story },
+  }));
+}
+
+const { story } = Astro.props;
+const { Content } = await story.render();
+---
+
+<BaseLayout 
+  title={`${story.data.name} - Gönüllü Hikayeleri - KOZ-DER`}
+  description={story.data.summary}
+>
+  <Breadcrumb 
+    items={[
+      { label: 'Ana Sayfa', href: '/' },
+      { label: 'Gönüllü Hikayeleri', href: '/gonullu-hikayeleri' },
+      { label: story.data.name, href: `/gonullu-hikayeleri/${story.slug}` }
+    ]}
+    pageTitle={story.data.name}
+  />
+
+  <section class="py-12 md:py-24 bg-white overflow-hidden">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+        
+        {/* Left Column: Content */}
+        <div class="lg:w-2/3 fade-in-up">
+          <div class="mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 font-heading uppercase tracking-tight leading-[1.1]">{story.data.name}</h1>
+            <p class="text-xl md:text-2xl text-primary-600 font-medium italic border-l-4 border-primary-500 pl-6 py-2 leading-relaxed">
+              "{story.data.summary}"
+            </p>
+          </div>
+
+          <div class="prose prose-xl max-w-none modern-content mb-16">
+            <Content />
+          </div>
+
+          {/* Social Share / Navigation Placeholder */}
+          <div class="pt-8 border-t border-gray-100 flex items-center justify-between">
+            <a 
+              href="/gonullu-hikayeleri" 
+              class="inline-flex items-center text-primary-600 hover:text-primary-700 font-bold uppercase tracking-widest text-sm transition-all hover:-translate-x-2"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Tüm Hikayelere Dön
+            </a>
+          </div>
+        </div>
+
+        {/* Right Column: Experience Details & Gallery */}
+        <aside class="lg:w-1/3">
+          <div class="sticky top-24 space-y-12 fade-in-up md:delay-200">
+            {/* Program Info Card */}
+            <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 shadow-sm transition-all hover:shadow-md">
+              <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-6">Program Detayları</h3>
+              
+              <div class="space-y-6">
+                <div>
+                  <label class="text-[10px] uppercase font-bold text-primary-500 tracking-widest mb-1 block">Konum</label>
+                  <p class="text-gray-900 font-bold text-lg">{story.data.country}</p>
+                </div>
+                <div>
+                  <label class="text-[10px] uppercase font-bold text-primary-500 tracking-widest mb-1 block">Proje Adı</label>
+                  <p class="text-gray-900 font-medium leading-relaxed">{story.data.programName}</p>
+                </div>
+                <div>
+                  <label class="text-[10px] uppercase font-bold text-primary-500 tracking-widest mb-1 block">Katılım Tarihi</label>
+                  <p class="text-gray-900 font-medium">{story.data.startDate}</p>
+                </div>
+              </div>
+
+              <div class="mt-10 pt-8 border-t border-gray-200">
+                <a 
+                  href="/projeler" 
+                  class="w-full inline-flex items-center justify-center bg-gray-900 text-white rounded-xl py-4 font-bold uppercase tracking-widest text-xs hover:bg-primary-600 transition-all shadow-xl hover:shadow-primary-300 transform active:scale-95"
+                >
+                  Sen de Katıl
+                </a>
+              </div>
+            </div>
+
+            {/* Gallery */}
+            {story.data.images.length > 0 && (
+              <div class="space-y-4">
+                <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 border-b pb-2 mb-4">Deneyimden Kareler</h3>
+                <div class="grid grid-cols-2 gap-3">
+                  {story.data.images.map((img, idx) => (
+                    <div class={`rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-zoom-in ${idx === 0 ? 'col-span-2 aspect-video' : 'aspect-square'}`}>
+                      <img 
+                        src={img} 
+                        alt={`${story.data.name} Fotoğrafı - ${idx + 1}`}
+                        class="w-full h-full object-cover grayscale-[0.5] hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .modern-content :global(h2) {
+    @apply text-2xl font-bold mt-12 mb-6 text-gray-900 uppercase tracking-wide border-b border-gray-100 pb-2;
+  }
+  .modern-content :global(p) {
+    @apply text-gray-600 leading-[1.8] mb-6 text-lg;
+  }
+  .modern-content :global(ul) {
+    @apply space-y-4 mb-8;
+  }
+  .modern-content :global(li) {
+    @apply flex items-start gap-3 text-gray-600 text-lg;
+  }
+  .modern-content :global(li::before) {
+    content: "→";
+    @apply text-primary-500 font-bold;
+  }
+</style>

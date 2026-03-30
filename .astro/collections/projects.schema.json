@@ -59,6 +59,10 @@
         "summary_en": {
           "type": "string"
         },
+        "infoPackUrl": {
+          "type": "string",
+          "format": "uri"
+        },
         "$schema": {
           "type": "string"
         }
