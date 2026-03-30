@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+const stories = await getCollection('stories');
+
+// Helper to get initials
+const getInitials = (name: string) => {
+  return name.split(' ').map(n => n[0]).join('').toUpperCase();
+};
+---
+
+<BaseLayout 
+  title="Gönüllü Hikayeleri - KOZ-DER"
+  description="Gönüllülerimizin ESC ve Erasmus+ programlarındaki deneyimleri ve unutulmaz anıları."
+>
+  <Breadcrumb 
+    items={[
+      { label: 'Ana Sayfa', href: '/' },
+      { label: 'Gönüllü Hikayeleri', href: '/gonullu-hikayeleri' }
+    ]}
+    pageTitle="Gönüllü Hikayeleri"
+  />
+
+  <section class="py-16 bg-gradient-to-b from-white to-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mb-12 fade-in-up">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-heading uppercase tracking-tight">İlham Veren <span class="text-primary-600">Hikayeler</span></h2>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          Gençlerimizin sınırları aşan yolculukları, kazandıkları beceriler ve biriktirdikleri unutulmaz anılar. Siz de bu hikayelerin bir parçası olabilirsiniz.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {stories.map((story, index) => (
+          <a 
+            href={`/gonullu-hikayeleri/${story.slug}`}
+            class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 fade-in-up"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            {/* Image Placeholder or Actual */}
+            <div class="aspect-[4/3] overflow-hidden relative">
+              {story.data.images[0] ? (
+                <img 
+                  src={story.data.images[0]} 
+                  alt={story.data.name}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              ) : (
+                <div class="w-full h-full bg-primary-100 flex items-center justify-center text-primary-300 text-6xl font-bold">
+                  {getInitials(story.data.name)}
+                </div>
+              )}
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <p class="text-xs font-bold uppercase tracking-widest text-primary-300 mb-1">{story.data.country}</p>
+                <h3 class="text-xl font-bold leading-tight">{story.data.name}</h3>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-center text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">
+                <svg class="w-4 h-4 mr-1 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                {story.data.startDate}
+              </div>
+              <p class="text-gray-600 line-clamp-3 mb-6 text-sm leading-relaxed italic">
+                "{story.data.summary}"
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-primary-600 uppercase tracking-widest group-hover:underline">Hikayeyi Oku</span>
+                <svg class="w-5 h-5 text-primary-600 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

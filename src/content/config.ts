@@ -17,6 +17,7 @@ const projectsCollection = defineCollection({
     featured: z.boolean().default(false),
     summary_tr: z.string(),
     summary_en: z.string(),
+    infoPackUrl: z.string().url().optional(),
   }),
 });
 
@@ -44,9 +45,22 @@ const postsCollection = defineCollection({
   }),
 });
 
+const storiesCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    programName: z.string(),
+    country: z.string(),
+    startDate: z.string(),
+    images: z.array(z.string()).default([]),
+    summary: z.string(),
+    featured: z.boolean().default(false),
+  }),
+});
+
 export const collections = {
   'projects': projectsCollection,
   'events': eventsCollection,
   'posts': postsCollection,
+  'stories': storiesCollection,
 };
-
