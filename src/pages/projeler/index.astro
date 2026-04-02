@@ -5,7 +5,14 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 
 const allProjects = await getCollection('projects');
-const projects = allProjects.sort((a, b) => b.data.year - a.data.year);
+
+const parseDate = (dateStr: string) => {
+  const [day, month, year] = dateStr.split('.').map(Number);
+  return new Date(year, month - 1, day).getTime();
+};
+
+const projects = allProjects.sort((a, b) => parseDate(b.data.startDate) - parseDate(a.data.startDate));
+
 
 // Get unique values for filters
 const allPrograms = [...new Set(projects.map(p => p.data.programType))];
