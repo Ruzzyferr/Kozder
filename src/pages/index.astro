@@ -9,11 +9,17 @@ const projects = await getCollection('projects');
 const events = await getCollection('events');
 const posts = await getCollection('posts');
 
+const parseDate = (dateStr: string) => {
+  const [day, month, year] = dateStr.split('.').map(Number);
+  return new Date(year, month - 1, day).getTime();
+};
+
 // Get featured projects
 const featuredProjects = projects
   .filter(p => p.data.featured)
-  .sort((a, b) => b.data.year - a.data.year)
+  .sort((a, b) => parseDate(b.data.startDate) - parseDate(a.data.startDate))
   .slice(0, 3);
+
 
 // Get recent events
 const recentEvents = events
