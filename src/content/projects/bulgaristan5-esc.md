@@ -64,9 +64,7 @@ Yemekler proje kapsamında sağlanacaktır. Katılımcıların özel beslenme te
 
 ## Seyahat Desteği
 
-Katılımcıların seyahat masrafları Erasmus+ mesafe bandı kurallarına göre geri ödenecektir. Mesafe bandına bağlı olarak seyahat desteği 309 Euro veya 395 Euro olabilir. Ulaşım planlamasında organizasyonun yönlendirmeleri dikkate alınmalıdır.
-
-Green travel seçeneğinin uygulanması durumunda uçak dışındaki ulaşım alternatifleri değerlendirilebilir.
+Katılımcıların seyahati green travel kapsamında planlanacaktır. Ulaşımın uçak yerine otobüs, tren, hızlı tren ve benzeri çevre dostu ulaşım araçlarıyla gerçekleştirilmesi beklenmektedir. Seyahat planlamasında organizasyonun yönlendirmeleri dikkate alınmalıdır.
 
 ## Cep Harçlığı ve Destekler
 
@@ -85,11 +83,10 @@ Proje kapsamında katılımcılara ESC kuralları doğrultusunda cep harçlığ�
 
 - Faaliyet tarihleri: 29.06.2026 - 23.08.2026
 - Yer: Madan, Bulgaristan
-- Kontenjan: 9 kişi
+- Kontenjan: 2 kişi
 - Katılımcılar 2 kişilik ve özel banyolu odalarda konaklayacaktır
 - Konaklama, yemek ve cep harçlığı ESC kapsamında karşılanmaktadır
-- Seyahat desteği mesafe bandına göre 309 Euro veya 395 Euro olabilir
-- Green travel seçeneği değerlendirilebilir
+- Green travel seçeneği kullanılacaktır.
 - Her katılımcının havlu ve iç/dış mekân etkinliklerine uygun kıyafet getirmesi gerekmektedir
 - Her grubun atölye çalışmaları için bir bilgisayar, buz kırıcı etkinlik fikirleri ve oyun önerileri getirmesi beklenmektedir
 - Katılımcıların kültür gecesi için ülkelerini tanıtan interaktif bir sunum hazırlaması, küçük hediyelikler getirmesi ve kısa bir kültürel performans planlaması önerilmektedir
