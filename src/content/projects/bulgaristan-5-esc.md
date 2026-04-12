@@ -1,6 +1,6 @@
 ---
-title_tr: "GRANDCHILDREN FOR RENT"
-title_en: "GrandChildren for Rent"
+title_tr: "KOZ-DER GO TO BULGARIA 6"
+title_en: "KOZ-DER Go to Bulgaria 6"
 programType: "ESC"
 year: 2026
 status: "Aktif"
