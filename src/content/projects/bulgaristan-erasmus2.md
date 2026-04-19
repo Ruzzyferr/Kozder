@@ -12,7 +12,7 @@ themes:
 location: "Madan, Bulgaria"
 startDate: "13.07.2026"
 endDate: "20.07.2026"
-coverImage: "/images/projects/bulgaristan-erasmus2.jpg"
+coverImage: "/images/projects/bulgaristan-erasmus2.png"
 applicationUrl: "https://forms.gle/XgviCR1VmZ9y4Na19"
 applicationLabel: "Başvuru Formu"
 featured: true
