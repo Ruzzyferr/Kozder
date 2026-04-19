@@ -71,6 +71,7 @@ Katılımcıların seyahat giderleri Erasmus+ mesafe bandı hesaplayıcısına g
 - Faaliyet tarihleri: 13.07.2026 - 20.07.2026
 - Varış günü: 12.07.2026 öğleden sonra / akşam
 - Ayrılış günü: 21.07.2026 sabah
+- Son Başvuru Tarihi: 10.05.2026
 - Yer: Madan, Bulgaristan
 - Türkiye'den 3 katılımcı seçilecektir
 - Katılımcıların 18 yaş ve üzeri olması gerekmektedir
