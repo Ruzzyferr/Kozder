@@ -10,8 +10,15 @@ const events = await getCollection('events');
 const posts = await getCollection('posts');
 
 const parseDate = (dateStr: string) => {
-  const [day, month, year] = dateStr.split('.').map(Number);
-  return new Date(year, month - 1, day).getTime();
+  if (!dateStr) return 0;
+  if (dateStr.includes('.')) {
+    const parts = dateStr.split('.');
+    if (parts.length === 3) {
+      return new Date(Number(parts[2]), Number(parts[1]) - 1, Number(parts[0])).getTime();
+    }
+  }
+  const timestamp = new Date(dateStr).getTime();
+  return isNaN(timestamp) ? 0 : timestamp;
 };
 
 // Get featured projects
@@ -23,12 +30,12 @@ const featuredProjects = projects
 
 // Get recent events
 const recentEvents = events
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .sort((a, b) => parseDate(b.data.date) - parseDate(a.data.date))
   .slice(0, 3);
 
 // Get recent posts
 const recentPosts = posts
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .sort((a, b) => parseDate(b.data.date) - parseDate(a.data.date))
   .slice(0, 3);
 ---
 
