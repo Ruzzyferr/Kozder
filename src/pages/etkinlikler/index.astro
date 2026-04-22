@@ -4,10 +4,20 @@ import EventCard from '../../components/EventCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 
+const parseDate = (dateStr: string) => {
+  if (!dateStr) return 0;
+  if (dateStr.includes('.')) {
+    const parts = dateStr.split('.');
+    if (parts.length === 3) {
+      return new Date(Number(parts[2]), Number(parts[1]) - 1, Number(parts[0])).getTime();
+    }
+  }
+  const timestamp = new Date(dateStr).getTime();
+  return isNaN(timestamp) ? 0 : timestamp;
+};
+
 const events = await getCollection('events');
-const sortedEvents = events.sort((a, b) => 
-  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-);
+const sortedEvents = events.sort((a, b) => parseDate(b.data.date) - parseDate(a.data.date));
 ---
 
 <BaseLayout 
