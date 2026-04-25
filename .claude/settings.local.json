@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npx astro *)",
-      "PowerShell(Get-ChildItem *)"
+      "PowerShell(Get-ChildItem *)",
+      "Bash(git -C C:/Users/ruzzy/IdeaProjects/Kozder status --short)"
     ]
   }
 }
