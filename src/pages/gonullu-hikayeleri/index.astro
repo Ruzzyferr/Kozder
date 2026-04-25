@@ -2,11 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
-import { getEventDateSortKey } from '../../utils/date';
+import { getEntryAddedTime } from '../../utils/fileTime';
 
 const storiesRaw = (await getCollection('stories')).filter(s => !s.data.draft);
 const stories = storiesRaw.sort(
-  (a, b) => getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate)
+  (a, b) => getEntryAddedTime('stories', b.id) - getEntryAddedTime('stories', a.id)
 );
 
 // Helper to get initials
