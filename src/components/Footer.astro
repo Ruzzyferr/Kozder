@@ -1,52 +1,101 @@
 ---
 const currentYear = new Date().getFullYear();
+
+const socials = [
+  { name: 'Instagram', href: 'https://www.instagram.com/kozder2018' },
+  { name: 'Facebook', href: 'https://www.facebook.com/kozder2018' },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/kozder2018' },
+  { name: 'YouTube', href: 'https://www.youtube.com/@kozder2018' },
+];
+
+const navColumns = [
+  { title: 'Keşfet', links: [
+    { href: '/projeler', text: 'Projeler' },
+    { href: '/etkinlikler', text: 'Etkinlikler' },
+    { href: '/gonullu-hikayeleri', text: 'Hikayeler' },
+    { href: '/duyurular', text: 'Duyurular' },
+  ]},
+  { title: 'Kurum', links: [
+    { href: '/hakkimizda', text: 'Hakkımızda' },
+    { href: '/sss', text: 'Sıkça Sorulan' },
+    { href: '/baglantilar', text: 'Bağlantılar' },
+    { href: '/iletisim', text: 'İletişim' },
+  ]},
+  { title: 'Programlar', links: [
+    { href: 'https://europa.eu/youth/solidarity_en', text: 'ESC', external: true },
+    { href: 'https://erasmus-plus.ec.europa.eu/', text: 'Erasmus+', external: true },
+    { href: '/kvkk', text: 'KVKK Aydınlatma' },
+  ]},
+];
 ---
 
-<footer class="bg-primary-900 text-primary-100 mt-auto" style="background-color: #382F2F;">
-  <div class="container mx-auto px-4 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <div class="col-span-1 md:col-span-2">
-        <h3 class="text-white text-xl font-bold mb-4">KOZ-DER</h3>
-        <p class="text-sm mb-4 text-primary-200">
-          Gençlik Zeka Oyunları ve Kodlama Derneği - Gençlerin gelişimine katkı sağlayan 
-          projeler ve etkinlikler düzenleyen bir sivil toplum kuruluşu.
+<footer class="relative mt-20 bg-brand-ink text-brand-cream">
+  <div class="h-2 stripes-walnut"></div>
+
+  <div class="container mx-auto px-4 py-14">
+
+    <div class="border-b border-brand-cream/30 pb-10 mb-10">
+      <h2 class="font-display font-black text-5xl sm:text-7xl lg:text-8xl tracking-tightest leading-[0.85] text-brand-cream">
+        KOZ<span class="text-brand-stamp">·</span>DER
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-5">
+        <p class="text-sm text-brand-cream leading-relaxed max-w-md mb-6">
+          Erasmus+ ve Avrupa Dayanışma Programı (ESC) projeleriyle gençlerin
+          ufkunu açan, Kilis merkezli bir gönüllülük hareketi.
         </p>
-        <div class="flex space-x-4">
-          <a href="/baglantilar" class="text-primary-200 hover:text-primary-300 transition-colors">
-            Bağlantılar
-          </a>
-          <a href="/kvkk" class="text-primary-200 hover:text-primary-300 transition-colors">
-            KVKK
-          </a>
+
+        <div class="flex items-center gap-2 flex-wrap">
+          {socials.map(s => (
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-3 h-10 border border-brand-cream text-brand-cream hover:bg-brand-cream hover:text-brand-ink flex items-center justify-center text-xs font-bold uppercase tracking-wider transition-colors"
+            >
+              {s.name}
+            </a>
+          ))}
         </div>
       </div>
-      
-      <div>
-        <h4 class="text-white font-semibold mb-4">Hızlı Linkler</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="/hakkimizda" class="text-primary-200 hover:text-primary-300 transition-colors">Hakkımızda</a></li>
-          <li><a href="/projeler" class="text-primary-200 hover:text-primary-300 transition-colors">Projeler</a></li>
-          <li><a href="/etkinlikler" class="text-primary-200 hover:text-primary-300 transition-colors">Etkinlikler</a></li>
-          <li><a href="/duyurular" class="text-primary-200 hover:text-primary-300 transition-colors">Duyurular</a></li>
-        </ul>
-      </div>
-      
-      <div>
-        <h4 class="text-white font-semibold mb-4">İletişim</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="/iletisim" class="text-primary-200 hover:text-primary-300 transition-colors">İletişim Bilgileri</a></li>
-        </ul>
+
+      {navColumns.map(col => (
+        <div class="lg:col-span-2">
+          <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-4">{col.title}</h3>
+          <ul class="space-y-2.5 text-sm">
+            {col.links.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noopener noreferrer' : undefined}
+                  class="text-brand-cream hover:text-brand-stamp transition-colors inline-flex items-center gap-1.5 font-medium"
+                >
+                  {link.text}
+                  {link.external && <span class="text-[10px]">↗</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <div class="lg:col-span-3">
+        <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-4">İletişim</h3>
+        <address class="not-italic text-sm text-brand-cream leading-relaxed space-y-2">
+          <p>Kazım Karabekir Mh.<br/>İstiklal Cd. No:33D<br/>79000 Kilis · TR</p>
+          <p>
+            <a href="tel:+905511972997" class="hover:text-brand-stamp transition-colors block font-semibold">+90 551 197 29 97</a>
+            <a href="mailto:bilgi@kozder.com" class="hover:text-brand-stamp transition-colors block font-semibold">bilgi@kozder.com</a>
+          </p>
+        </address>
       </div>
     </div>
-    
-    <div class="border-t border-primary-800 mt-8 pt-8 flex flex-col items-center text-sm text-primary-300">
-      <div class="mb-4 opacity-80 hover:opacity-100 transition-opacity">
-        <a href="https://hits.sh/kozder.com/" target="_blank" rel="noopener noreferrer">
-          <img alt="Site Ziyaretçi Sayısı" src="https://hits.sh/kozder.com.svg?label=Ziyaret%C3%A7i&color=6B4630&labelColor=382F2F" class="rounded-md shadow-sm h-6" />
-        </a>
-      </div>
-      <p>&copy; {currentYear} KOZ-DER. Tüm hakları saklıdır.</p>
+
+    <div class="border-t border-brand-cream/30 mt-10 pt-6 text-xs text-brand-cream">
+      <p>© {currentYear} KOZ-DER · Tüm hakları saklıdır.</p>
     </div>
   </div>
 </footer>
-

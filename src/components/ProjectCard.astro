@@ -10,53 +10,53 @@ interface Props {
 }
 
 const { title, summary, coverImage, programType, year, status, slug } = Astro.props;
-const statusColors = {
-  'Aktif': 'bg-green-100 text-green-800',
-  'Tamamlandı': 'bg-gray-100 text-gray-800',
-};
+const isActive = status === 'Aktif';
 ---
 
-<a href={`/projeler/${slug}`} class="block group">
-  <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg hover:border-primary-300 transition-all duration-300 h-full flex flex-col">
+<a href={`/projeler/${slug}`} class="block group h-full">
+  <article class="relative h-full bg-brand-cream border-2 border-brand-ink transition-all duration-300 hover:-translate-y-1 hover:translate-x-0.5 flex flex-col" style="box-shadow: 4px 4px 0 0 #6B4630;">
     {coverImage && (
-      <div class="relative h-48 sm:h-56 bg-gray-50 flex items-center justify-center">
+      <div class="relative aspect-[7/5] bg-surface-muted overflow-hidden border-b-2 border-brand-ink">
         <img
           src={coverImage}
           alt={title}
-          class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        <div class="absolute top-2 right-2 sm:top-4 sm:right-4">
-          <span class={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs font-semibold backdrop-blur-sm ${statusColors[status]}`}>
-            {status}
-          </span>
-        </div>
-        <div class="absolute top-2 left-2 sm:top-4 sm:left-4">
-          <span class="px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs font-semibold bg-white/90 text-primary-700 backdrop-blur-sm">
+
+        <div class="absolute top-3 left-3">
+          <span class="bg-brand-ink text-brand-cream text-[11px] font-bold uppercase tracking-[0.15em] px-2.5 py-1.5 border-2 border-brand-ink">
             {programType}
           </span>
         </div>
+
+        <div class="absolute top-3 right-3">
+          {isActive ? (
+            <div class="bg-brand-stamp text-brand-cream text-[11px] font-bold uppercase tracking-[0.15em] px-2.5 py-1.5 border-2 border-brand-ink flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-cream animate-pulse"></span>
+              Aktif
+            </div>
+          ) : (
+            <div class="bg-brand-cream text-brand-ink text-[11px] font-bold uppercase tracking-[0.15em] px-2.5 py-1.5 border-2 border-brand-ink">
+              Arşiv
+            </div>
+          )}
+        </div>
       </div>
     )}
-    <div class="p-4 sm:p-6 flex-1 flex flex-col">
-      <div class="flex items-center justify-between mb-3">
-        {!coverImage && (
-          <span class="text-sm font-semibold text-primary-600">{programType}</span>
-        )}
-        <span class="text-sm text-gray-500 font-medium">{year}</span>
-      </div>
-      <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors leading-tight">
+
+    <div class="p-5 sm:p-6 flex-1 flex flex-col">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-walnut mb-3">{year}</p>
+      <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-ink mb-3 group-hover:text-brand-stamp transition-colors leading-[1.1] tracking-tight line-clamp-2">
         {title}
       </h3>
-      <p class="text-gray-600 text-sm flex-1 line-clamp-3 leading-relaxed">
+      <p class="text-sm text-ink-soft line-clamp-3 leading-relaxed mb-4 flex-1">
         {summary}
       </p>
-      <div class="mt-4 pt-4 border-t border-gray-100">
-        <span class="text-primary-600 text-sm font-medium group-hover:text-primary-700">
-          Detayları Gör →
-        </span>
+      <div class="pt-4 border-t border-brand-ink/15 flex items-center justify-between mt-auto">
+        <span class="text-sm font-bold uppercase tracking-wider text-brand-walnut group-hover:text-brand-stamp transition-colors">Detayları gör</span>
+        <span class="text-brand-walnut group-hover:text-brand-stamp group-hover:translate-x-1 transition-all">→</span>
       </div>
     </div>
   </article>
 </a>
-

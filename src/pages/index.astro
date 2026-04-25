@@ -4,106 +4,89 @@ import ProjectCard from '../components/ProjectCard.astro';
 import EventCard from '../components/EventCard.astro';
 import PostCard from '../components/PostCard.astro';
 import { getCollection } from 'astro:content';
+import { getEventDateSortKey } from '../utils/date';
 
-const projects = await getCollection('projects');
-const events = await getCollection('events');
-const posts = await getCollection('posts');
+const projects = (await getCollection('projects')).filter(p => !p.data.draft);
+const events = (await getCollection('events')).filter(e => !e.data.draft);
+const posts = (await getCollection('posts')).filter(p => !p.data.draft);
+const stories = (await getCollection('stories')).filter(s => !s.data.draft);
 
-const parseDate = (dateStr: string) => {
-  if (!dateStr) return 0;
-  if (dateStr.includes('.')) {
-    const parts = dateStr.split('.');
-    if (parts.length === 3) {
-      return new Date(Number(parts[2]), Number(parts[1]) - 1, Number(parts[0])).getTime();
-    }
-  }
-  const timestamp = new Date(dateStr).getTime();
-  return isNaN(timestamp) ? 0 : timestamp;
-};
-
-// Get featured projects
 const featuredProjects = projects
   .filter(p => p.data.featured)
-  .sort((a, b) => parseDate(b.data.startDate) - parseDate(a.data.startDate))
+  .sort((a, b) => getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate))
   .slice(0, 3);
 
-
-// Get recent events
 const recentEvents = events
-  .sort((a, b) => parseDate(b.data.date) - parseDate(a.data.date))
+  .sort((a, b) => getEventDateSortKey(b.data.date) - getEventDateSortKey(a.data.date))
   .slice(0, 3);
 
-// Get recent posts
 const recentPosts = posts
-  .sort((a, b) => parseDate(b.data.date) - parseDate(a.data.date))
+  .sort((a, b) => getEventDateSortKey(b.data.date) - getEventDateSortKey(a.data.date))
   .slice(0, 3);
+
+const featuredStories = stories
+  .sort((a, b) => getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate))
+  .slice(0, 4);
+
+const stats = [
+  { value: stories.length, label: 'Gönüllü Hikayesi' },
+  { value: projects.length, label: 'Yürütülen Proje' },
+  { value: '15+', label: 'Avrupa Ortağı' },
+  { value: '7', label: 'Ülke Deneyimi' },
+];
+
+const steps = [
+  { n: '01', title: 'Keşfet', text: 'Açık çağrıları ve aktif projeleri incele, sana uygun olanı seç.', href: '/projeler' },
+  { n: '02', title: 'Başvur', text: 'Bilgi paketini oku, başvuru formunu doldur ve mülakata hazırlan.', href: '/sss' },
+  { n: '03', title: 'Yola Çık', text: 'Avrupa\'ya doğru yola çık; gönüllülük, eğitim ve dayanışmayla deneyim biriktir.', href: '/gonullu-hikayeleri' },
+];
 ---
 
-<BaseLayout 
-  title="KOZ-DER - Gençlik Zeka Oyunları ve Kodlama Derneği"
-  description="Gençlerin gelişimine katkı sağlayan ESC ve Erasmus+ projeleri, etkinlikler ve duyurular."
+<BaseLayout
+  title="KOZ-DER — Avrupa için, Gençlerle"
+  description="Erasmus+ ve ESC projeleriyle gençlerin Avrupa'da gönüllülük, eğitim ve dayanışma deneyimi yaşamasını destekleyen sivil toplum kuruluşu."
 >
-  <!-- Hero Section with Image -->
-  <section class="bg-white py-8 sm:py-12 md:py-16 fade-in-up">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-        <!-- Left: Text Content -->
-        <div>
-          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-dark mb-4 sm:mb-6 leading-tight font-heading uppercase">
-            KOZ-DER ile<br />
-            <span class="text-primary-600">Avrupa Fırsatlarını</span><br />
-            Keşfedin
+  <!-- HERO -->
+  <section class="relative bg-brand-paper border-b-2 border-brand-ink overflow-hidden">
+    <div class="container mx-auto px-4 pt-12 sm:pt-20 pb-16 sm:pb-20 relative">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div class="lg:col-span-7 reveal">
+          <h1 class="font-display font-black tracking-tightest leading-[0.9] text-brand-ink">
+            <span class="block text-5xl sm:text-7xl md:text-8xl">Avrupa.</span>
+            <span class="block text-5xl sm:text-7xl md:text-8xl italic text-brand-walnut" style="font-variation-settings: 'SOFT' 100, 'WONK' 1;">Gönüllü.</span>
+            <span class="block text-5xl sm:text-7xl md:text-8xl">Sen.</span>
           </h1>
-          <div class="space-y-3 sm:space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg">
-            <p>
-              KOZ-DER olarak gençlerin kişisel, sosyal ve mesleki gelişimini destekleyen Avrupa Birliği programları kapsamında çeşitli proje, eğitim, gönüllülük hareketlilik fırsatları sunuyoruz. Erasmus+, Avrupa Birliği’nin eğitim, öğretim, gençlik ve spor alanlarını destekleyen programıdır.
-            </p>
-            <p>
-              Bu program sayesinde gençler, youth worker’lar, öğrenciler ve profesyoneller farklı ülkelerde eğitim alma, deneyim kazanma, yeni beceriler geliştirme ve uluslararası iş birliklerine katılma fırsatı bulur. European Solidarity Corps (ESC) ise gençlerin topluma katkı sunabilecekleri gönüllülük ve dayanışma faaliyetlerine katılmalarını destekleyen bir Avrupa Birliği programıdır.
-            </p>
-            <p>
-              ESC sayesinde gençler hem farklı ülkelerde gönüllülük deneyimi yaşar hem de sosyal sorumluluk, aktif vatandaşlık, kültürlerarası öğrenme ve dayanışma gibi alanlarda kendilerini geliştirir. KOZ-DER olarak yürüttüğümüz projelerle gençlerin yeni ülkeler tanımasına, yeni insanlar ile bir araya gelmesine, farklı deneyimler kazanmasına ve dünyaya daha geniş bir perspektiften bakmasına katkı sunmayı amaçlıyoruz.
-            </p>
-            <p>
-              Web sitemizde güncel proje çağrılarını, ilham veren katılımcı hikâyelerini, etkinlikleri ve duyuruları takip ederek size uygun fırsatlara kolayca ulaşabilirsiniz.
-            </p>
-          </div>
-          <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-            <a 
-              href="/projeler" 
-              class="w-full sm:w-auto text-center bg-primary-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-md font-bold hover:bg-primary-700 transition-colors uppercase tracking-wide font-heading text-sm sm:text-base"
-            >
-              Projelerimizi Keşfet
+
+          <div class="rule-double my-8 max-w-md"></div>
+
+          <p class="text-base sm:text-lg text-ink-soft leading-relaxed max-w-xl">
+            KOZ-DER, gençlerin Erasmus+ ve Avrupa Dayanışma Programı (ESC) ile
+            <strong class="bg-brand-sun/40 px-1">eğitim, gönüllülük ve kültürlerarası deneyim</strong>
+            kazanmasını sağlayan, Kilis merkezli bir sivil toplum kuruluşudur.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <a href="/projeler" class="inline-flex items-center justify-center gap-2 bg-brand-ink hover:bg-brand-stamp text-brand-cream px-7 py-4 text-sm font-bold uppercase tracking-[0.12em] font-heading transition-all hover:-translate-y-0.5 hover:translate-x-0.5 shadow-stampLg hover:shadow-[6px_6px_0_0_#6B4630]">
+              Aktif Çağrıları Gör
+              <span>→</span>
             </a>
-            <a 
-              href="https://europa.eu/youth/solidarity_en" 
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-full sm:w-auto text-center bg-white text-primary-600 px-6 sm:px-8 py-2.5 sm:py-3 rounded-md font-bold hover:bg-gray-50 transition-colors border-2 border-primary-600 uppercase tracking-wide font-heading text-sm sm:text-base"
-            >
-              Avrupa Veritabanında Keşfet
+            <a href="/gonullu-hikayeleri" class="inline-flex items-center justify-center gap-2 border-2 border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-cream px-7 py-4 text-sm font-bold uppercase tracking-[0.12em] font-heading transition-colors">
+              Hikayeleri Dinle
             </a>
           </div>
         </div>
-        
-        <!-- Right: Large Image -->
-        <div class="relative order-first lg:order-last">
-          <div class="aspect-[4/3] rounded-lg shadow-xl bg-gray-50 flex items-center justify-center">
-            <img
-              src="/IMG_2840.PNG"
-              alt="KOZ-DER Erasmus+ ve ESC faaliyetleri"
-              class="max-w-full max-h-full object-contain rounded-lg"
-              onerror="this.onerror=null;this.src='/images/logo.png'"
-            />
-          </div>
-          <!-- EU Logo Badge -->
-          <div class="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 bg-white/90 backdrop-blur-sm px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-lg">
-            <div class="flex items-center space-x-1.5 sm:space-x-2">
-              <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center" style="background-color: #2B678F;">
-                <span class="text-white text-[10px] sm:text-xs font-bold">EU</span>
-              </div>
-              <span class="text-[10px] sm:text-xs font-semibold text-gray-700 hidden sm:inline">European Solidarity Corps</span>
-              <span class="text-[10px] font-semibold text-gray-700 sm:hidden">ESC</span>
+
+        <div class="lg:col-span-5 reveal">
+          <div class="bg-brand-cream border-2 border-brand-ink overflow-hidden" style="box-shadow: 6px 6px 0 0 #6B4630;">
+            <div class="relative bg-brand-cream">
+              <img
+                src="/IMG_2840.PNG"
+                alt="KOZ-DER Erasmus+ ve ESC faaliyetleri"
+                class="block w-full h-auto"
+                onerror="this.onerror=null;this.src='/images/logo.png'"
+                loading="eager"
+                fetchpriority="high"
+              />
             </div>
           </div>
         </div>
@@ -111,21 +94,62 @@ const recentPosts = posts
     </div>
   </section>
 
-  <!-- Featured Projects -->
-  {featuredProjects.length > 0 && (
-    <section class="py-12 sm:py-16 md:py-20 bg-light fade-in-up">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 sm:mb-10">
-          <div class="mb-4 sm:mb-0">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-dark mb-2 font-heading uppercase">Öne Çıkan Projeler</h2>
-            <p class="text-sm sm:text-base text-dark-text">ESC ve Erasmus+ programları kapsamında yürüttüğümüz projeler</p>
+  <!-- STATS -->
+  <section class="bg-brand-ink text-brand-cream border-b-2 border-brand-ink">
+    <div class="container mx-auto px-4 py-10 sm:py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 sm:gap-y-0 divide-y md:divide-y-0 md:divide-x divide-brand-cream/30">
+        {stats.map((s, i) => (
+          <div class={`px-4 sm:px-6 ${i === 0 ? 'pt-0' : 'pt-8'} md:pt-0`}>
+            <p class="font-display font-black text-5xl sm:text-6xl text-brand-cream leading-none tracking-tightest">{s.value}</p>
+            <p class="mt-3 text-sm uppercase tracking-wider font-semibold text-brand-cream">{s.label}</p>
           </div>
-          <a href="/projeler" class="text-primary-600 hover:text-primary-700 font-bold font-heading uppercase text-sm sm:text-base">
-            Tümünü Gör →
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="py-16 sm:py-24 bg-brand-paper">
+    <div class="container mx-auto px-4">
+      <header class="mb-12 sm:mb-14 reveal max-w-3xl">
+        <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink">
+          Üç adımda, Avrupa.
+        </h2>
+        <p class="mt-4 text-ink-soft text-lg leading-relaxed">
+          Bir başvuru, bir uçak bileti, bir hayat değiştiren deneyim — yolculuğun bu kadar yakın.
+        </p>
+      </header>
+
+      <div class="grid md:grid-cols-3 border-2 border-brand-ink bg-brand-cream divide-y md:divide-y-0 md:divide-x divide-brand-ink">
+        {steps.map(step => (
+          <a href={step.href} class="group p-8 sm:p-10 hover:bg-brand-paper transition-colors reveal">
+            <span class="font-display font-black text-7xl sm:text-8xl text-brand-ink leading-none tracking-tightest group-hover:text-brand-stamp transition-colors block mb-6">{step.n}</span>
+            <div class="rule-double mb-5"></div>
+            <h3 class="font-display font-bold text-2xl text-brand-ink mb-3 tracking-tight">{step.title}</h3>
+            <p class="text-sm text-ink-soft leading-relaxed mb-5">{step.text}</p>
+            <span class="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wider text-brand-walnut group-hover:text-brand-stamp transition-colors">
+              Devam <span>→</span>
+            </span>
           </a>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featuredProjects.map((project) => (
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  {featuredProjects.length > 0 && (
+    <section class="py-16 sm:py-24 bg-brand-cream border-y-2 border-brand-ink">
+      <div class="container mx-auto px-4">
+        <header class="mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 reveal">
+          <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink">
+            Aktif Projeler.
+          </h2>
+          <a href="/projeler" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b-2 border-brand-ink pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+            Tüm projeler <span>→</span>
+          </a>
+        </header>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {featuredProjects.map(project => (
             <ProjectCard
               title={project.data.title_tr}
               summary={project.data.summary_tr}
@@ -141,24 +165,67 @@ const recentPosts = posts
     </section>
   )}
 
-  <!-- Recent Events -->
-  {recentEvents.length > 0 && (
-    <section class="py-12 sm:py-16 md:py-20 bg-white fade-in-up delay-200">
+  <!-- STORIES -->
+  {featuredStories.length > 0 && (
+    <section class="py-16 sm:py-24 bg-brand-paper">
       <div class="container mx-auto px-4">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 sm:mb-10">
-          <div class="mb-4 sm:mb-0">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-dark mb-2 font-heading uppercase">Yaklaşan Etkinlikler</h2>
-            <p class="text-sm sm:text-base text-dark-text">Düzenlediğimiz etkinlikler ve aktiviteler</p>
-          </div>
-          <a href="/etkinlikler" class="text-primary-600 hover:text-primary-700 font-bold font-heading uppercase text-sm sm:text-base">
-            Tümünü Gör →
+        <header class="mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 reveal">
+          <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink">
+            Sınırları aşan <span class="italic text-brand-walnut" style="font-variation-settings: 'SOFT' 100;">yolculuklar.</span>
+          </h2>
+          <a href="/gonullu-hikayeleri" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b-2 border-brand-ink pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+            Tüm hikayeler <span>→</span>
           </a>
+        </header>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {featuredStories.map((story, i) => (
+            <a href={`/gonullu-hikayeleri/${story.slug}`} class="group block reveal">
+              <article class="relative bg-brand-cream border-2 border-brand-ink transition-all duration-300 hover:-translate-y-1 hover:translate-x-0.5" style="box-shadow: 5px 5px 0 0 #6B4630;">
+                <div class="relative aspect-[4/5] bg-surface-muted overflow-hidden border-b-2 border-brand-ink">
+                  {story.data.images[0] ? (
+                    <img
+                      src={story.data.images[0]}
+                      alt={story.data.name}
+                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="w-full h-full bg-brand-walnut text-brand-cream flex items-center justify-center font-display text-5xl font-black">
+                      {story.data.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                    </div>
+                  )}
+                </div>
+                <div class="p-3 sm:p-4">
+                  <p class="text-[11px] uppercase tracking-[0.2em] text-brand-stamp font-bold mb-1">{story.data.country}</p>
+                  <p class="font-display font-bold text-base sm:text-lg text-brand-ink leading-tight tracking-tight">{story.data.name}</p>
+                </div>
+              </article>
+            </a>
+          ))}
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recentEvents.map((event) => (
+      </div>
+    </section>
+  )}
+
+  <!-- EVENTS -->
+  {recentEvents.length > 0 && (
+    <section class="py-16 sm:py-24 bg-brand-cream border-y-2 border-brand-ink">
+      <div class="container mx-auto px-4">
+        <header class="mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 reveal">
+          <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink">
+            Yaklaşan etkinlikler.
+          </h2>
+          <a href="/etkinlikler" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b-2 border-brand-ink pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+            Tüm etkinlikler <span>→</span>
+          </a>
+        </header>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {recentEvents.map(event => (
             <EventCard
               title={event.data.title_tr}
               date={event.data.date}
+              time={event.data.time}
               location={event.data.location}
               coverImage={event.data.coverImage}
               slug={event.slug}
@@ -169,21 +236,20 @@ const recentPosts = posts
     </section>
   )}
 
-  <!-- Recent Announcements -->
+  <!-- POSTS -->
   {recentPosts.length > 0 && (
-    <section class="py-12 sm:py-16 md:py-20 bg-light fade-in-up delay-300">
+    <section class="py-16 sm:py-24 bg-brand-paper">
       <div class="container mx-auto px-4">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 sm:mb-10">
-          <div class="mb-4 sm:mb-0">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-dark mb-2 font-heading uppercase">Son Duyurular</h2>
-            <p class="text-sm sm:text-base text-dark-text">KOZ-DER'den güncel haberler ve duyurular</p>
-          </div>
-          <a href="/duyurular" class="text-primary-600 hover:text-primary-700 font-bold font-heading uppercase text-sm sm:text-base">
-            Tümünü Gör →
+        <header class="mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 reveal">
+          <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink">
+            Son duyurular.
+          </h2>
+          <a href="/duyurular" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b-2 border-brand-ink pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+            Tüm duyurular <span>→</span>
           </a>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recentPosts.map((post) => (
+        </header>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {recentPosts.map(post => (
             <PostCard
               title={post.data.title_tr}
               summary={post.data.summary_tr}
@@ -197,20 +263,24 @@ const recentPosts = posts
     </section>
   )}
 
-  <!-- CTA Section -->
-  <section class="py-12 sm:py-16 md:py-20 bg-primary-700 text-white fade-in-up" style="background-color: #6B4630;">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Bize Katılın</h2>
-      <p class="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto opacity-90 px-4">
-        Projelerimizde yer almak veya daha fazla bilgi almak için bizimle iletişime geçin.
+  <!-- CTA -->
+  <section class="py-20 bg-brand-ink text-brand-cream border-t-2 border-brand-ink relative overflow-hidden">
+    <div class="container mx-auto px-4 text-center reveal">
+      <h2 class="font-display font-black text-4xl sm:text-5xl md:text-7xl tracking-tightest leading-[0.95] text-brand-cream">
+        Sıradaki hikaye<br/>
+        <span class="italic text-brand-stamp" style="font-variation-settings: 'SOFT' 100, 'WONK' 1;">senin olsun.</span>
+      </h2>
+      <p class="mt-6 text-base sm:text-lg text-brand-cream max-w-md mx-auto">
+        Sorularını yanıtlayalım, sana uygun çağrıyı birlikte bulalım.
       </p>
-      <a 
-        href="/iletisim" 
-        class="inline-block w-full sm:w-auto bg-white text-primary-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-primary-50 transition-colors shadow-lg hover:shadow-xl text-sm sm:text-base" style="color: #6B4630;"
-      >
-        İletişime Geç
-      </a>
+      <div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+        <a href="/iletisim" class="inline-flex items-center justify-center gap-2 bg-brand-cream text-brand-ink hover:bg-brand-stamp hover:text-brand-cream px-7 py-4 text-sm font-bold uppercase tracking-[0.15em] font-heading transition-all">
+          İletişim Formu <span>→</span>
+        </a>
+        <a href="https://wa.me/905511972997" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border-2 border-brand-cream text-brand-cream hover:bg-brand-cream hover:text-brand-ink px-7 py-4 text-sm font-bold uppercase tracking-[0.15em] font-heading transition-colors">
+          WhatsApp ile Yaz
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
-

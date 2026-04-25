@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -12,185 +11,118 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-
 const { Content } = await project.render();
+const isActive = project.data.status === 'Aktif';
 ---
 
-<BaseLayout 
-  title={`${project.data.title_tr} - KOZ-DER`}
+<BaseLayout
+  title={`${project.data.title_tr} — KOZ-DER`}
   description={project.data.summary_tr}
   image={project.data.coverImage}
 >
-  <Breadcrumb 
-    items={[
-      { label: 'Ana Sayfa', href: '/' },
-      { label: 'Projeler', href: '/projeler' },
-      { label: project.data.title_tr, href: `/projeler/${project.slug}` }
-    ]}
-    pageTitle={project.data.title_tr}
-  />
-  
-  <div class="container mx-auto px-4 py-8 sm:py-12 fade-in-up">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-      
-      <!-- Main Content Column (Left) -->
-      <article class="lg:col-span-2">
-        <!-- Header Info (Mobile Only) -->
-        <div class="mb-6 lg:hidden">
-          <div class="flex flex-wrap gap-2 mb-3">
-            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-xs font-bold uppercase tracking-wide">
-              {project.data.programType}
-            </span>
-            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold">
-              {project.data.year}
-            </span>
-          </div>
-          <h1 class="text-3xl font-bold text-gray-900 mb-2 font-heading uppercase leading-tight">{project.data.title_tr}</h1>
-        </div>
-
-        <!-- Cover Image -->
-        {project.data.coverImage && (
-          <div class="mb-8 rounded-xl shadow-lg bg-gray-50 flex items-center justify-center">
-            <img
-              src={project.data.coverImage}
-              alt={project.data.title_tr}
-              class="max-w-full max-h-[70vh] w-auto h-auto object-contain rounded-xl"
-            />
-          </div>
-        )}
-
-        <!-- Title & Summary (Desktop) -->
-        <div class="hidden lg:block mb-8">
-          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-heading uppercase leading-tight">{project.data.title_tr}</h1>
-          <p class="text-xl text-gray-600 leading-relaxed border-l-4 border-primary-500 pl-4">{project.data.summary_tr}</p>
-        </div>
-
-        <!-- Mobile Summary -->
-        <div class="lg:hidden mb-8">
-           <p class="text-lg text-gray-600 leading-relaxed border-l-4 border-primary-500 pl-4">{project.data.summary_tr}</p>
-        </div>
-
-        <!-- Article Content -->
-        <div class="prose prose-lg max-w-none modern-content">
-          <Content />
-        </div>
-
-        <!-- Back Link -->
-        <div class="mt-12 pt-8 border-t border-gray-100">
-          <a 
-            href="/projeler" 
-            class="inline-flex items-center text-primary-600 hover:text-primary-700 font-bold uppercase tracking-wide transition-colors"
-          >
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Tüm Projelere Dön
-          </a>
-        </div>
-      </article>
-
-      <!-- Sidebar Column (Right) -->
-      <aside class="lg:col-span-1">
-        <div class="sticky top-24 bg-gray-50 rounded-xl p-6 border border-gray-100 shadow-sm">
-          <h3 class="text-lg font-bold text-gray-900 mb-6 font-heading uppercase border-b pb-2">Proje Detayları</h3>
-          
-          <div class="space-y-6">
-            <!-- Program & Year -->
-            <div>
-               <div class="flex items-center text-gray-500 mb-1 text-xs uppercase font-bold tracking-wider">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                Program
-              </div>
-              <div class="flex flex-wrap gap-2">
-                 <span class="inline-flex items-center px-2.5 py-0.5 rounded font-medium bg-primary-100 text-primary-700 text-sm">
-                  {project.data.programType}
-                </span>
-                 <span class="inline-flex items-center px-2.5 py-0.5 rounded font-medium bg-gray-200 text-gray-800 text-sm">
-                  {project.data.year}
-                </span>
-              </div>
-            </div>
-
-            <!-- Status -->
-             <div>
-              <div class="flex items-center text-gray-500 mb-1 text-xs uppercase font-bold tracking-wider">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                Durum
-              </div>
-              <span class={`inline-flex items-center px-3 py-1 rounded-full text-sm font-bold ${
-                project.data.status === 'Aktif' 
-                  ? 'bg-green-100 text-green-700' 
-                  : 'bg-gray-100 text-gray-600'
-              }`}>
-                <span class={`w-2 h-2 rounded-full mr-2 ${project.data.status === 'Aktif' ? 'bg-green-500' : 'bg-gray-500'}`}></span>
-                {project.data.status}
-              </span>
-            </div>
-
-             <!-- Dates -->
-             <div>
-              <div class="flex items-center text-gray-500 mb-1 text-xs uppercase font-bold tracking-wider">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                Tarih Aralığı
-              </div>
-              <p class="text-gray-900 font-medium">{project.data.startDate} {project.data.endDate ? `- ${project.data.endDate}` : ''}</p>
-            </div>
-
-            <!-- Location -->
-            <div>
-              <div class="flex items-center text-gray-500 mb-1 text-xs uppercase font-bold tracking-wider">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                Konum
-              </div>
-              <p class="text-gray-900 font-medium">{project.data.location}</p>
-            </div>
-
-            <!-- Themes -->
-            {project.data.themes.length > 0 && (
-              <div>
-                <div class="flex items-center text-gray-500 mb-2 text-xs uppercase font-bold tracking-wider">
-                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
-                  Temalar
-                </div>
-                <div class="flex flex-wrap gap-2">
-                  {project.data.themes.map(theme => (
-                    <span class="px-2.5 py-1 bg-white border border-gray-200 text-gray-600 rounded-md text-sm shadow-sm">
-                      {theme}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-          
-           <!-- Buttons CTA -->
-           <div class="mt-8 pt-6 border-t border-gray-200 space-y-4">
-             {project.data.infoPackUrl && (
-               <a
-                 href={project.data.infoPackUrl}
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="block w-full bg-white border-2 border-primary-600 text-primary-600 hover:bg-primary-50 text-center font-bold py-3 rounded-lg shadow-sm transition-all hover:shadow-md uppercase tracking-wide text-sm flex items-center justify-center gap-2"
-               >
-                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                 </svg>
-                 Bilgi Paketi (Info Pack)
-               </a>
-             )}
-             <a
-               href={project.data.applicationUrl ?? '/iletisim'}
-               target={project.data.applicationUrl ? '_blank' : undefined}
-               rel={project.data.applicationUrl ? 'noopener noreferrer' : undefined}
-               class="block w-full bg-primary-600 hover:bg-primary-700 text-white text-center font-bold py-3 rounded-lg shadow-md transition-all hover:shadow-lg uppercase tracking-wide text-sm"
-             >
-               Başvuru Yap
-             </a>
-           </div>
-        </div>
-      </aside>
-
+  <article class="bg-brand-paper">
+    <div class="container mx-auto px-4 pt-8 sm:pt-12">
+      <a href="/projeler" class="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-brand-ink hover:text-brand-stamp transition-colors mb-6 border-b border-brand-ink/40 pb-1">
+        <span>←</span> Projeler
+      </a>
     </div>
-  </div>
-</BaseLayout>
 
+    <div class="container mx-auto px-4 pb-20">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
+        <div class="lg:col-span-8">
+          {project.data.coverImage && (
+            <div class="bg-brand-cream border-2 border-brand-ink overflow-hidden mb-10" style="box-shadow: 6px 6px 0 0 #6B4630;">
+              <img
+                src={project.data.coverImage}
+                alt={project.data.title_tr}
+                class="block w-full h-auto"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+          )}
+
+          <header class="mb-8">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">{project.data.programType} · {project.data.year}</p>
+            <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-[0.95] text-brand-ink mb-6">
+              {project.data.title_tr}
+            </h1>
+            <p class="font-display text-xl sm:text-2xl text-ink-soft leading-snug border-l-4 border-brand-stamp pl-5 italic">
+              {project.data.summary_tr}
+            </p>
+          </header>
+
+          <div class="prose-kozder bg-brand-cream border-2 border-brand-ink p-6 sm:p-10" style="box-shadow: 5px 5px 0 0 #6B4630;">
+            <Content />
+          </div>
+        </div>
+
+        <aside class="lg:col-span-4">
+          <div class="sticky top-28 space-y-5">
+            <div class={`border-2 border-brand-ink p-6 ${isActive ? 'bg-brand-stamp text-brand-cream' : 'bg-brand-cream text-brand-ink'}`} style="box-shadow: 5px 5px 0 0 #6B4630;">
+              <p class={`text-xs font-bold uppercase tracking-[0.2em] mb-2 ${isActive ? 'text-brand-cream' : 'text-brand-stamp'}`}>Durum</p>
+              <p class="font-display font-black text-3xl tracking-tight leading-none">
+                {isActive ? 'Aktif başvuru' : 'Tamamlandı'}
+              </p>
+            </div>
+
+            <div class="bg-brand-cream border-2 border-brand-ink divide-y-2 divide-brand-ink">
+              <div class="p-5">
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Program</p>
+                <p class="font-display font-bold text-xl text-brand-ink">{project.data.programType}</p>
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Yıl</p>
+                <p class="font-display font-bold text-xl text-brand-ink">{project.data.year}</p>
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Konum</p>
+                <p class="font-display font-bold text-lg text-brand-ink leading-snug">{project.data.location}</p>
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Tarih</p>
+                <p class="text-sm text-brand-ink font-semibold">{project.data.startDate}{project.data.endDate ? ` → ${project.data.endDate}` : ''}</p>
+              </div>
+              {project.data.themes.length > 0 && (
+                <div class="p-5">
+                  <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">Temalar</p>
+                  <div class="flex flex-wrap gap-1.5">
+                    {project.data.themes.map(theme => (
+                      <span class="text-[11px] font-semibold uppercase tracking-wider px-2 py-1 border border-brand-ink/40 text-brand-walnut">{theme}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div class="space-y-3">
+              {project.data.infoPackUrl && (
+                <a
+                  href={project.data.infoPackUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block bg-brand-cream border-2 border-brand-ink hover:bg-brand-paper p-5 transition-colors"
+                >
+                  <p class="font-display font-bold text-lg text-brand-ink flex items-center justify-between">
+                    Bilgi Paketi (PDF) <span>↓</span>
+                  </p>
+                </a>
+              )}
+              <a
+                href={project.data.applicationUrl ?? '/iletisim'}
+                target={project.data.applicationUrl ? '_blank' : undefined}
+                rel={project.data.applicationUrl ? 'noopener noreferrer' : undefined}
+                class="block bg-brand-ink text-brand-cream border-2 border-brand-ink hover:bg-brand-stamp p-5 transition-colors"
+                style="box-shadow: 5px 5px 0 0 #6B4630;"
+              >
+                <p class="font-display font-black text-2xl flex items-center justify-between">
+                  Başvuru Yap <span>→</span>
+                </p>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

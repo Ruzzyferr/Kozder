@@ -53,6 +53,10 @@
           "type": "boolean",
           "default": false
         },
+        "draft": {
+          "type": "boolean",
+          "default": false
+        },
         "summary_tr": {
           "type": "string"
         },
