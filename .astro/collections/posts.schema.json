@@ -26,6 +26,10 @@
         "summary_en": {
           "type": "string"
         },
+        "draft": {
+          "type": "boolean",
+          "default": false
+        },
         "$schema": {
           "type": "string"
         }

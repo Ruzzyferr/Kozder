@@ -26,6 +26,10 @@
           "type": "string",
           "format": "uri"
         },
+        "draft": {
+          "type": "boolean",
+          "default": false
+        },
         "$schema": {
           "type": "string"
         }

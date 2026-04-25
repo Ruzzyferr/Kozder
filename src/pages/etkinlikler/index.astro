@@ -6,42 +6,116 @@ import { getCollection } from 'astro:content';
 import { getEventDateSortKey } from '../../utils/date';
 
 const events = await getCollection('events');
-const sortedEvents = events.sort(
-  (a, b) => getEventDateSortKey(b.data.date) - getEventDateSortKey(a.data.date)
-);
+const now = Date.now();
+const todayMidnight = new Date();
+todayMidnight.setHours(0, 0, 0, 0);
+
+const all = events
+  .map(e => ({ entry: e, ts: getEventDateSortKey(e.data.date) }))
+  .sort((a, b) => b.ts - a.ts);
+
+const upcoming = all.filter(x => x.ts >= todayMidnight.getTime()).reverse();
+const past = all.filter(x => x.ts < todayMidnight.getTime());
 ---
 
 <BaseLayout
-  title="Etkinlikler - KOZ-DER"
-  description="Düzenlediğimiz etkinlikler ve aktiviteler hakkında bilgi edinin."
+  title="Etkinlikler — KOZ-DER"
+  description="KOZ-DER'in düzenlediği yaklaşan ve geçmiş etkinlikler. Kitap kulübü, speaking club, gönüllü buluşmaları ve daha fazlası."
 >
   <Breadcrumb
-    items={[
-      { label: 'Ana Sayfa', href: '/' },
-      { label: 'Etkinlikler', href: '/etkinlikler' }
-    ]}
+    items={[{ label: 'Ana Sayfa', href: '/' }, { label: 'Etkinlikler', href: '/etkinlikler' }]}
     pageTitle="Etkinliklerimiz"
+    intro="Atölyeler, buluşmalar, kulüpler ve sosyal aktiviteler — tek listede."
   />
 
-  <div class="container mx-auto px-4 py-8 sm:py-12 md:py-16">
+  <div class="container mx-auto px-4 py-12 sm:py-16">
 
-    {sortedEvents.length > 0 ? (
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        {sortedEvents.map((event) => (
-          <EventCard
-            title={event.data.title_tr}
-            date={event.data.date}
-            time={event.data.time}
-            location={event.data.location}
-            coverImage={event.data.coverImage}
-            slug={event.slug}
-          />
-        ))}
-      </div>
-    ) : (
-      <div class="text-center py-12">
-        <p class="text-gray-500 text-lg">Henüz etkinlik eklenmemiş.</p>
+    <div class="flex flex-wrap items-center gap-0 mb-10 border-2 border-brand-ink w-fit" role="tablist" aria-label="Etkinlik filtresi">
+      <button data-filter="all" class="filter-chip is-active">Tümü · {all.length}</button>
+      <button data-filter="upcoming" class="filter-chip border-l-2 border-brand-ink">Yaklaşan · {upcoming.length}</button>
+      <button data-filter="past" class="filter-chip border-l-2 border-brand-ink">Geçmiş · {past.length}</button>
+    </div>
+
+    {upcoming.length > 0 && (
+      <section data-section="upcoming" class="mb-14">
+        <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tightest text-brand-ink mb-6 leading-none">
+          Yaklaşan etkinlikler.
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {upcoming.map(({ entry: event }) => (
+            <EventCard
+              title={event.data.title_tr}
+              date={event.data.date}
+              time={event.data.time}
+              location={event.data.location}
+              coverImage={event.data.coverImage}
+              slug={event.slug}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+
+    {past.length > 0 && (
+      <section data-section="past">
+        <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tightest text-brand-ink mb-6 leading-none">
+          Geçmiş etkinlikler.
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 opacity-90">
+          {past.map(({ entry: event }) => (
+            <EventCard
+              title={event.data.title_tr}
+              date={event.data.date}
+              time={event.data.time}
+              location={event.data.location}
+              coverImage={event.data.coverImage}
+              slug={event.slug}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+
+    {all.length === 0 && (
+      <div class="text-center py-16 bg-brand-cream border-2 border-brand-ink">
+        <p class="text-ink-muted text-lg">Henüz etkinlik eklenmemiş. Yakında burada olacak!</p>
       </div>
     )}
   </div>
 </BaseLayout>
+
+<style>
+  .filter-chip {
+    padding: 0.65rem 1.25rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #231C1C;
+    background: #FFFBF1;
+    transition: all 0.15s ease;
+    cursor: pointer;
+  }
+  .filter-chip:hover { background: #F4ECD8; }
+  .filter-chip.is-active {
+    background: #231C1C;
+    color: #FFFBF1;
+  }
+</style>
+
+<script>
+  const chips = document.querySelectorAll<HTMLButtonElement>('.filter-chip');
+  const sections = document.querySelectorAll<HTMLElement>('[data-section]');
+
+  function applyFilter(filter: string) {
+    sections.forEach(s => {
+      const which = s.dataset.section!;
+      const show = filter === 'all' || filter === which;
+      s.style.display = show ? '' : 'none';
+    });
+    chips.forEach(c => c.classList.toggle('is-active', c.dataset.filter === filter));
+  }
+
+  chips.forEach(c => c.addEventListener('click', () => applyFilter(c.dataset.filter!)));
+</script>

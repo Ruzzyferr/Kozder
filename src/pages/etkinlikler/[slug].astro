@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { formatEventDate, formatEventTime } from '../../utils/date';
+import { buildEventStartDate, buildIcsString, googleCalendarUrl, isAllDay } from '../../utils/calendar';
+import { eventSchema } from '../../utils/seo';
 
 export async function getStaticPaths() {
   const events = await getCollection('events');
@@ -12,81 +14,178 @@ export async function getStaticPaths() {
 }
 
 const { event } = Astro.props;
-
 const { Content } = await event.render();
+
 const formattedDate = formatEventDate(event.data.date, { weekday: true });
 const formattedTime = formatEventTime(event.data.time);
+
+const startDate = buildEventStartDate(event.data.date, event.data.time);
+const allDay = startDate ? isAllDay(startDate) : true;
+const endDate = startDate ? new Date(startDate.getTime() + (allDay ? 0 : 2 * 60 * 60 * 1000)) : null;
+
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+
+const ics = startDate
+  ? buildIcsString({
+      uid: `${event.slug}@kozder.com`,
+      title: event.data.title_tr,
+      description: event.data.title_tr,
+      location: event.data.location,
+      start: startDate,
+      end: endDate ?? undefined,
+      url,
+      allDay,
+    })
+  : null;
+const icsDataUri = ics ? `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}` : null;
+
+const gcalUrl = startDate
+  ? googleCalendarUrl({
+      uid: `${event.slug}@kozder.com`,
+      title: event.data.title_tr,
+      description: `${event.data.title_tr}\n\n${url}`,
+      location: event.data.location,
+      start: startDate,
+      end: endDate ?? undefined,
+      url,
+      allDay,
+    })
+  : null;
+
+const ld = startDate
+  ? eventSchema({
+      name: event.data.title_tr,
+      description: `${event.data.title_tr} — KOZ-DER etkinliği`,
+      startDate: startDate.toISOString(),
+      endDate: endDate?.toISOString(),
+      location: event.data.location,
+      image: event.data.coverImage ? new URL(event.data.coverImage, Astro.site).toString() : undefined,
+      url,
+      registrationUrl: event.data.registrationUrl,
+    })
+  : undefined;
+
+const dayNum = startDate ? startDate.getDate() : '?';
+const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 'short' }).toUpperCase().replace('.', '') : '';
 ---
 
 <BaseLayout
-  title={`${event.data.title_tr} - KOZ-DER`}
-  description={`${event.data.title_tr} etkinliği hakkında bilgi.`}
+  title={`${event.data.title_tr} — KOZ-DER`}
+  description={`${event.data.title_tr} — ${event.data.location}, ${formattedDate}.`}
   image={event.data.coverImage}
+  jsonLd={ld}
 >
-  <article class="container mx-auto px-4 py-8 sm:py-16">
-    {event.data.coverImage && (
-      <div class="mb-6 sm:mb-8 bg-gray-50 rounded-lg shadow-lg flex items-center justify-center">
-        <img
-          src={event.data.coverImage}
-          alt={event.data.title_tr}
-          class="max-w-full max-h-[70vh] w-auto h-auto object-contain rounded-lg"
-        />
-      </div>
-    )}
-
-    <header class="mb-6 sm:mb-8">
-      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">{event.data.title_tr}</h1>
-
-      <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-6 text-gray-600 mb-4 sm:mb-6">
-        <div class="flex items-center">
-          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-          <span>{formattedDate}</span>
-        </div>
-        {formattedTime && (
-          <div class="flex items-center">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span>{formattedTime}</span>
-          </div>
-        )}
-        <div class="flex items-center">
-          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          <span>{event.data.location}</span>
-        </div>
-      </div>
-
-      {event.data.registrationUrl && (
-        <a
-          href={event.data.registrationUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-block w-full sm:w-auto text-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
-        >
-          Kayıt Ol
-        </a>
-      )}
-    </header>
-
-    <div class="prose prose-lg max-w-none">
-      <Content />
+  <article class="bg-brand-paper">
+    <div class="container mx-auto px-4 pt-8 sm:pt-12">
+      <a href="/etkinlikler" class="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-brand-ink hover:text-brand-stamp transition-colors mb-6 border-b border-brand-ink/40 pb-1">
+        <span>←</span> Etkinlikler
+      </a>
     </div>
 
-    <div class="mt-12">
-      <a
-        href="/etkinlikler"
-        class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold"
-      >
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-        Tüm Etkinliklere Dön
-      </a>
+    <div class="container mx-auto px-4 pb-20">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
+        <div class="lg:col-span-8">
+          {event.data.coverImage && (
+            <div class="bg-brand-cream border-2 border-brand-ink overflow-hidden mb-10" style="box-shadow: 6px 6px 0 0 #6B4630;">
+              <img
+                src={event.data.coverImage}
+                alt={event.data.title_tr}
+                class="block w-full h-auto"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+          )}
+
+          <header class="mb-8">
+            <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-[0.95] text-brand-ink">
+              {event.data.title_tr}
+            </h1>
+          </header>
+
+          <div class="prose-kozder bg-brand-cream border-2 border-brand-ink p-6 sm:p-10" style="box-shadow: 5px 5px 0 0 #6B4630;">
+            <Content />
+          </div>
+        </div>
+
+        <aside class="lg:col-span-4">
+          <div class="sticky top-28 space-y-5">
+            <div class="bg-brand-cream border-2 border-brand-ink divide-y-2 divide-brand-ink" style="box-shadow: 5px 5px 0 0 #6B4630;">
+              <div class="p-5">
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Tarih</p>
+                <p class="font-display font-bold text-xl text-brand-ink leading-snug">{formattedDate}</p>
+              </div>
+              {formattedTime && (
+                <div class="p-5">
+                  <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Saat</p>
+                  <p class="font-display font-bold text-xl text-brand-ink">{formattedTime}</p>
+                </div>
+              )}
+              <div class="p-5">
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Konum</p>
+                <p class="font-display font-bold text-lg text-brand-ink leading-snug">{event.data.location}</p>
+              </div>
+            </div>
+
+            {event.data.registrationUrl && (
+              <a
+                href={event.data.registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block bg-brand-stamp text-brand-cream hover:bg-brand-ink border-2 border-brand-ink p-5 transition-colors"
+                style="box-shadow: 5px 5px 0 0 #231C1C;"
+              >
+                <p class="font-display font-black text-2xl leading-none tracking-tight flex items-center justify-between">
+                  Kayıt Ol
+                  <span>→</span>
+                </p>
+              </a>
+            )}
+
+            {(gcalUrl || icsDataUri) && (
+              <div class="bg-brand-cream border-2 border-brand-ink p-6">
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">Takvime ekle</p>
+                <div class="space-y-2">
+                  {gcalUrl && (
+                    <a href={gcalUrl} target="_blank" rel="noopener noreferrer" class="flex items-center justify-between border border-brand-ink/40 hover:border-brand-ink hover:bg-brand-paper px-4 py-2.5 transition-colors text-sm font-semibold text-brand-ink">
+                      Google Takvim <span>→</span>
+                    </a>
+                  )}
+                  {icsDataUri && (
+                    <a href={icsDataUri} download={`${event.slug}.ics`} class="flex items-center justify-between border border-brand-ink/40 hover:border-brand-ink hover:bg-brand-paper px-4 py-2.5 transition-colors text-sm font-semibold text-brand-ink">
+                      Apple / Outlook (.ics) <span>↓</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            )}
+
+            <div class="bg-brand-cream border-2 border-brand-ink p-6">
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">Paylaş</p>
+              <div class="grid grid-cols-3 gap-2">
+                <a href={`https://wa.me/?text=${encodeURIComponent(event.data.title_tr + ' ' + url)}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">WhatsApp</a>
+                <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(event.data.title_tr)}&url=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">X</a>
+                <button type="button" data-copy={url} class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">Link</button>
+              </div>
+              <p id="copy-toast" class="mt-3 text-xs font-bold uppercase tracking-wider text-brand-stamp hidden">Kopyalandı ✓</p>
+            </div>
+          </div>
+        </aside>
+      </div>
     </div>
   </article>
 </BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('button[data-copy]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const text = btn.dataset.copy ?? '';
+      try {
+        await navigator.clipboard.writeText(text);
+        const toast = document.getElementById('copy-toast');
+        toast?.classList.remove('hidden');
+        setTimeout(() => toast?.classList.add('hidden'), 2000);
+      } catch {}
+    });
+  });
+</script>
