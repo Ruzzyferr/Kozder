@@ -19,11 +19,11 @@ const statusColors = {
 <a href={`/projeler/${slug}`} class="block group">
   <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg hover:border-primary-300 transition-all duration-300 h-full flex flex-col">
     {coverImage && (
-      <div class="relative h-48 sm:h-56 overflow-hidden bg-gray-100">
-        <img 
-          src={coverImage} 
+      <div class="relative h-48 sm:h-56 bg-gray-50 flex items-center justify-center">
+        <img
+          src={coverImage}
           alt={title}
-          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
         />
         <div class="absolute top-2 right-2 sm:top-4 sm:right-4">

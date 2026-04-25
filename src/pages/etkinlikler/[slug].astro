@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { formatEventDate, formatEventTime } from '../../utils/date';
 
 export async function getStaticPaths() {
   const events = await getCollection('events');
@@ -13,34 +14,29 @@ export async function getStaticPaths() {
 const { event } = Astro.props;
 
 const { Content } = await event.render();
-const eventDate = new Date(event.data.date);
-const formattedDate = eventDate.toLocaleDateString('tr-TR', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-  weekday: 'long'
-});
+const formattedDate = formatEventDate(event.data.date, { weekday: true });
+const formattedTime = formatEventTime(event.data.time);
 ---
 
-<BaseLayout 
+<BaseLayout
   title={`${event.data.title_tr} - KOZ-DER`}
   description={`${event.data.title_tr} etkinliği hakkında bilgi.`}
   image={event.data.coverImage}
 >
   <article class="container mx-auto px-4 py-8 sm:py-16">
     {event.data.coverImage && (
-      <div class="mb-6 sm:mb-8">
-        <img 
-          src={event.data.coverImage} 
+      <div class="mb-6 sm:mb-8 bg-gray-50 rounded-lg shadow-lg flex items-center justify-center">
+        <img
+          src={event.data.coverImage}
           alt={event.data.title_tr}
-          class="w-full h-48 sm:h-64 md:h-96 object-cover rounded-lg shadow-lg"
+          class="max-w-full max-h-[70vh] w-auto h-auto object-contain rounded-lg"
         />
       </div>
     )}
 
     <header class="mb-6 sm:mb-8">
       <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">{event.data.title_tr}</h1>
-      
+
       <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-6 text-gray-600 mb-4 sm:mb-6">
         <div class="flex items-center">
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,6 +44,14 @@ const formattedDate = eventDate.toLocaleDateString('tr-TR', {
           </svg>
           <span>{formattedDate}</span>
         </div>
+        {formattedTime && (
+          <div class="flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>{formattedTime}</span>
+          </div>
+        )}
         <div class="flex items-center">
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -58,7 +62,7 @@ const formattedDate = eventDate.toLocaleDateString('tr-TR', {
       </div>
 
       {event.data.registrationUrl && (
-        <a 
+        <a
           href={event.data.registrationUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -74,8 +78,8 @@ const formattedDate = eventDate.toLocaleDateString('tr-TR', {
     </div>
 
     <div class="mt-12">
-      <a 
-        href="/etkinlikler" 
+      <a
+        href="/etkinlikler"
         class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold"
       >
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,4 +90,3 @@ const formattedDate = eventDate.toLocaleDateString('tr-TR', {
     </div>
   </article>
 </BaseLayout>
-

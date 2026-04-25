@@ -97,11 +97,11 @@ const { Content } = await story.render();
                 <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 border-b pb-2 mb-4">Deneyimden Kareler</h3>
                 <div class="grid grid-cols-2 gap-3">
                   {story.data.images.map((img, idx) => (
-                    <div class={`rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-zoom-in ${idx === 0 ? 'col-span-2 aspect-video' : 'aspect-square'}`}>
-                      <img 
-                        src={img} 
+                    <div class={`rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 cursor-zoom-in bg-gray-50 flex items-center justify-center ${idx === 0 ? 'col-span-2 aspect-video' : 'aspect-square'}`}>
+                      <img
+                        src={img}
                         alt={`${story.data.name} Fotoğrafı - ${idx + 1}`}
-                        class="w-full h-full object-cover grayscale-[0.5] hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                        class="max-w-full max-h-full object-contain transition-all duration-700 hover:scale-105"
                       />
                     </div>
                   ))}
