@@ -68,7 +68,7 @@ gibi servislerden domain satın alabilirsiniz.
 1. Vercel dashboard'da projenizi açın
 2. "Settings" sekmesine gidin
 3. "Domains" bölümüne tıklayın
-4. Domain adresinizi girin (örn: `koz-der.org`)
+4. Domain adresinizi girin (örn: `kozder.com`)
 5. "Add" butonuna tıklayın
 
 ### 3. DNS Ayarları
@@ -92,7 +92,7 @@ Vercel size DNS kayıtlarını gösterecektir. Domain sağlayıcınızda (Namech
 `astro.config.mjs` dosyasında site URL'sini güncelleyin:
 
 ```js
-site: 'https://koz-der.org', // veya www.koz-der.org
+site: 'https://kozder.com', // veya www.kozder.com
 ```
 
 Değişikliği commit edip push edin:

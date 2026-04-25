@@ -123,13 +123,13 @@ Resimleri şu klasörlere ekleyin:
 
 1. Vercel dashboard'da projenizi açın
 2. "Settings" > "Domains" bölümüne gidin
-3. Domain adresinizi ekleyin (örn: `koz-der.org`)
+3. Domain adresinizi ekleyin (örn: `kozder.com`)
 4. Vercel size DNS kayıtlarını gösterecektir
 5. Domain sağlayıcınızda (GoDaddy, Namecheap, vb.) bu DNS kayıtlarını ekleyin
 6. `astro.config.mjs` dosyasındaki `site` değerini güncelleyin:
 
 ```js
-site: 'https://koz-der.org',
+site: 'https://kozder.com',
 ```
 
 ### Otomatik Deployment
@@ -169,7 +169,7 @@ Her GitHub'a push yaptığınızda Vercel otomatik olarak yeni bir build alır v
 `astro.config.mjs` dosyasında site URL'sini güncelleyin:
 
 ```js
-site: 'https://koz-der.org',
+site: 'https://kozder.com',
 ```
 
 ### İletişim Bilgileri
@@ -223,5 +223,5 @@ Bu proje KOZ-DER için özel olarak geliştirilmiştir.
 
 ## 📞 İletişim
 
-Sorularınız için: info@koz-der.org
+Sorularınız için: bilgi@kozder.com
 
