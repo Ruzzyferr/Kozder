@@ -27,6 +27,7 @@ const eventsCollection = defineCollection({
     title_tr: z.string(),
     title_en: z.string(),
     date: z.string(),
+    time: z.string().optional(),
     location: z.string(),
     coverImage: z.string().optional(),
     registrationUrl: z.string().url().optional(),

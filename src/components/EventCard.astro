@@ -1,29 +1,28 @@
 ---
+import { formatEventDate, formatEventTime } from '../utils/date';
+
 interface Props {
   title: string;
   date: string;
+  time?: string;
   location: string;
   coverImage?: string;
   slug: string;
 }
 
-const { title, date, location, coverImage, slug } = Astro.props;
-const eventDate = new Date(date);
-const formattedDate = eventDate.toLocaleDateString('tr-TR', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric'
-});
+const { title, date, time, location, coverImage, slug } = Astro.props;
+const formattedDate = formatEventDate(date);
+const formattedTime = formatEventTime(time);
 ---
 
 <a href={`/etkinlikler/${slug}`} class="block group">
   <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg hover:border-primary-300 transition-all duration-300">
     {coverImage && (
-      <div class="relative h-48 sm:h-56 overflow-hidden bg-gray-100">
-        <img 
-          src={coverImage} 
+      <div class="relative h-48 sm:h-56 bg-gray-50 flex items-center justify-center">
+        <img
+          src={coverImage}
           alt={title}
-          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
         />
       </div>
@@ -36,6 +35,14 @@ const formattedDate = eventDate.toLocaleDateString('tr-TR', {
           </svg>
           <span class="font-medium">{formattedDate}</span>
         </div>
+        {formattedTime && (
+          <div class="flex items-center">
+            <svg class="w-4 h-4 mr-2 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="font-medium">{formattedTime}</span>
+          </div>
+        )}
         <div class="flex items-center">
           <svg class="w-4 h-4 mr-2 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -55,4 +62,3 @@ const formattedDate = eventDate.toLocaleDateString('tr-TR', {
     </div>
   </article>
 </a>
-

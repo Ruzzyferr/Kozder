@@ -13,6 +13,9 @@
         "date": {
           "type": "string"
         },
+        "time": {
+          "type": "string"
+        },
         "location": {
           "type": "string"
         },

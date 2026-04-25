@@ -3,43 +3,35 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import EventCard from '../../components/EventCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
-
-const parseDate = (dateStr: string) => {
-  if (!dateStr) return 0;
-  if (dateStr.includes('.')) {
-    const parts = dateStr.split('.');
-    if (parts.length === 3) {
-      return new Date(Number(parts[2]), Number(parts[1]) - 1, Number(parts[0])).getTime();
-    }
-  }
-  const timestamp = new Date(dateStr).getTime();
-  return isNaN(timestamp) ? 0 : timestamp;
-};
+import { getEventDateSortKey } from '../../utils/date';
 
 const events = await getCollection('events');
-const sortedEvents = events.sort((a, b) => parseDate(b.data.date) - parseDate(a.data.date));
+const sortedEvents = events.sort(
+  (a, b) => getEventDateSortKey(b.data.date) - getEventDateSortKey(a.data.date)
+);
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Etkinlikler - KOZ-DER"
   description="Düzenlediğimiz etkinlikler ve aktiviteler hakkında bilgi edinin."
 >
-  <Breadcrumb 
+  <Breadcrumb
     items={[
       { label: 'Ana Sayfa', href: '/' },
       { label: 'Etkinlikler', href: '/etkinlikler' }
     ]}
     pageTitle="Etkinliklerimiz"
   />
-  
+
   <div class="container mx-auto px-4 py-8 sm:py-12 md:py-16">
-    
+
     {sortedEvents.length > 0 ? (
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {sortedEvents.map((event) => (
           <EventCard
             title={event.data.title_tr}
             date={event.data.date}
+            time={event.data.time}
             location={event.data.location}
             coverImage={event.data.coverImage}
             slug={event.slug}
@@ -53,4 +45,3 @@ const sortedEvents = events.sort((a, b) => parseDate(b.data.date) - parseDate(a.
     )}
   </div>
 </BaseLayout>
-
