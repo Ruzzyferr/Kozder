@@ -4,29 +4,25 @@ import ProjectCard from '../components/ProjectCard.astro';
 import EventCard from '../components/EventCard.astro';
 import PostCard from '../components/PostCard.astro';
 import { getCollection } from 'astro:content';
-import { getEventDateSortKey } from '../utils/date';
+import { getEntryAddedTime } from '../utils/fileTime';
 
 const projects = (await getCollection('projects')).filter(p => !p.data.draft);
 const events = (await getCollection('events')).filter(e => !e.data.draft);
 const posts = (await getCollection('posts')).filter(p => !p.data.draft);
 const stories = (await getCollection('stories')).filter(s => !s.data.draft);
 
+const byAdded = (col: 'projects' | 'events' | 'posts' | 'stories') =>
+  (a: { id: string }, b: { id: string }) =>
+    getEntryAddedTime(col, b.id) - getEntryAddedTime(col, a.id);
+
 const featuredProjects = projects
   .filter(p => p.data.featured)
-  .sort((a, b) => getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate))
+  .sort(byAdded('projects'))
   .slice(0, 3);
 
-const recentEvents = events
-  .sort((a, b) => getEventDateSortKey(b.data.date) - getEventDateSortKey(a.data.date))
-  .slice(0, 3);
-
-const recentPosts = posts
-  .sort((a, b) => getEventDateSortKey(b.data.date) - getEventDateSortKey(a.data.date))
-  .slice(0, 3);
-
-const featuredStories = stories
-  .sort((a, b) => getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate))
-  .slice(0, 4);
+const recentEvents = [...events].sort(byAdded('events')).slice(0, 3);
+const recentPosts = [...posts].sort(byAdded('posts')).slice(0, 3);
+const featuredStories = [...stories].sort(byAdded('stories')).slice(0, 4);
 
 const stats = [
   { value: stories.length, label: 'Gönüllü Hikayesi' },

@@ -4,18 +4,26 @@ import EventCard from '../../components/EventCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import { getEventDateSortKey } from '../../utils/date';
+import { getEntryAddedTime } from '../../utils/fileTime';
 
-const events = await getCollection('events');
-const now = Date.now();
+const events = (await getCollection('events')).filter(e => !e.data.draft);
 const todayMidnight = new Date();
 todayMidnight.setHours(0, 0, 0, 0);
 
-const all = events
-  .map(e => ({ entry: e, ts: getEventDateSortKey(e.data.date) }))
-  .sort((a, b) => b.ts - a.ts);
+const all = events.map(e => ({
+  entry: e,
+  eventTs: getEventDateSortKey(e.data.date),
+  addedTs: getEntryAddedTime('events', e.id),
+}));
 
-const upcoming = all.filter(x => x.ts >= todayMidnight.getTime()).reverse();
-const past = all.filter(x => x.ts < todayMidnight.getTime());
+// Within each section, newest-added first
+const upcoming = all
+  .filter(x => x.eventTs >= todayMidnight.getTime())
+  .sort((a, b) => b.addedTs - a.addedTs);
+
+const past = all
+  .filter(x => x.eventTs < todayMidnight.getTime())
+  .sort((a, b) => b.addedTs - a.addedTs);
 ---
 
 <BaseLayout

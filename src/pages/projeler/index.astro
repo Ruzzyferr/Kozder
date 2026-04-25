@@ -3,11 +3,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
-import { getEventDateSortKey } from '../../utils/date';
+import { getEntryAddedTime } from '../../utils/fileTime';
 
 const allProjects = (await getCollection('projects')).filter(p => !p.data.draft);
 const projects = allProjects.sort(
-  (a, b) => getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate)
+  (a, b) => getEntryAddedTime('projects', b.id) - getEntryAddedTime('projects', a.id)
 );
 
 const allPrograms = [...new Set(projects.map(p => p.data.programType))];
