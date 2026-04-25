@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://koz-der.org', // Update with your actual domain
+  site: 'https://kozder.com',
   integrations: [
     mdx(),
     tailwind(),

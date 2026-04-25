@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://koz-der.org/sitemap.xml
+Sitemap: https://kozder.com/sitemap.xml
 
