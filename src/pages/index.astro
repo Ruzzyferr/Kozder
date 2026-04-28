@@ -31,7 +31,13 @@ const featuredProjects = projects
 
 const recentEvents = [...events].sort(byAdded('events')).slice(0, 3);
 const recentPosts = [...posts].sort(byAdded('posts')).slice(0, 3);
-const featuredStories = [...stories].sort(byAdded('stories')).slice(0, 4);
+const featuredStories = [...stories]
+  .sort((a, b) => {
+    const d = getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate);
+    if (d !== 0) return d;
+    return a.id.localeCompare(b.id);
+  })
+  .slice(0, 4);
 
 const stats = [
   { value: stories.length, label: 'Gönüllü Hikayesi' },
