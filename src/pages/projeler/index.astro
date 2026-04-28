@@ -3,12 +3,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
-import { getEntryAddedTime } from '../../utils/fileTime';
+import { getEventDateSortKey } from '../../utils/date';
 
 const allProjects = (await getCollection('projects')).filter(p => !p.data.draft);
-const projects = allProjects.sort(
-  (a, b) => getEntryAddedTime('projects', b.id) - getEntryAddedTime('projects', a.id)
-);
+
+const statusRank = (s: string) => (s === 'Aktif' ? 0 : 1);
+
+const projects = allProjects.sort((a, b) => {
+  const s = statusRank(a.data.status) - statusRank(b.data.status);
+  if (s !== 0) return s;
+  const d = getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate);
+  if (d !== 0) return d;
+  return a.id.localeCompare(b.id);
+});
 
 const allPrograms = [...new Set(projects.map(p => p.data.programType))];
 const allYears = [...new Set(projects.map(p => p.data.year))].sort((a, b) => b - a);
