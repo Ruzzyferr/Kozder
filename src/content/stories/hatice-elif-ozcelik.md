@@ -63,4 +63,4 @@ Kendimi bu güzel deneyimi yaşayabildiğim için çok şanslı hissediyorum. Bu
 
 **Ruhumun bir parçası hep o güney güneşinin altında kalacak.**
 
-Sevgilerle!
+Sevgilerle..
