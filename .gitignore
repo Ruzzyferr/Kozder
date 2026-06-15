@@ -2,6 +2,9 @@
 dist/
 .output/
 
+# astro generated cache (regenerated on every build by `astro sync`)
+.astro/
+
 # dependencies
 node_modules/
 
