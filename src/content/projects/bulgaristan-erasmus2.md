@@ -3,7 +3,7 @@ title_tr: "TRUTH OR TRICK? CLICK WITH CARE"
 title_en: "Truth or Trick? Click with Care"
 programType: "ERASMUS"
 year: 2026
-status: "Aktif"
+status: "Tamamlandı"
 themes:
   - "digital literacy"
   - "fake news"
