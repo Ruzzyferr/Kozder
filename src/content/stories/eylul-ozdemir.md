@@ -4,8 +4,8 @@ programName: "Bulgaristan ESC Gönüllülüğü"
 country: "Bulgaristan"
 startDate: "30.06.2025"
 images:
-  - "/images/stories/eylul-ozdemir.jpg"
-  - "/images/stories/eylul-ozdemir1.jpg"
+  - "/images/stories/eylul-ozdemir.webp"
+  - "/images/stories/eylul-ozdemir1.webp"
 summary: "Bulgaristan’ın Madan şehrinde katıldığım kısa dönem ESC gönüllülüğü; doğa, dayanışma, yeni dostluklar ve kendimi keşfetme açısından hayatımda çok özel bir yere sahip oldu."
 featured: true
 ---

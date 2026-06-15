@@ -3,18 +3,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
-import { getEventDateSortKey } from '../../utils/date';
+import { byNewest } from '../../utils/contentSort';
 
 const allProjects = (await getCollection('projects')).filter(p => !p.data.draft);
 
 const statusRank = (s: string) => (s === 'Aktif' ? 0 : 1);
+const newest = byNewest('projects', 'startDate');
 
+// Active projects first; within each status group, newest-added first.
 const projects = allProjects.sort((a, b) => {
   const s = statusRank(a.data.status) - statusRank(b.data.status);
   if (s !== 0) return s;
-  const d = getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate);
-  if (d !== 0) return d;
-  return a.id.localeCompare(b.id);
+  return newest(a, b);
 });
 
 const allPrograms = [...new Set(projects.map(p => p.data.programType))];
