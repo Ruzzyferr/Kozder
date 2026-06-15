@@ -2,14 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
-import { getEventDateSortKey } from '../../utils/date';
+import { byNewest } from '../../utils/contentSort';
 
 const storiesRaw = (await getCollection('stories')).filter(s => !s.data.draft);
-const stories = storiesRaw.sort((a, b) => {
-  const d = getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate);
-  if (d !== 0) return d;
-  return a.id.localeCompare(b.id);
-});
+const stories = storiesRaw.sort(byNewest('stories', 'startDate'));
 
 // Helper to get initials
 const getInitials = (name: string) => {

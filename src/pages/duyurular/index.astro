@@ -3,12 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
-import { getEntryAddedTime } from '../../utils/fileTime';
+import { byNewest } from '../../utils/contentSort';
 
 const posts = (await getCollection('posts')).filter(p => !p.data.draft);
-const sortedPosts = posts.sort(
-  (a, b) => getEntryAddedTime('posts', b.id) - getEntryAddedTime('posts', a.id)
-);
+const sortedPosts = posts.sort(byNewest('posts', 'date'));
 ---
 
 <BaseLayout

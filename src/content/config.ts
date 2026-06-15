@@ -49,6 +49,21 @@ const postsCollection = defineCollection({
   }),
 });
 
+const newsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title_tr: z.string(),
+    title_en: z.string(),
+    date: z.string(),
+    location: z.string().optional(),
+    coverImage: z.string().optional(),
+    images: z.array(z.string()).default([]),
+    summary_tr: z.string(),
+    summary_en: z.string(),
+    draft: z.boolean().default(false),
+  }),
+});
+
 const storiesCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -67,5 +82,6 @@ export const collections = {
   'projects': projectsCollection,
   'events': eventsCollection,
   'posts': postsCollection,
+  'news': newsCollection,
   'stories': storiesCollection,
 };

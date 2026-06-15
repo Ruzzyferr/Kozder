@@ -4,12 +4,12 @@ programName: "İtalya Gönüllülük Deneyimi"
 country: "İtalya"
 startDate: "10.04.2026"
 images:
-  - "/images/stories/haticelif.jpg"
-  - "/images/stories/haticelif1.jpg"
-  - "/images/stories/haticelif2.jpg"
-  - "/images/stories/haticelif3.jpg"
-  - "/images/stories/haticelif4.jpg"
-  - "/images/stories/haticelif5.jpg"
+  - "/images/stories/haticelif.webp"
+  - "/images/stories/haticelif1.webp"
+  - "/images/stories/haticelif2.webp"
+  - "/images/stories/haticelif3.webp"
+  - "/images/stories/haticelif4.webp"
+  - "/images/stories/haticelif5.webp"
 summary: "İtalya’nın Orta Nova kasabasında geçirdiğim gönüllülük süreci; kültürlerarası dostluklar, çevre çalışmaları, sanat, doğa ve kişisel dönüşüm açısından benim için çok özel bir deneyim oldu."
 featured: true
 ---

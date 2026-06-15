@@ -3,41 +3,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import EventCard from '../components/EventCard.astro';
 import PostCard from '../components/PostCard.astro';
+import NewsCard from '../components/NewsCard.astro';
 import { getCollection } from 'astro:content';
-import { getEntryAddedTime } from '../utils/fileTime';
 import { getEventDateSortKey } from '../utils/date';
+import { byNewest } from '../utils/contentSort';
 
 const projects = (await getCollection('projects')).filter(p => !p.data.draft);
 const events = (await getCollection('events')).filter(e => !e.data.draft);
 const posts = (await getCollection('posts')).filter(p => !p.data.draft);
+const news = (await getCollection('news')).filter(n => !n.data.draft);
 const stories = (await getCollection('stories')).filter(s => !s.data.draft);
 
-const byAdded = (col: 'projects' | 'events' | 'posts' | 'stories') =>
-  (a: { id: string }, b: { id: string }) =>
-    getEntryAddedTime(col, b.id) - getEntryAddedTime(col, a.id);
-
 const projectStatusRank = (s: string) => (s === 'Aktif' ? 0 : 1);
+const newestProject = byNewest('projects', 'startDate');
 
 const featuredProjects = projects
   .filter(p => p.data.featured)
   .sort((a, b) => {
     const s = projectStatusRank(a.data.status) - projectStatusRank(b.data.status);
     if (s !== 0) return s;
-    const d = getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate);
-    if (d !== 0) return d;
-    return a.id.localeCompare(b.id);
+    return newestProject(a, b);
   })
   .slice(0, 3);
 
-const recentEvents = [...events].sort(byAdded('events')).slice(0, 3);
-const recentPosts = [...posts].sort(byAdded('posts')).slice(0, 3);
-const featuredStories = [...stories]
-  .sort((a, b) => {
-    const d = getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate);
-    if (d !== 0) return d;
-    return a.id.localeCompare(b.id);
-  })
-  .slice(0, 4);
+// Homepage "Yaklaşan etkinlikler": soonest upcoming events first.
+const todayMidnight = new Date();
+todayMidnight.setHours(0, 0, 0, 0);
+const upcomingEvents = events
+  .filter(e => getEventDateSortKey(e.data.date) >= todayMidnight.getTime())
+  .sort((a, b) => getEventDateSortKey(a.data.date) - getEventDateSortKey(b.data.date))
+  .slice(0, 3);
+
+const recentPosts = [...posts].sort(byNewest('posts', 'date')).slice(0, 3);
+const recentNews = [...news].sort(byNewest('news', 'date')).slice(0, 3);
+const featuredStories = [...stories].sort(byNewest('stories', 'startDate')).slice(0, 4);
 
 const stats = [
   { value: stories.length, label: 'Gönüllü Hikayesi' },
@@ -91,7 +90,7 @@ const steps = [
           <div class="bg-brand-cream border-2 border-brand-ink overflow-hidden" style="box-shadow: 6px 6px 0 0 #6B4630;">
             <div class="relative bg-brand-cream">
               <img
-                src="/IMG_2840.PNG"
+                src="/IMG_2840.webp"
                 alt="KOZ-DER Erasmus+ ve ESC faaliyetleri"
                 class="block w-full h-auto"
                 onerror="this.onerror=null;this.src='/images/logo.png'"
@@ -220,7 +219,7 @@ const steps = [
   )}
 
   <!-- EVENTS -->
-  {recentEvents.length > 0 && (
+  {upcomingEvents.length > 0 && (
     <section class="py-16 sm:py-24 bg-brand-cream border-y-2 border-brand-ink">
       <div class="container mx-auto px-4">
         <header class="mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 reveal">
@@ -232,7 +231,7 @@ const steps = [
           </a>
         </header>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {recentEvents.map(event => (
+          {upcomingEvents.map(event => (
             <EventCard
               title={event.data.title_tr}
               date={event.data.date}
@@ -267,6 +266,34 @@ const steps = [
               date={post.data.date}
               tags={post.data.tags}
               slug={post.slug}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- NEWS -->
+  {recentNews.length > 0 && (
+    <section class="py-16 sm:py-24 bg-brand-cream border-y-2 border-brand-ink">
+      <div class="container mx-auto px-4">
+        <header class="mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 reveal">
+          <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink">
+            Son haberler.
+          </h2>
+          <a href="/haberler" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b-2 border-brand-ink pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+            Tüm haberler <span>→</span>
+          </a>
+        </header>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {recentNews.map(item => (
+            <NewsCard
+              title={item.data.title_tr}
+              date={item.data.date}
+              location={item.data.location}
+              coverImage={item.data.coverImage}
+              summary={item.data.summary_tr}
+              slug={item.slug}
             />
           ))}
         </div>

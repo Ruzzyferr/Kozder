@@ -4,11 +4,11 @@ programName: "Portekiz ESC Gönüllülüğü"
 country: "Portekiz"
 startDate: "13.04.2026"
 images:
-  - "/images/stories/ebru.jpeg"
-  - "/images/stories/ebru1.jpeg"
-  - "/images/stories/ebru2.jpeg"
-  - "/images/stories/ebru3.jpeg"
-  - "/images/stories/ebru4.jpeg"
+  - "/images/stories/ebru.webp"
+  - "/images/stories/ebru1.webp"
+  - "/images/stories/ebru2.webp"
+  - "/images/stories/ebru3.webp"
+  - "/images/stories/ebru4.webp"
 summary: "Portekiz’in Viana do Castelo şehrinde geçirdiğim 55 günlük ESC gönüllülük süreci; oyuncak tamiri, çocuklarla etkinlikler, kültürlerarası dostluklar, seyahatler ve kişisel gelişim açısından benim için unutulmaz bir deneyim oldu."
 featured: true
 ---
