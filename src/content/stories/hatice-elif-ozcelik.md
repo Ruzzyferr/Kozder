@@ -2,7 +2,7 @@
 name: "H. Elif ÖZÇELİK"
 programName: "İtalya Gönüllülük Deneyimi"
 country: "İtalya"
-startDate: "2026-04"
+startDate: "2026-04-10"
 images:
   - "/images/stories/haticelif.jpg"
   - "/images/stories/haticelif1.jpg"
@@ -10,7 +10,6 @@ images:
   - "/images/stories/haticelif3.jpg"
   - "/images/stories/haticelif4.jpg"
   - "/images/stories/haticelif5.jpg"
-  - "/images/stories/haticelif6.jpg"
 summary: "İtalya’nın Orta Nova kasabasında geçirdiğim gönüllülük süreci; kültürlerarası dostluklar, çevre çalışmaları, sanat, doğa ve kişisel dönüşüm açısından benim için çok özel bir deneyim oldu."
 featured: true
 ---
