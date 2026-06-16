@@ -11,7 +11,7 @@ import path from 'node:path';
  * module eval on a shallow/partial clone, but the prebuild script (plain shell,
  * after `git fetch --unshallow`) is, and the committed JSON is the fallback.
  *
- * Keys are `${collection}/${entryId}` (e.g. "stories/anil-asci.mdx"). Missing
+ * Keys are `${collection}/${entryId}` (e.g. "stories/anil-asci.md"). Missing
  * entries resolve to 0 so callers fall back to a date field / id.
  */
 

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "node scripts/optimize-images.mjs && node scripts/gen-added.mjs",
+    "prebuild": "node scripts/clean-content-cache.mjs && node scripts/optimize-images.mjs && node scripts/gen-added.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"

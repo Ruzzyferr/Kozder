@@ -39,8 +39,12 @@ for (const [collection, dir] of Object.entries(COLLECTION_DIRS)) {
     readdirSync(abs).filter(f => statSync(path.join(abs, f)).isFile())
   );
 
-  // Oldest commit touching each file = its creation time. No --diff-filter=A
-  // (merge commits break "A" attribution) and no --follow (needs blobs).
+  // Earliest known time wins (Math.min vs any value already in the manifest).
+  // No --diff-filter=A (merge commits break "A" attribution) and no --follow
+  // (needs blobs). Taking the min also preserves the original add-time across a
+  // file rename (e.g. .mdx -> .md): git would otherwise report the rename commit
+  // as the new path's oldest commit, but the committed manifest still holds the
+  // true first-added time, and min keeps it.
   let out = '';
   try {
     out = execSync(`git log --format=%ct --name-only -- "${dir}"`, {
@@ -57,7 +61,9 @@ for (const [collection, dir] of Object.entries(COLLECTION_DIRS)) {
     if (/^\d+$/.test(line)) { curTime = parseInt(line, 10); continue; }
     const id = line.slice(dir.length + 1);
     if (id && present.has(id)) {
-      times[`${collection}/${id}`] = curTime * 1000; // overwrite -> ends oldest
+      const key = `${collection}/${id}`;
+      const t = curTime * 1000;
+      times[key] = key in times ? Math.min(times[key], t) : t;
       gitOk = true;
     }
   }
