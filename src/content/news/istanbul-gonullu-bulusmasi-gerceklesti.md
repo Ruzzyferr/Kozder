@@ -1,11 +1,13 @@
 ---
 title_tr: "İstanbul Gönüllü Buluşmamız Gerçekleşti"
 title_en: "Our Istanbul Volunteer Meetup Took Place"
-date: "2026-06-09"
+date: "09.06.2026"
 location: "Espresso Lab Mecidiyeköy, İstanbul"
-coverImage: "/images/events/escbulusmasi.webp"
+coverImage: "/images/events/istanbul.jpeg"
 images:
   - "/images/events/escbulusmasi.webp"
+  - "/images/events/istanbul2.jpeg"
+  - "/images/events/istanbul.jpeg"
   - "/images/events/esc-gonullu-bulusmasi-2026.webp"
 summary_tr: "İstanbul'da gönüllülerimiz, eski katılımcılarımız ve yeni projelere ilgi duyan gençlerle bir araya geldik. ESC ve Erasmus+ deneyimlerini konuştuğumuz keyifli bir akşam oldu."
 summary_en: "In Istanbul we came together with our volunteers, alumni and young people interested in new projects — a lovely evening of sharing ESC and Erasmus+ experiences."
@@ -24,4 +26,3 @@ KOZ-DER olarak İstanbul'da düzenlediğimiz gönüllü buluşmasında, daha ön
 
 Buluşmamıza katılan ve enerjisini bizimle paylaşan herkese teşekkür ederiz. Bir sonraki buluşmada görüşmek üzere!
 
-> Bu bir örnek haber içeriğidir. Gerçek haberlerinizi eklerken bu dosyayı şablon olarak kullanabilirsiniz.
