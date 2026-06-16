@@ -1,8 +1,8 @@
 ---
 title_tr: "Speaking Club İlk Buluşmasını Yaptı"
 title_en: "Speaking Club Held Its First Session"
-date: "2026-04-12"
-location: "Online"
+date: "12.06.2026"
+location: "Dernek Merkezi"
 coverImage: "/images/events/speaking.jpeg"
 images:
   - "/images/events/kozder_speaking_club_banner_16x9.webp"
@@ -21,4 +21,3 @@ Gönüllülerimizin yurt dışı projelere daha hazır gitmesi için başlattı�
 
 İlgilenen herkesi bir sonraki oturuma bekliyoruz. Tarihler için etkinlikler ve duyurular sayfamızı takip edin.
 
-> Bu bir örnek haber içeriğidir. Gerçek haberlerinizi eklerken bu dosyayı şablon olarak kullanabilirsiniz.
