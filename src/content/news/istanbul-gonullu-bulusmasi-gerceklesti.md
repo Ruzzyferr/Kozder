@@ -6,9 +6,8 @@ location: "Espresso Lab Mecidiyeköy, İstanbul"
 coverImage: "/images/events/istanbul.jpeg"
 images:
   - "/images/events/escbulusmasi.webp"
-  - "/images/events/istanbul2.jpeg"
+  - "/images/events/istanbul1.jpeg"
   - "/images/events/istanbul.jpeg"
-  - "/images/events/esc-gonullu-bulusmasi-2026.webp"
 summary_tr: "İstanbul'da gönüllülerimiz, eski katılımcılarımız ve yeni projelere ilgi duyan gençlerle bir araya geldik. ESC ve Erasmus+ deneyimlerini konuştuğumuz keyifli bir akşam oldu."
 summary_en: "In Istanbul we came together with our volunteers, alumni and young people interested in new projects — a lovely evening of sharing ESC and Erasmus+ experiences."
 ---
