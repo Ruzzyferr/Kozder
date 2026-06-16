@@ -1,7 +1,7 @@
 ---
 title_tr: "Ankara Gönüllü Buluşması'ndan Kareler"
 title_en: "Highlights from the Ankara Volunteer Meetup"
-date: "2026-05-18"
+date: "05.06.2026"
 location: "Ankara"
 coverImage: "/images/events/ankara2.jpeg"
 images:
