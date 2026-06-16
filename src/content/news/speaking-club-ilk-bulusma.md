@@ -3,10 +3,10 @@ title_tr: "Speaking Club İlk Buluşmasını Yaptı"
 title_en: "Speaking Club Held Its First Session"
 date: "2026-04-12"
 location: "Online"
-coverImage: "/images/events/kozder_speaking_club_banner_16x9.webp"
+coverImage: "/images/events/speaking.jpeg"
 images:
   - "/images/events/kozder_speaking_club_banner_16x9.webp"
-  - "/images/events/kitap-kulubu.webp"
+  - "/images/events/speaking1.jpeg"
 summary_tr: "İngilizce pratik yapmak isteyen gönüllülerimiz için başlattığımız Speaking Club'ın ilk oturumu büyük ilgi gördü."
 summary_en: "The first session of our Speaking Club, launched for volunteers who want to practice English, drew great interest."
 ---
