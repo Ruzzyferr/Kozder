@@ -1,10 +1,10 @@
 ---
 title_tr: "Speaking Club"
 title_en: "Speaking Club"
-date: "2026-05-15"
+date: "19.06.2026"
 time: "20:00"
 location: "Kilis - Dernek Merkezi"
-coverImage: "/images/events/kozder_speaking_club_banner_16x9.webp"
+coverImage: "/images/events/speaking.jpeg"
 registrationUrl: "https://chat.whatsapp.com/L5sDZNQRGD94mnwk1iFJCT?mode=gi_t"
 ---
 
