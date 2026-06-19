@@ -1,7 +1,7 @@
 ---
 title_tr: "KOZ-DER Gönüllülerini Arıyor"
 title_en: "KOZ-DER is Looking for Volunteers"
-programType: "GONULLULUK"
+programType: "ERASMUS"
 year: 2026
 status: "Aktif"
 themes:
