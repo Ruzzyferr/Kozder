@@ -8,7 +8,7 @@ tags:
   - "Duyuru"
   - "Genclik"
 coverImage: "/images/events/kozdergonullu.png"
-applicationUrl: "https://kozder.com"
+applicationUrl: "(https://forms.gle/UHrDcqzVg6sTuAY5A)"
 applicationLabel: "Başvuru İçin"
 summary_tr: "KOZ-DER; sosyal medya, proje yazımı, proje yönetimi, etkinlik organizasyonu, paydaş iletişimi, tasarım ve teknoloji alanlarında gönüllülerini arıyor."
 summary_en: "KOZ-DER is looking for volunteers in social media, project writing, project management, event organization, stakeholder communication, design and technology."
@@ -62,6 +62,6 @@ Birlikte düşünüyor, birlikte üretiyor ve birlikte geleceği inşa ediyoruz.
 
 Gönüllü olmak isteyen gençler başvuru ve detaylı bilgi için web sitemizi ziyaret edebilir.
 
-Başvuru için [kozder.com](https://kozder.com) adresini ziyaret edebilirsiniz.
+Başvuru için [burdan](https://forms.gle/UHrDcqzVg6sTuAY5A) adresi ziyaret edebilirsiniz.
 
 **Sen de bu büyük ailenin bir parçası ol!**
