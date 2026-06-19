@@ -15,7 +15,7 @@ location: "Kilis / Online"
 startDate: "19.06.2026"
 endDate: "15.07.2026"
 coverImage: 
-applicationUrl: "https://kozder.com"
+applicationUrl: "https://forms.gle/UHrDcqzVg6sTuAY5A"
 applicationLabel: "Başvuru İçin"
 featured: true
 summary_tr: "KOZ-DER; sosyal medya, proje yazımı, proje yönetimi, etkinlik organizasyonu, paydaş iletişimi, tasarım, teknoloji ve inovasyon alanlarında gönüllülerini arıyor."
@@ -101,6 +101,6 @@ Birlikte düşünüyor, birlikte üretiyor ve birlikte geleceği inşa ediyoruz.
 
 KOZ-DER gönüllüsü olmak isteyen gençler başvuru ve detaylı bilgi için web sitemizi ziyaret edebilir.
 
-Başvuru için [kozder.com](https://kozder.com) adresini ziyaret edebilirsiniz.
+Başvuru için [kozder.com](https://forms.gle/UHrDcqzVg6sTuAY5A) adresini ziyaret edebilirsiniz.
 
 **Sen de bu büyük ailenin bir parçası ol!**
