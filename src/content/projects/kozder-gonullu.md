@@ -14,9 +14,9 @@ themes:
 location: "Kilis / Online"
 startDate: "19.06.2026"
 endDate: "15.07.2026"
-coverImage: 
+coverImage: "/images/projects/kozdergonullu.png"
 applicationUrl: "https://forms.gle/UHrDcqzVg6sTuAY5A"
-applicationLabel: "Başvuru İçin"
+applicationLabel: "Başvuru Formu"
 featured: true
 summary_tr: "KOZ-DER; sosyal medya, proje yazımı, proje yönetimi, etkinlik organizasyonu, paydaş iletişimi, tasarım, teknoloji ve inovasyon alanlarında gönüllülerini arıyor."
 summary_en: "KOZ-DER is looking for volunteers in social media, project writing, project management, event organization, stakeholder communication, design, technology and innovation."
