@@ -14,7 +14,7 @@ themes:
 location: "Kilis / Online"
 startDate: "19.06.2026"
 endDate: "15.07.2026"
-coverImage: "/images/projects/kozder-gonullu-cagrisi.png"
+coverImage: 
 applicationUrl: "https://kozder.com"
 applicationLabel: "Başvuru İçin"
 featured: true
