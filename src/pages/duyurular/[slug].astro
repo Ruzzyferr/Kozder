@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { formatEventDate } from '../../utils/date';
 import { articleSchema } from '../../utils/seo';
+import ShareBox from '../../components/ShareBox.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -54,6 +55,10 @@ const ld = articleSchema({
 
       <div class="prose-kozder bg-brand-cream border-2 border-brand-ink p-6 sm:p-12" style="box-shadow: 6px 6px 0 0 #6B4630;">
         <Content />
+      </div>
+
+      <div class="mt-10">
+        <ShareBox title={post.data.title_tr} url={url} />
       </div>
 
       <div class="mt-10 pt-8 border-t-2 border-brand-ink">

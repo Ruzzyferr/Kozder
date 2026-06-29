@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import { formatEventDate, formatEventTime } from '../../utils/date';
 import { buildEventStartDate, buildIcsString, googleCalendarUrl, isAllDay } from '../../utils/calendar';
 import { eventSchema } from '../../utils/seo';
+import ShareBox from '../../components/ShareBox.astro';
 
 export async function getStaticPaths() {
   const events = await getCollection('events');
@@ -187,32 +188,10 @@ const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 's
               </div>
             )}
 
-            <div class="bg-brand-cream border-2 border-brand-ink p-6">
-              <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">Paylaş</p>
-              <div class="grid grid-cols-3 gap-2">
-                <a href={`https://wa.me/?text=${encodeURIComponent(event.data.title_tr + ' ' + url)}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">WhatsApp</a>
-                <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(event.data.title_tr)}&url=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">X</a>
-                <button type="button" data-copy={url} class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">Link</button>
-              </div>
-              <p id="copy-toast" class="mt-3 text-xs font-bold uppercase tracking-wider text-brand-stamp hidden">Kopyalandı ✓</p>
-            </div>
+            <ShareBox title={event.data.title_tr} url={url} />
           </div>
         </aside>
       </div>
     </div>
   </article>
 </BaseLayout>
-
-<script>
-  document.querySelectorAll<HTMLButtonElement>('button[data-copy]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const text = btn.dataset.copy ?? '';
-      try {
-        await navigator.clipboard.writeText(text);
-        const toast = document.getElementById('copy-toast');
-        toast?.classList.remove('hidden');
-        setTimeout(() => toast?.classList.add('hidden'), 2000);
-      } catch {}
-    });
-  });
-</script>
