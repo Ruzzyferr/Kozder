@@ -13,13 +13,13 @@ themes:
 location: "Madan, Bulgaria"
 startDate: "12.08.2026"
 endDate: "22.08.2026"
-coverImage: "/images/projects/dont-just-scroll-take-control.webp"
+coverImage: "/images/projects/justcontrol.png"
 applicationUrl: "https://forms.gle/x17CQU7NSJbUDjuY7"
 applicationLabel: "Başvuru Formu"
 featured: true
 summary_tr: "Bulgaristan’ın Madan şehrinde gerçekleştirilecek bu Erasmus+ Training Course; gençlerin dijital dünyadaki pasif etkileşimden çıkarak demokratik katılım, medya okuryazarlığı ve aktif vatandaşlık alanlarında güçlenmesini hedefleyen uluslararası bir eğitim fırsatıdır."
 summary_en: "This Erasmus+ Training Course in Madan, Bulgaria focuses on democratic participation, media literacy and active citizenship, encouraging young people to move beyond passive online engagement and take an active role in civic life."
-infoPackUrl: "/files/infopack-dont-just-scroll-take-control.pdf"
+infoPackUrl: "https://drive.google.com/file/d/1WjdTfoN_gXSloh-3Z4UtPfkvAirgDiAG/view?usp=sharing"
 ---
 
 ## Proje Hakkında
