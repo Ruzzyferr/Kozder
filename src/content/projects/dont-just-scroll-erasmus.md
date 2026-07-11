@@ -3,7 +3,7 @@ title_tr: "DON’T JUST SCROLL, TAKE CONTROL"
 title_en: "Don’t Just Scroll, Take Control"
 programType: "ERASMUS"
 year: 2026
-status: "Aktif"
+status: "TAMAMLANDI"
 themes:
   - "democratic participation"
   - "media literacy"
