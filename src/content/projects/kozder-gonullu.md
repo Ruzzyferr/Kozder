@@ -93,7 +93,7 @@ Gönüllülük süreci hem yüz yüze hem de çevrim içi çalışmalarla yürü
 ## Önemli Notlar
 
 - Başvuru başlangıç tarihi: **19.06.2026**
-- Son başvuru tarihi: **15.07.2026**
+- Son başvuru tarihi: **15.10.2026**
 - Program türü: **Erasmus+ / Gençlik Çalışmaları**
 - Yer: **Kilis / Online**
 - Gönüllülük süreci yüz yüze ve çevrim içi olarak yürütülebilir
