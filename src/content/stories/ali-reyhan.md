@@ -13,7 +13,7 @@ images:
   - "/images/stories/alireyhan6.jpg"
   - "/images/stories/alireyhan7.jpg"
   - "/images/stories/alireyhan8.jpg"
-  - "/images/stories/alireyhan9.heif"
+  - "/images/stories/alireyhan9.jpg"
 summary: "Bulgaristan’ın Madan şehrinde Green World-2 ESC projesine katılan Ali Reyhan; çevre çalışmaları, köy faaliyetleri, kültürlerarası dostluklar ve gönüllülük deneyimiyle unutulmaz bir süreç yaşadı."
 featured: true
 ---
