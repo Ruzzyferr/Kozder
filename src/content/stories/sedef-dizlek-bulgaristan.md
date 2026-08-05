@@ -2,7 +2,7 @@
 name: "Sedef DİZLEK"
 programName: "Green World-2 ESC Gönüllülüğü"
 country: "Bulgaristan"
-startDate: "2026-05"
+startDate: "2026-05-04"
 images:
   - "/images/stories/sedefdizlek.jpeg"
   - "/images/stories/sedefdizlek1.jpeg"
