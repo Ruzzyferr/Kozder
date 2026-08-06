@@ -1,5 +1,5 @@
 ---
-name: "Berkan KURNAZ"
+name: "Berkay KURNAZ"
 programName: "Green World-2 ESC Gönüllülüğü"
 country: "Bulgaristan"
 startDate: "04.05.2026"
@@ -11,7 +11,7 @@ images:
   - "/images/stories/berkaykurnaz4.jpeg"
   - "/images/stories/berkaykurnaz5.jpeg"
   - "/images/stories/berkaykurnaz6.jpeg"
-summary: "Bulgaristan’ın Madan şehrinde Green World-2 ESC projesine katılan Berkan Kurnaz; çevre çalışmaları, köy faaliyetleri, kültürlerarası öğrenme, yeni dostluklar ve gönüllülük deneyimiyle unutulmaz bir iki ay geçirdi."
+summary: "Bulgaristan’ın Madan şehrinde Green World-2 ESC projesine katılan Berkay Kurnaz; çevre çalışmaları, köy faaliyetleri, kültürlerarası öğrenme, yeni dostluklar ve gönüllülük deneyimiyle unutulmaz bir iki ay geçirdi."
 featured: true
 ---
 
