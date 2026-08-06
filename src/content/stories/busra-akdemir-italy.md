@@ -2,7 +2,7 @@
 name: "Büşra AKDEMİR"
 programName: "İtalya ESC Gönüllülüğü"
 country: "İtalya"
-startDate: "2026-06-11"
+startDate: "11-06-2026"
 images:
   - "/images/stories/busra-akdemir.jpg"
   - "/images/stories/busra-akdemir1.jpg"
