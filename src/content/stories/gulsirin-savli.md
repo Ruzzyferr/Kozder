@@ -2,7 +2,7 @@
 name: "Gülşirin (Şirin) ŞAVLI"
 programName: "Bulgaristan ART EVS Gönüllülüğü"
 country: "Bulgaristan"
-startDate: "2026"
+startDate: "12.04.2026"
 images:
   - "/images/stories/gulsirin.jpeg"
   - "/images/stories/gulsirin1.jpeg"
