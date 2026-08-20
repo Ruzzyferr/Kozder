@@ -4,12 +4,12 @@ programName: "İtalya ESC Gönüllülüğü"
 country: "İtalya"
 startDate: "11-06-2026"
 images:
-  - "/images/stories/duru-beliz-celiker.jpg"
+  - "/images/stories/duru-beliz-celiker.JPG"
   - "/images/stories/duru-beliz-celiker1.jpg"
   - "/images/stories/duru-beliz-celiker2.jpg"
   - "/images/stories/duru-beliz-celiker3.jpg"
   - "/images/stories/duru-beliz-celiker4.jpg"
-  - "/images/stories/duru-beliz-celiker5.jpg"
+  - "/images/stories/duru-beliz-celiker5.JPG"
 summary: "İtalya’nın Treviso şehrinde ESC gönüllülük deneyimi yaşayan Duru Beliz Çeliker; çocuklarla İngilizce etkinlikleri, kültürlerarası öğrenme, seyahatler ve kişisel gelişim açısından unutulmaz bir süreç geçirdi."
 featured: true
 ---
