@@ -2,7 +2,7 @@
 name: "Beyza Nur ASLAN"
 programName: "Romanya ESC Gönüllülüğü"
 country: "Romanya"
-startDate: "2026"
+startDate: "13.06.2026"
 images:
   - "/images/stories/beyza-aslan.jpg"
   - "/images/stories/beyza-aslan1.jpg"
