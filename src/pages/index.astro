@@ -98,8 +98,8 @@ function dateParts(value: string) {
           <h1 class="font-display text-brand-ink leading-[0.88] tracking-tightest">
             <span class="block text-[3.4rem] sm:text-7xl xl:text-8xl font-black">Avrupa.</span>
             <span
-              class="block text-[3.4rem] sm:text-7xl xl:text-8xl font-black italic text-brand-walnut"
-              style="font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;"
+              class="block text-[3.4rem] sm:text-7xl xl:text-8xl font-black text-brand-stamp"
+              style="font-variation-settings: 'opsz' 96, 'wdth' 78;"
             >Gönüllü.</span>
             <span class="block text-[3.4rem] sm:text-7xl xl:text-8xl font-black">Sen.</span>
           </h1>
@@ -113,14 +113,14 @@ function dateParts(value: string) {
           <div class="mt-10 flex flex-col sm:flex-row gap-3">
             <a
               href="/projeler"
-              class="group inline-flex items-center justify-center gap-3 bg-brand-ink text-brand-cream hover:bg-brand-stamp px-7 py-4 text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300"
+              class="group inline-flex items-center justify-center gap-3 bg-brand-ink text-brand-cream hover:bg-brand-stamp px-7 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300"
             >
               Aktif Çağrıları Gör
               <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </a>
             <a
               href="/gonullu-hikayeleri"
-              class="inline-flex items-center justify-center gap-2 border border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-cream px-7 py-4 text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300"
+              class="inline-flex items-center justify-center gap-2 border border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-cream px-7 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300"
             >
               Hikayeleri Dinle
             </a>
@@ -128,7 +128,7 @@ function dateParts(value: string) {
         </div>
       </div>
 
-      <figure class="relative m-0 min-h-[330px] sm:min-h-[440px] lg:min-h-0">
+      <figure class="hero-media relative m-0 min-h-[340px] sm:min-h-[460px] lg:min-h-0 overflow-hidden lg:rounded-l-[32px]">
         <img
           src="/images/hero-bremen.jpg"
           alt="Bridges for Futures-2 projesi katılımcıları Bremen Hauptbahnhof önünde"
@@ -198,7 +198,7 @@ function dateParts(value: string) {
         </h2>
       </header>
 
-      <ol class="grid md:grid-cols-3 gap-px bg-line border-y border-line">
+      <ol class="grid md:grid-cols-3 gap-px bg-line border-y border-line stagger">
         {steps.map(step => (
           <li class="bg-brand-paper">
             <a href={step.href} class="group block h-full p-7 sm:p-9 hover:bg-brand-cream transition-colors duration-300">
@@ -233,7 +233,7 @@ function dateParts(value: string) {
           </a>
         </header>
 
-        <ul class="border-t border-line">
+        <ul class="border-t border-line stagger">
           {featuredProjects.map((project, i) => (
             <li class="border-b border-line">
               <a href={`/projeler/${project.slug}`} class="group grid grid-cols-12 items-center gap-x-4 sm:gap-x-6 gap-y-3 py-6 sm:py-7 transition-colors duration-300 hover:bg-brand-paper/70 -mx-3 px-3">
@@ -242,7 +242,7 @@ function dateParts(value: string) {
                 </span>
 
                 {project.data.coverImage ? (
-                  <span class="hidden sm:block sm:col-span-2 overflow-hidden bg-surface-muted aspect-[16/10]">
+                  <span class="hidden sm:block sm:col-span-2 overflow-hidden rounded-lg bg-surface-muted aspect-[16/10]">
                     <img
                       src={project.data.coverImage}
                       alt=""
@@ -292,7 +292,7 @@ function dateParts(value: string) {
           <div class="max-w-2xl">
             <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-stamp mb-5">Gönüllüler</p>
             <h2 class="font-display font-black text-4xl sm:text-5xl tracking-tightest leading-[1.02] text-brand-ink">
-              Sınırları aşan <span class="italic text-brand-walnut" style="font-variation-settings: 'opsz' 96, 'SOFT' 100;">yolculuklar.</span>
+              Sınırları aşan <span class="text-brand-stamp" style="font-variation-settings: 'opsz' 72, 'wdth' 80;">yolculuklar.</span>
             </h2>
           </div>
           <a href="/gonullu-hikayeleri" class="group inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-ink border-b border-brand-ink pb-1 py-2 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
@@ -304,7 +304,7 @@ function dateParts(value: string) {
       <div class="story-rail flex gap-5 overflow-x-auto pb-4 px-4 sm:pl-[max(1rem,calc((100vw-1280px)/2+1rem))]">
         {featuredStories.map(story => (
           <a href={`/gonullu-hikayeleri/${story.slug}`} class="group shrink-0 w-[62vw] sm:w-64 snap-start">
-            <div class="relative aspect-[3/4] overflow-hidden bg-surface-muted card">
+            <div class="relative aspect-[3/4] overflow-hidden bg-surface-muted card card-2">
               {story.data.images[0] ? (
                 <img
                   src={story.data.images[0]}
@@ -423,7 +423,7 @@ function dateParts(value: string) {
               <li class="border-b border-line">
                 <a href={`/haberler/${item.slug}`} class="group flex gap-4 py-5 transition-colors duration-300 hover:bg-brand-cream/70 -mx-3 px-3">
                   {item.data.coverImage && (
-                    <span class="shrink-0 w-24 sm:w-28 aspect-[4/3] overflow-hidden bg-surface-muted">
+                    <span class="shrink-0 w-24 sm:w-28 aspect-[4/3] overflow-hidden rounded-lg bg-surface-muted">
                       <img src={item.data.coverImage} alt="" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     </span>
                   )}
@@ -481,17 +481,17 @@ function dateParts(value: string) {
         <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-postage mb-7">Başla</p>
         <h2 class="font-display font-black text-4xl sm:text-6xl xl:text-7xl tracking-tightest leading-[0.95] text-brand-cream">
           Sıradaki hikaye<br />
-          <span class="italic text-brand-postage" style="font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;">senin olsun.</span>
+          <span class="text-brand-postage" style="font-variation-settings: 'opsz' 96, 'wdth' 78;">senin olsun.</span>
         </h2>
         <p class="mt-7 text-base sm:text-lg text-brand-cream/75 max-w-lg leading-relaxed">
           Sorularını yanıtlayalım, sana uygun çağrıyı birlikte bulalım — genellikle aynı gün dönüş yapıyoruz.
         </p>
         <div class="mt-11 flex flex-col sm:flex-row gap-3">
-          <a href="/iletisim" class="group inline-flex items-center justify-center gap-3 bg-brand-cream text-brand-ink hover:bg-brand-postage hover:text-brand-cream px-7 py-4 text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300">
+          <a href="/iletisim" class="group inline-flex items-center justify-center gap-3 bg-brand-cream text-brand-ink hover:bg-brand-postage hover:text-brand-cream px-7 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300">
             İletişim Formu
             <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>
-          <a href="https://wa.me/905511972997" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-brand-cream/40 text-brand-cream hover:border-brand-cream hover:bg-brand-cream hover:text-brand-ink px-7 py-4 text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300">
+          <a href="https://wa.me/905511972997" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-brand-cream/40 text-brand-cream hover:border-brand-cream hover:bg-brand-cream hover:text-brand-ink px-7 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300">
             WhatsApp ile Yaz
           </a>
         </div>

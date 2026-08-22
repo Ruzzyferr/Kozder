@@ -165,12 +165,12 @@ const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 's
                 <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">Takvime ekle</p>
                 <div class="space-y-2">
                   {gcalUrl && (
-                    <a href={gcalUrl} target="_blank" rel="noopener noreferrer" class="flex items-center justify-between border border-brand-ink/40 hover:border-brand-ink hover:bg-brand-paper px-4 py-2.5 transition-colors text-sm font-semibold text-brand-ink">
+                    <a href={gcalUrl} target="_blank" rel="noopener noreferrer" class="flex items-center justify-between border border-brand-ink/40 hover:border-brand-ink hover:bg-brand-paper px-4 py-2.5 rounded-full transition-colors text-sm font-semibold text-brand-ink">
                       Google Takvim <span>→</span>
                     </a>
                   )}
                   {icsDataUri && (
-                    <a href={icsDataUri} download={`${event.slug}.ics`} class="flex items-center justify-between border border-brand-ink/40 hover:border-brand-ink hover:bg-brand-paper px-4 py-2.5 transition-colors text-sm font-semibold text-brand-ink">
+                    <a href={icsDataUri} download={`${event.slug}.ics`} class="flex items-center justify-between border border-brand-ink/40 hover:border-brand-ink hover:bg-brand-paper px-4 py-2.5 rounded-full transition-colors text-sm font-semibold text-brand-ink">
                       Apple / Outlook (.ics) <span>↓</span>
                     </a>
                   )}

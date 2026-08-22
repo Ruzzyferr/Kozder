@@ -22,7 +22,7 @@ const ogImage = new URL(image, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#F5F1E7" />
+    <meta name="theme-color" content="#FBFBFA" />
     <meta name="generator" content={Astro.generator} />
     {noindex && <meta name="robots" content="noindex,nofollow" />}
 
@@ -50,7 +50,7 @@ const ogImage = new URL(image, Astro.site);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
 
@@ -65,6 +65,7 @@ const ogImage = new URL(image, Astro.site);
     </script>
   </head>
   <body class="min-h-screen flex flex-col bg-brand-paper text-ink antialiased font-body relative">
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 wash"></div>
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-brand-ink focus:text-brand-cream focus:rounded-none focus:border-2 focus:border-brand-cream focus:shadow-stampLg focus:outline-none"
@@ -84,235 +85,229 @@ const ogImage = new URL(image, Astro.site);
 
 <style is:global>
   :root {
-    --color-paper: #F5F1E7;
-    --color-cream: #FFFDF8;
-    --color-walnut: #6B4630;
-    --color-ink: #14100F;
-    --color-stamp: #9C2A1B;
+    --canvas: #FBFBFA;
+    --surface: #FFFFFF;
+    --sunken: #F3F3F1;
+    --ink: #0B0B0C;
+    --body: #4B4B54;
+    --muted: #7B7B85;
+    --accent: #E1442B;
 
-    /* Saç teli çizgiler — kalın mürekkep kenarlığın yerini alır */
-    --line-subtle: rgb(20 16 15 / 0.07);
-    --line: rgb(20 16 15 / 0.13);
-    --line-strong: rgb(20 16 15 / 0.26);
+    --line-subtle: rgb(11 11 12 / 0.06);
+    --line: rgb(11 11 12 / 0.10);
+    --line-strong: rgb(11 11 12 / 0.20);
 
-    /* Üç kademeli yumuşak yükseklik. Sert ofset gölge artık kullanılmıyor. */
-    --e1: 0 1px 2px rgb(20 16 15 / 0.04), 0 2px 8px -3px rgb(107 70 48 / 0.10);
-    --e2: 0 2px 4px rgb(20 16 15 / 0.04), 0 10px 26px -8px rgb(107 70 48 / 0.16);
-    --e3: 0 4px 10px rgb(20 16 15 / 0.05), 0 22px 54px -14px rgb(107 70 48 / 0.22);
+    /* Nötr, geniş, yumuşak. Kahve tonlu gölge yeni palette kirli duruyordu. */
+    --e1: 0 1px 2px rgb(11 11 12 / 0.04), 0 1px 3px rgb(11 11 12 / 0.05);
+    --e2: 0 2px 4px rgb(11 11 12 / 0.03), 0 10px 28px -8px rgb(11 11 12 / 0.10);
+    --e3: 0 4px 10px rgb(11 11 12 / 0.04), 0 28px 64px -16px rgb(11 11 12 / 0.16);
 
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --focus-ring: 0 0 0 2px #FFFDF8, 0 0 0 4px rgb(155 42 27 / 0.55);
+    --r-card: 18px;
+    --r-media: 14px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --focus-ring: 0 0 0 2px #FFFFFF, 0 0 0 4px rgb(225 68 43 / 0.6);
   }
 
-  /* Fraunces optik boyut ekseni: büyük puntoda display, küçükte metin kesimi */
-  .font-display {
-    font-variation-settings: 'opsz' 96;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
-    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'ss01' 1;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-  }
-
-  html {
-    scroll-behavior: smooth;
   }
 
   *:focus-visible {
     outline: none;
     box-shadow: var(--focus-ring);
-    border-radius: 3px;
+    border-radius: 8px;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-variation-settings: 'opsz' 72;
-    letter-spacing: -0.025em;
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+    letter-spacing: -0.035em;
   }
 
-  ::selection {
-    background: #6B4630;
-    color: #FFFDF8;
+  /* Büyük başlıklarda optik boyut + hafif daraltma: iri puntoda daha sıkı,
+     daha "editoryal" bir renk veriyor. */
+  .font-display {
+    font-variation-settings: 'opsz' 72, 'wdth' 92;
   }
 
-  /* ---- Yüzey sistemi -------------------------------------------------
-     Kartlar zeminden RENKLE değil IŞIKLA ayrılır: saç teli çizgi + yumuşak
-     gölge. `.card` sessiz varsayılan, `.card-2` öne çıkan yüzey. Eski sert
-     ofset gölge (`Npx Npx 0 0`) artık hiçbir yerde üretilmiyor. ------------ */
+  ::selection { background: var(--accent); color: #FFFFFF; }
+
+  /* ---- Yüzey sistemi ---------------------------------------------------- */
   .card {
-    /* Arka plan bilinçli olarak belirtilmiyor: kutucukların kendi bg-* sınıfı
-       (bg-brand-cream, bg-white) geçerli kalsın, sınıf sırası kazası olmasın. */
     border: 1px solid var(--line);
+    border-radius: var(--r-card);
     box-shadow: var(--e1);
-    transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease),
-      border-color 0.3s var(--ease);
+    overflow: hidden;
+    transition: box-shadow 0.35s var(--ease), transform 0.35s var(--ease),
+      border-color 0.35s var(--ease);
   }
   .card-2 { box-shadow: var(--e2); }
   .card-3 { box-shadow: var(--e3); }
 
-  /* Etkileşimli kartlar. Kalkış küçük tutuluyor; abartılı hareket ucuz durur. */
   .card-hover:hover {
     box-shadow: var(--e3);
-    transform: translateY(-3px);
-    border-color: var(--line-strong);
+    transform: translateY(-4px);
+    border-color: rgb(11 11 12 / 0.14);
   }
 
-  /* Koyu panel — bilinçli aksan. Kalın mürekkep kenarlığın hâlâ hak ettiği yer. */
   .panel-ink {
-    background: var(--color-ink);
-    color: var(--color-cream);
-    box-shadow: var(--e2);
+    background: var(--ink);
+    color: #FFFFFF;
+    border-radius: var(--r-card);
   }
 
   .hairline { border: 1px solid var(--line); }
   .hairline-t { border-top: 1px solid var(--line); }
   .hairline-b { border-bottom: 1px solid var(--line); }
 
-  /* İnce çift çizgi ayraç */
   .rule-double {
     border-top: 1px solid var(--line-strong);
-    border-bottom: 1px solid var(--line-subtle);
-    height: 3px;
+    border-bottom: 0;
+    height: 1px;
   }
 
-  /* Eski adlar yeni sisteme bağlandı */
   .lift { box-shadow: var(--e2); }
   .lift-stamp { box-shadow: var(--e1); }
   .stamp-ring { box-shadow: inset 0 0 0 1px currentColor; }
 
-  /* Scroll reveal — 20px'lik sıçrama fazla göze çarpıyordu */
+  /* Cam başlık */
+  .glass {
+    background: rgb(251 251 250 / 0.72);
+    backdrop-filter: saturate(180%) blur(16px);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+  }
+
+  /* Bölüm arkası renk yıkaması */
+  .wash {
+    background-image: radial-gradient(1100px 560px at 10% -12%, rgb(225 68 43 / 0.07), transparent 60%),
+      radial-gradient(880px 460px at 94% 6%, rgb(47 107 255 / 0.05), transparent 62%);
+  }
+
   .reveal {
     opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+    transform: translateY(14px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    transition-delay: var(--d, 0ms);
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* Izgara/liste çocuklarını sırayla getirir — tek seferde belirmek
+     "şablon" hissi veriyor, kademeli giriş elle kurulmuş izlenimi bırakıyor. */
+  .stagger > * {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    transition-delay: var(--d, 0ms);
+  }
+  .stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+
+  /* Hero görseli yavaşça yerine oturur */
+  @keyframes hero-in {
+    from { opacity: 0; transform: scale(1.06); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  .hero-media img {
+    animation: hero-in 1.4s var(--ease) both;
   }
 
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  /* Bağlantı altı çizgisi soldan açılır */
+  .link-sweep {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.45s var(--ease);
   }
+  .link-sweep:hover { background-size: 100% 1px; }
 
-  /* ---- Makale tipografisi (.prose-kozder) ---------------------------- */
+  /* ---- Makale tipografisi ---------------------------------------------- */
   .prose-kozder {
-    color: #4A403A;
+    color: var(--body);
     font-size: 1.0625rem;
     line-height: 1.75;
     font-family: 'Instrument Sans', system-ui, sans-serif;
   }
 
   .prose-kozder > p:first-of-type::first-letter {
-    font-family: 'Fraunces', Georgia, serif;
-    font-variation-settings: 'opsz' 144;
-    font-weight: 600;
-    font-size: 4rem;
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+    font-variation-settings: 'opsz' 96, 'wdth' 88;
+    font-weight: 700;
+    font-size: 3.6rem;
     line-height: 0.82;
     float: left;
-    padding: 0.32rem 0.7rem 0 0;
-    color: var(--color-walnut);
+    padding: 0.3rem 0.7rem 0 0;
+    color: var(--ink);
   }
 
   .prose-kozder p { margin-bottom: 1.25rem; }
 
-  /* Gövdede h1 kalmamalı (sayfa şablonu zaten bir tane üretiyor) ama
-     kaçarsa biçimsiz görünmesin. */
   .prose-kozder h1 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-variation-settings: 'opsz' 72;
-    font-size: 2.1rem;
-    font-weight: 700;
-    color: var(--color-ink);
-    margin: 2.5rem 0 1.1rem;
-    letter-spacing: -0.03em;
-    line-height: 1.12;
+    font-size: 2rem; font-weight: 700; color: var(--ink);
+    margin: 2.5rem 0 1rem; letter-spacing: -0.035em; line-height: 1.14;
   }
 
   .prose-kozder h2 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-variation-settings: 'opsz' 60;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     font-weight: 700;
-    color: var(--color-ink);
-    margin: 2.75rem 0 1.1rem;
-    padding-bottom: 0.7rem;
-    border-bottom: 1px solid var(--line);
-    letter-spacing: -0.028em;
+    color: var(--ink);
+    margin: 2.75rem 0 1rem;
+    padding-bottom: 0;
+    border-bottom: 0;
+    letter-spacing: -0.035em;
     line-height: 1.18;
   }
 
   .prose-kozder h3 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-variation-settings: 'opsz' 36;
-    font-size: 1.375rem;
-    font-weight: 600;
-    color: var(--color-ink);
-    margin: 2rem 0 0.7rem;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
+    font-size: 1.28rem; font-weight: 600; color: var(--ink);
+    margin: 2rem 0 0.65rem; letter-spacing: -0.028em; line-height: 1.28;
   }
 
-  .prose-kozder ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 1.25rem;
-  }
-
-  .prose-kozder ul li {
-    position: relative;
-    padding-left: 1.4rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Süslü yıldız yerine sessiz bir tire — dinamik aralığın parçası */
+  .prose-kozder ul { list-style: none; padding-left: 0; margin-bottom: 1.25rem; }
+  .prose-kozder ul li { position: relative; padding-left: 1.35rem; margin-bottom: 0.55rem; }
   .prose-kozder ul li::before {
     content: "";
     position: absolute;
-    left: 0;
-    top: 0.72em;
-    width: 0.6rem;
-    height: 1px;
-    background: var(--color-walnut);
-    opacity: 0.7;
+    left: 0; top: 0.66em;
+    width: 6px; height: 6px;
+    border-radius: 99px;
+    background: var(--accent);
   }
 
   .prose-kozder strong {
-    color: var(--color-ink);
+    color: var(--ink);
     font-weight: 600;
-    background: linear-gradient(transparent 62%, rgba(240,194,74,0.32) 62%);
+    background: none;
   }
 
   .prose-kozder a {
-    color: var(--color-ink);
+    color: var(--ink);
     text-decoration: underline;
-    text-decoration-color: var(--color-walnut);
+    text-decoration-color: var(--accent);
     text-underline-offset: 4px;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: 1.5px;
     font-weight: 500;
-    transition: color 0.2s var(--ease), text-decoration-color 0.2s var(--ease);
+    transition: color 0.25s var(--ease);
   }
-
-  .prose-kozder a:hover {
-    color: var(--color-stamp);
-    text-decoration-color: var(--color-stamp);
-  }
+  .prose-kozder a:hover { color: var(--accent); }
 
   .prose-kozder blockquote {
-    border-left: 2px solid var(--color-walnut);
-    padding: 0.4rem 0 0.4rem 1.5rem;
+    border-left: 2px solid var(--accent);
+    padding: 0.2rem 0 0.2rem 1.4rem;
     margin: 2rem 0;
     background: none;
     font-style: normal;
-    font-family: 'Fraunces', Georgia, serif;
-    font-variation-settings: 'opsz' 32, 'SOFT' 60;
-    font-size: 1.2rem;
-    line-height: 1.55;
-    color: var(--color-ink);
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+    font-variation-settings: 'opsz' 32, 'wdth' 95;
+    font-size: 1.22rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--ink);
   }
 
-  /* Backwards-compat for any pages still using modern-content */
-  .modern-content {
-    color: #4A403A;
-  }
+  .modern-content { color: var(--body); }
 
   /* Marquee */
   /* Keyframe'i burada tanımlıyoruz: Tailwind config'deki `marquee-x` sadece
@@ -390,19 +385,39 @@ const ogImage = new URL(image, Astro.site);
 </style>
 
 <script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
   );
 
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-  });
+  function init() {
+    const items = document.querySelectorAll('.reveal, .stagger');
+    if (reduce) {
+      items.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+    items.forEach((el) => {
+      // Kademeli grupların çocuklarına artan gecikme ver
+      if (el.classList.contains('stagger')) {
+        [...el.children].forEach((child, i) => {
+          child.style.setProperty('--d', `${Math.min(i, 8) * 70}ms`);
+        });
+      }
+      observer.observe(el);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 </script>

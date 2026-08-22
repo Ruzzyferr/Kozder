@@ -81,7 +81,7 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
       </div>
     </form>
 
-    <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+    <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 stagger">
       {projects.map((project) => (
         <div
           class="project-item"

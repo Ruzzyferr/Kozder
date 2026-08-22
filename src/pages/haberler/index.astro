@@ -22,7 +22,7 @@ const news = newsRaw.sort(byNewest('news', 'date'));
 
   <div class="container mx-auto px-4 py-12 sm:py-16">
     {news.length > 0 ? (
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 stagger">
         {news.map((item) => (
           <NewsCard
             title={item.data.title_tr}
