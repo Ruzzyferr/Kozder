@@ -53,7 +53,7 @@ const ld = articleSchema({
         )}
       </header>
 
-      <div class="prose-kozder bg-brand-cream border-2 border-brand-ink p-6 sm:p-12" style="box-shadow: 6px 6px 0 0 #6B4630;">
+      <div class="prose-kozder bg-brand-cream p-6 sm:p-12 card card-2">
         <Content />
       </div>
 
@@ -63,8 +63,7 @@ const ld = articleSchema({
             href={post.data.applicationUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="block bg-brand-ink text-brand-cream border-2 border-brand-ink hover:bg-brand-stamp p-5 transition-colors"
-            style="box-shadow: 5px 5px 0 0 #6B4630;"
+            class="block bg-brand-ink text-brand-cream hover:bg-brand-stamp p-5 transition-colors card card-2"
           >
             <p class="font-display font-black text-2xl flex items-center justify-between">
               {post.data.applicationLabel ?? 'Başvuru Yap'} <span>→</span>
@@ -77,7 +76,7 @@ const ld = articleSchema({
         <ShareBox title={post.data.title_tr} url={url} />
       </div>
 
-      <div class="mt-10 pt-8 border-t-2 border-brand-ink">
+      <div class="mt-10 pt-8 border-t border-line">
         <a href="/duyurular" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-brand-ink hover:text-brand-stamp transition-colors">
           ← Tüm duyurular
         </a>

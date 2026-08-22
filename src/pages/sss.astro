@@ -29,7 +29,7 @@ const ld = faqSchema(faqs.map(f => ({ question: f.q, answer: f.a })));
   />
 
   <div class="container mx-auto px-4 py-12 sm:py-20 max-w-4xl">
-    <div class="border-2 border-brand-ink bg-brand-cream divide-y-2 divide-brand-ink" style="box-shadow: 6px 6px 0 0 #6B4630;">
+    <div class="bg-brand-cream divide-y divide-line card card-2">
       {faqs.map((f, i) => (
         <details class="group">
           <summary class="cursor-pointer list-none flex items-start justify-between gap-6 p-5 sm:p-7 hover:bg-brand-paper transition-colors">
@@ -37,7 +37,7 @@ const ld = faqSchema(faqs.map(f => ({ question: f.q, answer: f.a })));
               <span class="font-display font-black text-3xl sm:text-4xl text-brand-walnut leading-none tracking-tightest">{String(i + 1).padStart(2, '0')}</span>
               <h2 class="font-display font-bold text-lg sm:text-xl text-brand-ink leading-snug tracking-tight pt-1">{f.q}</h2>
             </div>
-            <span class="flex-shrink-0 w-9 h-9 border-2 border-brand-ink bg-brand-cream group-hover:bg-brand-ink group-hover:text-brand-cream text-brand-ink flex items-center justify-center transition-all group-open:rotate-45 font-mono text-lg font-bold">+</span>
+            <span class="flex-shrink-0 w-9 h-9 border border-brand-ink bg-brand-cream group-hover:bg-brand-ink group-hover:text-brand-cream text-brand-ink flex items-center justify-center transition-all group-open:rotate-45 font-mono text-lg font-bold">+</span>
           </summary>
           <div class="px-5 sm:px-7 pb-6 sm:pb-7 sm:pl-[6.5rem] text-ink-soft leading-relaxed font-body">
             {f.a}
@@ -46,12 +46,12 @@ const ld = faqSchema(faqs.map(f => ({ question: f.q, answer: f.a })));
       ))}
     </div>
 
-    <div class="mt-14 bg-brand-ink text-brand-cream border-2 border-brand-ink p-8 sm:p-12 text-center" style="box-shadow: 6px 6px 0 0 #6B4630;">
+    <div class="mt-14 bg-brand-ink text-brand-cream p-8 sm:p-12 text-center card card-2">
       <h3 class="font-display font-black text-3xl sm:text-4xl tracking-tightest leading-none mb-3">Cevabını bulamadın mı?</h3>
       <p class="text-brand-cream mb-8 max-w-md mx-auto">Sorularını WhatsApp veya e-posta üzerinden ilet — genellikle aynı gün dönüş yapıyoruz.</p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <a href="https://wa.me/905511972997" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-brand-cream text-brand-ink hover:bg-brand-stamp hover:text-brand-cream px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">WhatsApp →</a>
-        <a href="mailto:bilgi@kozder.com" class="inline-flex items-center justify-center gap-2 border-2 border-brand-cream text-brand-cream hover:bg-brand-cream hover:text-brand-ink px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">E-posta →</a>
+        <a href="mailto:bilgi@kozder.com" class="inline-flex items-center justify-center gap-2 border border-brand-cream text-brand-cream hover:bg-brand-cream hover:text-brand-ink px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">E-posta →</a>
       </div>
     </div>
   </div>

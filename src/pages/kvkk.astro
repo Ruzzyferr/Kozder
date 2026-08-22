@@ -104,7 +104,6 @@ const sections: Section[] = [
     ],
     bullets: [
       'Vercel — sitenin barındırılması ve çerez kullanmayan, kişiyi tanımlamayan toplu ziyaret istatistikleri (Vercel Analytics)',
-      'hits.sh — sayfa altındaki ziyaretçi sayacı; sayaç görselini yüklerken IP adresiniz ve tarayıcı bilginiz bu servise iletilir',
       'Google Maps — yalnızca İletişim sayfasındaki harita; haritayı görüntülediğinizde IP adresiniz Google\'a iletilir',
     ],
     after: [
@@ -165,7 +164,7 @@ const sections: Section[] = [
       Son güncelleme · {lastUpdated}
     </p>
 
-    <div class="border-2 border-brand-ink bg-brand-cream divide-y-2 divide-brand-ink" style="box-shadow: 6px 6px 0 0 #6B4630;">
+    <div class="bg-brand-cream divide-y divide-line card card-2">
       {sections.map((section, i) => (
         <section class="p-6 sm:p-10">
           <div class="flex items-baseline gap-4 mb-5">
@@ -199,7 +198,7 @@ const sections: Section[] = [
       ))}
     </div>
 
-    <div class="mt-10 bg-brand-ink text-brand-cream border-2 border-brand-ink p-7 sm:p-9" style="box-shadow: 6px 6px 0 0 #6B4630;">
+    <div class="mt-10 bg-brand-ink text-brand-cream p-7 sm:p-9 card card-2">
       <h2 class="font-display font-black text-2xl sm:text-3xl tracking-tightest leading-none mb-3">
         KVKK talebiniz mi var?
       </h2>

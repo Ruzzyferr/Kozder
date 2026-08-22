@@ -22,7 +22,7 @@ const ogImage = new URL(image, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#6B4630" />
+    <meta name="theme-color" content="#F5F1E7" />
     <meta name="generator" content={Astro.generator} />
     {noindex && <meta name="robots" content="noindex,nofollow" />}
 
@@ -50,7 +50,7 @@ const ogImage = new URL(image, Astro.site);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
 
@@ -84,12 +84,35 @@ const ogImage = new URL(image, Astro.site);
 
 <style is:global>
   :root {
-    --color-paper: #F4ECD8;
-    --color-cream: #FFFBF1;
+    --color-paper: #F5F1E7;
+    --color-cream: #FFFDF8;
     --color-walnut: #6B4630;
-    --color-ink: #231C1C;
+    --color-ink: #14100F;
     --color-stamp: #9C2A1B;
-    --focus-ring: 0 0 0 3px rgb(155 42 27 / 0.35);
+
+    /* Saç teli çizgiler — kalın mürekkep kenarlığın yerini alır */
+    --line-subtle: rgb(20 16 15 / 0.07);
+    --line: rgb(20 16 15 / 0.13);
+    --line-strong: rgb(20 16 15 / 0.26);
+
+    /* Üç kademeli yumuşak yükseklik. Sert ofset gölge artık kullanılmıyor. */
+    --e1: 0 1px 2px rgb(20 16 15 / 0.04), 0 2px 8px -3px rgb(107 70 48 / 0.10);
+    --e2: 0 2px 4px rgb(20 16 15 / 0.04), 0 10px 26px -8px rgb(107 70 48 / 0.16);
+    --e3: 0 4px 10px rgb(20 16 15 / 0.05), 0 22px 54px -14px rgb(107 70 48 / 0.22);
+
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --focus-ring: 0 0 0 2px #FFFDF8, 0 0 0 4px rgb(155 42 27 / 0.55);
+  }
+
+  /* Fraunces optik boyut ekseni: büyük puntoda display, küçükte metin kesimi */
+  .font-display {
+    font-variation-settings: 'opsz' 96;
+  }
+
+  body {
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   html {
@@ -99,43 +122,70 @@ const ogImage = new URL(image, Astro.site);
   *:focus-visible {
     outline: none;
     box-shadow: var(--focus-ring);
-    border-radius: 2px;
+    border-radius: 3px;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: 'opsz' 72;
+    letter-spacing: -0.025em;
   }
 
   ::selection {
     background: #6B4630;
-    color: #FFFBF1;
+    color: #FFFDF8;
   }
 
-  /* Postcard rule — thin double line divider */
+  /* ---- Yüzey sistemi -------------------------------------------------
+     Kartlar zeminden RENKLE değil IŞIKLA ayrılır: saç teli çizgi + yumuşak
+     gölge. `.card` sessiz varsayılan, `.card-2` öne çıkan yüzey. Eski sert
+     ofset gölge (`Npx Npx 0 0`) artık hiçbir yerde üretilmiyor. ------------ */
+  .card {
+    /* Arka plan bilinçli olarak belirtilmiyor: kutucukların kendi bg-* sınıfı
+       (bg-brand-cream, bg-white) geçerli kalsın, sınıf sırası kazası olmasın. */
+    border: 1px solid var(--line);
+    box-shadow: var(--e1);
+    transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease),
+      border-color 0.3s var(--ease);
+  }
+  .card-2 { box-shadow: var(--e2); }
+  .card-3 { box-shadow: var(--e3); }
+
+  /* Etkileşimli kartlar. Kalkış küçük tutuluyor; abartılı hareket ucuz durur. */
+  .card-hover:hover {
+    box-shadow: var(--e3);
+    transform: translateY(-3px);
+    border-color: var(--line-strong);
+  }
+
+  /* Koyu panel — bilinçli aksan. Kalın mürekkep kenarlığın hâlâ hak ettiği yer. */
+  .panel-ink {
+    background: var(--color-ink);
+    color: var(--color-cream);
+    box-shadow: var(--e2);
+  }
+
+  .hairline { border: 1px solid var(--line); }
+  .hairline-t { border-top: 1px solid var(--line); }
+  .hairline-b { border-bottom: 1px solid var(--line); }
+
+  /* İnce çift çizgi ayraç */
   .rule-double {
-    border-top: 1px solid #231C1C;
-    border-bottom: 1px solid #231C1C;
-    height: 4px;
+    border-top: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line-subtle);
+    height: 3px;
   }
 
-  /* Editorial drop shadow lifts off the page */
-  .lift {
-    box-shadow: 0 1px 0 0 rgba(35,28,28,0.4), 6px 6px 0 0 rgba(107,70,48,0.18);
-  }
+  /* Eski adlar yeni sisteme bağlandı */
+  .lift { box-shadow: var(--e2); }
+  .lift-stamp { box-shadow: var(--e1); }
+  .stamp-ring { box-shadow: inset 0 0 0 1px currentColor; }
 
-  .lift-stamp {
-    box-shadow: 4px 4px 0 0 #231C1C;
-  }
-
-  /* Inverse stamp ring */
-  .stamp-ring {
-    box-shadow: inset 0 0 0 2px currentColor;
-  }
-
+  /* Scroll reveal — 20px'lik sıçrama fazla göze çarpıyordu */
   .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transform: translateY(8px);
+    transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
   }
 
   .reveal.is-visible {
@@ -143,48 +193,49 @@ const ogImage = new URL(image, Astro.site);
     transform: translateY(0);
   }
 
-  /* Article typography (used inside .prose-kozder) */
+  /* ---- Makale tipografisi (.prose-kozder) ---------------------------- */
   .prose-kozder {
-    color: #3F3530;
-    font-size: 1.05rem;
+    color: #4A403A;
+    font-size: 1.0625rem;
     line-height: 1.75;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Instrument Sans', system-ui, sans-serif;
   }
 
   .prose-kozder > p:first-of-type::first-letter {
     font-family: 'Fraunces', Georgia, serif;
-    font-weight: 700;
-    font-size: 4.25rem;
-    line-height: 0.85;
+    font-variation-settings: 'opsz' 144;
+    font-weight: 600;
+    font-size: 4rem;
+    line-height: 0.82;
     float: left;
-    padding: 0.3rem 0.75rem 0 0;
-    color: #6B4630;
+    padding: 0.32rem 0.7rem 0 0;
+    color: var(--color-walnut);
   }
 
-  .prose-kozder p {
-    margin-bottom: 1.25rem;
-  }
+  .prose-kozder p { margin-bottom: 1.25rem; }
 
   .prose-kozder h2 {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 2.125rem;
-    font-weight: 800;
-    color: #161110;
-    margin: 2.75rem 0 1.25rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid #161110;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
+    font-variation-settings: 'opsz' 60;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin: 2.75rem 0 1.1rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--line);
+    letter-spacing: -0.028em;
+    line-height: 1.18;
   }
 
   .prose-kozder h3 {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #161110;
-    margin: 2rem 0 0.75rem;
-    letter-spacing: -0.01em;
-    line-height: 1.2;
+    font-variation-settings: 'opsz' 36;
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 2rem 0 0.7rem;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
   }
 
   .prose-kozder ul {
@@ -195,51 +246,59 @@ const ogImage = new URL(image, Astro.site);
 
   .prose-kozder ul li {
     position: relative;
-    padding-left: 1.75rem;
+    padding-left: 1.4rem;
     margin-bottom: 0.5rem;
   }
 
+  /* Süslü yıldız yerine sessiz bir tire — dinamik aralığın parçası */
   .prose-kozder ul li::before {
-    content: "✦";
+    content: "";
     position: absolute;
     left: 0;
-    top: 0;
-    color: #6B4630;
-    font-weight: 700;
+    top: 0.72em;
+    width: 0.6rem;
+    height: 1px;
+    background: var(--color-walnut);
+    opacity: 0.7;
   }
 
   .prose-kozder strong {
-    color: #231C1C;
-    font-weight: 700;
-    background: linear-gradient(transparent 60%, rgba(247,197,72,0.4) 60%);
+    color: var(--color-ink);
+    font-weight: 600;
+    background: linear-gradient(transparent 62%, rgba(240,194,74,0.32) 62%);
   }
 
   .prose-kozder a {
-    color: #6B4630;
+    color: var(--color-ink);
     text-decoration: underline;
+    text-decoration-color: var(--color-walnut);
     text-underline-offset: 4px;
     text-decoration-thickness: 1px;
-    font-weight: 600;
+    font-weight: 500;
+    transition: color 0.2s var(--ease), text-decoration-color 0.2s var(--ease);
   }
 
   .prose-kozder a:hover {
-    color: #9C2A1B;
+    color: var(--color-stamp);
+    text-decoration-color: var(--color-stamp);
   }
 
   .prose-kozder blockquote {
-    border-left: 4px solid #6B4630;
-    padding: 0.75rem 1.5rem;
+    border-left: 2px solid var(--color-walnut);
+    padding: 0.4rem 0 0.4rem 1.5rem;
     margin: 2rem 0;
-    background: rgba(247,197,72,0.12);
-    font-style: italic;
+    background: none;
+    font-style: normal;
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 1.15rem;
-    color: #231C1C;
+    font-variation-settings: 'opsz' 32, 'SOFT' 60;
+    font-size: 1.2rem;
+    line-height: 1.55;
+    color: var(--color-ink);
   }
 
   /* Backwards-compat for any pages still using modern-content */
   .modern-content {
-    color: #3F3530;
+    color: #4A403A;
   }
 
   /* Marquee */

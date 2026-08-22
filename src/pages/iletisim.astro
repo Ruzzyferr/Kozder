@@ -25,7 +25,7 @@ const channels = [
       <div class="lg:col-span-7">
         <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tightest text-brand-ink mb-8 leading-none">Bize ulaş.</h2>
 
-        <div class="grid sm:grid-cols-2 gap-0 border-2 border-brand-ink mb-8">
+        <div class="grid sm:grid-cols-2 gap-0 border border-brand-ink mb-8">
           {channels.map((c, i) => (
             <a
               href={c.href}
@@ -42,7 +42,7 @@ const channels = [
           ))}
         </div>
 
-        <div class="bg-brand-ink text-brand-cream border-2 border-brand-ink p-6 sm:p-8" style="box-shadow: 5px 5px 0 0 #6B4630;">
+        <div class="bg-brand-ink text-brand-cream p-6 sm:p-8 card card-2">
           <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-postage mb-2">Posta Adresi</p>
           <address class="not-italic font-display text-2xl text-brand-cream leading-snug">
             Kazım Karabekir Mahallesi<br/>
@@ -55,7 +55,7 @@ const channels = [
       <div class="lg:col-span-5">
         <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tightest text-brand-ink mb-8 leading-none">Bizi bul.</h2>
 
-        <div class="border-2 border-brand-ink overflow-hidden bg-brand-cream" style="box-shadow: 6px 6px 0 0 #6B4630;">
+        <div class="overflow-hidden bg-brand-cream card card-2">
           <div style="height: 460px;">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25589.311481315584!2d37.06849013486292!3d36.70661280185717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152fcfe799ba80e3%3A0x3a77b95cb782f824!2sGen%C3%A7lik%20Zeka%20Oyunlar%C4%B1%20ve%20Kodlama%20Derne%C4%9Fi!5e0!3m2!1str!2str!4v1766867201155!5m2!1str!2str"
@@ -68,7 +68,7 @@ const channels = [
               title="KOZ-DER konumu"
             ></iframe>
           </div>
-          <div class="px-4 py-3 border-t-2 border-brand-ink bg-brand-cream text-right">
+          <div class="px-4 py-3 border-t border-line bg-brand-cream text-right">
             <a href="https://www.google.com/maps/search/?api=1&query=Kazım+Karabekir+İstiklal+Caddesi+No33D+Kilis" target="_blank" rel="noopener noreferrer" class="text-sm font-bold uppercase tracking-wider text-brand-ink hover:text-brand-stamp transition-colors">Maps'te aç →</a>
           </div>
         </div>
