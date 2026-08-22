@@ -4,9 +4,9 @@ title_en: "ESC 2026 Call for Applications"
 date: "2026"
 tags:
   - "ESC"
-  - "Basvuru"
+  - "Başvuru"
   - "Duyuru"
-summary_tr: "ESC 2026 dönemi için gönüllü başvuruları açıldı. Son basvuru tarihi ve temel koşullar projeler sayfasındadır."
+summary_tr: "ESC 2026 dönemi için gönüllü başvuruları açıldı. Son başvuru tarihi ve temel koşullar projeler sayfasındadır."
 summary_en: "Applications are now open for ESC 2026. This announcement includes the deadline and basic requirements."
 ---
 

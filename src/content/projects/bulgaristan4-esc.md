@@ -5,17 +5,19 @@ programType: "ESC"
 year: 2026
 status: "Tamamlandı"
 themes:
-  - "Genclik"
-  - "Çevre Temizliği"
-  - "Zeka Oyunlari ve Kodlama Dernegi"
+  - "youth work"
+  - "volunteering"
+  - "environment"
+  - "intelligence games"
+  - "robotics and coding"
 location: "Madan, Bulgaria"
 startDate: "04.05.2026"
 endDate: "29.06.2026"
 coverImage: "/images/projects/bulgaristan4-esc.webp"
 applicationUrl: "https://turnaportal.ua.gov.tr/bireysel/basvurulist?ilanGuidId=58d1fe7b-b51b-429c-a22a-03f99cc7dd24&ilanGuidAnahtar=d1670505-4f42-49b5-8f48-71a4ecd75c7b"
 featured: true
-summary_tr: "An ESC project offering young people aged 18–30 experience in digital skills, environmental clean-up, and intelligence games."
-summary_en: "An ESC project providing mentorship on digital skills, career planning, and volunteering for young people aged 18-30."
+summary_tr: "Bulgaristan’ın Madan şehrinde gerçekleşen bu ESC projesinde iki gönüllü, iki ay boyunca zeka oyunları atölyeleri, robotik kodlama etkinlikleri, çevre temizliği ve yaygın eğitim çalışmalarında görev aldı."
+summary_en: "In this ESC project in Madan, Bulgaria, two volunteers spent two months running intelligence-game workshops, robotics and coding activities, environmental clean-ups and non-formal education work."
 ---
 
 ## Proje Hakkında
