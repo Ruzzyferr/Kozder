@@ -76,7 +76,7 @@ const steps = [
   description="Erasmus+ ve ESC projeleriyle gençlerin Avrupa'da gönüllülük, eğitim ve dayanışma deneyimi yaşamasını destekleyen sivil toplum kuruluşu."
 >
   <!-- HERO -->
-  <section class="relative bg-brand-paper border-b-2 border-brand-ink overflow-hidden">
+  <section class="relative bg-brand-paper border-b border-line overflow-hidden">
     <div class="container mx-auto px-4 pt-12 sm:pt-20 pb-16 sm:pb-20 relative">
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         <div class="lg:col-span-7 reveal">
@@ -99,14 +99,14 @@ const steps = [
               Aktif Çağrıları Gör
               <span>→</span>
             </a>
-            <a href="/gonullu-hikayeleri" class="inline-flex items-center justify-center gap-2 border-2 border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-cream px-7 py-4 text-sm font-bold uppercase tracking-[0.12em] font-heading transition-colors">
+            <a href="/gonullu-hikayeleri" class="inline-flex items-center justify-center gap-2 border border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-cream px-7 py-4 text-sm font-bold uppercase tracking-[0.12em] font-heading transition-colors">
               Hikayeleri Dinle
             </a>
           </div>
         </div>
 
         <div class="lg:col-span-5 reveal">
-          <div class="bg-brand-cream border-2 border-brand-ink overflow-hidden" style="box-shadow: 6px 6px 0 0 #6B4630;">
+          <div class="bg-brand-cream overflow-hidden card card-2">
             <div class="relative bg-brand-cream">
               <img
                 src="/IMG_2840.webp"
@@ -124,7 +124,7 @@ const steps = [
   </section>
 
   <!-- STATS -->
-  <section class="bg-brand-ink text-brand-cream border-b-2 border-brand-ink">
+  <section class="bg-brand-ink text-brand-cream border-b border-line">
     <div class="container mx-auto px-4 py-10 sm:py-12">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 sm:gap-y-0 divide-y md:divide-y-0 md:divide-x divide-brand-cream/30">
         {stats.map((s, i) => (
@@ -138,7 +138,7 @@ const steps = [
   </section>
 
   <!-- AĞLAR & PAYDAŞLAR -->
-  <section class="bg-brand-cream border-b-2 border-brand-ink py-12 sm:py-16" aria-labelledby="aglar-paydaslar">
+  <section class="bg-brand-cream border-b border-line py-12 sm:py-16" aria-labelledby="aglar-paydaslar">
     <h2 id="aglar-paydaslar" class="sr-only">Üyesi olduğumuz ağlar ve paydaşlarımız</h2>
     <div class="space-y-9 sm:space-y-11">
       {affiliationRows.map(row => (
@@ -174,7 +174,7 @@ const steps = [
         </p>
       </header>
 
-      <div class="grid md:grid-cols-3 border-2 border-brand-ink bg-brand-cream divide-y md:divide-y-0 md:divide-x divide-brand-ink">
+      <div class="grid md:grid-cols-3 border border-brand-ink bg-brand-cream divide-y md:divide-y-0 md:divide-x divide-line">
         {steps.map(step => (
           <a href={step.href} class="group p-8 sm:p-10 hover:bg-brand-paper transition-colors reveal">
             <span class="font-display font-black text-7xl sm:text-8xl text-brand-ink leading-none tracking-tightest group-hover:text-brand-stamp transition-colors block mb-6">{step.n}</span>
@@ -192,13 +192,13 @@ const steps = [
 
   <!-- FEATURED PROJECTS -->
   {featuredProjects.length > 0 && (
-    <section class="py-16 sm:py-24 bg-brand-cream border-y-2 border-brand-ink">
+    <section class="py-16 sm:py-24 bg-brand-cream border-y border-line">
       <div class="container mx-auto px-4">
         <header class="mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 reveal">
           <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink">
             Aktif Projeler.
           </h2>
-          <a href="/projeler" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b-2 border-brand-ink pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+          <a href="/projeler" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b border-line pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
             Tüm projeler <span>→</span>
           </a>
         </header>
@@ -227,7 +227,7 @@ const steps = [
           <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink">
             Sınırları aşan <span class="italic text-brand-walnut" style="font-variation-settings: 'SOFT' 100;">yolculuklar.</span>
           </h2>
-          <a href="/gonullu-hikayeleri" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b-2 border-brand-ink pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+          <a href="/gonullu-hikayeleri" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b border-line pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
             Tüm hikayeler <span>→</span>
           </a>
         </header>
@@ -235,8 +235,8 @@ const steps = [
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {featuredStories.map((story, i) => (
             <a href={`/gonullu-hikayeleri/${story.slug}`} class="group block reveal">
-              <article class="relative bg-brand-cream border-2 border-brand-ink transition-all duration-300 hover:-translate-y-1 hover:translate-x-0.5" style="box-shadow: 5px 5px 0 0 #6B4630;">
-                <div class="relative aspect-[4/5] bg-surface-muted overflow-hidden border-b-2 border-brand-ink">
+              <article class="relative bg-brand-cream transition-all duration-300 hover:-translate-y-1 hover:translate-x-0.5 card card-2">
+                <div class="relative aspect-[4/5] bg-surface-muted overflow-hidden border-b border-line">
                   {story.data.images[0] ? (
                     <img
                       src={story.data.images[0]}
@@ -264,13 +264,13 @@ const steps = [
 
   <!-- EVENTS -->
   {homeEvents.length > 0 && (
-    <section class="py-16 sm:py-24 bg-brand-cream border-y-2 border-brand-ink">
+    <section class="py-16 sm:py-24 bg-brand-cream border-y border-line">
       <div class="container mx-auto px-4">
         <header class="mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 reveal">
           <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink">
             {showingUpcoming ? 'Yaklaşan etkinlikler.' : 'Etkinliklerimizden.'}
           </h2>
-          <a href="/etkinlikler" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b-2 border-brand-ink pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+          <a href="/etkinlikler" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b border-line pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
             Tüm etkinlikler <span>→</span>
           </a>
         </header>
@@ -299,7 +299,7 @@ const steps = [
           <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink">
             Son duyurular.
           </h2>
-          <a href="/duyurular" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b-2 border-brand-ink pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+          <a href="/duyurular" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b border-line pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
             Tüm duyurular <span>→</span>
           </a>
         </header>
@@ -320,13 +320,13 @@ const steps = [
 
   <!-- NEWS -->
   {recentNews.length > 0 && (
-    <section class="py-16 sm:py-24 bg-brand-cream border-y-2 border-brand-ink">
+    <section class="py-16 sm:py-24 bg-brand-cream border-y border-line">
       <div class="container mx-auto px-4">
         <header class="mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 reveal">
           <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink">
             Son haberler.
           </h2>
-          <a href="/haberler" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b-2 border-brand-ink pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+          <a href="/haberler" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b border-line pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
             Tüm haberler <span>→</span>
           </a>
         </header>
@@ -348,7 +348,7 @@ const steps = [
   )}
 
   <!-- CTA -->
-  <section class="py-20 bg-brand-ink text-brand-cream border-t-2 border-brand-ink relative overflow-hidden">
+  <section class="py-20 bg-brand-ink text-brand-cream border-t border-line relative overflow-hidden">
     <div class="container mx-auto px-4 text-center reveal">
       <h2 class="font-display font-black text-4xl sm:text-5xl md:text-7xl tracking-tightest leading-[0.95] text-brand-cream">
         Sıradaki hikaye<br/>
@@ -361,7 +361,7 @@ const steps = [
         <a href="/iletisim" class="inline-flex items-center justify-center gap-2 bg-brand-cream text-brand-ink hover:bg-brand-stamp hover:text-brand-cream px-7 py-4 text-sm font-bold uppercase tracking-[0.15em] font-heading transition-all">
           İletişim Formu <span>→</span>
         </a>
-        <a href="https://wa.me/905511972997" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border-2 border-brand-cream text-brand-cream hover:bg-brand-cream hover:text-brand-ink px-7 py-4 text-sm font-bold uppercase tracking-[0.15em] font-heading transition-colors">
+        <a href="https://wa.me/905511972997" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-brand-cream text-brand-cream hover:bg-brand-cream hover:text-brand-ink px-7 py-4 text-sm font-bold uppercase tracking-[0.15em] font-heading transition-colors">
           WhatsApp ile Yaz
         </a>
       </div>

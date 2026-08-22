@@ -16,9 +16,9 @@ const formattedDate = formatEventDate(date);
 ---
 
 <a href={`/haberler/${slug}`} class="block group h-full">
-  <article class="relative h-full bg-brand-cream border-2 border-brand-ink transition-all duration-300 hover:-translate-y-1 hover:translate-x-0.5 flex flex-col" style="box-shadow: 4px 4px 0 0 #6B4630;">
+  <article class="relative h-full bg-brand-cream transition-all duration-300 hover:-translate-y-1 hover:translate-x-0.5 flex flex-col card">
     {coverImage && (
-      <div class="relative aspect-[3/2] bg-surface-muted overflow-hidden border-b-2 border-brand-ink">
+      <div class="relative aspect-[3/2] bg-surface-muted overflow-hidden border-b border-line">
         <img
           src={coverImage}
           alt={title}

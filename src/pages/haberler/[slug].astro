@@ -38,7 +38,7 @@ const galleryImages = item.data.images.filter(src => src !== item.data.coverImag
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
         <div class="lg:col-span-8">
           {item.data.coverImage && (
-            <div class="bg-brand-cream border-2 border-brand-ink overflow-hidden mb-10" style="box-shadow: 6px 6px 0 0 #6B4630;">
+            <div class="bg-brand-cream overflow-hidden mb-10 card card-2">
               <img
                 src={item.data.coverImage}
                 alt={item.data.title_tr}
@@ -80,7 +80,7 @@ const galleryImages = item.data.images.filter(src => src !== item.data.coverImag
             </div>
           </header>
 
-          <div class="prose-kozder bg-brand-cream border-2 border-brand-ink p-6 sm:p-10" style="box-shadow: 5px 5px 0 0 #6B4630;">
+          <div class="prose-kozder bg-brand-cream p-6 sm:p-10 card card-2">
             <Content />
           </div>
 
@@ -92,7 +92,7 @@ const galleryImages = item.data.images.filter(src => src !== item.data.coverImag
               <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                 {galleryImages.map((src) => (
                   <a href={src} target="_blank" rel="noopener noreferrer" class="block group">
-                    <div class="relative aspect-square bg-surface-muted overflow-hidden border-2 border-brand-ink" style="box-shadow: 3px 3px 0 0 #6B4630;">
+                    <div class="relative aspect-square bg-surface-muted overflow-hidden card">
                       <img
                         src={src}
                         alt={item.data.title_tr}
@@ -109,7 +109,7 @@ const galleryImages = item.data.images.filter(src => src !== item.data.coverImag
 
         <aside class="lg:col-span-4">
           <div class="sticky top-28 space-y-5">
-            <div class="bg-brand-cream border-2 border-brand-ink divide-y-2 divide-brand-ink" style="box-shadow: 5px 5px 0 0 #6B4630;">
+            <div class="bg-brand-cream divide-y divide-line card card-2">
               <div class="p-5">
                 <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Tarih</p>
                 <p class="font-display font-bold text-xl text-brand-ink leading-snug">{formattedDate}</p>

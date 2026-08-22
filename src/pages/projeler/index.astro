@@ -35,7 +35,7 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
 
   <div class="container mx-auto px-4 py-12 sm:py-16">
 
-    <div class="bg-brand-cream border-2 border-brand-ink p-5 sm:p-6 mb-10" style="box-shadow: 5px 5px 0 0 #6B4630;">
+    <div class="bg-brand-cream p-5 sm:p-6 mb-10 card card-2">
       <div class="flex items-center justify-between mb-4 pb-3 border-b border-brand-ink/15">
         <h2 class="font-display font-bold text-lg text-brand-ink">Filtrele</h2>
         <button id="reset-filters" class="text-xs font-bold uppercase tracking-wider text-brand-walnut hover:text-brand-stamp transition-colors">Sıfırla ↻</button>
@@ -94,7 +94,7 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
       ))}
     </div>
 
-    <div id="no-results" class="hidden text-center py-16 bg-brand-cream border-2 border-brand-ink">
+    <div id="no-results" class="hidden text-center py-16 bg-brand-cream border border-brand-ink">
       <p class="font-display text-2xl text-brand-ink">Aradığın kriterlere uygun proje bulunamadı.</p>
       <p class="text-sm text-ink-soft mt-2">Filtreleri sıfırlamayı dene.</p>
     </div>

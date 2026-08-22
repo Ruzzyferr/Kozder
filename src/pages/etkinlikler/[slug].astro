@@ -87,7 +87,7 @@ const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 's
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
         <div class="lg:col-span-8">
           {event.data.coverImage && (
-            <div class="bg-brand-cream border-2 border-brand-ink overflow-hidden mb-10" style="box-shadow: 6px 6px 0 0 #6B4630;">
+            <div class="bg-brand-cream overflow-hidden mb-10 card card-2">
               <img
                 src={event.data.coverImage}
                 alt={event.data.title_tr}
@@ -131,14 +131,14 @@ const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 's
             </div>
           </header>
 
-          <div class="prose-kozder bg-brand-cream border-2 border-brand-ink p-6 sm:p-10" style="box-shadow: 5px 5px 0 0 #6B4630;">
+          <div class="prose-kozder bg-brand-cream p-6 sm:p-10 card card-2">
             <Content />
           </div>
         </div>
 
         <aside class="lg:col-span-4">
           <div class="sticky top-28 space-y-5">
-            <div class="bg-brand-cream border-2 border-brand-ink divide-y-2 divide-brand-ink" style="box-shadow: 5px 5px 0 0 #6B4630;">
+            <div class="bg-brand-cream divide-y divide-line card card-2">
               <div class="p-5">
                 <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Tarih</p>
                 <p class="font-display font-bold text-xl text-brand-ink leading-snug">{formattedDate}</p>
@@ -160,8 +160,7 @@ const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 's
                 href={event.data.registrationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block bg-brand-stamp text-brand-cream hover:bg-brand-ink border-2 border-brand-ink p-5 transition-colors"
-                style="box-shadow: 5px 5px 0 0 #231C1C;"
+                class="block bg-brand-stamp text-brand-cream hover:bg-brand-ink p-5 transition-colors card card-2"
               >
                 <p class="font-display font-black text-2xl leading-none tracking-tight flex items-center justify-between">
                   Kayıt Ol
@@ -171,7 +170,7 @@ const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 's
             )}
 
             {(gcalUrl || icsDataUri) && (
-              <div class="bg-brand-cream border-2 border-brand-ink p-6">
+              <div class="bg-brand-cream border border-brand-ink p-6">
                 <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">Takvime ekle</p>
                 <div class="space-y-2">
                   {gcalUrl && (

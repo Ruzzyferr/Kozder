@@ -34,8 +34,8 @@ const getInitials = (name: string) => {
             class="group block reveal"
             style={`transition-delay: ${index * 60}ms`}
           >
-            <article class="relative bg-brand-cream border-2 border-brand-ink transition-all duration-300 hover:-translate-y-1 hover:translate-x-0.5" style="box-shadow: 5px 5px 0 0 #6B4630;">
-              <div class="relative aspect-[4/5] bg-surface-muted overflow-hidden border-b-2 border-brand-ink">
+            <article class="relative bg-brand-cream transition-all duration-300 hover:-translate-y-1 hover:translate-x-0.5 card card-2">
+              <div class="relative aspect-[4/5] bg-surface-muted overflow-hidden border-b border-line">
                 {story.data.images[0] ? (
                   <img
                     src={story.data.images[0]}

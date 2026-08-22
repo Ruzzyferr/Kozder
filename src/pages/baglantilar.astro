@@ -84,7 +84,7 @@ const groups: LinkGroup[] = [
             <span class="h-px flex-1 bg-brand-ink/20"></span>
           </header>
 
-          <ul class="border-2 border-brand-ink bg-brand-cream divide-y-2 divide-brand-ink" style="box-shadow: 6px 6px 0 0 #6B4630;">
+          <ul class="bg-brand-cream divide-y divide-line card card-2">
             {group.items.map(item => (
               <li>
                 <a
@@ -100,7 +100,7 @@ const groups: LinkGroup[] = [
                     <span class="block text-sm text-ink-soft leading-snug mt-1">{item.desc}</span>
                   </span>
                   <span
-                    class="flex-shrink-0 w-9 h-9 border-2 border-brand-ink bg-brand-cream group-hover:bg-brand-ink group-hover:text-brand-cream text-brand-ink flex items-center justify-center transition-colors font-mono text-lg font-bold"
+                    class="flex-shrink-0 w-9 h-9 border border-brand-ink bg-brand-cream group-hover:bg-brand-ink group-hover:text-brand-cream text-brand-ink flex items-center justify-center transition-colors font-mono text-lg font-bold"
                     aria-hidden="true"
                   >
                     {item.external ? '↗' : '→'}
@@ -113,7 +113,7 @@ const groups: LinkGroup[] = [
       ))}
     </div>
 
-    <div class="mt-14 sm:mt-20 bg-brand-ink text-brand-cream border-2 border-brand-ink p-8 sm:p-10 text-center reveal" style="box-shadow: 6px 6px 0 0 #6B4630;">
+    <div class="mt-14 sm:mt-20 bg-brand-ink text-brand-cream p-8 sm:p-10 text-center reveal card card-2">
       <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tightest leading-none mb-3">
         Aklında bir soru mu var?
       </h2>
@@ -124,7 +124,7 @@ const groups: LinkGroup[] = [
         <a href="https://wa.me/905511972997" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-brand-cream text-brand-ink hover:bg-brand-stamp hover:text-brand-cream px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">
           WhatsApp →
         </a>
-        <a href="/iletisim" class="inline-flex items-center justify-center gap-2 border-2 border-brand-cream text-brand-cream hover:bg-brand-cream hover:text-brand-ink px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">
+        <a href="/iletisim" class="inline-flex items-center justify-center gap-2 border border-brand-cream text-brand-cream hover:bg-brand-cream hover:text-brand-ink px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">
           İletişim Formu →
         </a>
       </div>

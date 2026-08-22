@@ -40,7 +40,7 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
           </p>
         </div>
         <div class="lg:col-span-3 lg:text-right">
-          <div class="inline-block border-2 border-brand-ink p-4 bg-brand-cream lift">
+          <div class="inline-block border border-brand-ink p-4 bg-brand-cream lift">
             <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Program</p>
             <p class="font-display font-bold text-lg text-brand-ink leading-tight">{story.data.programName}</p>
             <p class="text-xs font-bold uppercase tracking-wider text-brand-walnut mt-2">{formatEventDate(story.data.startDate)}</p>
@@ -52,11 +52,11 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
     <div class="container mx-auto px-4 pb-20">
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
         <div class="lg:col-span-8">
-          <div class="prose-kozder bg-brand-cream border-2 border-brand-ink p-6 sm:p-10" style="box-shadow: 5px 5px 0 0 #6B4630;">
+          <div class="prose-kozder bg-brand-cream p-6 sm:p-10 card card-2">
             <Content />
           </div>
 
-          <div class="mt-10 pt-8 border-t-2 border-brand-ink flex items-center justify-between">
+          <div class="mt-10 pt-8 border-t border-line flex items-center justify-between">
             <a href="/gonullu-hikayeleri" class="text-sm font-bold uppercase tracking-wider text-brand-ink hover:text-brand-stamp transition-colors">
               ← Diğer hikayeler
             </a>
@@ -70,14 +70,14 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
           <div class="sticky top-28 space-y-6">
             {story.data.images.length > 0 && (
               <div>
-                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-4 pb-3 border-b-2 border-brand-ink">Deneyimden kareler</p>
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-4 pb-3 border-b border-line">Deneyimden kareler</p>
                 <div class="grid grid-cols-2 gap-3">
                   {story.data.images.map((img, idx) => (
                     <a
                       href={img}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class={`group block relative border-2 border-brand-ink overflow-hidden bg-brand-cream ${idx === 0 ? 'col-span-2 aspect-[4/3]' : 'aspect-square'}`}
+                      class={`group block relative border border-brand-ink overflow-hidden bg-brand-cream ${idx === 0 ? 'col-span-2 aspect-[4/3]' : 'aspect-square'}`}
                     >
                       <img
                         src={img}

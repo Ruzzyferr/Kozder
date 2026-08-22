@@ -59,7 +59,7 @@ const past = events
           ))}
         </div>
       ) : (
-        <div class="bg-brand-cream border-2 border-brand-ink p-8 sm:p-10" style="box-shadow: 6px 6px 0 0 #6B4630;">
+        <div class="bg-brand-cream p-8 sm:p-10 card card-2">
           <p class="font-display font-bold text-xl sm:text-2xl text-brand-ink leading-snug">
             Şu an takvimde açık bir etkinlik yok.
           </p>
@@ -70,7 +70,7 @@ const past = events
             <a href="/projeler" class="inline-flex items-center justify-center gap-2 bg-brand-ink text-brand-cream hover:bg-brand-stamp px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">
               Aktif Çağrılar →
             </a>
-            <a href="https://www.instagram.com/kozder2018" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border-2 border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-cream px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">
+            <a href="https://www.instagram.com/kozder2018" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-cream px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">
               Instagram'da Takip Et ↗
             </a>
           </div>
@@ -105,7 +105,7 @@ const past = events
     )}
 
     {events.length === 0 && (
-      <div class="text-center py-16 bg-brand-cream border-2 border-brand-ink" style="box-shadow: 6px 6px 0 0 #6B4630;">
+      <div class="text-center py-16 bg-brand-cream card card-2">
         <p class="font-display font-bold text-xl text-brand-ink">Henüz etkinlik eklenmemiş. Yakında burada olacak!</p>
       </div>
     )}
