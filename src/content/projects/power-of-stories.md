@@ -1,5 +1,5 @@
 ---
-title_tr: "THE POWER OF STORIES"
+title_tr: "The Power of Stories"
 title_en: "The Power of Stories"
 programType: "ERASMUS"
 year: 2026

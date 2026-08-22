@@ -28,13 +28,20 @@ const featuredProjects = projects
   })
   .slice(0, 3);
 
-// Homepage "Yaklaşan etkinlikler": soonest upcoming events first.
+// Etkinlik bölümü: yaklaşan varsa onlar (tarihi en yakın önce), yoksa bölüm
+// tamamen kaybolmasın diye en son yapılan etkinlikler gösterilir.
 const todayMidnight = new Date();
 todayMidnight.setHours(0, 0, 0, 0);
 const upcomingEvents = events
   .filter(e => getEventDateSortKey(e.data.date) >= todayMidnight.getTime())
   .sort((a, b) => getEventDateSortKey(a.data.date) - getEventDateSortKey(b.data.date))
   .slice(0, 3);
+const pastEvents = events
+  .filter(e => getEventDateSortKey(e.data.date) < todayMidnight.getTime())
+  .sort((a, b) => getEventDateSortKey(b.data.date) - getEventDateSortKey(a.data.date))
+  .slice(0, 3);
+const showingUpcoming = upcomingEvents.length > 0;
+const homeEvents = showingUpcoming ? upcomingEvents : pastEvents;
 
 const recentPosts = [...posts].sort(byNewest('posts', 'date')).slice(0, 3);
 // Öne çıkarılmış haberler anasayfada başa sabitlenir, kalanı yeniden eskiye.
@@ -256,19 +263,19 @@ const steps = [
   )}
 
   <!-- EVENTS -->
-  {upcomingEvents.length > 0 && (
+  {homeEvents.length > 0 && (
     <section class="py-16 sm:py-24 bg-brand-cream border-y-2 border-brand-ink">
       <div class="container mx-auto px-4">
         <header class="mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 reveal">
           <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink">
-            Yaklaşan etkinlikler.
+            {showingUpcoming ? 'Yaklaşan etkinlikler.' : 'Etkinliklerimizden.'}
           </h2>
           <a href="/etkinlikler" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-brand-ink border-b-2 border-brand-ink pb-1 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
             Tüm etkinlikler <span>→</span>
           </a>
         </header>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {upcomingEvents.map(event => (
+          {homeEvents.map(event => (
             <EventCard
               title={event.data.title_tr}
               date={event.data.date}
@@ -276,6 +283,7 @@ const steps = [
               location={event.data.location}
               coverImage={event.data.coverImage}
               slug={event.slug}
+              past={!showingUpcoming}
             />
           ))}
         </div>

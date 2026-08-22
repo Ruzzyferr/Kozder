@@ -1,5 +1,5 @@
 ---
-title_tr: "DON’T JUST SCROLL, TAKE CONTROL"
+title_tr: "Don’t Just Scroll, Take Control"
 title_en: "Don’t Just Scroll, Take Control"
 programType: "ERASMUS"
 year: 2026

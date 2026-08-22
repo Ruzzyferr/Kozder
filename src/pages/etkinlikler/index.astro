@@ -4,19 +4,21 @@ import EventCard from '../../components/EventCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import { getEventDateSortKey } from '../../utils/date';
-import { byNewest } from '../../utils/contentSort';
 
 const events = (await getCollection('events')).filter(e => !e.data.draft);
 const todayMidnight = new Date();
 todayMidnight.setHours(0, 0, 0, 0);
 
-// "Yaklaşan etkinlikler": only upcoming, soonest event date first.
+const isUpcoming = (date: string) => getEventDateSortKey(date) >= todayMidnight.getTime();
+
+// Yaklaşanlar tarihi en yakın olan önce, geçmişler en yeni olan önce.
 const upcoming = events
-  .filter(e => getEventDateSortKey(e.data.date) >= todayMidnight.getTime())
+  .filter(e => isUpcoming(e.data.date))
   .sort((a, b) => getEventDateSortKey(a.data.date) - getEventDateSortKey(b.data.date));
 
-// "Tüm etkinlikler": every event, newest-added first.
-const allEvents = [...events].sort(byNewest('events', 'date'));
+const past = events
+  .filter(e => !isUpcoming(e.data.date))
+  .sort((a, b) => getEventDateSortKey(b.data.date) - getEventDateSortKey(a.data.date));
 ---
 
 <BaseLayout
@@ -31,14 +33,19 @@ const allEvents = [...events].sort(byNewest('events', 'date'));
 
   <div class="container mx-auto px-4 py-12 sm:py-16">
 
-    {upcoming.length > 0 && (
-      <section class="mb-16">
-        <header class="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
-          <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tightest text-brand-ink leading-none">
-            Yaklaşan etkinlikler.
-          </h2>
-          <p class="text-sm font-semibold uppercase tracking-[0.15em] text-brand-walnut">Tarihi en yakın olan önce · {upcoming.length}</p>
-        </header>
+    <section class="mb-16">
+      <header class="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+        <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tightest text-brand-ink leading-none">
+          Yaklaşan etkinlikler.
+        </h2>
+        {upcoming.length > 0 && (
+          <p class="text-sm font-semibold uppercase tracking-[0.15em] text-brand-walnut">
+            Tarihi en yakın olan önce · {upcoming.length}
+          </p>
+        )}
+      </header>
+
+      {upcoming.length > 0 ? (
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {upcoming.map(event => (
             <EventCard
@@ -51,19 +58,38 @@ const allEvents = [...events].sort(byNewest('events', 'date'));
             />
           ))}
         </div>
-      </section>
-    )}
+      ) : (
+        <div class="bg-brand-cream border-2 border-brand-ink p-8 sm:p-10" style="box-shadow: 6px 6px 0 0 #6B4630;">
+          <p class="font-display font-bold text-xl sm:text-2xl text-brand-ink leading-snug">
+            Şu an takvimde açık bir etkinlik yok.
+          </p>
+          <p class="mt-3 text-ink-soft leading-relaxed max-w-xl">
+            Yeni buluşmaları ilk sen duy: sosyal medyadan takip et ya da aktif proje çağrılarımıza göz at.
+          </p>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a href="/projeler" class="inline-flex items-center justify-center gap-2 bg-brand-ink text-brand-cream hover:bg-brand-stamp px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">
+              Aktif Çağrılar →
+            </a>
+            <a href="https://www.instagram.com/kozder2018" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border-2 border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-cream px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">
+              Instagram'da Takip Et ↗
+            </a>
+          </div>
+        </div>
+      )}
+    </section>
 
-    {allEvents.length > 0 ? (
+    {past.length > 0 && (
       <section>
         <header class="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
           <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tightest text-brand-ink leading-none">
-            Tüm etkinlikler.
+            Geçmiş etkinlikler.
           </h2>
-          <p class="text-sm font-semibold uppercase tracking-[0.15em] text-brand-walnut">En son eklenen önce · {allEvents.length}</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.15em] text-brand-walnut">
+            En yeniden eskiye · {past.length}
+          </p>
         </header>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {allEvents.map(event => (
+          {past.map(event => (
             <EventCard
               title={event.data.title_tr}
               date={event.data.date}
@@ -71,13 +97,16 @@ const allEvents = [...events].sort(byNewest('events', 'date'));
               location={event.data.location}
               coverImage={event.data.coverImage}
               slug={event.slug}
+              past
             />
           ))}
         </div>
       </section>
-    ) : (
-      <div class="text-center py-16 bg-brand-cream border-2 border-brand-ink">
-        <p class="text-ink-muted text-lg">Henüz etkinlik eklenmemiş. Yakında burada olacak!</p>
+    )}
+
+    {events.length === 0 && (
+      <div class="text-center py-16 bg-brand-cream border-2 border-brand-ink" style="box-shadow: 6px 6px 0 0 #6B4630;">
+        <p class="font-display font-bold text-xl text-brand-ink">Henüz etkinlik eklenmemiş. Yakında burada olacak!</p>
       </div>
     )}
   </div>

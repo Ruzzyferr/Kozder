@@ -1,5 +1,5 @@
 ---
-title_tr: "TECH FOR INCLUSION"
+title_tr: "Tech for Inclusion"
 title_en: "Tech for Inclusion"
 programType: "ERASMUS"
 year: 2026

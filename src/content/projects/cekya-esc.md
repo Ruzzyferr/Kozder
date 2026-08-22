@@ -1,5 +1,5 @@
 ---
-title_tr: "YEŞİL PASAPORTLU ESC KATILIMCISI ARANIYOR"
+title_tr: "Yeşil Pasaportlu ESC Katılımcısı Aranıyor"
 title_en: "ESC Participants with Green Passport Wanted"
 programType: "ESC"
 year: 2026

@@ -3,7 +3,7 @@ title_tr: "KOZ-DER, Young European Shapers Ağına Dahil Oldu"
 title_en: "KOZ-DER Joined the Young European Shapers Network"
 date: "21.08.2026"
 category: "Kurumsal Haber"
-coverImage: "/images/news/YES.png"
+coverImage: "/images/news/yes-kozder-kapak.png"
 summary_tr: "KOZ-DER olarak gençlerin Avrupa düzeyinde daha güçlü temsil edilmesini destekleyen Young European Shapers ağına dahil olduk."
 summary_en: "As KOZ-DER, we have joined the Young European Shapers network, which supports stronger youth representation and participation at the European level."
 featured: true
