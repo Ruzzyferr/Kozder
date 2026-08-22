@@ -14,9 +14,10 @@ const sortedPosts = posts.sort(byNewest('posts', 'date'));
   description="KOZ-DER'den son duyurular, çağrılar ve haberler."
 >
   <Breadcrumb
+    kicker="Duyurular"
     items={[{ label: 'Ana Sayfa', href: '/' }, { label: 'Duyurular', href: '/duyurular' }]}
-    pageTitle="Duyurular"
-    intro="Yeni çağrılar, başvuru tarihleri ve dernekten güncel haberler."
+    pageTitle="Yeni çağrılar."
+    intro="Başvuru tarihleri ve dernekten güncel duyurular."
   />
 
   <div class="container mx-auto px-4 py-12 sm:py-16">

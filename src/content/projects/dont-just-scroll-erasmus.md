@@ -14,6 +14,7 @@ location: "Madan, Bulgaria"
 startDate: "12.08.2026"
 endDate: "22.08.2026"
 coverImage: "/images/projects/justcontrol.png"
+coverFit: "contain"
 applicationUrl: "https://forms.gle/x17CQU7NSJbUDjuY7"
 applicationLabel: "Başvuru Formu"
 featured: true

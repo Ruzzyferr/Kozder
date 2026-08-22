@@ -13,6 +13,7 @@ location: "Madan, Bulgaria"
 startDate: "29.06.2026"
 endDate: "23.08.2026"
 coverImage: "/images/projects/bulgaria-5-esc.webp"
+coverFit: "contain"
 applicationUrl: "https://turnaportal.ua.gov.tr/bireysel/basvurulist?ilanGuidId=cea86ce8-bdfb-4309-89da-2ac345c4ef84&ilanGuidAnahtar=5800567c-625c-4219-8e52-bfd5f8d9ded8"
 applicationLabel: "Başvuru Formu"
 featured: true

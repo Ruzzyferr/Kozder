@@ -13,6 +13,7 @@ location: "Puck, Poland"
 startDate: "13.04.2026"
 endDate: "21.04.2026"
 coverImage: "/images/projects/powerofstories.webp"
+coverFit: "contain"
 applicationUrl: "mailto:bilgi@kozder.com"
 applicationLabel: "Başvuru Yap"
 featured: true

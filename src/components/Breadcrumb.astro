@@ -6,26 +6,31 @@ interface Props {
   items: Array<{ label: string; href: string }>;
   pageTitle?: string;
   intro?: string;
+  /** Başlığın üstünde küçük bölüm etiketi */
+  kicker?: string;
 }
 
-const { items, pageTitle, intro } = Astro.props;
+const { items, pageTitle, intro, kicker } = Astro.props;
 const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const ld = breadcrumbSchema(items.map(i => ({ name: i.label, url: `${site}${i.href}` })));
 ---
 
 <JsonLd data={ld} />
 
-<section class="relative bg-brand-paper border-b border-line">
-  <div class="border-b border-brand-ink/15 bg-brand-cream/40">
-    <div class="container mx-auto px-4 py-2.5">
-      <nav class="flex flex-wrap items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-brand-walnut" aria-label="Breadcrumb">
+<section class="bg-brand-paper border-b border-line">
+  <div class="border-b border-line">
+    <div class="container mx-auto px-4 py-3">
+      <nav
+        class="flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted"
+        aria-label="Breadcrumb"
+      >
         {items.map((item, index) => (
           <>
-            {index > 0 && <span class="text-brand-walnut/60">/</span>}
+            {index > 0 && <span class="text-ink-subtle" aria-hidden="true">/</span>}
             {index === items.length - 1 ? (
               <span aria-current="page" class="text-brand-ink">{item.label}</span>
             ) : (
-              <a href={item.href} class="hover:text-brand-stamp transition-colors">{item.label}</a>
+              <a href={item.href} class="hover:text-brand-stamp transition-colors duration-300">{item.label}</a>
             )}
           </>
         ))}
@@ -33,14 +38,19 @@ const ld = breadcrumbSchema(items.map(i => ({ name: i.label, url: `${site}${i.hr
     </div>
   </div>
 
-  <div class="container mx-auto px-4 py-12 sm:py-16">
-    {pageTitle && (
-      <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tightest leading-[0.95] text-brand-ink max-w-4xl">
-        {pageTitle}
-      </h1>
-    )}
-    {intro && (
-      <p class="mt-5 text-base sm:text-lg text-ink-soft max-w-2xl leading-relaxed">{intro}</p>
-    )}
-  </div>
+  {(pageTitle || intro) && (
+    <div class="container mx-auto px-4 pt-14 pb-16 sm:pt-20 sm:pb-24">
+      {kicker && (
+        <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-stamp mb-5">{kicker}</p>
+      )}
+      {pageTitle && (
+        <h1 class="font-display font-black text-[2.75rem] sm:text-6xl lg:text-7xl tracking-tightest leading-[0.95] text-brand-ink max-w-4xl">
+          {pageTitle}
+        </h1>
+      )}
+      {intro && (
+        <p class="mt-6 text-base sm:text-lg text-ink-soft max-w-xl leading-relaxed">{intro}</p>
+      )}
+    </div>
+  )}
 </section>

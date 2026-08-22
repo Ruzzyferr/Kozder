@@ -1,0 +1,41 @@
+---
+// Kart kapağı. İki tür içeriği ayırır:
+//   cover   — fotoğraflar; slotu tamamen doldurur, kenarlarından kırpılır
+//   contain — afiş/grafik kapaklar; tonlu panelde kırpılmadan, tam okunur
+// KOZ-DER'in proje ve etkinlik kapakları Canva afişleri ve en-boy oranları
+// 0.56 ile 1.78 arasında değişiyor; bunları kırpmak başlıklarını kesiyordu.
+interface Props {
+  src?: string;
+  alt: string;
+  fit?: 'cover' | 'contain';
+  /** Tailwind en-boy sınıfı, ör. "aspect-square" */
+  ratio?: string;
+  eager?: boolean;
+}
+
+const { src, alt, fit = 'cover', ratio = 'aspect-[3/2]', eager = false } = Astro.props;
+---
+
+{src && (
+  <div
+    class:list={[
+      'relative overflow-hidden border-b border-line',
+      ratio,
+      fit === 'contain' ? 'bg-surface-sunken' : 'bg-surface-muted',
+    ]}
+  >
+    <img
+      src={src}
+      alt={alt}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+      class:list={[
+        'absolute inset-0 w-full h-full transition-transform duration-700 ease-editorial',
+        fit === 'contain'
+          ? 'object-contain p-5 sm:p-6 group-hover:scale-[1.03]'
+          : 'object-cover group-hover:scale-[1.04]',
+      ]}
+    />
+    <slot />
+  </div>
+)}

@@ -14,9 +14,10 @@ const news = newsRaw.sort(byNewest('news', 'date'));
   description="KOZ-DER'in buluşmaları, etkinlikleri ve gönüllü faaliyetlerinden haberler ve kareler."
 >
   <Breadcrumb
+    kicker="Haberler"
     items={[{ label: 'Ana Sayfa', href: '/' }, { label: 'Haberler', href: '/haberler' }]}
-    pageTitle="Haberler"
-    intro="Gerçekleştirdiğimiz buluşmalar, katıldığımız etkinlikler ve gönüllü faaliyetlerimizden kareler."
+    pageTitle="Sahadan kareler."
+    intro="Gerçekleştirdiğimiz buluşmalar, katıldığımız etkinlikler ve gönüllü faaliyetlerimiz."
   />
 
   <div class="container mx-auto px-4 py-12 sm:py-16">
@@ -29,6 +30,7 @@ const news = newsRaw.sort(byNewest('news', 'date'));
             category={item.data.category}
             location={item.data.location}
             coverImage={item.data.coverImage}
+              coverFit={item.data.coverFit}
             summary={item.data.summary_tr}
             slug={item.slug}
           />

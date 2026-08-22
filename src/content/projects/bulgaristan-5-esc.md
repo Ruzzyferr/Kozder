@@ -13,6 +13,7 @@ location: "Madan, Bulgaria"
 startDate: "29.06.2026"
 endDate: "23.08.2026"
 coverImage: "/images/projects/bulgaristan-esc2.webp"
+coverFit: "contain"
 applicationUrl: "https://forms.gle/69Wip22fGoAapzj76"
 applicationLabel: "Başvuru Formu"
 featured: true

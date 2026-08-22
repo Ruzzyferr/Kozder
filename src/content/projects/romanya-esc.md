@@ -13,6 +13,7 @@ location: "Craiova, Romania"
 startDate: "15.06.2026"
 endDate: "13.08.2026"
 coverImage: "/images/projects/romanya-2.webp"
+coverFit: "contain"
 applicationUrl: "https://turnaportal.ua.gov.tr/bireysel/basvurulist?ilanGuidId=69aef2e6-de11-432f-83dc-8958d53a292b&ilanGuidAnahtar=59da48f4-d784-448b-aab3-a8aab5cdcfb8"
 applicationLabel: "Başvuru Formu"
 featured: true

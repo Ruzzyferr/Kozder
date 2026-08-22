@@ -13,6 +13,7 @@ location: "Detaylar infopackte belirtilmiştir"
 startDate: "15.06.2026"
 endDate: "26.07.2026"
 coverImage: "/images/projects/cekya.webp"
+coverFit: "contain"
 applicationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfdHVBWRX1u48vLkozko_T1uujco9R40Cf_sY60lFNpQHAbeQ/viewform"
 applicationLabel: "Başvuru Formu"
 featured: true

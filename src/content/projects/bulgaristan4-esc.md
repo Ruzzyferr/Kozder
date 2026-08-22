@@ -14,6 +14,7 @@ location: "Madan, Bulgaria"
 startDate: "04.05.2026"
 endDate: "29.06.2026"
 coverImage: "/images/projects/bulgaristan4-esc.webp"
+coverFit: "contain"
 applicationUrl: "https://turnaportal.ua.gov.tr/bireysel/basvurulist?ilanGuidId=58d1fe7b-b51b-429c-a22a-03f99cc7dd24&ilanGuidAnahtar=d1670505-4f42-49b5-8f48-71a4ecd75c7b"
 featured: true
 summary_tr: "Bulgaristan’ın Madan şehrinde gerçekleşen bu ESC projesinde iki gönüllü, iki ay boyunca zeka oyunları atölyeleri, robotik kodlama etkinlikleri, çevre temizliği ve yaygın eğitim çalışmalarında görev aldı."

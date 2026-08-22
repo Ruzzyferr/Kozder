@@ -5,6 +5,7 @@ date: "2026-06-09"
 time: "19:00"
 location: "Espresso Lab Mecidiyeköy, İstanbul"
 coverImage: "/images/events/escbulusmasi.webp"
+coverFit: "contain"
 registrationUrl: "https://forms.gle/v2jV3ftoVgLuudLG6"
 ---
 
