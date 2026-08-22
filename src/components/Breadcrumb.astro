@@ -30,7 +30,7 @@ const ld = breadcrumbSchema(items.map(i => ({ name: i.label, url: `${site}${i.hr
             {index === items.length - 1 ? (
               <span aria-current="page" class="text-brand-ink">{item.label}</span>
             ) : (
-              <a href={item.href} class="hover:text-brand-stamp transition-colors duration-300">{item.label}</a>
+              <a href={item.href} class="inline-flex items-center min-h-[28px] hover:text-brand-stamp transition-colors duration-300">{item.label}</a>
             )}
           </>
         ))}

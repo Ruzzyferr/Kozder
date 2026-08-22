@@ -65,14 +65,14 @@ const navColumns = [
       {navColumns.map(col => (
         <div class="lg:col-span-2">
           <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-4">{col.title}</h3>
-          <ul class="space-y-2.5 text-sm">
+          <ul class="text-sm -my-1.5">
             {col.links.map(link => (
               <li>
                 <a
                   href={link.href}
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
-                  class="text-brand-cream hover:text-brand-stamp transition-colors inline-flex items-center gap-1.5 font-medium"
+                  class="text-brand-cream hover:text-brand-stamp transition-colors inline-flex items-center gap-1.5 font-medium py-2 min-h-[40px] sm:min-h-0 sm:py-1.5"
                 >
                   {link.text}
                   {link.external && <span class="text-[10px]">↗</span>}
@@ -88,8 +88,8 @@ const navColumns = [
         <address class="not-italic text-sm text-brand-cream leading-relaxed space-y-2">
           <p>Kazım Karabekir Mh.<br/>İstiklal Cd. No:33D<br/>79000 Kilis · TR</p>
           <p>
-            <a href="tel:+905511972997" class="hover:text-brand-stamp transition-colors block font-semibold">+90 551 197 29 97</a>
-            <a href="mailto:bilgi@kozder.com" class="hover:text-brand-stamp transition-colors block font-semibold">bilgi@kozder.com</a>
+            <a href="tel:+905511972997" class="hover:text-brand-stamp transition-colors inline-flex items-center min-h-[40px] sm:min-h-0 sm:py-0.5 font-semibold">+90 551 197 29 97</a>
+            <a href="mailto:bilgi@kozder.com" class="hover:text-brand-stamp transition-colors inline-flex items-center min-h-[40px] sm:min-h-0 sm:py-0.5 font-semibold">bilgi@kozder.com</a>
           </p>
         </address>
       </div>
