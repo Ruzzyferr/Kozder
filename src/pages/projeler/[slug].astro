@@ -118,7 +118,7 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
                 style="box-shadow: 5px 5px 0 0 #6B4630;"
               >
                 <p class="font-display font-black text-2xl flex items-center justify-between">
-                  Başvuru Yap <span>→</span>
+                  {project.data.applicationLabel ?? 'Başvuru Yap'} <span>→</span>
                 </p>
               </a>
             </div>

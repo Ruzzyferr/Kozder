@@ -2,7 +2,7 @@
 name: "Duru Beliz ÇELİKER"
 programName: "İtalya ESC Gönüllülüğü"
 country: "İtalya"
-startDate: "11-06-2026"
+startDate: "11.06.2026"
 images:
   - "/images/stories/duru-beliz-celiker.JPG"
   - "/images/stories/duru-beliz-celiker1.jpg"

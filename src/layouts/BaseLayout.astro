@@ -243,19 +243,55 @@ const ogImage = new URL(image, Astro.site);
   }
 
   /* Marquee */
+  /* Keyframe'i burada tanımlıyoruz: Tailwind config'deki `marquee-x` sadece
+     `animate-marquee-x` utility'si kullanıldığında CSS'e basılıyor, burada ise
+     ham sınıf üzerinden çağrılıyor. */
+  @keyframes marquee-x {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
   .marquee {
     display: flex;
     overflow: hidden;
     user-select: none;
-    gap: 2rem;
+    /* Kutucukların sert gölgesi (4px) kırpılmasın. */
+    padding-block: 0.25rem 0.75rem;
   }
   .marquee__track {
     display: flex;
     flex-shrink: 0;
     align-items: center;
     gap: 2rem;
-    animation: marquee-x 35s linear infinite;
+    /* Sondaki boşluk parçanın genişliğine dahil olmalı ki iki kopya
+       -50%'de kusursuz eklensin. */
     padding-right: 2rem;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    animation: marquee-x 34s linear infinite;
+    will-change: transform;
+  }
+  .marquee__track--reverse {
+    animation-direction: reverse;
+  }
+  /* Yükseklik logo başına --logo-h ile geliyor (LogoMarquee, en-boy oranına
+     göre hesaplıyor); dar ekranda hepsi orantılı küçülüyor. */
+  .marquee__logo {
+    width: auto;
+    height: auto;
+    max-height: var(--logo-h, 56px);
+    max-width: 10rem;
+    object-fit: contain;
+  }
+  @media (max-width: 640px) {
+    .marquee__logo {
+      max-height: calc(var(--logo-h, 56px) * 0.82);
+      max-width: 8.5rem;
+    }
+  }
+  .marquee:hover .marquee__track,
+  .marquee:focus-within .marquee__track {
+    animation-play-state: paused;
   }
 
   /* Diagonal stripe utility for postcard banners */
@@ -273,7 +309,11 @@ const ogImage = new URL(image, Astro.site);
     html { scroll-behavior: auto; }
     .reveal { opacity: 1; transform: none; transition: none; }
     *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; }
+    /* Animasyon kapalıyken logolar kırpılıp erişilemez kalmasın:
+       şerit elle kaydırılabilir hale gelsin, ikinci kopya gizlensin. */
     .marquee__track { animation: none !important; }
+    .marquee { overflow-x: auto; }
+    .marquee__track[aria-hidden='true'] { display: none; }
   }
 </style>
 

@@ -1,0 +1,74 @@
+{
+  "networks": {
+    "label": "Üyesi Olduğumuz Ağlar",
+    "items": [
+      {
+        "name": "EntreComp Europe",
+        "logo": "/images/networks/entrecomp-europe.png",
+        "url": "https://entrecompeurope.eu/",
+        "w": 410,
+        "h": 261
+      },
+      {
+        "name": "UNITED for Intercultural Action",
+        "logo": "/images/networks/united.png",
+        "url": "https://unitedagainstracism.org/",
+        "w": 480,
+        "h": 159
+      },
+      {
+        "name": "Young European Shapers",
+        "logo": "/images/networks/young-european-shapers.png",
+        "w": 480,
+        "h": 294
+      }
+    ]
+  },
+  "partners": {
+    "label": "Paydaşlarımız ve Destekçilerimiz",
+    "items": [
+      {
+        "name": "Erasmus+",
+        "logo": "/images/partners/erasmus-plus.webp",
+        "url": "https://erasmus-plus.ec.europa.eu/",
+        "w": 430,
+        "h": 88
+      },
+      {
+        "name": "T.C. Gençlik ve Spor Bakanlığı",
+        "logo": "/images/partners/genclik-ve-spor-bakanligi.webp",
+        "url": "https://www.gsb.gov.tr/",
+        "w": 480,
+        "h": 480
+      },
+      {
+        "name": "Avrupa Dayanışma Programı (ESC)",
+        "logo": "/images/partners/european-solidarity-corps.png",
+        "url": "https://youth.europa.eu/solidarity_en",
+        "w": 480,
+        "h": 128
+      },
+      {
+        "name": "T.C. İçişleri Bakanlığı",
+        "logo": "/images/partners/icisleri-bakanligi.png",
+        "url": "https://www.icisleri.gov.tr/",
+        "w": 477,
+        "h": 477
+      },
+      {
+        "name": "Avrupa Gençlik Yılı",
+        "logo": "/images/partners/avrupa-genclik-yili.png",
+        "url": "https://youth.europa.eu/year-of-youth_en",
+        "w": 558,
+        "h": 490
+      },
+      {
+        "name": "Türkiye Ulusal Ajansı",
+        "logo": "/images/partners/turkiye-ulusal-ajansi.png",
+        "url": "https://www.ua.gov.tr/",
+        "w": 378,
+        "h": 207
+      }
+    ]
+  }
+}

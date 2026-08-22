@@ -4,6 +4,8 @@ import ProjectCard from '../components/ProjectCard.astro';
 import EventCard from '../components/EventCard.astro';
 import PostCard from '../components/PostCard.astro';
 import NewsCard from '../components/NewsCard.astro';
+import LogoMarquee from '../components/LogoMarquee.astro';
+import affiliations from '../data/affiliations.json';
 import { getCollection } from 'astro:content';
 import { getEventDateSortKey } from '../utils/date';
 import { byNewest } from '../utils/contentSort';
@@ -35,7 +37,11 @@ const upcomingEvents = events
   .slice(0, 3);
 
 const recentPosts = [...posts].sort(byNewest('posts', 'date')).slice(0, 3);
-const recentNews = [...news].sort(byNewest('news', 'date')).slice(0, 3);
+// Öne çıkarılmış haberler anasayfada başa sabitlenir, kalanı yeniden eskiye.
+const newestNews = byNewest('news', 'date');
+const recentNews = [...news]
+  .sort((a, b) => (Number(b.data.featured) - Number(a.data.featured)) || newestNews(a, b))
+  .slice(0, 3);
 const featuredStories = [...stories].sort(byNewest('stories', 'startDate')).slice(0, 4);
 
 const stats = [
@@ -43,6 +49,12 @@ const stats = [
   { value: projects.length, label: 'Yürütülen Proje' },
   { value: '15+', label: 'Avrupa Ortağı' },
   { value: '7', label: 'Ülke Deneyimi' },
+];
+
+// Anasayfa güven şeridi: üstte üye olunan ağlar (sola), altta paydaşlar (sağa).
+const affiliationRows = [
+  { ...affiliations.networks, direction: 'left' as const, duration: 30 },
+  { ...affiliations.partners, direction: 'right' as const, duration: 46 },
 ];
 
 const steps = [
@@ -115,6 +127,31 @@ const steps = [
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- AĞLAR & PAYDAŞLAR -->
+  <section class="bg-brand-cream border-b-2 border-brand-ink py-12 sm:py-16" aria-labelledby="aglar-paydaslar">
+    <h2 id="aglar-paydaslar" class="sr-only">Üyesi olduğumuz ağlar ve paydaşlarımız</h2>
+    <div class="space-y-9 sm:space-y-11">
+      {affiliationRows.map(row => (
+        <div>
+          <div class="container mx-auto px-4">
+            <div class="flex items-center gap-4 mb-5 reveal">
+              <p class="text-[11px] sm:text-xs uppercase tracking-[0.2em] font-bold text-brand-stamp whitespace-nowrap">
+                {row.label}
+              </p>
+              <span class="h-px flex-1 bg-brand-ink/25"></span>
+            </div>
+          </div>
+          <LogoMarquee
+            label={row.label}
+            items={row.items}
+            direction={row.direction}
+            duration={row.duration}
+          />
+        </div>
+      ))}
     </div>
   </section>
 
@@ -290,6 +327,7 @@ const steps = [
             <NewsCard
               title={item.data.title_tr}
               date={item.data.date}
+              category={item.data.category}
               location={item.data.location}
               coverImage={item.data.coverImage}
               summary={item.data.summary_tr}

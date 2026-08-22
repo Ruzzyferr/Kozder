@@ -57,6 +57,22 @@ const ld = articleSchema({
         <Content />
       </div>
 
+      {post.data.applicationUrl && (
+        <div class="mt-10">
+          <a
+            href={post.data.applicationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block bg-brand-ink text-brand-cream border-2 border-brand-ink hover:bg-brand-stamp p-5 transition-colors"
+            style="box-shadow: 5px 5px 0 0 #6B4630;"
+          >
+            <p class="font-display font-black text-2xl flex items-center justify-between">
+              {post.data.applicationLabel ?? 'Başvuru Yap'} <span>→</span>
+            </p>
+          </a>
+        </div>
+      )}
+
       <div class="mt-10">
         <ShareBox title={post.data.title_tr} url={url} />
       </div>

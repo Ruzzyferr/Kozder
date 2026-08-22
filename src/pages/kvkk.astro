@@ -1,88 +1,127 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+interface Section {
+  heading: string;
+  paragraphs?: string[];
+  bullets?: string[];
+}
+
+const sections: Section[] = [
+  {
+    heading: 'Aydınlatma Metni',
+    paragraphs: [
+      'Gençlik Zeka Oyunları ve Kodlama Derneği (KOZ-DER) olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, kişisel verilerinizin işlenmesi hakkında sizleri bilgilendirmek isteriz.',
+    ],
+  },
+  {
+    heading: 'Veri Sorumlusu',
+    paragraphs: [
+      'Kişisel verileriniz, KVKK uyarınca veri sorumlusu sıfatıyla KOZ-DER tarafından işlenmektedir.',
+    ],
+  },
+  {
+    heading: 'İşlenen Kişisel Veriler',
+    paragraphs: ['Derneğimiz tarafından aşağıdaki kişisel verileriniz işlenmektedir:'],
+    bullets: [
+      'Kimlik bilgileri (ad, soyad, T.C. kimlik no)',
+      'İletişim bilgileri (telefon, e-posta, adres)',
+      'Proje başvuru bilgileri',
+      'Etkinlik kayıt bilgileri',
+    ],
+  },
+  {
+    heading: 'Kişisel Verilerin İşlenme Amaçları',
+    paragraphs: ['Kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:'],
+    bullets: [
+      'Proje başvurularının değerlendirilmesi',
+      'Etkinlik organizasyonu ve yönetimi',
+      'İletişim faaliyetlerinin yürütülmesi',
+      'Yasal yükümlülüklerin yerine getirilmesi',
+    ],
+  },
+  {
+    heading: 'Haklarınız',
+    paragraphs: ["KVKK'nın 11. maddesi uyarınca aşağıdaki haklara sahipsiniz:"],
+    bullets: [
+      'Kişisel verilerinizin işlenip işlenmediğini öğrenme',
+      'İşlenmişse buna ilişkin bilgi talep etme',
+      'İşlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme',
+      'Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme',
+      'Eksik veya yanlış işlenmişse düzeltilmesini isteme',
+      "KVKK'da öngörülen şartlar çerçevesinde silinmesini veya yok edilmesini isteme",
+      'Düzeltme, silme, yok etme işlemlerinin aktarıldığı üçüncü kişilere bildirilmesini isteme',
+      'İşlenen verilerin münhasıran otomatik sistemler ile analiz edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme',
+      'Kanuna aykırı olarak işlenmesi sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme',
+    ],
+  },
+];
 ---
 
-<BaseLayout 
-  title="KVKK - Kişisel Verilerin Korunması - KOZ-DER"
+<BaseLayout
+  title="KVKK Aydınlatma Metni — KOZ-DER"
   description="KOZ-DER Kişisel Verilerin Korunması Kanunu kapsamında bilgilendirme metni."
 >
-  <div class="container mx-auto px-4 py-16 max-w-4xl">
-    <h1 class="text-4xl font-bold text-gray-900 mb-8">Kişisel Verilerin Korunması</h1>
-    
-    <div class="prose prose-lg max-w-none">
-      <section class="mb-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Aydınlatma Metni</h2>
-        <p class="text-gray-700 mb-4">
-          Gençlik Zeka Oyunları ve Kodlama Derneği (KOZ-DER) olarak, 6698 sayılı Kişisel Verilerin 
-          Korunması Kanunu ("KVKK") uyarınca, kişisel verilerinizin işlenmesi hakkında sizleri 
-          bilgilendirmek isteriz.
-        </p>
-      </section>
+  <Breadcrumb
+    items={[{ label: 'Ana Sayfa', href: '/' }, { label: 'KVKK', href: '/kvkk' }]}
+    pageTitle="Kişisel verilerin korunması."
+    intro="6698 sayılı KVKK kapsamında verilerinizi nasıl işlediğimize dair aydınlatma metni."
+  />
 
-      <section class="mb-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Veri Sorumlusu</h2>
-        <p class="text-gray-700 mb-4">
-          Kişisel verileriniz, KVKK uyarınca veri sorumlusu sıfatıyla KOZ-DER tarafından işlenmektedir.
-        </p>
-      </section>
+  <div class="container mx-auto px-4 py-12 sm:py-20 max-w-4xl">
+    <div class="border-2 border-brand-ink bg-brand-cream divide-y-2 divide-brand-ink" style="box-shadow: 6px 6px 0 0 #6B4630;">
+      {sections.map((section, i) => (
+        <section class="p-6 sm:p-10">
+          <div class="flex items-baseline gap-4 mb-5">
+            <span class="font-display font-black text-2xl sm:text-3xl text-brand-walnut leading-none tracking-tightest">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h2 class="font-display font-bold text-xl sm:text-2xl text-brand-ink leading-snug tracking-tight">
+              {section.heading}
+            </h2>
+          </div>
 
-      <section class="mb-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">İşlenen Kişisel Veriler</h2>
-        <p class="text-gray-700 mb-4">
-          Derneğimiz tarafından aşağıdaki kişisel verileriniz işlenmektedir:
-        </p>
-        <ul class="list-disc list-inside text-gray-700 space-y-2">
-          <li>Kimlik bilgileri (ad, soyad, T.C. kimlik no)</li>
-          <li>İletişim bilgileri (telefon, e-posta, adres)</li>
-          <li>Proje başvuru bilgileri</li>
-          <li>Etkinlik kayıt bilgileri</li>
-        </ul>
-      </section>
+          {section.paragraphs?.map(text => (
+            <p class="text-ink-soft leading-relaxed mb-4 last:mb-0">{text}</p>
+          ))}
 
-      <section class="mb-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Kişisel Verilerin İşlenme Amaçları</h2>
-        <p class="text-gray-700 mb-4">
-          Kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:
-        </p>
-        <ul class="list-disc list-inside text-gray-700 space-y-2">
-          <li>Proje başvurularının değerlendirilmesi</li>
-          <li>Etkinlik organizasyonu ve yönetimi</li>
-          <li>İletişim faaliyetlerinin yürütülmesi</li>
-          <li>Yasal yükümlülüklerin yerine getirilmesi</li>
-        </ul>
-      </section>
+          {section.bullets && (
+            <ul class="mt-4 space-y-2.5">
+              {section.bullets.map(text => (
+                <li class="flex gap-3 text-ink-soft leading-relaxed">
+                  <span class="text-brand-stamp font-bold flex-shrink-0" aria-hidden="true">—</span>
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      ))}
 
-      <section class="mb-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Haklarınız</h2>
-        <p class="text-gray-700 mb-4">
-          KVKK'nın 11. maddesi uyarınca aşağıdaki haklara sahipsiniz:
-        </p>
-        <ul class="list-disc list-inside text-gray-700 space-y-2">
-          <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
-          <li>İşlenmişse buna ilişkin bilgi talep etme</li>
-          <li>İşlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme</li>
-          <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme</li>
-          <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme</li>
-          <li>KVKK'da öngörülen şartlar çerçevesinde silinmesini veya yok edilmesini isteme</li>
-          <li>Düzeltme, silme, yok etme işlemlerinin aktarıldığı üçüncü kişilere bildirilmesini isteme</li>
-          <li>İşlenen verilerin münhasıran otomatik sistemler ile analiz edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme</li>
-          <li>Kanuna aykırı olarak işlenmesi sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme</li>
-        </ul>
-      </section>
-
-      <section class="mb-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">İletişim</h2>
-        <p class="text-gray-700 mb-4">
-          KVKK kapsamındaki taleplerinizi, yazılı olarak derneğimizin adresine gönderebilir veya 
-          <a href="mailto:bilgi@kozder.com" class="text-primary-600 hover:text-primary-700">bilgi@kozder.com</a>
+      <section class="p-6 sm:p-10">
+        <div class="flex items-baseline gap-4 mb-5">
+          <span class="font-display font-black text-2xl sm:text-3xl text-brand-walnut leading-none tracking-tightest">
+            {String(sections.length + 1).padStart(2, '0')}
+          </span>
+          <h2 class="font-display font-bold text-xl sm:text-2xl text-brand-ink leading-snug tracking-tight">
+            İletişim
+          </h2>
+        </div>
+        <p class="text-ink-soft leading-relaxed">
+          KVKK kapsamındaki taleplerinizi, yazılı olarak derneğimizin adresine gönderebilir veya
+          <a href="mailto:bilgi@kozder.com" class="font-semibold text-brand-ink border-b-2 border-brand-stamp hover:text-brand-stamp transition-colors">bilgi@kozder.com</a>
           e-posta adresine iletebilirsiniz.
         </p>
+        <address class="mt-5 not-italic text-sm text-ink-soft leading-relaxed">
+          Kazım Karabekir Mahallesi, İstiklal Caddesi No: 33D<br />
+          79000 Kilis · Türkiye
+        </address>
       </section>
-
-      <p class="text-sm text-gray-500 mt-8">
-        <em>Bu metin örnek bir KVKK aydınlatma metnidir. Güncel KVKK metni için derneğimizle iletişime geçiniz.</em>
-      </p>
     </div>
+
+    <p class="mt-8 text-sm text-ink-muted italic leading-relaxed border-l-2 border-brand-walnut/40 pl-4">
+      Bu metin örnek bir KVKK aydınlatma metnidir. Güncel KVKK metni için derneğimizle iletişime geçiniz.
+    </p>
   </div>
 </BaseLayout>
-

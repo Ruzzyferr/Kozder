@@ -3,7 +3,7 @@ title_tr: "No More Walls, Europe Calls"
 title_en: "No More Walls, Europe Calls"
 programType: "ERASMUS"
 year: 2026
-status: "Tamamlandı"
+status: "Aktif"
 themes:
   - "inclusion"
   - "equality"
