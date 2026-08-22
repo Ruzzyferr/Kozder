@@ -1,5 +1,5 @@
 ---
-title_tr: "TRUTH OR TRICK? CLICK WITH CARE"
+title_tr: "Truth or Trick? Click with Care"
 title_en: "Truth or Trick? Click with Care"
 programType: "ERASMUS"
 year: 2026

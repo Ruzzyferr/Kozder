@@ -6,54 +6,145 @@ interface Section {
   heading: string;
   paragraphs?: string[];
   bullets?: string[];
+  after?: string[];
 }
+
+const lastUpdated = '22 Ağustos 2026';
 
 const sections: Section[] = [
   {
-    heading: 'Aydınlatma Metni',
-    paragraphs: [
-      'Gençlik Zeka Oyunları ve Kodlama Derneği (KOZ-DER) olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, kişisel verilerinizin işlenmesi hakkında sizleri bilgilendirmek isteriz.',
-    ],
-  },
-  {
     heading: 'Veri Sorumlusu',
     paragraphs: [
-      'Kişisel verileriniz, KVKK uyarınca veri sorumlusu sıfatıyla KOZ-DER tarafından işlenmektedir.',
+      'Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") m.10 kapsamında, veri sorumlusu sıfatıyla Gençlik Zeka Oyunları ve Kodlama Derneği (KOZ-DER) tarafından hazırlanmıştır.',
+      'Derneğimiz; Erasmus+ ve Avrupa Dayanışma Programı (ESC) projeleri, yerel gençlik etkinlikleri ve gönüllülük faaliyetleri yürütmektedir. Bu faaliyetler kapsamında kişisel verilerinizi aşağıda açıklanan çerçevede işliyoruz.',
+    ],
+    bullets: [
+      'Veri sorumlusu: Gençlik Zeka Oyunları ve Kodlama Derneği (KOZ-DER)',
+      'Adres: Kazım Karabekir Mahallesi, İstiklal Caddesi No: 33D, 79000 Kilis / Türkiye',
+      'E-posta: bilgi@kozder.com · Telefon: +90 551 197 29 97',
     ],
   },
   {
     heading: 'İşlenen Kişisel Veriler',
-    paragraphs: ['Derneğimiz tarafından aşağıdaki kişisel verileriniz işlenmektedir:'],
+    paragraphs: [
+      'İlişkimizin niteliğine göre aşağıdaki veri kategorileri işlenebilir. Her veri kategorisi herkes için işlenmez; yalnızca ilgili faaliyet için gerekli olanlar toplanır.',
+    ],
     bullets: [
-      'Kimlik bilgileri (ad, soyad, T.C. kimlik no)',
-      'İletişim bilgileri (telefon, e-posta, adres)',
-      'Proje başvuru bilgileri',
-      'Etkinlik kayıt bilgileri',
+      'Kimlik: ad, soyad, doğum tarihi, uyruk; yurt dışı hareketliliklerde pasaport/kimlik bilgileri',
+      'İletişim: telefon, e-posta, adres, sosyal medya hesabı',
+      'Başvuru ve katılım: motivasyon yazısı, özgeçmiş, yabancı dil düzeyi, eğitim ve gönüllülük geçmişi, proje tercihi',
+      'Seyahat ve lojistik: vize işlemleri, uçuş/konaklama bilgileri, seyahat sigortası, acil durumda aranacak kişi',
+      'Finansal: harcama belgeleri ve geri ödeme yapılabilmesi için banka/IBAN bilgisi',
+      'Görsel ve işitsel: etkinlik ve proje fotoğrafları, videolar; sitede yayımlanan gönüllü deneyim yazıları',
+      'İşlem güvenliği ve kullanım: siteyi ziyaretinizde oluşan IP adresi, tarayıcı bilgisi ve anonim ziyaret istatistikleri',
+      'Özel nitelikli veriler: yalnızca zorunlu hâllerde (ör. sağlık sigortası, diyet veya erişilebilirlik ihtiyacı) ve açık rızanızla',
     ],
   },
   {
-    heading: 'Kişisel Verilerin İşlenme Amaçları',
-    paragraphs: ['Kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:'],
+    heading: 'İşleme Amaçları',
     bullets: [
-      'Proje başvurularının değerlendirilmesi',
-      'Etkinlik organizasyonu ve yönetimi',
-      'İletişim faaliyetlerinin yürütülmesi',
-      'Yasal yükümlülüklerin yerine getirilmesi',
+      'Proje ve etkinlik başvurularının alınması, değerlendirilmesi ve seçim süreçlerinin yürütülmesi',
+      'Erasmus+ / ESC hareketliliklerinin planlanması; vize, seyahat, konaklama ve sigorta işlemlerinin yapılması',
+      'Katılımcı sözleşmelerinin kurulması ve ifası, ödeme ve geri ödeme süreçlerinin yürütülmesi',
+      'Program otoriteleri ve ortak kuruluşlara karşı raporlama ve belgelendirme yükümlülüklerinin yerine getirilmesi',
+      'Etkinliklerin organizasyonu, duyurulması ve katılımcılarla iletişim kurulması',
+      'Dernek faaliyetlerinin tanıtılması; açık rızanız olması hâlinde fotoğraf ve deneyim yazılarınızın yayımlanması',
+      'Talep, soru ve şikâyetlerin yanıtlanması',
+      'Mevzuattan doğan yükümlülüklerin yerine getirilmesi ve hukuki taleplere karşı savunma hakkının kullanılması',
+      'Web sitesinin güvenli çalıştırılması ve anonim kullanım istatistikleriyle iyileştirilmesi',
+    ],
+  },
+  {
+    heading: 'Hukuki Sebepler',
+    paragraphs: ['Kişisel verileriniz, KVKK m.5 ve m.6\'da düzenlenen şu hukuki sebeplere dayanılarak işlenir:'],
+    bullets: [
+      'Bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması (m.5/2-c) — başvuru, katılım ve hareketlilik süreçleri',
+      'Veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi (m.5/2-ç) — dernekler mevzuatı, mali mevzuat, program raporlamaları',
+      'Bir hakkın tesisi, kullanılması veya korunması için zorunlu olması (m.5/2-e)',
+      'Temel hak ve özgürlüklerinize zarar vermemek kaydıyla meşru menfaatlerimiz (m.5/2-f) — site güvenliği ve anonim istatistikler',
+      'Açık rızanız (m.5/1 ve m.6/2) — fotoğraf/deneyim paylaşımları, tanıtım iletileri ve özel nitelikli verilerin işlenmesi',
+    ],
+    after: [
+      'Açık rızaya dayanan işlemelerde rızanızı dilediğiniz zaman geri alabilirsiniz. Geri alma, o ana kadar hukuka uygun şekilde yapılmış işlemeleri etkilemez.',
+    ],
+  },
+  {
+    heading: 'Toplama Yöntemleri',
+    paragraphs: [
+      'Kişisel verileriniz; başvuru formları (Google Forms üzerinden), e-posta, telefon, WhatsApp, sosyal medya mesajları, etkinlik kayıtları, yüz yüze görüşmeler ve web sitemizi ziyaretiniz sırasında otomatik ya da kısmen otomatik yollarla toplanmaktadır.',
+    ],
+  },
+  {
+    heading: 'Aktarım ve Yurt Dışına Aktarım',
+    paragraphs: [
+      'Kişisel verileriniz, yalnızca yukarıdaki amaçlarla sınırlı olmak üzere aşağıdaki taraflara aktarılabilir:',
+    ],
+    bullets: [
+      'Türkiye Ulusal Ajansı ve Avrupa Komisyonu ile ilgili program otoriteleri (raporlama ve denetim yükümlülükleri kapsamında)',
+      'Projelerin yürütüldüğü Avrupa\'daki ev sahibi ve ortak kuruluşlar',
+      'Seyahat, konaklama, sigorta ve vize hizmeti sağlayan kuruluşlar',
+      'Web sitesi barındırma ve altyapı sağlayıcılarımız',
+      'Yetkili kamu kurum ve kuruluşları ile adli merciler (talep hâlinde ve mevzuat gereği)',
+    ],
+    after: [
+      'Erasmus+ ve ESC projelerinin niteliği gereği bazı verileriniz yurt dışına aktarılmaktadır. Bu aktarımlar, KVKK m.9\'da öngörülen şartlara — yeterlilik kararı, uygun güvenceler veya açık rızanız — uygun olarak gerçekleştirilir.',
+    ],
+  },
+  {
+    heading: 'Saklama Süresi',
+    paragraphs: [
+      'Kişisel verileriniz, işlendikleri amaç için gerekli olan süre boyunca ve ilgili mevzuatta öngörülen zamanaşımı ile saklama süreleri sonuna kadar muhafaza edilir. Erasmus+ ve ESC projelerine ilişkin belgeler, program otoritelerinin denetim ve arşivleme kuralları uyarınca proje kapanışından sonra da belirli bir süre saklanır.',
+      'Sürenin dolması veya işleme sebebinin ortadan kalkması hâlinde verileriniz silinir, yok edilir ya da anonim hâle getirilir.',
+    ],
+  },
+  {
+    heading: 'Web Sitesi, Çerezler ve Üçüncü Taraf Servisler',
+    paragraphs: [
+      'Sitemiz reklam veya profilleme amaçlı çerez kullanmaz. Ziyaretiniz sırasında aşağıdaki servisler devreye girer:',
+    ],
+    bullets: [
+      'Vercel — sitenin barındırılması ve çerez kullanmayan, kişiyi tanımlamayan toplu ziyaret istatistikleri (Vercel Analytics)',
+      'hits.sh — sayfa altındaki ziyaretçi sayacı; sayaç görselini yüklerken IP adresiniz ve tarayıcı bilginiz bu servise iletilir',
+      'Google Maps — yalnızca İletişim sayfasındaki harita; haritayı görüntülediğinizde IP adresiniz Google\'a iletilir',
+    ],
+    after: [
+      'Başvuru formlarımız Google Forms üzerinde barındırılmaktadır; formu doldurduğunuzda Google\'ın kendi gizlilik politikası da geçerli olur.',
+    ],
+  },
+  {
+    heading: 'Fotoğraf ve Deneyim Paylaşımları',
+    paragraphs: [
+      'Etkinlik ve proje fotoğrafları ile gönüllü deneyim yazıları, sitemizde ve sosyal medya hesaplarımızda yalnızca ilgili kişinin açık rızasıyla yayımlanır.',
+      'Yayımlanan bir fotoğrafın veya yazının kaldırılmasını istediğinizde bilgi@kozder.com adresine yazmanız yeterlidir; talebiniz gecikmeksizin yerine getirilir.',
     ],
   },
   {
     heading: 'Haklarınız',
-    paragraphs: ["KVKK'nın 11. maddesi uyarınca aşağıdaki haklara sahipsiniz:"],
+    paragraphs: ['KVKK m.11 uyarınca veri sorumlusuna başvurarak şu haklara sahipsiniz:'],
     bullets: [
       'Kişisel verilerinizin işlenip işlenmediğini öğrenme',
       'İşlenmişse buna ilişkin bilgi talep etme',
-      'İşlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme',
+      'İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme',
       'Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme',
       'Eksik veya yanlış işlenmişse düzeltilmesini isteme',
-      "KVKK'da öngörülen şartlar çerçevesinde silinmesini veya yok edilmesini isteme",
-      'Düzeltme, silme, yok etme işlemlerinin aktarıldığı üçüncü kişilere bildirilmesini isteme',
-      'İşlenen verilerin münhasıran otomatik sistemler ile analiz edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme',
-      'Kanuna aykırı olarak işlenmesi sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme',
+      'KVKK\'da öngörülen şartlar çerçevesinde silinmesini veya yok edilmesini isteme',
+      'Düzeltme, silme ve yok etme işlemlerinin aktarıldığı üçüncü kişilere bildirilmesini isteme',
+      'Münhasıran otomatik sistemlerle analiz edilmesi suretiyle aleyhinize bir sonuç doğmasına itiraz etme',
+      'Kanuna aykırı işleme sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme',
+    ],
+  },
+  {
+    heading: 'Başvuru Yolu',
+    paragraphs: [
+      'Taleplerinizi, kimliğinizi tevsik edici bilgilerle birlikte; yazılı olarak yukarıdaki adrese göndererek veya daha önce derneğimize bildirdiğiniz ve sistemimizde kayıtlı bulunan e-posta adresinizden bilgi@kozder.com adresine ileterek yapabilirsiniz.',
+      'Başvurunuz, talebin niteliğine göre en kısa sürede ve her hâlde en geç otuz gün içinde ücretsiz olarak sonuçlandırılır. İşlemin ayrıca bir maliyet gerektirmesi hâlinde Kurul\'ca belirlenen tarifedeki ücret alınabilir.',
+      'Başvurunuzun reddedilmesi, yanıtın yetersiz bulunması veya süresinde yanıt verilmemesi hâlinde; yanıtı öğrendiğiniz tarihten itibaren otuz ve her hâlde başvuru tarihinden itibaren altmış gün içinde Kişisel Verileri Koruma Kurulu\'na şikâyette bulunabilirsiniz.',
+    ],
+  },
+  {
+    heading: 'Güncellemeler',
+    paragraphs: [
+      'Bu aydınlatma metni, mevzuattaki değişiklikler veya faaliyetlerimizdeki gelişmeler doğrultusunda güncellenebilir. Güncel metin her zaman bu sayfada yayımlanır.',
     ],
   },
 ];
@@ -61,7 +152,7 @@ const sections: Section[] = [
 
 <BaseLayout
   title="KVKK Aydınlatma Metni — KOZ-DER"
-  description="KOZ-DER Kişisel Verilerin Korunması Kanunu kapsamında bilgilendirme metni."
+  description="KOZ-DER'in 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında kişisel verileri nasıl işlediğine dair aydınlatma metni."
 >
   <Breadcrumb
     items={[{ label: 'Ana Sayfa', href: '/' }, { label: 'KVKK', href: '/kvkk' }]}
@@ -70,6 +161,10 @@ const sections: Section[] = [
   />
 
   <div class="container mx-auto px-4 py-12 sm:py-20 max-w-4xl">
+    <p class="mb-8 text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp">
+      Son güncelleme · {lastUpdated}
+    </p>
+
     <div class="border-2 border-brand-ink bg-brand-cream divide-y-2 divide-brand-ink" style="box-shadow: 6px 6px 0 0 #6B4630;">
       {sections.map((section, i) => (
         <section class="p-6 sm:p-10">
@@ -96,32 +191,24 @@ const sections: Section[] = [
               ))}
             </ul>
           )}
+
+          {section.after?.map(text => (
+            <p class="mt-4 text-ink-soft leading-relaxed">{text}</p>
+          ))}
         </section>
       ))}
-
-      <section class="p-6 sm:p-10">
-        <div class="flex items-baseline gap-4 mb-5">
-          <span class="font-display font-black text-2xl sm:text-3xl text-brand-walnut leading-none tracking-tightest">
-            {String(sections.length + 1).padStart(2, '0')}
-          </span>
-          <h2 class="font-display font-bold text-xl sm:text-2xl text-brand-ink leading-snug tracking-tight">
-            İletişim
-          </h2>
-        </div>
-        <p class="text-ink-soft leading-relaxed">
-          KVKK kapsamındaki taleplerinizi, yazılı olarak derneğimizin adresine gönderebilir veya
-          <a href="mailto:bilgi@kozder.com" class="font-semibold text-brand-ink border-b-2 border-brand-stamp hover:text-brand-stamp transition-colors">bilgi@kozder.com</a>
-          e-posta adresine iletebilirsiniz.
-        </p>
-        <address class="mt-5 not-italic text-sm text-ink-soft leading-relaxed">
-          Kazım Karabekir Mahallesi, İstiklal Caddesi No: 33D<br />
-          79000 Kilis · Türkiye
-        </address>
-      </section>
     </div>
 
-    <p class="mt-8 text-sm text-ink-muted italic leading-relaxed border-l-2 border-brand-walnut/40 pl-4">
-      Bu metin örnek bir KVKK aydınlatma metnidir. Güncel KVKK metni için derneğimizle iletişime geçiniz.
-    </p>
+    <div class="mt-10 bg-brand-ink text-brand-cream border-2 border-brand-ink p-7 sm:p-9" style="box-shadow: 6px 6px 0 0 #6B4630;">
+      <h2 class="font-display font-black text-2xl sm:text-3xl tracking-tightest leading-none mb-3">
+        KVKK talebiniz mi var?
+      </h2>
+      <p class="text-sm sm:text-base text-brand-cream/90 max-w-xl mb-6">
+        Verilerinize ilişkin her türlü talebinizi doğrudan bize iletebilirsiniz — en geç otuz gün içinde yanıtlıyoruz.
+      </p>
+      <a href="mailto:bilgi@kozder.com" class="inline-flex items-center justify-center gap-2 bg-brand-cream text-brand-ink hover:bg-brand-stamp hover:text-brand-cream px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">
+        bilgi@kozder.com →
+      </a>
+    </div>
   </div>
 </BaseLayout>

@@ -8,9 +8,11 @@ interface Props {
   location: string;
   coverImage?: string;
   slug: string;
+  /** Tarihi geçmiş etkinlikler rozetle işaretlenir. */
+  past?: boolean;
 }
 
-const { title, date, time, location, coverImage, slug } = Astro.props;
+const { title, date, time, location, coverImage, slug, past = false } = Astro.props;
 const formattedDate = formatEventDate(date);
 const formattedTime = formatEventTime(time);
 ---
@@ -22,10 +24,15 @@ const formattedTime = formatEventTime(time);
         <img
           src={coverImage}
           alt={title}
-          class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          class={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${past ? 'grayscale-[0.35] group-hover:grayscale-0' : ''}`}
           loading="lazy"
         />
       </div>
+    )}
+    {past && (
+      <span class="absolute top-3 right-3 z-10 bg-brand-ink text-brand-cream text-[10px] font-bold uppercase tracking-[0.15em] px-2 py-1">
+        Geçmiş
+      </span>
     )}
     <div class="p-5 sm:p-6 flex-1 flex flex-col">
       <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-ink mb-4 group-hover:text-brand-stamp transition-colors leading-[1.1] tracking-tight line-clamp-2">

@@ -1,6 +1,6 @@
 ---
-title_tr: "Koz-Der Go To Bulgaria-4"
-title_en: "Koz-Der Go To Bulgaria-4"
+title_tr: "KOZ-DER Go to Bulgaria-4"
+title_en: "KOZ-DER Go to Bulgaria-4"
 programType: "ESC"
 year: 2026
 status: "Tamamlandı"

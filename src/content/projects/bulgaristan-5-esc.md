@@ -1,5 +1,5 @@
 ---
-title_tr: "GRANDCHILDREN FOR RENT"
+title_tr: "GrandChildren for Rent"
 title_en: "GrandChildren for Rent"
 programType: "ESC"
 year: 2026

@@ -1,5 +1,5 @@
 ---
-title_tr: "KOZ-DER GO TO ITALY 6"
+title_tr: "KOZ-DER Go to Italy 6"
 title_en: "KOZ-DER Go to Italy 6"
 programType: "ESC"
 year: 2026
