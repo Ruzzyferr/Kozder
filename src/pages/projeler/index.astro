@@ -5,7 +5,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import { byNewest } from '../../utils/contentSort';
 
-const allProjects = (await getCollection('projects')).filter(p => !p.data.draft);
+const allProjects = (await getCollection('projects', e => !e.slug.startsWith('en/'))).filter(p => !p.data.draft);
 
 const statusRank = (s: string) => (s === 'Aktif' ? 0 : 1);
 const newest = byNewest('projects', 'startDate');

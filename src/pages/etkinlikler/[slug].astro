@@ -8,7 +8,7 @@ import { eventSchema } from '../../utils/seo';
 import ShareBox from '../../components/ShareBox.astro';
 
 export async function getStaticPaths() {
-  const events = await getCollection('events');
+  const events = await getCollection('events', e => !e.slug.startsWith('en/'));
   return events.map((event) => ({
     params: { slug: event.slug },
     props: { event },

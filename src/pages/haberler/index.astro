@@ -5,7 +5,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import { byNewest } from '../../utils/contentSort';
 
-const newsRaw = (await getCollection('news')).filter(n => !n.data.draft);
+const newsRaw = (await getCollection('news', e => !e.slug.startsWith('en/'))).filter(n => !n.data.draft);
 const news = newsRaw.sort(byNewest('news', 'date'));
 ---
 

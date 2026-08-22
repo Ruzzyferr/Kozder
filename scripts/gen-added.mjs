@@ -34,10 +34,15 @@ for (const [collection, dir] of Object.entries(COLLECTION_DIRS)) {
   const abs = path.join(ROOT, dir);
   if (!existsSync(abs)) continue;
 
-  // Map of currently existing files in this collection.
-  const present = new Set(
-    readdirSync(abs).filter(f => statSync(path.join(abs, f)).isFile())
-  );
+  // Map of currently existing files in this collection. Recurses so that
+  // language subfolders (e.g. projects/en/foo.md) are tracked too.
+  const walk = (base, prefix = '') =>
+    readdirSync(base).flatMap(name => {
+      const full = path.join(base, name);
+      const rel = prefix ? `${prefix}/${name}` : name;
+      return statSync(full).isDirectory() ? walk(full, rel) : [rel];
+    });
+  const present = new Set(walk(abs));
 
   // Earliest known time wins (Math.min vs any value already in the manifest).
   // No --diff-filter=A (merge commits break "A" attribution) and no --follow
