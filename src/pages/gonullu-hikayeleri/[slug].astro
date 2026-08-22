@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 import { formatEventDate } from '../../utils/date';
 
 export async function getStaticPaths() {
-  const stories = await getCollection('stories');
+  const stories = await getCollection('stories', e => !e.slug.startsWith('en/'));
   return stories.map((story) => ({
     params: { slug: story.slug },
     props: { story },

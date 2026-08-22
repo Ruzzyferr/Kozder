@@ -4,7 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import { byNewest } from '../../utils/contentSort';
 
-const storiesRaw = (await getCollection('stories')).filter(s => !s.data.draft);
+const storiesRaw = (await getCollection('stories', e => !e.slug.startsWith('en/'))).filter(s => !s.data.draft);
 const stories = storiesRaw.sort(byNewest('stories', 'startDate'));
 
 // Helper to get initials

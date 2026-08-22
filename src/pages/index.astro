@@ -6,11 +6,11 @@ import { getCollection } from 'astro:content';
 import { getEventDateSortKey, formatEventDate } from '../utils/date';
 import { byNewest } from '../utils/contentSort';
 
-const projects = (await getCollection('projects')).filter(p => !p.data.draft);
-const events = (await getCollection('events')).filter(e => !e.data.draft);
-const posts = (await getCollection('posts')).filter(p => !p.data.draft);
-const news = (await getCollection('news')).filter(n => !n.data.draft);
-const stories = (await getCollection('stories')).filter(s => !s.data.draft);
+const projects = (await getCollection('projects', e => !e.slug.startsWith('en/'))).filter(p => !p.data.draft);
+const events = (await getCollection('events', e => !e.slug.startsWith('en/'))).filter(e => !e.data.draft);
+const posts = (await getCollection('posts', e => !e.slug.startsWith('en/'))).filter(p => !p.data.draft);
+const news = (await getCollection('news', e => !e.slug.startsWith('en/'))).filter(n => !n.data.draft);
+const stories = (await getCollection('stories', e => !e.slug.startsWith('en/'))).filter(s => !s.data.draft);
 
 const projectStatusRank = (s: string) => (s === 'Aktif' ? 0 : 1);
 const newestProject = byNewest('projects', 'startDate');

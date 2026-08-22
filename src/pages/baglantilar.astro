@@ -17,7 +17,7 @@ interface LinkGroup {
 }
 
 // Aktif çağrı sayısını sayfada göstermek için — boşsa o kart hiç çıkmaz.
-const activeProjects = (await getCollection('projects'))
+const activeProjects = (await getCollection('projects', e => !e.slug.startsWith('en/')))
   .filter(p => !p.data.draft && p.data.status === 'Aktif');
 
 const groups: LinkGroup[] = [
