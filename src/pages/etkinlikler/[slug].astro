@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import DetailCover from '../../components/DetailCover.astro';
 import { getCollection } from 'astro:content';
 import { formatEventDate, formatEventTime } from '../../utils/date';
 import { buildEventStartDate, buildIcsString, googleCalendarUrl, isAllDay } from '../../utils/calendar';
@@ -86,17 +87,7 @@ const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 's
     <div class="container mx-auto px-4 pb-20">
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
         <div class="lg:col-span-8">
-          {event.data.coverImage && (
-            <div class="bg-brand-cream overflow-hidden mb-10 card card-2">
-              <img
-                src={event.data.coverImage}
-                alt={event.data.title_tr}
-                class="block w-full h-auto"
-                loading="eager"
-                fetchpriority="high"
-              />
-            </div>
-          )}
+          <DetailCover src={event.data.coverImage} alt={event.data.title_tr} fit={event.data.coverFit} />
 
           <header class="mb-8">
             <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-[0.95] text-brand-ink">
@@ -170,7 +161,7 @@ const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 's
             )}
 
             {(gcalUrl || icsDataUri) && (
-              <div class="bg-brand-cream border border-brand-ink p-6">
+              <div class="card bg-brand-cream p-6">
                 <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">Takvime ekle</p>
                 <div class="space-y-2">
                   {gcalUrl && (

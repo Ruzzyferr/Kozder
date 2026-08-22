@@ -214,6 +214,19 @@ const ogImage = new URL(image, Astro.site);
 
   .prose-kozder p { margin-bottom: 1.25rem; }
 
+  /* Gövdede h1 kalmamalı (sayfa şablonu zaten bir tane üretiyor) ama
+     kaçarsa biçimsiz görünmesin. */
+  .prose-kozder h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: 'opsz' 72;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin: 2.5rem 0 1.1rem;
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+  }
+
   .prose-kozder h2 {
     font-family: 'Fraunces', Georgia, serif;
     font-variation-settings: 'opsz' 60;

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import DetailCover from '../../components/DetailCover.astro';
 import { getCollection } from 'astro:content';
 import ShareBox from '../../components/ShareBox.astro';
 
@@ -32,24 +33,14 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
     <div class="container mx-auto px-4 pb-20">
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
         <div class="lg:col-span-8">
-          {project.data.coverImage && (
-            <div class="bg-brand-cream overflow-hidden mb-10 card card-2">
-              <img
-                src={project.data.coverImage}
-                alt={project.data.title_tr}
-                class="block w-full h-auto"
-                loading="eager"
-                fetchpriority="high"
-              />
-            </div>
-          )}
+          <DetailCover src={project.data.coverImage} alt={project.data.title_tr} fit={project.data.coverFit} />
 
           <header class="mb-8">
             <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">{project.data.programType} · {project.data.year}</p>
             <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-[0.95] text-brand-ink mb-6">
               {project.data.title_tr}
             </h1>
-            <p class="font-display text-xl sm:text-2xl text-ink-soft leading-snug border-l-4 border-brand-stamp pl-5 italic">
+            <p class="font-display text-xl sm:text-2xl text-ink-soft leading-snug border-l-2 border-brand-walnut pl-5">
               {project.data.summary_tr}
             </p>
           </header>
@@ -68,7 +59,7 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
               </p>
             </div>
 
-            <div class="bg-brand-cream border border-brand-ink divide-y divide-line">
+            <div class="card card-2 bg-brand-cream divide-y divide-line">
               <div class="p-5">
                 <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Program</p>
                 <p class="font-display font-bold text-xl text-brand-ink">{project.data.programType}</p>
@@ -90,7 +81,7 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
                   <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">Temalar</p>
                   <div class="flex flex-wrap gap-1.5">
                     {project.data.themes.map(theme => (
-                      <span class="text-[11px] font-semibold uppercase tracking-wider px-2 py-1 border border-brand-ink/40 text-brand-walnut">{theme}</span>
+                      <span lang="en" class="text-xs font-medium tracking-wide px-2.5 py-1 border border-line-strong text-ink-soft">{theme}</span>
                     ))}
                   </div>
                 </div>
@@ -103,7 +94,7 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
                   href={project.data.infoPackUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="block bg-brand-cream border border-brand-ink hover:bg-brand-paper p-5 transition-colors"
+                  class="block card bg-brand-cream hover:bg-brand-paper p-5 transition-colors"
                 >
                   <p class="font-display font-bold text-lg text-brand-ink flex items-center justify-between">
                     Bilgi Paketi (PDF) <span>↓</span>

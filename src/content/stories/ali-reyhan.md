@@ -18,7 +18,7 @@ summary: "Bulgaristan’ın Madan şehrinde Green World-2 ESC projesine katılan
 featured: true
 ---
 
-# Bulgaristan’ın Madan Şehrinde İki Ay: Gönüllülüğün Hayatıma Kattıkları
+## Bulgaristan’ın Madan Şehrinde İki Ay: Gönüllülüğün Hayatıma Kattıkları
 
 Hayatta bazı yolculuklar vardır; sadece gidilen şehirleri değil, insanın kendisini de değiştirir. Benim için Bulgaristan’ın **Madan** şehrinde, Avrupa Dayanışma Programı (**ESC**) kapsamında gerçekleştirdiğim **Green World-2** projesi tam olarak böyle bir deneyimdi.
 

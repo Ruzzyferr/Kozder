@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import DetailCover from '../../components/DetailCover.astro';
 import ShareBox from '../../components/ShareBox.astro';
 import { getCollection } from 'astro:content';
 import { formatEventDate } from '../../utils/date';
@@ -37,17 +38,7 @@ const galleryImages = item.data.images.filter(src => src !== item.data.coverImag
     <div class="container mx-auto px-4 pb-20">
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
         <div class="lg:col-span-8">
-          {item.data.coverImage && (
-            <div class="bg-brand-cream overflow-hidden mb-10 card card-2">
-              <img
-                src={item.data.coverImage}
-                alt={item.data.title_tr}
-                class="block w-full h-auto"
-                loading="eager"
-                fetchpriority="high"
-              />
-            </div>
-          )}
+          <DetailCover src={item.data.coverImage} alt={item.data.title_tr} fit={item.data.coverFit} />
 
           <header class="mb-8">
             {item.data.category && (

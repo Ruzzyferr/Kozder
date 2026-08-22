@@ -11,7 +11,7 @@ summary: "Bulgaristan’ın Madan şehrinde geçirdiğim iki aylık ARTEVS ESC g
 featured: true
 ---
 
-# Bulgaristan’da Geçirdiğim İki Ay: Kendimi Keşfettiğim Bir ESC Yolculuğu
+## Bulgaristan’da Geçirdiğim İki Ay: Kendimi Keşfettiğim Bir ESC Yolculuğu
 
 Herkese merhaba,
 

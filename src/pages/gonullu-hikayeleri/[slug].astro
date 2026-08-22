@@ -40,7 +40,7 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
           </p>
         </div>
         <div class="lg:col-span-3 lg:text-right">
-          <div class="inline-block border border-brand-ink p-4 bg-brand-cream lift">
+          <div class="inline-block card card-2 p-4 bg-brand-cream">
             <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Program</p>
             <p class="font-display font-bold text-lg text-brand-ink leading-tight">{story.data.programName}</p>
             <p class="text-xs font-bold uppercase tracking-wider text-brand-walnut mt-2">{formatEventDate(story.data.startDate)}</p>
@@ -77,7 +77,7 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
                       href={img}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class={`group block relative border border-brand-ink overflow-hidden bg-brand-cream ${idx === 0 ? 'col-span-2 aspect-[4/3]' : 'aspect-square'}`}
+                      class={`group block relative card overflow-hidden bg-brand-cream ${idx === 0 ? 'col-span-2 aspect-[4/3]' : 'aspect-square'}`}
                     >
                       <img
                         src={img}

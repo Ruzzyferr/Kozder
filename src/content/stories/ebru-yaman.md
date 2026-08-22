@@ -13,7 +13,7 @@ summary: "Portekiz’in Viana do Castelo şehrinde geçirdiğim 55 günlük ESC 
 featured: true
 ---
 
-# Portekiz’de 55 Gün: Bir Gönüllülük Projesinden Çok Daha Fazlası
+## Portekiz’de 55 Gün: Bir Gönüllülük Projesinden Çok Daha Fazlası
 
 2026 yılının bahar aylarında, Avrupa Dayanışma Programı **(ESC)** kapsamında Portekiz’in kuzeyinde yer alan **Viana do Castelo** şehrinde 55 gün süren bir gönüllülük projesine katılma fırsatı yakaladım. Bu deneyim benim için yalnızca farklı bir ülkede gönüllülük yapmak anlamına gelmiyordu; aynı zamanda kendimi keşfettiğim, yeni dostluklar kurduğum ve dünyaya bakış açımı geliştirdiğim unutulmaz bir yolculuğa dönüşecekti.
 
