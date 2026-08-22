@@ -1,15 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 //
-// Editoryal lüks sistemi. İki kural belirliyor:
+// Açık ama tamamen çağdaş bir sistem. Önceki tema sıcak krem/kahve, sert köşeli
+// ve serif ağırlıklıydı — "posta kartı" hissi veriyordu. Yeni sistem:
 //
-// 1. Yüzeyler birbirinden RENKLE DEĞİL IŞIKLA ayrılır. Zemin (paper) ile kart
-//    (cream) arasındaki fark küçüktür; ayrımı saç teli çizgi ve yumuşak gölge
-//    yapar. Eski sistemde zemin çok doygundu ve her kart sert ofset gölgeyle
-//    çiziliyordu; bu yüzden sayfa hem solgun hem de tek ses tonundaydı.
+//   · Kırpık, neredeyse beyaz zemin; kahve/bej tonlar tamamen kaldırıldı
+//   · Canlı tek aksan (vermilyon) — eski tozlu tuğla kırmızısının yerine
+//   · Yuvarlatılmış geometri (kartlar 18px, butonlar hap) — modernliğin
+//     en hızlı okunan sinyali
+//   · Nötr, geniş ve yumuşak gölgeler; kahve tonlu gölge kirli görünüyordu
 //
-// 2. Token ADLARI korunur, DEĞERLERİ değişir. Sayfalarda `brand-paper`,
-//    `brand-cream`, `brand-ink` gibi 200'den fazla kullanım var; adları
-//    değiştirmek yerine değerleri yenilemek tüm siteyi tek hamlede taşır.
+// Token ADLARI korunuyor (200+ kullanım var), DEĞERLERİ tamamen yenileniyor.
 //
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -17,60 +17,53 @@ export default {
     extend: {
       colors: {
         brand: {
-          // Zemin: eskisi (#F4ECD8) çok doygun sarıydı, fotoğrafları ve
-          // mürekkebi boğuyordu. Sıcaklığı koruyup doygunluğu düşürdük.
-          paper: '#F5F1E7',
-          // Kart yüzeyi: neredeyse beyaz. Zeminden ışıkla ayrılır.
-          cream: '#FFFDF8',
-          ink: '#14100F',
-          walnut: '#6B4630',
-          stamp: '#9C2A1B',
-          postage: '#D8452F',
-          sun: '#F0C24A',
-          ocean: '#2B678F',
-          leaf: '#6FA83F',
+          paper: '#FBFBFA',   // sayfa zemini
+          cream: '#FFFFFF',   // kart yüzeyi
+          ink: '#0B0B0C',     // başlık / koyu blok
+          walnut: '#6E6E77',  // ikincil metin (eski kahve kaldırıldı)
+          stamp: '#E1442B',   // aksan — canlı vermilyon
+          postage: '#FF6B4A', // koyu zeminde aksan
+          sun: '#F5B841',
+          ocean: '#2F6BFF',
+          leaf: '#3FA96B',
         },
         surface: {
-          base: '#F5F1E7',
-          card: '#FFFDF8',
-          // Girintili / ikincil alanlar
-          sunken: '#EFE9DC',
-          muted: '#EDE7D9',
-          dim: '#E4DBC9',
-          ink: '#14100F',
+          base: '#FBFBFA',
+          card: '#FFFFFF',
+          sunken: '#F3F3F1',
+          muted: '#EFEFEC',
+          dim: '#E4E4E0',
+          ink: '#0B0B0C',
         },
-        // Sıcak nötr metin rampası
         ink: {
-          DEFAULT: '#1A1512',
-          soft: '#4A403A',
-          muted: '#776C63',
-          subtle: '#948A80',
+          DEFAULT: '#16161A',
+          soft: '#4B4B54',
+          muted: '#7B7B85',
+          subtle: '#A3A3AC',
         },
-        // Saç teli çizgiler — kalın mürekkep kenarlığın yerini alır
         line: {
-          subtle: 'rgb(20 16 15 / 0.07)',
-          DEFAULT: 'rgb(20 16 15 / 0.13)',
-          strong: 'rgb(20 16 15 / 0.26)',
+          subtle: 'rgb(11 11 12 / 0.06)',
+          DEFAULT: 'rgb(11 11 12 / 0.10)',
+          strong: 'rgb(11 11 12 / 0.20)',
         },
-        // Eski isimler (geriye dönük uyum)
         primary: {
-          50: '#FBF8F2', 100: '#F3EADB', 200: '#E2CBA9', 300: '#C89F62',
-          400: '#AF8560', 500: '#8B5E3C', 600: '#7A5135', 700: '#6B4630',
-          800: '#553826', 900: '#33241A',
+          50: '#FFF3F0', 100: '#FFE2DB', 200: '#FFBFB0', 300: '#FF9781',
+          400: '#F56A4D', 500: '#E1442B', 600: '#C2331D', 700: '#9C2717',
+          800: '#761D11', 900: '#4F130B',
         },
         accent: {
-          50: '#FFF9E6', 100: '#FDF2CC', 200: '#F8E29B', 300: '#F0C24A',
-          400: '#E58F38', 500: '#D8452F', 600: '#6FA83F', 700: '#3FA3A0',
-          800: '#8E5C99', 900: '#2B678F',
+          50: '#FFF8EC', 100: '#FDEFD3', 200: '#FADFA6', 300: '#F5B841',
+          400: '#FF8A3D', 500: '#E1442B', 600: '#3FA96B', 700: '#2FB8B5',
+          800: '#8B5CF6', 900: '#2F6BFF',
         },
-        dark: { DEFAULT: '#1A1512', text: '#4A403A', muted: '#776C63' },
-        light: { DEFAULT: '#F5F1E7', surface: '#FFFDF8', cream: '#FBF6EA' },
+        dark: { DEFAULT: '#16161A', text: '#4B4B54', muted: '#7B7B85' },
+        light: { DEFAULT: '#FBFBFA', surface: '#FFFFFF', cream: '#F7F7F5' },
       },
 
       fontFamily: {
-        // Fraunces başlıklarda kalır; Instrument Sans menü/buton/etiket/gövdeyi
-        // devralır. Oswald ve Montserrat kaldırıldı.
-        display: ['Fraunces', 'Georgia', 'serif'],
+        // Fraunces (kıvrımlı, "wonky" serif) yerine çağdaş bir grotesk.
+        // En hızlı hissedilen kimlik değişimi burada.
+        display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
         heading: ['"Instrument Sans"', 'system-ui', 'sans-serif'],
         body: ['"Instrument Sans"', 'system-ui', 'sans-serif'],
         sans: ['"Instrument Sans"', 'system-ui', 'sans-serif'],
@@ -78,70 +71,64 @@ export default {
       },
 
       letterSpacing: {
-        tightest: '-0.045em',
-        tighter: '-0.03em',
+        tightest: '-0.038em',
+        tighter: '-0.025em',
       },
 
       boxShadow: {
-        // Üç kademeli yumuşak sistem. Gölgeler ceviz tonuna çalar; nötr gri
-        // gölge sıcak kâğıt zeminde kirli görünüyor.
-        'e1': '0 1px 2px rgb(20 16 15 / 0.04), 0 2px 8px -3px rgb(107 70 48 / 0.10)',
-        'e2': '0 2px 4px rgb(20 16 15 / 0.04), 0 10px 26px -8px rgb(107 70 48 / 0.16)',
-        'e3': '0 4px 10px rgb(20 16 15 / 0.05), 0 22px 54px -14px rgb(107 70 48 / 0.22)',
-        // Eski adlar yeni sisteme bağlandı — sert ofset gölge artık üretilmiyor
-        soft: '0 1px 2px rgb(20 16 15 / 0.04), 0 2px 8px -3px rgb(107 70 48 / 0.10)',
-        card: '0 2px 4px rgb(20 16 15 / 0.04), 0 10px 26px -8px rgb(107 70 48 / 0.16)',
-        cardHover: '0 4px 10px rgb(20 16 15 / 0.05), 0 22px 54px -14px rgb(107 70 48 / 0.22)',
-        stamp: '0 1px 2px rgb(20 16 15 / 0.04), 0 2px 8px -3px rgb(107 70 48 / 0.10)',
-        stampLg: '0 2px 4px rgb(20 16 15 / 0.04), 0 10px 26px -8px rgb(107 70 48 / 0.16)',
-        postcard: '0 2px 4px rgb(20 16 15 / 0.04), 0 10px 26px -8px rgb(107 70 48 / 0.16)',
+        e1: '0 1px 2px rgb(11 11 12 / 0.04), 0 1px 3px rgb(11 11 12 / 0.05)',
+        e2: '0 2px 4px rgb(11 11 12 / 0.03), 0 10px 28px -8px rgb(11 11 12 / 0.10)',
+        e3: '0 4px 10px rgb(11 11 12 / 0.04), 0 28px 64px -16px rgb(11 11 12 / 0.16)',
+        glow: '0 12px 32px -10px rgb(225 68 43 / 0.45)',
+        soft: '0 1px 2px rgb(11 11 12 / 0.04), 0 1px 3px rgb(11 11 12 / 0.05)',
+        card: '0 2px 4px rgb(11 11 12 / 0.03), 0 10px 28px -8px rgb(11 11 12 / 0.10)',
+        cardHover: '0 4px 10px rgb(11 11 12 / 0.04), 0 28px 64px -16px rgb(11 11 12 / 0.16)',
+        stamp: '0 1px 2px rgb(11 11 12 / 0.04), 0 1px 3px rgb(11 11 12 / 0.05)',
+        stampLg: '0 2px 4px rgb(11 11 12 / 0.03), 0 10px 28px -8px rgb(11 11 12 / 0.10)',
+        postcard: '0 2px 4px rgb(11 11 12 / 0.03), 0 10px 28px -8px rgb(11 11 12 / 0.10)',
       },
 
       borderRadius: {
-        DEFAULT: '2px',
-        sm: '2px',
-        md: '3px',
-        lg: '4px',
-        xl: '6px',
-        '2xl': '8px',
-        '3xl': '12px',
+        DEFAULT: '10px',
+        sm: '8px',
+        md: '12px',
+        lg: '14px',
+        xl: '18px',
+        '2xl': '24px',
+        '3xl': '32px',
       },
 
-      maxWidth: {
-        prose: '68ch',
-        measure: '72ch',
-      },
+      maxWidth: { prose: '68ch', measure: '72ch' },
 
       backgroundImage: {
-        'paper-grain':
-          'radial-gradient(ellipse at 15% 20%, rgba(107,70,48,0.030), transparent 55%), radial-gradient(ellipse at 85% 75%, rgba(155,90,50,0.026), transparent 55%)',
+        // Bölüm arkalarına çok düşük yoğunluklu renk yıkamaları
+        'wash-warm':
+          'radial-gradient(1200px 600px at 12% -10%, rgb(225 68 43 / 0.07), transparent 60%), radial-gradient(900px 500px at 92% 8%, rgb(47 107 255 / 0.05), transparent 60%)',
+        'wash-soft':
+          'radial-gradient(900px 480px at 85% 0%, rgb(225 68 43 / 0.05), transparent 62%)',
+        'paper-grain': 'none',
         perforation:
-          'radial-gradient(circle at 4px 50%, transparent 3px, #14100F 3px, #14100F 4px, transparent 4px)',
+          'radial-gradient(circle at 4px 50%, transparent 3px, #0B0B0C 3px, #0B0B0C 4px, transparent 4px)',
       },
 
       keyframes: {
         'fade-in-up': {
-          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         'marquee-x': {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
-        'stamp-wobble': {
-          '0%, 100%': { transform: 'rotate(-3deg)' },
-          '50%': { transform: 'rotate(-1deg)' },
-        },
       },
 
       animation: {
-        'fade-in-up': 'fade-in-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both',
+        'fade-in-up': 'fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both',
         'marquee-x': 'marquee-x 34s linear infinite',
-        'stamp-wobble': 'stamp-wobble 4s ease-in-out infinite',
       },
 
       transitionTimingFunction: {
-        editorial: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        editorial: 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
   },

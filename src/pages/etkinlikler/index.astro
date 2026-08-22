@@ -47,7 +47,7 @@ const past = events
       </header>
 
       {upcoming.length > 0 ? (
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 stagger">
           {upcoming.map(event => (
             <EventCard
               title={event.data.title_tr}
@@ -69,10 +69,10 @@ const past = events
             Yeni buluşmaları ilk sen duy: sosyal medyadan takip et ya da aktif proje çağrılarımıza göz at.
           </p>
           <div class="mt-6 flex flex-col sm:flex-row gap-3">
-            <a href="/projeler" class="inline-flex items-center justify-center gap-2 bg-brand-ink text-brand-cream hover:bg-brand-stamp px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">
+            <a href="/projeler" class="inline-flex items-center justify-center gap-2 bg-brand-ink text-brand-cream hover:bg-brand-stamp px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-colors">
               Aktif Çağrılar →
             </a>
-            <a href="https://www.instagram.com/kozder2018" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-cream px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors">
+            <a href="https://www.instagram.com/kozder2018" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-cream px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-colors">
               Instagram'da Takip Et ↗
             </a>
           </div>
@@ -90,7 +90,7 @@ const past = events
             En yeniden eskiye · {past.length}
           </p>
         </header>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 stagger">
           {past.map(event => (
             <EventCard
               title={event.data.title_tr}

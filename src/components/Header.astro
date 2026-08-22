@@ -20,7 +20,7 @@ function isActive(href: string) {
 
 <header
   id="main-header"
-  class="bg-brand-paper/95 backdrop-blur-sm border-b border-line sticky top-0 z-50 transition-shadow duration-300"
+  class="glass border-b border-line sticky top-0 z-50 transition-shadow duration-300"
 >
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between h-16 md:h-20 gap-4">
@@ -51,12 +51,12 @@ function isActive(href: string) {
             <a
               href={item.href}
               aria-current={active ? 'page' : undefined}
-              class={`relative whitespace-nowrap px-2 xl:px-2.5 py-2 font-heading text-[11px] xl:text-xs font-semibold uppercase tracking-[0.07em] transition-colors duration-200
-                ${active ? 'text-brand-stamp' : 'text-brand-ink hover:text-brand-stamp'}`}
+              class={`relative isolate whitespace-nowrap rounded-full px-2.5 xl:px-3 py-2 font-heading text-[11px] xl:text-xs font-semibold uppercase tracking-[0.07em] transition-colors duration-200
+                ${active ? 'text-brand-ink' : 'text-ink-muted hover:text-brand-ink'}`}
             >
               {item.text}
               {active && (
-                <span class="absolute left-2 right-2 xl:left-2.5 xl:right-2.5 -bottom-1 h-px bg-brand-stamp"></span>
+                <span class="absolute inset-0 -z-10 rounded-full bg-surface-sunken"></span>
               )}
             </a>
           );
@@ -64,7 +64,7 @@ function isActive(href: string) {
 
         <a
           href="/iletisim"
-          class="ml-3 hidden xl:inline-flex whitespace-nowrap items-center gap-2 bg-brand-ink hover:bg-brand-stamp text-brand-cream px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.1em] font-heading transition-colors duration-300"
+          class="ml-3 hidden xl:inline-flex whitespace-nowrap items-center gap-2 bg-brand-ink hover:bg-brand-stamp text-brand-cream px-4 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.1em] font-heading transition-colors duration-300"
         >
           Bize Yaz
           <span>→</span>
@@ -73,7 +73,7 @@ function isActive(href: string) {
 
       <button
         id="mobile-menu-btn"
-        class="lg:hidden inline-flex items-center justify-center w-10 h-10 border border-brand-ink bg-brand-cream text-brand-ink hover:bg-brand-walnut hover:text-brand-cream transition-colors"
+        class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-line-strong bg-brand-cream text-brand-ink hover:bg-brand-ink hover:text-brand-cream hover:border-brand-ink transition-colors"
         aria-label="Menüyü aç"
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -101,7 +101,7 @@ function isActive(href: string) {
               href={item.href}
               aria-current={active ? 'page' : undefined}
               class={`flex items-center justify-between px-2 py-3.5 font-heading text-sm font-bold uppercase tracking-wider border-b border-brand-ink/15 transition-colors
-                ${active ? 'text-brand-stamp' : 'text-brand-ink hover:text-brand-stamp'}`}
+                ${active ? 'text-brand-ink' : 'text-ink-muted hover:text-brand-ink'}`}
             >
               {item.text}
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -112,7 +112,7 @@ function isActive(href: string) {
         })}
         <a
           href="/iletisim"
-          class="mt-5 inline-flex items-center justify-center gap-2 bg-brand-ink text-brand-cream px-4 py-3.5 text-sm font-bold uppercase tracking-[0.15em] font-heading transition-colors hover:bg-brand-stamp"
+          class="mt-5 inline-flex items-center justify-center gap-2 bg-brand-ink text-brand-cream px-4 py-3.5 rounded-full text-sm font-bold uppercase tracking-[0.15em] font-heading transition-colors hover:bg-brand-stamp"
         >
           Bize Yaz <span>→</span>
         </a>
