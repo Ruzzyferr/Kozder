@@ -5,6 +5,7 @@ date: "2026-07-05"
 time: "19:30"
 location: "Gençlik Zeka ve Kodlama Derneği, Kilis"
 coverImage: "/images/events/kitap-kulubu.webp"
+coverFit: "contain"
 registrationUrl: "https://chat.whatsapp.com/Fkl8C5uszSGLV9lrnw1gWS?mode=gi_t"
 ---
 

@@ -26,8 +26,9 @@ const past = events
   description="KOZ-DER'in düzenlediği yaklaşan ve geçmiş etkinlikler. Kitap kulübü, speaking club, gönüllü buluşmaları ve daha fazlası."
 >
   <Breadcrumb
+    kicker="Takvim"
     items={[{ label: 'Ana Sayfa', href: '/' }, { label: 'Etkinlikler', href: '/etkinlikler' }]}
-    pageTitle="Etkinliklerimiz"
+    pageTitle="Etkinliklerimiz."
     intro="Atölyeler, buluşmalar, kulüpler ve sosyal aktiviteler — tek listede."
   />
 
@@ -54,6 +55,7 @@ const past = events
               time={event.data.time}
               location={event.data.location}
               coverImage={event.data.coverImage}
+              coverFit={event.data.coverFit}
               slug={event.slug}
             />
           ))}
@@ -96,6 +98,7 @@ const past = events
               time={event.data.time}
               location={event.data.location}
               coverImage={event.data.coverImage}
+              coverFit={event.data.coverFit}
               slug={event.slug}
               past
             />

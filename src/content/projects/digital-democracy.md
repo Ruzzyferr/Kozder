@@ -16,6 +16,7 @@ location: "Pazardzhik, Bulgaria"
 startDate: "28.10.2026"
 endDate: "06.11.2026"
 coverImage: "/images/projects/digital-democracy.jpg"
+coverFit: "contain"
 applicationUrl: "https://forms.gle/zJdtGpAyQcGTzM1b6"
 applicationLabel: "Başvuru Formu"
 featured: true

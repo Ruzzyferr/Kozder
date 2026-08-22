@@ -15,6 +15,7 @@ location: "Kilis, Türkiye"
 startDate: "28.08.2026"
 endDate: "06.09.2026"
 coverImage: "/images/projects/kiliserasmus.jpg"
+coverFit: "contain"
 applicationUrl: "https://forms.gle/aacSz4fvUun8XjP49"
 applicationLabel: "Başvuru Formu"
 featured: true

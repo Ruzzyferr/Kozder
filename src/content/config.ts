@@ -13,6 +13,9 @@ const projectsCollection = defineCollection({
     startDate: z.string(),
     endDate: z.string().optional(),
     coverImage: z.string().optional(),
+    // Kapak bir afiş/grafikse 'contain': kırpılmadan tonlu panelde gösterilir.
+    // Fotoğraflar varsayılan 'cover' ile tam kanar.
+    coverFit: z.enum(['cover', 'contain']).default('cover'),
     applicationUrl: z.string().url().optional(),
     applicationLabel: z.string().optional(),
     featured: z.boolean().default(false),
@@ -32,6 +35,9 @@ const eventsCollection = defineCollection({
     time: z.string().optional(),
     location: z.string(),
     coverImage: z.string().optional(),
+    // Kapak bir afiş/grafikse 'contain': kırpılmadan tonlu panelde gösterilir.
+    // Fotoğraflar varsayılan 'cover' ile tam kanar.
+    coverFit: z.enum(['cover', 'contain']).default('cover'),
     registrationUrl: z.string().url().optional(),
     draft: z.boolean().default(false),
   }),
@@ -61,6 +67,9 @@ const newsCollection = defineCollection({
     category: z.string().optional(),
     location: z.string().optional(),
     coverImage: z.string().optional(),
+    // Kapak bir afiş/grafikse 'contain': kırpılmadan tonlu panelde gösterilir.
+    // Fotoğraflar varsayılan 'cover' ile tam kanar.
+    coverFit: z.enum(['cover', 'contain']).default('cover'),
     images: z.array(z.string()).default([]),
     summary_tr: z.string(),
     summary_en: z.string(),

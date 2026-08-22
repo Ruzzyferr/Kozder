@@ -5,6 +5,7 @@ date: "19.06.2026"
 time: "20:00"
 location: "Kilis - Dernek Merkezi"
 coverImage: "/images/events/speaking.jpeg"
+coverFit: "contain"
 registrationUrl: "https://chat.whatsapp.com/L5sDZNQRGD94mnwk1iFJCT?mode=gi_t"
 ---
 

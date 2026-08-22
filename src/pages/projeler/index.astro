@@ -28,49 +28,58 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
   description="ESC ve Erasmus+ programları kapsamında yürüttüğümüz uluslararası gençlik projeleri."
 >
   <Breadcrumb
+    kicker="Çağrılar"
     items={[{ label: 'Ana Sayfa', href: '/' }, { label: 'Projeler', href: '/projeler' }]}
-    pageTitle="ESC ve Erasmus+ Projeleri"
+    pageTitle="ESC ve Erasmus+ projeleri."
     intro="Avrupa'nın farklı şehirlerinde gençlik değişimleri, gönüllülük ve eğitim projeleri."
   />
 
   <div class="container mx-auto px-4 py-12 sm:py-16">
 
-    <div class="bg-brand-cream p-5 sm:p-6 mb-10 card card-2">
-      <div class="flex items-center justify-between mb-4 pb-3 border-b border-brand-ink/15">
-        <h2 class="font-display font-bold text-lg text-brand-ink">Filtrele</h2>
-        <button id="reset-filters" class="text-xs font-bold uppercase tracking-wider text-brand-walnut hover:text-brand-stamp transition-colors">Sıfırla ↻</button>
+    <form class="mb-12 sm:mb-14" role="search" aria-label="Proje filtreleri">
+      <div class="flex items-baseline gap-4 mb-5">
+        <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-ink-muted whitespace-nowrap">Filtrele</p>
+        <span class="h-px flex-1 bg-line"></span>
+        <button
+          type="button"
+          id="reset-filters"
+          class="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted hover:text-brand-stamp transition-colors whitespace-nowrap"
+        >
+          Sıfırla ↻
+        </button>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <div>
-          <label for="filter-program" class="block text-xs font-bold uppercase tracking-wider text-brand-walnut mb-1.5">Program</label>
-          <select id="filter-program" class="w-full px-3 py-2 text-sm bg-brand-paper border border-brand-ink/40 focus:outline-none focus:border-brand-ink text-brand-ink font-semibold">
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-5">
+        <div class="filter-field">
+          <label for="filter-program">Program</label>
+          <select id="filter-program">
             <option value="">Tümü</option>
             {allPrograms.map(program => <option value={program}>{program}</option>)}
           </select>
         </div>
-        <div>
-          <label for="filter-year" class="block text-xs font-bold uppercase tracking-wider text-brand-walnut mb-1.5">Yıl</label>
-          <select id="filter-year" class="w-full px-3 py-2 text-sm bg-brand-paper border border-brand-ink/40 focus:outline-none focus:border-brand-ink text-brand-ink font-semibold">
+        <div class="filter-field">
+          <label for="filter-year">Yıl</label>
+          <select id="filter-year">
             <option value="">Tümü</option>
             {allYears.map(year => <option value={year}>{year}</option>)}
           </select>
         </div>
-        <div>
-          <label for="filter-status" class="block text-xs font-bold uppercase tracking-wider text-brand-walnut mb-1.5">Durum</label>
-          <select id="filter-status" class="w-full px-3 py-2 text-sm bg-brand-paper border border-brand-ink/40 focus:outline-none focus:border-brand-ink text-brand-ink font-semibold">
+        <div class="filter-field">
+          <label for="filter-status">Durum</label>
+          <select id="filter-status">
             <option value="">Tümü</option>
             {allStatuses.map(status => <option value={status}>{status}</option>)}
           </select>
         </div>
-        <div>
-          <label for="filter-theme" class="block text-xs font-bold uppercase tracking-wider text-brand-walnut mb-1.5">Tema</label>
-          <select id="filter-theme" class="w-full px-3 py-2 text-sm bg-brand-paper border border-brand-ink/40 focus:outline-none focus:border-brand-ink text-brand-ink font-semibold">
+        <div class="filter-field">
+          <label for="filter-theme">Tema</label>
+          <select id="filter-theme">
             <option value="">Tümü</option>
             {allThemes.map(theme => <option value={theme}>{theme}</option>)}
           </select>
         </div>
       </div>
-    </div>
+    </form>
 
     <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
       {projects.map((project) => (
@@ -85,6 +94,7 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
             title={project.data.title_tr}
             summary={project.data.summary_tr}
             coverImage={project.data.coverImage}
+              coverFit={project.data.coverFit}
             programType={project.data.programType}
             year={project.data.year}
             status={project.data.status}
@@ -131,3 +141,41 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
     applyFilters();
   });
 </script>
+
+<style>
+  /* Tarayıcı varsayılanı select'ler sayfanın en kaba öğesiydi: alt çizgili,
+     tipografik bir alana çevirdik. Ok işareti inline SVG olarak gömülü. */
+  .filter-field label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-walnut);
+    margin-bottom: 0.45rem;
+  }
+
+  .filter-field select {
+    width: 100%;
+    appearance: none;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%236B4630' stroke-width='1.4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.15rem center;
+    border: 0;
+    border-bottom: 1px solid var(--line-strong);
+    border-radius: 0;
+    padding: 0.4rem 1.5rem 0.6rem 0;
+    font-family: inherit;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    cursor: pointer;
+    transition: border-color 0.3s var(--ease);
+  }
+
+  .filter-field select:hover,
+  .filter-field select:focus {
+    border-bottom-color: var(--color-stamp);
+  }
+</style>

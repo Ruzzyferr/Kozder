@@ -5,6 +5,7 @@ date: "2026-06-05"
 time: "13:00"
 location: "Festival Alanı (Esat Hal), Ankara"
 coverImage: "/images/events/ankarabulusmasi.webp"
+coverFit: "contain"
 registrationUrl: "https://forms.gle/7UVVg2Wr93nkoe2y9"
 ---
 

@@ -15,6 +15,7 @@ location: "Kilis / Online"
 startDate: "19.06.2026"
 endDate: "15.10.2026"
 coverImage: "/images/events/kozdergonullu.png"
+coverFit: "contain"
 applicationUrl: "https://forms.gle/UHrDcqzVg6sTuAY5A"
 applicationLabel: "Başvuru Formu"
 featured: true

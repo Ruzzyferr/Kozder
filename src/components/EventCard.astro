@@ -1,5 +1,6 @@
 ---
-import { formatEventDate, formatEventTime } from '../utils/date';
+import CardMedia from './CardMedia.astro';
+import { formatEventDate, formatEventTime, getEventDateSortKey } from '../utils/date';
 
 interface Props {
   title: string;
@@ -7,59 +8,53 @@ interface Props {
   time?: string;
   location: string;
   coverImage?: string;
+  coverFit?: 'cover' | 'contain';
   slug: string;
   /** Tarihi geçmiş etkinlikler rozetle işaretlenir. */
   past?: boolean;
 }
 
-const { title, date, time, location, coverImage, slug, past = false } = Astro.props;
+const { title, date, time, location, coverImage, coverFit = 'cover', slug, past = false } = Astro.props;
 const formattedDate = formatEventDate(date);
 const formattedTime = formatEventTime(time);
+
+const key = getEventDateSortKey(date);
+const d = key ? new Date(key) : null;
+const day = d ? String(d.getDate()).padStart(2, '0') : '·';
+const month = d ? d.toLocaleDateString('tr-TR', { month: 'short' }).replace('.', '').toUpperCase() : '';
 ---
 
-<a href={`/etkinlikler/${slug}`} class="block group h-full">
-  <article class="relative h-full bg-brand-cream transition-all duration-300 hover:-translate-y-1 hover:translate-x-0.5 flex flex-col card">
-    {coverImage && (
-      <div class="relative aspect-[3/2] bg-surface-muted overflow-hidden border-b border-line">
-        <img
-          src={coverImage}
-          alt={title}
-          class={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${past ? 'grayscale-[0.35] group-hover:grayscale-0' : ''}`}
-          loading="lazy"
-        />
-      </div>
-    )}
-    {past && (
-      <span class="absolute top-3 right-3 z-10 bg-brand-ink text-brand-cream text-[10px] font-bold uppercase tracking-[0.15em] px-2 py-1">
-        Geçmiş
+<a href={`/etkinlikler/${slug}`} class="group block h-full">
+  <article class="card card-hover h-full bg-brand-cream flex flex-col">
+    <CardMedia src={coverImage} alt={title} fit={coverFit} ratio="aspect-square">
+      <span class="absolute top-3 left-3 bg-brand-cream/95 backdrop-blur-sm px-2.5 py-1.5 text-center leading-none">
+        <span class="block font-display font-black text-lg text-brand-ink tracking-tightest">{day}</span>
+        <span class="mt-0.5 block text-[9px] font-semibold uppercase tracking-[0.14em] text-brand-stamp">{month}</span>
       </span>
-    )}
+      {past && (
+        <span class="absolute top-3 right-3 bg-brand-ink/85 backdrop-blur-sm text-brand-cream text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1.5">
+          Geçmiş
+        </span>
+      )}
+    </CardMedia>
+
     <div class="p-5 sm:p-6 flex-1 flex flex-col">
-      <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-ink mb-4 group-hover:text-brand-stamp transition-colors leading-[1.1] tracking-tight line-clamp-2">
+      <h3 class="font-display font-bold text-xl text-brand-ink leading-[1.15] tracking-tight line-clamp-2 group-hover:text-brand-stamp transition-colors duration-300">
         {title}
       </h3>
 
-      <div class="space-y-2 text-sm text-ink-soft mt-auto pt-4 border-t border-brand-ink/15">
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-brand-walnut flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-          </svg>
-          <span class="text-brand-ink font-semibold">{formattedDate}</span>
-          {formattedTime && (
-            <>
-              <span class="text-brand-walnut">·</span>
-              <span class="text-brand-ink font-semibold">{formattedTime}</span>
-            </>
-          )}
+      <dl class="mt-auto pt-5 space-y-1.5 text-sm">
+        <div class="flex gap-2">
+          <dt class="sr-only">Tarih</dt>
+          <dd class="text-brand-ink font-medium">
+            {formattedDate}{formattedTime ? ` · ${formattedTime}` : ''}
+          </dd>
         </div>
-        <div class="flex items-start gap-2">
-          <svg class="w-4 h-4 text-brand-walnut flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-          </svg>
-          <span class="text-brand-ink leading-snug">{location}</span>
+        <div class="flex gap-2">
+          <dt class="sr-only">Konum</dt>
+          <dd class="text-ink-muted leading-snug">{location}</dd>
         </div>
-      </div>
+      </dl>
     </div>
   </article>
 </a>

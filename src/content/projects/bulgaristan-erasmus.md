@@ -13,6 +13,7 @@ location: "Madan, Bulgaria"
 startDate: "15.06.2026"
 endDate: "25.06.2026"
 coverImage: "/images/projects/bulgaristan-erasmus.webp"
+coverFit: "contain"
 applicationUrl: "https://forms.gle/Frev66bU2fb5yQqN9"
 applicationLabel: "Başvuru Formu"
 featured: true

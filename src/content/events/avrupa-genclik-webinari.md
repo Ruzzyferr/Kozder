@@ -5,6 +5,7 @@ date: "2026-04-29"
 time: "21:00"
 location: "Online — Google Meet"
 coverImage: "/images/events/avrupawebinarii.webp"
+coverFit: "contain"
 registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfVyhQ-1jNrHAhQK3qLyw5k1oLFVZNMt9xPoq5As6nqWs6aPQ/viewform?usp=dialog"
 ---
 
