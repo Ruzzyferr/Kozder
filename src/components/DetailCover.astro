@@ -1,0 +1,36 @@
+---
+// Detay sayfası kapağı. Afiş kapaklar (dik Canva görselleri) `w-full h-auto`
+// ile ekranı boydan boya kaplıyordu; yüksekliği sınırlayıp tonlu panelde
+// ortalıyoruz. Fotoğraflar eskisi gibi tam genişlikte kalıyor.
+interface Props {
+  src?: string;
+  alt: string;
+  fit?: 'cover' | 'contain';
+}
+
+const { src, alt, fit = 'cover' } = Astro.props;
+---
+
+{src && (
+  fit === 'contain' ? (
+    <figure class="card card-2 bg-surface-sunken mb-10 m-0 flex items-center justify-center p-5 sm:p-8">
+      <img
+        src={src}
+        alt={alt}
+        class="block w-auto max-w-full max-h-[min(60vh,520px)] object-contain"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </figure>
+  ) : (
+    <figure class="card card-2 bg-brand-cream overflow-hidden mb-10 m-0">
+      <img
+        src={src}
+        alt={alt}
+        class="block w-full h-auto"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </figure>
+  )
+)}

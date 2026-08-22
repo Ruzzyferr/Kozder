@@ -6,7 +6,7 @@ const channels = [
   { title: 'Telefon', value: '+90 551 197 29 97', href: 'tel:+905511972997' },
   { title: 'E-posta', value: 'bilgi@kozder.com', href: 'mailto:bilgi@kozder.com' },
   { title: 'WhatsApp', value: 'Hızlı yanıt için yaz', href: 'https://wa.me/905511972997', external: true },
-  { title: 'Tüm Bağlantılar', value: 'linktr.ee/kozder', href: 'https://linktr.ee/kozder', external: true },
+  { title: 'Tüm Bağlantılar', value: 'Çağrılar, sosyal medya ve iletişim', href: '/baglantilar' },
 ];
 ---
 
@@ -26,7 +26,7 @@ const channels = [
       <div class="lg:col-span-7">
         <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tightest text-brand-ink mb-8 leading-none">Bize ulaş.</h2>
 
-        <div class="grid sm:grid-cols-2 gap-0 border border-brand-ink mb-8">
+        <div class="grid sm:grid-cols-2 gap-0 card card-2 bg-brand-cream mb-8">
           {channels.map((c, i) => (
             <a
               href={c.href}

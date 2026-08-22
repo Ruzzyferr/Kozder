@@ -14,7 +14,7 @@ summary: "İtalya’nın Treviso şehrinde ESC gönüllülük deneyimi yaşayan 
 featured: true
 ---
 
-# Pizza, Pasta, Biraz da Gönüllülük
+## Pizza, Pasta, Biraz da Gönüllülük
 
 ## Öğretmeye Giden Yol
 

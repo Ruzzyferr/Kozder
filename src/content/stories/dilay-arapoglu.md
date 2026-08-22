@@ -13,7 +13,7 @@ summary: "Bulgaristan’ın Madan şehrinde katıldığım Rights Matter, Justic
 featured: true
 ---
 
-# Gençlik, Adalet ve Eşitlik: Madan’da Birlikte Öğrenmek
+## Gençlik, Adalet ve Eşitlik: Madan’da Birlikte Öğrenmek
 
 Merhaba, ben **Dilay ARAPOĞLU**. Bulgaristan’ın **Madan** şehrinde **13 - 19 Temmuz 2026** tarihleri arasında gerçekleşen **“Rights Matter, Justice Counts”** başlıklı eğitim kursuna **KOZ-DER** aracılığıyla katılarak unutulmaz bir Erasmus+ deneyimi yaşadım.
 
