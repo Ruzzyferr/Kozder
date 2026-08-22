@@ -101,11 +101,22 @@ Duyuru içeriği buraya...
 
 Resimleri şu klasörlere ekleyin:
 
-- Proje resimleri: `public/images/projects/`
-- Etkinlik resimleri: `public/images/events/`
-- Ekip fotoğrafları: `public/images/team/`
+| İçerik türü | Markdown klasörü | Görsel klasörü |
+| --- | --- | --- |
+| Projeler | `src/content/projects/` | `public/images/projects/` |
+| Etkinlikler | `src/content/events/` | `public/images/events/` |
+| **Haberler** | `src/content/news/` | **`public/images/news/`** |
+| Gönüllü hikayeleri | `src/content/stories/` | `public/images/stories/` |
+| Ekip | `src/data/team.json` | `public/images/team/` |
+| Ağ / paydaş logoları | `src/data/affiliations.json` | `public/images/networks/`, `public/images/partners/` |
 
-**Önemli:** Dosya adlarında Türkçe karakter kullanmayın!
+**Önemli:**
+
+- Dosya adlarında Türkçe karakter kullanmayın!
+- Görselleri elle küçültmeye gerek yok — `npm run build` öncesi `scripts/optimize-images.mjs`
+  hepsini otomatik optimize eder. Optimize edilmiş halleri commit'lemeyi unutmayın.
+- Her içerik türünün görselini kendi klasörüne koyun; haber fotoğraflarını `events/` içine
+  atmayın.
 
 ## 🌐 Deployment (Vercel)
 

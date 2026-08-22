@@ -5,12 +5,13 @@ interface Props {
   title: string;
   date: string;
   location?: string;
+  category?: string;
   coverImage?: string;
   summary?: string;
   slug: string;
 }
 
-const { title, date, location, coverImage, summary, slug } = Astro.props;
+const { title, date, location, category, coverImage, summary, slug } = Astro.props;
 const formattedDate = formatEventDate(date);
 ---
 
@@ -27,7 +28,12 @@ const formattedDate = formatEventDate(date);
       </div>
     )}
     <div class="p-5 sm:p-6 flex-1 flex flex-col">
-      <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-2">{formattedDate}</p>
+      <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1 mb-2">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp">{formattedDate}</p>
+        {category && (
+          <span class="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-walnut border border-brand-ink/30 px-1.5 py-0.5">{category}</span>
+        )}
+      </div>
       <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-ink mb-3 group-hover:text-brand-stamp transition-colors leading-[1.1] tracking-tight line-clamp-2">
         {title}
       </h3>

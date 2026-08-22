@@ -36,25 +36,27 @@ function isActive(href: string) {
           <div class="font-display font-black text-2xl md:text-3xl text-brand-ink tracking-tightest -mt-0.5 group-hover:text-brand-stamp transition-colors">
             KOZ<span class="text-brand-stamp">·</span>DER
           </div>
-          <div class="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-brand-walnut font-semibold mt-1">
+          <!-- Uzun alt başlık + 9 menü maddesi ancak 2xl'de yan yana sığıyor;
+               daha darda taşma yapıp sayfayı yatay kaydırıyordu. -->
+          <div class="hidden 2xl:block text-[11px] uppercase tracking-[0.2em] text-brand-walnut font-semibold mt-1">
             Gençlik Zeka Oyunları ve Kodlama Derneği
           </div>
         </div>
       </a>
 
-      <nav class="hidden lg:flex items-center gap-1" aria-label="Birincil navigasyon">
+      <nav class="hidden lg:flex items-center gap-0.5" aria-label="Birincil navigasyon">
         {navItems.map(item => {
           const active = isActive(item.href);
           return (
             <a
               href={item.href}
               aria-current={active ? 'page' : undefined}
-              class={`relative px-3 py-2 font-heading text-sm font-bold uppercase tracking-[0.08em] transition-colors duration-200
+              class={`relative px-2 xl:px-2.5 py-2 font-heading text-xs xl:text-sm font-bold uppercase tracking-[0.06em] transition-colors duration-200
                 ${active ? 'text-brand-stamp' : 'text-brand-ink hover:text-brand-stamp'}`}
             >
               {item.text}
               {active && (
-                <span class="absolute left-3 right-3 -bottom-1 h-px bg-brand-stamp"></span>
+                <span class="absolute left-2 right-2 xl:left-2.5 xl:right-2.5 -bottom-1 h-px bg-brand-stamp"></span>
               )}
             </a>
           );
@@ -62,7 +64,7 @@ function isActive(href: string) {
 
         <a
           href="/iletisim"
-          class="ml-3 inline-flex items-center gap-2 bg-brand-ink hover:bg-brand-stamp text-brand-cream px-4 py-2.5 text-sm font-bold uppercase tracking-[0.1em] font-heading transition-all hover:-translate-y-0.5 lift-stamp hover:shadow-[6px_6px_0_0_#231C1C]"
+          class="ml-2 hidden xl:inline-flex items-center gap-2 bg-brand-ink hover:bg-brand-stamp text-brand-cream px-3.5 py-2.5 text-sm font-bold uppercase tracking-[0.1em] font-heading transition-all hover:-translate-y-0.5 lift-stamp hover:shadow-[6px_6px_0_0_#231C1C]"
         >
           Bize Yaz
           <span>→</span>

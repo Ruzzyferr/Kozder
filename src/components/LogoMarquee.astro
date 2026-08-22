@@ -1,0 +1,78 @@
+---
+interface LogoItem {
+  name: string;
+  logo: string;
+  url?: string;
+  /** Kaynak görselin piksel ölçüleri — optik boyutlandırma ve CLS için. */
+  w: number;
+  h: number;
+}
+
+interface Props {
+  label: string;
+  items: LogoItem[];
+  /** Kayma yönü: 'left' soldan sola, 'right' sağa doğru. */
+  direction?: 'left' | 'right';
+  /** Bir tur süresi (saniye). Büyük değer = yavaş. */
+  duration?: number;
+}
+
+const { label, items, direction = 'left', duration = 34 } = Astro.props;
+
+// Tüm logoları aynı yükseklikte vermek optik olarak dengesiz duruyor: geniş
+// logolar (Erasmus+, ESC) kocaman, kare mühürler (bakanlıklar) minicik kalıyor.
+// Yüksekliği en-boy oranına göre kademelendirince görsel ağırlıkları eşitleniyor.
+function logoHeight({ w, h }: LogoItem): number {
+  const aspect = w / h;
+  if (aspect >= 3.0) return 44;
+  if (aspect >= 1.9) return 56;
+  if (aspect >= 1.3) return 66;
+  return 74;
+}
+
+// Az sayıda logo varsa şerit ekranı doldurmaz ve boşluk görünür.
+// Her parça en az MIN_ITEMS logo içerecek şekilde listeyi tekrarlıyoruz.
+const MIN_ITEMS = 12;
+const repeats = Math.max(1, Math.ceil(MIN_ITEMS / items.length));
+const sequence: LogoItem[] = Array.from({ length: repeats }, () => items).flat();
+---
+
+<div class="marquee" role="group" aria-label={label}>
+  {[0, 1].map((copy) => (
+    <ul
+      class:list={['marquee__track', direction === 'right' && 'marquee__track--reverse']}
+      style={`animation-duration: ${duration}s`}
+      aria-hidden={copy === 1 ? 'true' : undefined}
+    >
+      {sequence.map((item, i) => {
+        // Sadece ilk kopyanın ilk turu gerçek bağlantı; kalanlar görsel tekrar.
+        const decorative = copy === 1 || i >= items.length;
+        const linked = Boolean(item.url) && !decorative;
+        const Tag = linked ? 'a' : 'div';
+        const height = logoHeight(item);
+        return (
+          <li class="shrink-0">
+            <Tag
+              {...(linked ? { href: item.url, target: '_blank', rel: 'noopener noreferrer' } : {})}
+              {...(decorative ? { 'aria-hidden': 'true', tabindex: '-1' } : {})}
+              class="flex h-24 sm:h-28 items-center justify-center bg-white border-2 border-brand-ink px-5 sm:px-7 transition-transform duration-200 hover:-translate-y-1 hover:translate-x-0.5"
+              style="box-shadow: 4px 4px 0 0 #6B4630;"
+              title={decorative ? undefined : item.name}
+            >
+              <img
+                src={item.logo}
+                alt={decorative ? '' : item.name}
+                width={item.w}
+                height={item.h}
+                loading="lazy"
+                decoding="async"
+                class="marquee__logo"
+                style={`--logo-h: ${height}px`}
+              />
+            </Tag>
+          </li>
+        );
+      })}
+    </ul>
+  ))}
+</div>

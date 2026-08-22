@@ -26,6 +26,7 @@ const news = newsRaw.sort(byNewest('news', 'date'));
           <NewsCard
             title={item.data.title_tr}
             date={item.data.date}
+            category={item.data.category}
             location={item.data.location}
             coverImage={item.data.coverImage}
             summary={item.data.summary_tr}

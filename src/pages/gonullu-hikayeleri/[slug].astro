@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ShareBox from '../../components/ShareBox.astro';
 import { getCollection } from 'astro:content';
+import { formatEventDate } from '../../utils/date';
 
 export async function getStaticPaths() {
   const stories = await getCollection('stories');
@@ -12,6 +14,7 @@ export async function getStaticPaths() {
 
 const { story } = Astro.props;
 const { Content } = await story.render();
+const url = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <BaseLayout
@@ -40,7 +43,7 @@ const { Content } = await story.render();
           <div class="inline-block border-2 border-brand-ink p-4 bg-brand-cream lift">
             <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Program</p>
             <p class="font-display font-bold text-lg text-brand-ink leading-tight">{story.data.programName}</p>
-            <p class="text-xs font-bold uppercase tracking-wider text-brand-walnut mt-2">{story.data.startDate}</p>
+            <p class="text-xs font-bold uppercase tracking-wider text-brand-walnut mt-2">{formatEventDate(story.data.startDate)}</p>
           </div>
         </div>
       </div>
@@ -87,6 +90,8 @@ const { Content } = await story.render();
                 </div>
               </div>
             )}
+
+            <ShareBox title={`${story.data.name} — ${story.data.programName}`} url={url} />
           </div>
         </aside>
       </div>

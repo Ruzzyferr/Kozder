@@ -3,12 +3,12 @@ title_tr: "KOZ-DER, Almanya Bremen’de Bridges for Futures-2 Projesinde Temsil 
 title_en: "KOZ-DER Was Represented at the Bridges for Futures-2 Project in Bremen, Germany"
 date: "08.08.2026"
 category: "Uluslararası İş Birliği"
-coverImage: "/images/events/bremen.jpeg"
+coverImage: "/images/news/bremen.jpeg"
 images:
-  - "/images/events/bremen.jpeg"
-  - "/images/events/bremen1.jpeg"
-  - "/images/events/bremen2.jpeg"
-  - "/images/events/bremen3.jpeg"
+  - "/images/news/bremen.jpeg"
+  - "/images/news/bremen1.jpeg"
+  - "/images/news/bremen2.jpeg"
+  - "/images/news/bremen3.jpeg"
 summary_tr: "Dernek Başkan Yardımcımız Halil ÖZKARACA, 2-8 Ağustos 2026 tarihleri arasında Almanya’nın Bremen şehrinde NaturKultur e.V. ev sahipliğinde gerçekleştirilen Bridges for Futures-2 projesinde KOZ-DER’i temsil etti ve yeni uluslararası ortaklıklar kurdu."
 summary_en: "Our Vice President Halil ÖZKARACA represented KOZ-DER at the Bridges for Futures-2 project hosted by NaturKultur e.V. in Bremen, Germany between 2-8 August 2026 and established new international partnerships."
 featured: true

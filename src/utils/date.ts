@@ -31,6 +31,17 @@ export function getEventDateSortKey(dateStr: string): number {
 }
 
 export function formatEventDate(dateStr: string, opts: { weekday?: boolean } = {}): string {
+  const trimmed = dateStr?.trim() ?? '';
+
+  // Gün bilgisi olmayan tarihler ("2026", "2025-04") tam tarihmiş gibi
+  // gösterilmemeli — new Date() bunları 1 Ocak'a çevirip uydurma bir gün üretiyor.
+  if (/^\d{4}$/.test(trimmed)) return trimmed;
+  const yearMonth = /^(\d{4})-(\d{2})$/.exec(trimmed);
+  if (yearMonth) {
+    const month = TR_MONTHS[Number(yearMonth[2]) - 1];
+    return month ? `${month} ${yearMonth[1]}` : trimmed;
+  }
+
   const d = parseEventDate(dateStr);
   if (!d) return dateStr;
   const day = d.getDate();

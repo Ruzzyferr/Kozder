@@ -3,10 +3,10 @@ title_tr: "Speaking Club Her Hafta Olduğu Gibi Bu Hafta da Buluşmasını Yapt�
 title_en: "Speaking Club Held Its First Session"
 date: "12.06.2026"
 location: "Dernek Merkezi"
-coverImage: "/images/events/speaking1.jpeg"
+coverImage: "/images/news/speaking1.jpeg"
 images:
-  - "/images/events/speaking.jpeg"
-  - "/images/events/speaking2.jpeg"
+  - "/images/news/speaking.jpeg"
+  - "/images/news/speaking2.jpeg"
 summary_tr: "İngilizce pratik yapmak isteyen gönüllülerimiz için başlattığımız Speaking Club'ın ilk oturumu büyük ilgi gördü."
 summary_en: "The first session of our Speaking Club, launched for volunteers who want to practice English, drew great interest."
 ---
