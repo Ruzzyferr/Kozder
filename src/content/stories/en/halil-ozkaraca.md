@@ -9,6 +9,10 @@ images:
   - "/images/stories/halilozkaraca2.jpeg"
   - "/images/stories/halilozkaraca3.jpeg"
   - "/images/stories/halilozkaraca4.jpeg"
+socialImage: "/social/halil-ozkaraca.jpg?v=20260823-2"
+socialImageWidth: 1200
+socialImageHeight: 630
+socialVersion: "20260823-2"
 summary: "Joining the Truth or Trick? Click with Care Erasmus+ project after a long break was a very special experience filled with learning, fun, new connections and opportunities for future partnerships."
 featured: true
 ---
