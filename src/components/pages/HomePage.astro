@@ -46,11 +46,10 @@ const homeEvents = (showingUpcoming ? upcomingEvents : pastEvents).slice(0, 4);
 
 const recentPosts = [...posts].sort(byNewest('posts', 'date')).slice(0, 3);
 
-// Öne çıkarılmış haberler başa sabitlenir, kalanı yeniden eskiye.
-const newestNews = byNewest('news', 'date');
-const sortedNews = [...news].sort(
-  (a, b) => (Number(b.data.featured) - Number(a.data.featured)) || newestNews(a, b),
-);
+// Anasayfadaki bütün haberler, içerikte belirtilen tarihe göre yeniden eskiye sıralanır.
+const newestNews = (a: (typeof news)[number], b: (typeof news)[number]) =>
+  getEventDateSortKey(b.data.date) - getEventDateSortKey(a.data.date);
+const sortedNews = [...news].sort(newestNews);
 const leadNews = sortedNews[0];
 const restNews = sortedNews.slice(1, 3);
 
