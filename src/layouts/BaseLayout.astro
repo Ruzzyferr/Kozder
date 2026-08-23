@@ -398,8 +398,14 @@ const other: Lang = lang === 'tr' ? 'en' : 'tr';
       max-width: 8.5rem;
     }
   }
-  .marquee:hover .marquee__track,
-  .marquee:focus-within .marquee__track {
+  @media (hover: hover) and (pointer: fine) {
+    .marquee:hover .marquee__track {
+      animation-play-state: paused;
+    }
+  }
+  /* Klavye kullanıcısı bağlantıya geldiğinde durur; fareyle tıklanan bağlantı
+     odağı üzerinde tutup şeridi kalıcı olarak durdurmaz. */
+  .marquee:has(a:focus-visible) .marquee__track {
     animation-play-state: paused;
   }
 
