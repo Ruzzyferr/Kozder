@@ -28,8 +28,6 @@ const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeU
       type="button"
       data-facebook-share
       data-url={url}
-      data-title={title}
-      data-text={shareText}
       data-fallback={facebookShareUrl}
       class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors"
     >Facebook</button>
@@ -48,20 +46,9 @@ const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeU
   }
 
   document.querySelectorAll<HTMLButtonElement>('[data-share] button[data-facebook-share]').forEach(btn => {
-    btn.addEventListener('click', async () => {
+    btn.addEventListener('click', () => {
       const url = btn.dataset.url ?? window.location.href;
-      const title = btn.dataset.title ?? document.title;
-      const text = btn.dataset.text ?? title;
       const fallback = btn.dataset.fallback ?? `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-
-      if (isMobileDevice() && navigator.share) {
-        try {
-          await navigator.share({ title, text, url });
-          return;
-        } catch (error) {
-          if (error instanceof DOMException && error.name === 'AbortError') return;
-        }
-      }
 
       if (isMobileDevice()) {
         window.location.assign(fallback);
