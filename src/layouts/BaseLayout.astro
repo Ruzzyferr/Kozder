@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { ORG_SCHEMA } from '../utils/seo';
+import { getLangFromUrl, useTranslations, type Lang } from '../i18n';
 
 interface Props {
   title: string;
@@ -10,15 +11,22 @@ interface Props {
   image?: string;
   noindex?: boolean;
   jsonLd?: Record<string, any> | Record<string, any>[];
+  lang?: Lang;
+  /** Aynı sayfanın diğer dildeki yolu — hreflang için. */
+  alternate?: string;
 }
 
-const { title, description, image = '/og-image.svg', noindex = false, jsonLd } = Astro.props;
+const { title, description, image = '/og-image.svg', noindex = false, jsonLd, alternate } = Astro.props;
+const lang: Lang = Astro.props.lang ?? getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image, Astro.site);
+const altURL = alternate ? new URL(alternate, Astro.site) : null;
+const other: Lang = lang === 'tr' ? 'en' : 'tr';
 ---
 
 <!doctype html>
-<html lang="tr">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,10 +40,13 @@ const ogImage = new URL(image, Astro.site);
 
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    {altURL && <link rel="alternate" hreflang={other} href={altURL} />}
+    {altURL && <link rel="alternate" hreflang={lang} href={canonicalURL} />}
+    {altURL && <link rel="alternate" hreflang="x-default" href={lang === 'tr' ? canonicalURL : altURL} />}
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="KOZ-DER" />
-    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:locale" content={lang === 'tr' ? 'tr_TR' : 'en_GB'} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -70,16 +81,16 @@ const ogImage = new URL(image, Astro.site);
       href="#main-content"
       class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-brand-ink focus:text-brand-cream focus:rounded-none focus:border-2 focus:border-brand-cream focus:shadow-stampLg focus:outline-none"
     >
-      İçeriğe atla
+      {t('a11y.skip')}
     </a>
 
-    <Header />
+    <Header lang={lang} />
 
     <main id="main-content" class="flex-1" tabindex="-1">
       <slot />
     </main>
 
-    <Footer />
+    <Footer lang={lang} />
   </body>
 </html>
 
