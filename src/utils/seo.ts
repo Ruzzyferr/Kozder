@@ -35,6 +35,8 @@ export const ORG_SCHEMA: OrganizationSchema = {
     'https://www.instagram.com/kozder2018',
     'https://www.linkedin.com/in/kozder2018',
     'https://www.youtube.com/@kozder2018',
+    'https://www.tiktok.com/@kozder2018',
+    'https://x.com/kozder2018',
   ],
   address: {
     '@type': 'PostalAddress',
