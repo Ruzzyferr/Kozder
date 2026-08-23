@@ -287,6 +287,24 @@ const other: Lang = lang === 'tr' ? 'en' : 'tr';
       const parts = text.split(emailPattern);
       if (parts.length < 2) return;
 
+
+<script>
+  document.addEventListener('click', (event) => {
+    const clicked = event.target;
+    if (!(clicked instanceof Element)) return;
+
+    const emailLink = clicked.closest('a[href^="mailto:"]');
+    if (!(emailLink instanceof HTMLAnchorElement)) return;
+
+    const address = emailLink.href.replace(/^mailto:/i, '').split('?')[0];
+    if (!address) return;
+
+    event.preventDefault();
+    const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(address)}`;
+    window.open(gmailComposeUrl, '_blank', 'noopener,noreferrer');
+  });
+</script>
+
       const fragment = document.createDocumentFragment();
       parts.forEach((part) => {
         if (exactEmailPattern.test(part)) {
