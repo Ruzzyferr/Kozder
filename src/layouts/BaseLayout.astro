@@ -21,7 +21,9 @@ const lang: Lang = Astro.props.lang ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image, Astro.site);
-const altURL = alternate ? new URL(alternate, Astro.site) : null;
+// hreflang adresleri karşı sayfanın canonical'ıyla birebir aynı olmalı;
+// canonical'lar sonda eğik çizgi taşıyor.
+const altURL = alternate ? new URL(alternate.endsWith('/') ? alternate : `${alternate}/`, Astro.site) : null;
 const other: Lang = lang === 'tr' ? 'en' : 'tr';
 ---
 
@@ -84,7 +86,7 @@ const other: Lang = lang === 'tr' ? 'en' : 'tr';
       {t('a11y.skip')}
     </a>
 
-    <Header lang={lang} />
+    <Header lang={lang} alternate={alternate} />
 
     <main id="main-content" class="flex-1" tabindex="-1">
       <slot />
@@ -101,8 +103,8 @@ const other: Lang = lang === 'tr' ? 'en' : 'tr';
     --sunken: #F3F3F1;
     --ink: #0B0B0C;
     --body: #4B4B54;
-    --muted: #7B7B85;
-    --accent: #E1442B;
+    --muted: #67676F;
+    --accent: #CE3A1F;
 
     --line-subtle: rgb(11 11 12 / 0.06);
     --line: rgb(11 11 12 / 0.10);

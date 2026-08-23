@@ -2,7 +2,7 @@
 import { getLangFromUrl, useTranslations, path, alternatePath, type Lang } from '../i18n';
 import { languages } from '../i18n/ui';
 
-interface Props { lang?: Lang }
+interface Props { lang?: Lang; alternate?: string }
 const lang: Lang = Astro.props.lang ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const currentPath = Astro.url.pathname;
@@ -22,7 +22,8 @@ const navItems = [
 const home = path(lang, 'home');
 const contact = path(lang, 'contact');
 const other: Lang = lang === 'tr' ? 'en' : 'tr';
-const otherHome = path(other, 'home');
+/** Dil düğmesi mümkünse aynı sayfanın karşılığına gider, yoksa ana sayfaya. */
+const otherHref = Astro.props.alternate ?? path(other, 'home');
 
 function isActive(href: string) {
   if (href === '/' || href === '/en/') return currentPath === href;
@@ -75,7 +76,7 @@ function isActive(href: string) {
         })}
 
         <a
-          href={otherHome}
+          href={otherHref}
           hreflang={other}
           class="ml-2 hidden lg:inline-flex items-center rounded-full border border-line-strong px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-ink-muted hover:text-brand-ink hover:border-brand-ink transition-colors"
           aria-label={t('nav.langSwitch')}
@@ -132,7 +133,7 @@ function isActive(href: string) {
           );
         })}
         <a
-          href={otherHome}
+          href={otherHref}
           hreflang={other}
           class="mt-5 inline-flex items-center justify-center rounded-full border border-line-strong px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-muted"
         >

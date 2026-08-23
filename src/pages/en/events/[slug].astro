@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import EventDetail from '../../../components/pages/EventDetail.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('events', e => e.slug.startsWith('en/'));
+  return entries.map(e => ({ params: { slug: e.slug.replace(/^en\//, '') }, props: { event: e } }));
+}
+
+const { event } = Astro.props;
+---
+
+<EventDetail event={event} lang="en" />

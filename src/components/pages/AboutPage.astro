@@ -1,0 +1,103 @@
+---
+import { useTranslations, usePage, path, alternatePath, type Lang } from '../../i18n';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+const p = usePage(lang);
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import teamData from '../../data/team.json';
+
+interface TeamMember {
+  name: string;
+  role: string;
+  bio: string;
+  image?: string;
+}
+
+const values = p.about.values;
+const roleLabel = (role: string) => p.about.roles[role] ?? role;
+const bioText = (member: TeamMember) => p.about.bios[member.name] ?? member.bio;
+---
+
+<BaseLayout
+  lang={lang}
+  title={p.meta.about.title}
+  description={p.meta.about.description}
+  alternate={alternatePath(lang, 'about')}
+>
+  <Breadcrumb
+    lang={lang}
+    kicker={t('about.kicker')}
+    items={[{ label: t('nav.home'), href: path(lang, 'home') }, { label: t('nav.about'), href: path(lang, 'about') }]}
+    pageTitle={p.head.about.pageTitle}
+    intro={p.head.about.intro}
+  />
+
+  <div class="container mx-auto px-4 py-12 sm:py-20">
+
+    <section class="mb-16 sm:mb-24">
+      <div class="grid lg:grid-cols-2 gap-0 card card-2 bg-brand-cream">
+        <article class="p-7 sm:p-10 bg-brand-cream border-r-0 lg:border-r-2 border-b-2 lg:border-b-0 border-brand-ink">
+          <h2 class="font-display font-black text-3xl sm:text-4xl text-brand-ink mb-4 leading-[0.95] tracking-tightest">{p.about.missionHeading}</h2>
+          <p class="text-ink-soft leading-relaxed">{p.about.missionText}</p>
+        </article>
+
+        <article class="p-7 sm:p-10 bg-brand-paper">
+          <h2 class="font-display font-black text-3xl sm:text-4xl text-brand-ink mb-4 leading-[0.95] tracking-tightest">{p.about.visionHeading}</h2>
+          <p class="text-ink-soft leading-relaxed">{p.about.visionText}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mb-16 sm:mb-24">
+      <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink mb-10">{p.about.valuesHeading}</h2>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 card card-2 bg-brand-cream divide-y sm:divide-y-0 sm:divide-x divide-line">
+        {values.map(v => (
+          <div class="p-6 hover:bg-brand-paper transition-colors">
+            <p class="font-display font-black text-5xl text-brand-walnut leading-none mb-3 tracking-tightest">{v.n}</p>
+            <h3 class="font-display font-bold text-xl text-brand-ink mb-2 tracking-tight">{v.title}</h3>
+            <p class="text-sm text-ink-soft leading-relaxed">{v.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {teamData && teamData.length > 0 && (
+      <section>
+        <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink mb-10">{p.about.teamHeading}</h2>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+          {teamData.map((member: TeamMember) => (
+            <article class="group bg-brand-cream transition-all hover:-translate-y-1 hover:translate-x-0.5 overflow-hidden card">
+              {member.image ? (
+                <div class="relative aspect-[3/4] bg-surface-muted overflow-hidden border-b border-line">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              ) : (
+                <div class="aspect-[3/4] bg-brand-walnut text-brand-cream flex items-center justify-center font-display text-5xl font-black border-b border-line">
+                  {member.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                </div>
+              )}
+              <div class="p-3 sm:p-4">
+                <p class="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-stamp mb-1">{roleLabel(member.role)}</p>
+                <h3 class="font-display font-bold text-base sm:text-lg text-brand-ink tracking-tight leading-tight">{member.name}</h3>
+                {bioText(member) && (
+                  <p class="hidden sm:block mt-2 text-xs text-ink-soft leading-relaxed line-clamp-3">{bioText(member)}</p>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>

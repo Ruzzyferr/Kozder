@@ -1,0 +1,56 @@
+---
+import { useTranslations, usePage, path, alternatePath, type Lang } from '../../i18n';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+const p = usePage(lang);
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+import { byNewest } from '../../utils/contentSort';
+
+const newsRaw = (await getCollection('news', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(n => !n.data.draft);
+const news = newsRaw.sort(byNewest('news', 'date'));
+---
+
+<BaseLayout
+  lang={lang}
+  title={p.meta.news.title}
+  description={p.meta.news.description}
+  alternate={alternatePath(lang, 'news')}
+>
+  <Breadcrumb
+    lang={lang}
+    kicker={t('news.kicker')}
+    items={[{ label: t('nav.home'), href: path(lang, 'home') }, { label: t('nav.news'), href: path(lang, 'news') }]}
+    pageTitle={t('news.title')}
+    intro={t('news.intro')}
+  />
+
+  <div class="container mx-auto px-4 py-12 sm:py-16">
+    {news.length > 0 ? (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 stagger">
+        {news.map((item) => (
+          <NewsCard
+              lang={lang}
+            title={item.data.title_tr}
+            date={item.data.date}
+            category={item.data.category}
+            location={item.data.location}
+            coverImage={item.data.coverImage}
+              coverFit={item.data.coverFit}
+            summary={item.data.summary_tr}
+            slug={item.slug}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-16 bg-brand-cream card card-2">
+        <p class="text-ink-soft text-lg">{t('news.empty')}</p>
+      </div>
+    )}
+  </div>
+</BaseLayout>

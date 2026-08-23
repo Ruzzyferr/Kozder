@@ -1,4 +1,5 @@
 ---
+import { getLangFromUrl, entryPath, stripLangPrefix, useTranslations, type Lang } from '../i18n';
 import CardMedia from './CardMedia.astro';
 
 interface Props {
@@ -10,13 +11,16 @@ interface Props {
   year: number;
   status: 'Aktif' | 'Tamamlandı';
   slug: string;
+  lang?: Lang;
 }
 
-const { title, summary, coverImage, coverFit = 'cover', programType, year, status, slug } = Astro.props;
+const { title, summary, coverImage, coverFit = 'cover', programType, year, status, slug, lang: langProp } = Astro.props;
+const lang: Lang = langProp ?? getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const isActive = status === 'Aktif';
 ---
 
-<a href={`/projeler/${slug}`} class="group block h-full">
+<a href={entryPath(lang, 'projects', stripLangPrefix(slug))} class="group block h-full">
   <article class="card card-hover h-full bg-brand-cream flex flex-col">
     <CardMedia src={coverImage} alt={title} fit={coverFit} ratio="aspect-square">
       <span class="absolute top-3 left-3 bg-brand-ink/90 backdrop-blur-sm text-brand-cream text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1.5">
@@ -25,14 +29,14 @@ const isActive = status === 'Aktif';
       {isActive && (
         <span class="absolute top-3 right-3 flex items-center gap-1.5 bg-brand-stamp text-brand-cream text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1.5">
           <span class="w-1.5 h-1.5 rounded-full bg-brand-cream"></span>
-          Açık
+          {t('common.open')}
         </span>
       )}
     </CardMedia>
 
     <div class="p-5 sm:p-6 flex-1 flex flex-col">
       <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-muted mb-3">
-        {year} · {isActive ? 'Başvuruya açık' : 'Arşiv'}
+        {year} · {isActive ? t('projects.applyOpen') : t('common.archive')}
       </p>
 
       <h3 class="font-display font-bold text-xl sm:text-[1.4rem] text-brand-ink leading-[1.12] tracking-tight line-clamp-2 group-hover:text-brand-stamp transition-colors duration-300">
@@ -42,7 +46,7 @@ const isActive = status === 'Aktif';
       <p class="mt-3 text-sm text-ink-soft leading-relaxed line-clamp-3 flex-1">{summary}</p>
 
       <span class="mt-6 pt-4 border-t border-line flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-walnut">
-        Detayları gör
+        {t('common.details')}
         <span class="text-base transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
       </span>
     </div>

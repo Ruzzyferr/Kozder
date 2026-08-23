@@ -1,4 +1,5 @@
 ---
+import { getLangFromUrl, entryPath, stripLangPrefix, type Lang } from '../i18n';
 import CardMedia from './CardMedia.astro';
 import { formatEventDate } from '../utils/date';
 
@@ -11,13 +12,15 @@ interface Props {
   coverFit?: 'cover' | 'contain';
   summary?: string;
   slug: string;
+  lang?: Lang;
 }
 
-const { title, date, location, category, coverImage, coverFit = 'cover', summary, slug } = Astro.props;
-const formattedDate = formatEventDate(date);
+const { title, date, location, category, coverImage, coverFit = 'cover', summary, slug, lang: langProp } = Astro.props;
+const lang: Lang = langProp ?? getLangFromUrl(Astro.url);
+const formattedDate = formatEventDate(date, { lang });
 ---
 
-<a href={`/haberler/${slug}`} class="group block h-full">
+<a href={entryPath(lang, 'news', stripLangPrefix(slug))} class="group block h-full">
   <article class="card card-hover h-full bg-brand-cream flex flex-col">
     <CardMedia src={coverImage} alt={title} fit={coverFit} ratio="aspect-[3/2]" />
 

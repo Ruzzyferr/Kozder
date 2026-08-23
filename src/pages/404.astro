@@ -1,37 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import NotFoundPage from '../components/pages/NotFoundPage.astro';
 ---
 
-<BaseLayout
-  title="Sayfa Bulunamadı — KOZ-DER"
-  description="Aradığınız sayfa bulunamadı."
-  noindex={true}
->
-  <section class="container mx-auto px-4 py-20 sm:py-32">
-    <div class="max-w-3xl">
-      <p class="font-display font-black text-[8rem] sm:text-[14rem] leading-none tracking-tightest text-brand-ink">404</p>
-      <h1 class="mt-4 font-display font-black text-3xl sm:text-5xl tracking-tightest text-brand-ink leading-none">
-        Bu sayfa, posta yolculuğunda kaybolmuş.
-      </h1>
-      <p class="mt-6 text-ink-soft text-lg max-w-xl leading-relaxed">
-        Belki bağlantı taşındı, belki yanlış adresi yazdın. Aşağıdaki bölümlerden devam edebilirsin.
-      </p>
-
-      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-0 card bg-brand-cream divide-y sm:divide-y-0 sm:divide-x divide-line max-w-2xl">
-        {[
-          { href: '/', label: 'Ana Sayfa' },
-          { href: '/projeler', label: 'Projeler' },
-          { href: '/etkinlikler', label: 'Etkinlikler' },
-          { href: '/iletisim', label: 'İletişim' },
-        ].map(l => (
-          <a href={l.href} class="block p-5 hover:bg-brand-paper transition-colors group">
-            <p class="font-display font-bold text-lg text-brand-ink flex items-center justify-between">
-              {l.label}
-              <span class="text-brand-walnut group-hover:text-brand-stamp group-hover:translate-x-1 transition-all">→</span>
-            </p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+<NotFoundPage lang="tr" />

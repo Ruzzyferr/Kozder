@@ -1,0 +1,45 @@
+---
+import { useTranslations, usePage, path, type Lang } from '../../i18n';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+const p = usePage(lang);
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  lang={lang}
+  title={p.meta.notFound.title}
+  description={p.meta.notFound.description}
+  noindex={true}
+>
+  <section class="container mx-auto px-4 py-20 sm:py-32">
+    <div class="max-w-3xl">
+      <p class="font-display font-black text-[8rem] sm:text-[14rem] leading-none tracking-tightest text-brand-ink">404</p>
+      <h1 class="mt-4 font-display font-black text-3xl sm:text-5xl tracking-tightest text-brand-ink leading-none">
+        {t('404.title')}
+      </h1>
+      <p class="mt-6 text-ink-soft text-lg max-w-xl leading-relaxed">
+        {t('404.lead')}
+      </p>
+
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-0 card bg-brand-cream divide-y sm:divide-y-0 sm:divide-x divide-line max-w-2xl">
+        {[
+          { href: path(lang, 'home'), label: t('nav.home') },
+          { href: path(lang, 'projects'), label: t('nav.projects') },
+          { href: path(lang, 'events'), label: t('nav.events') },
+          { href: path(lang, 'contact'), label: t('nav.contact') },
+        ].map(l => (
+          <a href={l.href} class="block p-5 hover:bg-brand-paper transition-colors group">
+            <p class="font-display font-bold text-lg text-brand-ink flex items-center justify-between">
+              {l.label}
+              <span class="text-brand-walnut group-hover:text-brand-stamp group-hover:translate-x-1 transition-all">→</span>
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

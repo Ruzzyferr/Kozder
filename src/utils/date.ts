@@ -7,6 +7,15 @@ const TR_WEEKDAYS = [
   'Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi',
 ];
 
+const EN_MONTHS = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+];
+
+const EN_WEEKDAYS = [
+  'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
+];
+
 function parseEventDate(dateStr: string): Date | null {
   if (!dateStr) return null;
   const trimmed = dateStr.trim();
@@ -30,25 +39,28 @@ export function getEventDateSortKey(dateStr: string): number {
   return d ? d.getTime() : 0;
 }
 
-export function formatEventDate(dateStr: string, opts: { weekday?: boolean } = {}): string {
+export function formatEventDate(dateStr: string, opts: { weekday?: boolean; lang?: 'tr' | 'en' } = {}): string {
   const trimmed = dateStr?.trim() ?? '';
+  const en = opts.lang === 'en';
+  const MONTHS = en ? EN_MONTHS : TR_MONTHS;
+  const WEEKDAYS = en ? EN_WEEKDAYS : TR_WEEKDAYS;
 
   // Gün bilgisi olmayan tarihler ("2026", "2025-04") tam tarihmiş gibi
   // gösterilmemeli — new Date() bunları 1 Ocak'a çevirip uydurma bir gün üretiyor.
   if (/^\d{4}$/.test(trimmed)) return trimmed;
   const yearMonth = /^(\d{4})-(\d{2})$/.exec(trimmed);
   if (yearMonth) {
-    const month = TR_MONTHS[Number(yearMonth[2]) - 1];
+    const month = MONTHS[Number(yearMonth[2]) - 1];
     return month ? `${month} ${yearMonth[1]}` : trimmed;
   }
 
   const d = parseEventDate(dateStr);
   if (!d) return dateStr;
   const day = d.getDate();
-  const month = TR_MONTHS[d.getMonth()];
+  const month = MONTHS[d.getMonth()];
   const year = d.getFullYear();
-  const base = `${day} ${month} ${year}`;
-  return opts.weekday ? `${TR_WEEKDAYS[d.getDay()]}, ${base}` : base;
+  const base = en ? `${month} ${day}, ${year}` : `${day} ${month} ${year}`;
+  return opts.weekday ? `${WEEKDAYS[d.getDay()]}, ${base}` : base;
 }
 
 export function formatEventTime(time?: string): string | null {

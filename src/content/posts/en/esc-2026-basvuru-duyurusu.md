@@ -4,8 +4,8 @@ title_en: "ESC 2026 Call for Applications"
 date: "2026"
 tags:
   - "ESC"
-  - "Başvuru"
-  - "Duyuru"
+  - "Applications"
+  - "Announcement"
 summary_tr: "Applications are now open for ESC 2026. This announcement includes the deadline and basic requirements."
 summary_en: "Applications are now open for ESC 2026. This announcement includes the deadline and basic requirements."
 ---

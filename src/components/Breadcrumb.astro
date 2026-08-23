@@ -1,8 +1,10 @@
 ---
 import JsonLd from './JsonLd.astro';
 import { breadcrumbSchema } from '../utils/seo';
+import { type Lang } from '../i18n';
 
 interface Props {
+  lang?: Lang;
   items: Array<{ label: string; href: string }>;
   pageTitle?: string;
   intro?: string;

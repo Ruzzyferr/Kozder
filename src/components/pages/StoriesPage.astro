@@ -1,0 +1,84 @@
+---
+import { useTranslations, usePage, path, alternatePath, entryPath, stripLangPrefix, type Lang } from '../../i18n';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+const p = usePage(lang);
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+import { byNewest } from '../../utils/contentSort';
+
+const storiesRaw = (await getCollection('stories', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(s => !s.data.draft);
+const stories = storiesRaw.sort(byNewest('stories', 'startDate'));
+
+// Helper to get initials
+const getInitials = (name: string) => {
+  return name.split(' ').map(n => n[0]).join('').toUpperCase();
+};
+---
+
+<BaseLayout 
+  lang={lang}
+  title={p.meta.stories.title}
+  description={p.meta.stories.description}
+  alternate={alternatePath(lang, 'stories')}
+>
+  <Breadcrumb 
+    lang={lang}
+    kicker={t('stories.kicker')}
+    items={[
+      { label: t('nav.home'), href: path(lang, 'home') },
+      { label: t('nav.stories'), href: path(lang, 'stories') }
+    ]}
+    pageTitle={t('stories.title')}
+    intro={t('stories.intro')}
+  />
+
+  <section class="py-12 sm:py-16 bg-brand-paper">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 stagger">
+        {stories.map((story, index) => (
+          <a
+            href={entryPath(lang, 'stories', stripLangPrefix(story.slug))}
+            class="group block reveal"
+            style={`transition-delay: ${index * 60}ms`}
+          >
+            <article class="relative bg-brand-cream transition-all duration-300 hover:-translate-y-1 hover:translate-x-0.5 card card-2">
+              <div class="relative aspect-[4/5] bg-surface-muted overflow-hidden border-b border-line">
+                {story.data.images[0] ? (
+                  <img
+                    src={story.data.images[0]}
+                    alt={story.data.name}
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="w-full h-full bg-brand-walnut text-brand-cream flex items-center justify-center font-display text-6xl font-black">
+                    {getInitials(story.data.name)}
+                  </div>
+                )}
+              </div>
+
+              <div class="p-5 sm:p-6">
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-2">{story.data.country}</p>
+                <h3 class="font-display font-bold text-2xl text-brand-ink leading-[1.05] tracking-tight mb-4 group-hover:text-brand-stamp transition-colors">
+                  {story.data.name}
+                </h3>
+                <p class="text-sm text-ink-soft leading-relaxed line-clamp-3 italic border-l-2 border-brand-walnut pl-3">
+                  "{story.data.summary}"
+                </p>
+                <div class="mt-5 pt-4 border-t border-brand-ink/15 flex items-center justify-between">
+                  <span class="text-sm font-bold uppercase tracking-wider text-brand-walnut group-hover:text-brand-stamp transition-colors">{t('common.readStory')}</span>
+                  <span class="text-brand-walnut group-hover:text-brand-stamp group-hover:translate-x-1 transition-all">→</span>
+                </div>
+              </div>
+            </article>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

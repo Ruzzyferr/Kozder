@@ -1,0 +1,144 @@
+---
+import { useTranslations, usePage, path, alternatePath, type Lang } from '../../i18n';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+const p = usePage(lang);
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+interface LinkItem {
+  title: string;
+  desc: string;
+  href: string;
+  external?: boolean;
+}
+
+interface LinkGroup {
+  kicker: string;
+  heading: string;
+  items: LinkItem[];
+}
+
+// Aktif çağrı sayısını sayfada göstermek için — boşsa o kart hiç çıkmaz.
+const activeProjects = (await getCollection('projects', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/')))
+  .filter(p => !p.data.draft && p.data.status === 'Aktif');
+
+const groups: LinkGroup[] = [
+  {
+    kicker: '01',
+    heading: p.links.applyHeading,
+    items: [
+      ...(activeProjects.length > 0
+        ? [{
+            title: p.links.activeCalls,
+            desc: p.links.activeCallsDesc(activeProjects.length),
+            href: path(lang, 'projects'),
+          }]
+        : []),
+      { title: t('stories.title').replace(/\.$/, ''), desc: p.links.storiesDesc, href: path(lang, 'stories') },
+      { title: t('nav.events'), desc: p.links.eventsDesc, href: path(lang, 'events') },
+      { title: p.links.faqTitle, desc: p.links.faqDesc, href: path(lang, 'faq') },
+    ],
+  },
+  {
+    kicker: '02',
+    heading: p.links.followHeading,
+    items: [
+      { title: 'Instagram', desc: '@kozder2018', href: 'https://www.instagram.com/kozder2018', external: true },
+      { title: 'Facebook', desc: '@kozder2018', href: 'https://www.facebook.com/kozder2018', external: true },
+      { title: 'LinkedIn', desc: 'KOZ-DER', href: 'https://www.linkedin.com/in/kozder2018', external: true },
+      { title: 'YouTube', desc: '@kozder2018', href: 'https://www.youtube.com/@kozder2018', external: true },
+    ],
+  },
+  {
+    kicker: '03',
+    heading: p.links.reachHeading,
+    items: [
+      { title: 'WhatsApp', desc: p.links.whatsappDesc, href: 'https://wa.me/905511972997', external: true },
+      { title: p.links.email, desc: 'bilgi@kozder.com', href: 'mailto:bilgi@kozder.com', external: true },
+      { title: p.links.phone, desc: '+90 551 197 29 97', href: 'tel:+905511972997', external: true },
+      { title: p.links.contactPage, desc: p.links.contactPageDesc, href: path(lang, 'contact') },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  lang={lang}
+  title={p.meta.links.title}
+  description={p.meta.links.description}
+  alternate={alternatePath(lang, 'links')}
+>
+  <Breadcrumb
+    lang={lang}
+    kicker={t('links.kicker')}
+    items={[{ label: t('nav.home'), href: path(lang, 'home') }, { label: t('footer.links'), href: path(lang, 'links') }]}
+    pageTitle={p.head.links.pageTitle}
+    intro={p.head.links.intro}
+  />
+
+  <div class="container mx-auto px-4 py-12 sm:py-20 max-w-3xl">
+    <div class="space-y-12 sm:space-y-16">
+      {groups.map(group => (
+        <section class="reveal">
+          <header class="flex items-baseline gap-4 mb-6">
+            <span class="font-display font-black text-3xl sm:text-4xl text-brand-walnut leading-none tracking-tightest">
+              {group.kicker}
+            </span>
+            <h2 class="font-display font-black text-2xl sm:text-3xl text-brand-ink tracking-tightest leading-none">
+              {group.heading}
+            </h2>
+            <span class="h-px flex-1 bg-brand-ink/20"></span>
+          </header>
+
+          <ul class="bg-brand-cream divide-y divide-line card card-2">
+            {group.items.map(item => (
+              <li>
+                <a
+                  href={item.href}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noopener noreferrer' : undefined}
+                  class="group flex items-center justify-between gap-5 p-5 sm:p-6 hover:bg-brand-paper transition-colors"
+                >
+                  <span class="min-w-0">
+                    <span class="block font-display font-bold text-lg sm:text-xl text-brand-ink group-hover:text-brand-stamp transition-colors leading-tight tracking-tight">
+                      {item.title}
+                    </span>
+                    <span class="block text-sm text-ink-soft leading-snug mt-1">{item.desc}</span>
+                  </span>
+                  <span
+                    class="flex-shrink-0 w-9 h-9 border border-brand-ink bg-brand-cream group-hover:bg-brand-ink group-hover:text-brand-cream text-brand-ink flex items-center justify-center transition-colors font-mono text-lg font-bold"
+                    aria-hidden="true"
+                  >
+                    {item.external ? '↗' : '→'}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+
+    <div class="mt-14 sm:mt-20 bg-brand-ink text-brand-cream p-8 sm:p-10 text-center reveal card card-2">
+      <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tightest leading-none mb-3">
+        {p.links.ctaTitle}
+      </h2>
+      <p class="text-sm sm:text-base text-brand-cream/90 max-w-md mx-auto mb-7">
+        {p.links.ctaText}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://wa.me/905511972997" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-brand-cream text-brand-ink hover:bg-brand-stamp hover:text-brand-cream px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-colors">
+          WhatsApp →
+        </a>
+        <a href={path(lang, 'contact')} class="inline-flex items-center justify-center gap-2 border border-brand-cream text-brand-cream hover:bg-brand-cream hover:text-brand-ink px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-colors">
+          {p.links.ctaContact}
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,6 +1,7 @@
 ---
 interface LogoItem {
   name: string;
+  name_en?: string;
   logo: string;
   url?: string;
   /** Kaynak görselin piksel ölçüleri — optik boyutlandırma ve CLS için. */
@@ -10,6 +11,7 @@ interface LogoItem {
 
 interface Props {
   label: string;
+  lang?: 'tr' | 'en';
   items: LogoItem[];
   /** Kayma yönü: 'left' soldan sola, 'right' sağa doğru. */
   direction?: 'left' | 'right';
@@ -17,7 +19,8 @@ interface Props {
   duration?: number;
 }
 
-const { label, items, direction = 'left', duration = 34 } = Astro.props;
+const { label, items, lang = 'tr', direction = 'left', duration = 34 } = Astro.props;
+const logoName = (i: LogoItem) => (lang === 'en' ? i.name_en ?? i.name : i.name);
 
 // Tüm logoları aynı yükseklikte vermek optik olarak dengesiz duruyor: geniş
 // logolar (Erasmus+, ESC) kocaman, kare mühürler (bakanlıklar) minicik kalıyor.
@@ -56,11 +59,11 @@ const sequence: LogoItem[] = Array.from({ length: repeats }, () => items).flat()
               {...(linked ? { href: item.url, target: '_blank', rel: 'noopener noreferrer' } : {})}
               {...(decorative ? { 'aria-hidden': 'true', tabindex: '-1' } : {})}
               class="flex h-24 sm:h-28 items-center justify-center bg-white px-5 sm:px-7 transition-transform duration-200 hover:-translate-y-1 hover:translate-x-0.5 card"
-              title={decorative ? undefined : item.name}
+              title={decorative ? undefined : logoName(item)}
             >
               <img
                 src={item.logo}
-                alt={decorative ? '' : item.name}
+                alt={decorative ? '' : logoName(item)}
                 width={item.w}
                 height={item.h}
                 loading="lazy"

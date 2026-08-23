@@ -169,6 +169,19 @@ export const ui = {
     'footer.faqShort': 'Sıkça Sorulan',
     'footer.kvkk': 'KVKK Aydınlatma',
 
+    'common.completed': 'Tamamlandı',
+
+    'stories.backShort': 'Hikayeler',
+    'stories.photoAltSuffix': 'Fotoğrafı',
+    'stories.metaSuffix': 'Gönüllü Hikayeleri',
+    'posts.backAll': 'Tüm duyurular',
+    'events.register': 'Kayıt Ol',
+    'events.gcal': 'Google Takvim',
+    'events.metaSuffix': 'KOZ-DER etkinliği',
+    'projects.emptyTitle': 'Aradığın kriterlere uygun proje bulunamadı.',
+    'projects.emptyHint': 'Filtreleri sıfırlamayı dene.',
+    'news.empty': 'Henüz haber eklenmemiş.',
+
     '404.title': 'Bu sayfa, posta yolculuğunda kaybolmuş.',
     '404.lead':
       'Belki bağlantı taşındı, belki yanlış adresi yazdın. Aşağıdaki bölümlerden devam edebilirsin.',
@@ -337,6 +350,19 @@ export const ui = {
     'footer.links': 'Links',
     'footer.faqShort': 'FAQ',
     'footer.kvkk': 'Privacy Notice',
+
+    'common.completed': 'Completed',
+
+    'stories.backShort': 'Stories',
+    'stories.photoAltSuffix': 'photo',
+    'stories.metaSuffix': 'Volunteer Stories',
+    'posts.backAll': 'All announcements',
+    'events.register': 'Register',
+    'events.gcal': 'Google Calendar',
+    'events.metaSuffix': 'KOZ-DER event',
+    'projects.emptyTitle': 'No project matches the filters you chose.',
+    'projects.emptyHint': 'Try resetting the filters.',
+    'news.empty': 'No news has been added yet.',
 
     '404.title': 'This page got lost in the post.',
     '404.lead':

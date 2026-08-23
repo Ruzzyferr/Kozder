@@ -1,100 +1,13 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ShareBox from '../../components/ShareBox.astro';
 import { getCollection } from 'astro:content';
-import { formatEventDate } from '../../utils/date';
+import StoryDetail from '../../components/pages/StoryDetail.astro';
 
 export async function getStaticPaths() {
-  const stories = await getCollection('stories', e => !e.slug.startsWith('en/'));
-  return stories.map((story) => ({
-    params: { slug: story.slug },
-    props: { story },
-  }));
+  const entries = await getCollection('stories', e => !e.slug.startsWith('en/'));
+  return entries.map(e => ({ params: { slug: e.slug }, props: { story: e } }));
 }
 
 const { story } = Astro.props;
-const { Content } = await story.render();
-const url = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
-<BaseLayout
-  title={`${story.data.name} — Gönüllü Hikayeleri — KOZ-DER`}
-  description={story.data.summary}
->
-  <article class="bg-brand-paper">
-    <div class="container mx-auto px-4 pt-8 sm:pt-12">
-      <a href="/gonullu-hikayeleri" class="inline-flex items-center gap-2 py-2 font-mono text-[11px] uppercase tracking-[0.2em] text-brand-ink hover:text-brand-stamp transition-colors mb-6 border-b border-line-strong pb-2">
-        <span>←</span> Hikayeler
-      </a>
-    </div>
-
-    <header class="container mx-auto px-4 mb-12 sm:mb-16">
-      <div class="grid lg:grid-cols-12 gap-6 items-end">
-        <div class="lg:col-span-9">
-          <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">{story.data.country}</p>
-          <h1 class="font-display font-black text-5xl sm:text-7xl md:text-8xl tracking-tightest leading-[0.85] text-brand-ink">
-            {story.data.name}
-          </h1>
-          <p class="mt-6 font-display text-xl sm:text-2xl text-ink-soft italic leading-snug max-w-2xl">
-            "{story.data.summary}"
-          </p>
-        </div>
-        <div class="lg:col-span-3 lg:text-right">
-          <div class="inline-block card card-2 p-4 bg-brand-cream">
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">Program</p>
-            <p class="font-display font-bold text-lg text-brand-ink leading-tight">{story.data.programName}</p>
-            <p class="text-xs font-bold uppercase tracking-wider text-brand-walnut mt-2">{formatEventDate(story.data.startDate)}</p>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <div class="container mx-auto px-4 pb-20">
-      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
-        <div class="lg:col-span-8">
-          <div class="prose-kozder bg-brand-cream p-6 sm:p-10 card card-2">
-            <Content />
-          </div>
-
-          <div class="mt-10 pt-8 border-t border-line flex items-center justify-between">
-            <a href="/gonullu-hikayeleri" class="inline-flex items-center py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-ink hover:text-brand-stamp transition-colors">
-              ← Diğer hikayeler
-            </a>
-            <a href="/projeler" class="bg-brand-ink text-brand-cream hover:bg-brand-stamp px-5 py-3 text-sm font-bold uppercase tracking-wider transition-colors">
-              Sen de katıl →
-            </a>
-          </div>
-        </div>
-
-        <aside class="lg:col-span-4">
-          <div class="sticky top-28 space-y-6">
-            {story.data.images.length > 0 && (
-              <div>
-                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-4 pb-3 border-b border-line">Deneyimden kareler</p>
-                <div class="grid grid-cols-2 gap-3">
-                  {story.data.images.map((img, idx) => (
-                    <a
-                      href={img}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class={`group block relative card overflow-hidden bg-brand-cream ${idx === 0 ? 'col-span-2 aspect-[4/3]' : 'aspect-square'}`}
-                    >
-                      <img
-                        src={img}
-                        alt={`${story.data.name} Fotoğrafı - ${idx + 1}`}
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <ShareBox title={`${story.data.name} — ${story.data.programName}`} url={url} />
-          </div>
-        </aside>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+<StoryDetail story={story} lang="tr" />

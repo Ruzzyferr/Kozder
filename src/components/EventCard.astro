@@ -1,4 +1,5 @@
 ---
+import { getLangFromUrl, entryPath, stripLangPrefix, useTranslations, type Lang } from '../i18n';
 import CardMedia from './CardMedia.astro';
 import { formatEventDate, formatEventTime, getEventDateSortKey } from '../utils/date';
 
@@ -10,21 +11,24 @@ interface Props {
   coverImage?: string;
   coverFit?: 'cover' | 'contain';
   slug: string;
+  lang?: Lang;
   /** Tarihi geçmiş etkinlikler rozetle işaretlenir. */
   past?: boolean;
 }
 
-const { title, date, time, location, coverImage, coverFit = 'cover', slug, past = false } = Astro.props;
-const formattedDate = formatEventDate(date);
+const { title, date, time, location, coverImage, coverFit = 'cover', slug, past = false, lang: langProp } = Astro.props;
+const lang: Lang = langProp ?? getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const formattedDate = formatEventDate(date, { lang });
 const formattedTime = formatEventTime(time);
 
 const key = getEventDateSortKey(date);
 const d = key ? new Date(key) : null;
 const day = d ? String(d.getDate()).padStart(2, '0') : '·';
-const month = d ? d.toLocaleDateString('tr-TR', { month: 'short' }).replace('.', '').toUpperCase() : '';
+const month = d ? d.toLocaleDateString(lang === 'en' ? 'en-GB' : 'tr-TR', { month: 'short' }).replace('.', '').toUpperCase() : '';
 ---
 
-<a href={`/etkinlikler/${slug}`} class="group block h-full">
+<a href={entryPath(lang, 'events', stripLangPrefix(slug))} class="group block h-full">
   <article class="card card-hover h-full bg-brand-cream flex flex-col">
     <CardMedia src={coverImage} alt={title} fit={coverFit} ratio="aspect-square">
       <span class="absolute top-3 left-3 bg-brand-cream/95 backdrop-blur-sm px-2.5 py-1.5 text-center leading-none">
@@ -33,7 +37,7 @@ const month = d ? d.toLocaleDateString('tr-TR', { month: 'short' }).replace('.',
       </span>
       {past && (
         <span class="absolute top-3 right-3 bg-brand-ink/85 backdrop-blur-sm text-brand-cream text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1.5">
-          Geçmiş
+          {t('common.past')}
         </span>
       )}
     </CardMedia>
@@ -45,13 +49,13 @@ const month = d ? d.toLocaleDateString('tr-TR', { month: 'short' }).replace('.',
 
       <dl class="mt-auto pt-5 space-y-1.5 text-sm">
         <div class="flex gap-2">
-          <dt class="sr-only">Tarih</dt>
+          <dt class="sr-only">{t('common.date')}</dt>
           <dd class="text-brand-ink font-medium">
             {formattedDate}{formattedTime ? ` · ${formattedTime}` : ''}
           </dd>
         </div>
         <div class="flex gap-2">
-          <dt class="sr-only">Konum</dt>
+          <dt class="sr-only">{t('common.location')}</dt>
           <dd class="text-ink-muted leading-snug">{location}</dd>
         </div>
       </dl>

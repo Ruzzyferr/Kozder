@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import NewsDetail from '../../../components/pages/NewsDetail.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('news', e => e.slug.startsWith('en/'));
+  return entries.map(e => ({ params: { slug: e.slug.replace(/^en\//, '') }, props: { item: e } }));
+}
+
+const { item } = Astro.props;
+---
+
+<NewsDetail item={item} lang="en" />

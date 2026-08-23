@@ -15,7 +15,7 @@ endDate: "21.04.2026"
 coverImage: "/images/projects/powerofstories.webp"
 coverFit: "contain"
 applicationUrl: "mailto:bilgi@kozder.com"
-applicationLabel: "Başvuru Yap"
+applicationLabel: "Apply Now"
 featured: true
 summary_tr: "The Power of Stories is an international Erasmus+ training course designed to equip youth workers with digital storytelling tools and methods."
 summary_en: "The Power of Stories is an international Erasmus+ training course designed to equip youth workers with digital storytelling tools and methods."

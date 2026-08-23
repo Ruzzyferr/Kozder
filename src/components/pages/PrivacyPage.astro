@@ -1,0 +1,81 @@
+---
+import { useTranslations, usePage, path, alternatePath, type Lang } from '../../i18n';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+const p = usePage(lang);
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const lastUpdated = p.privacy.lastUpdated;
+const sections = p.privacy.sections;
+---
+
+<BaseLayout
+  lang={lang}
+  title={p.meta.privacy.title}
+  description={p.meta.privacy.description}
+  alternate={alternatePath(lang, 'privacy')}
+>
+  <Breadcrumb
+    lang={lang}
+    kicker={t('legal.kicker')}
+    items={[{ label: t('nav.home'), href: path(lang, 'home') }, { label: t('footer.kvkk'), href: path(lang, 'privacy') }]}
+    pageTitle={p.head.privacy.pageTitle}
+    intro={p.head.privacy.intro}
+  />
+
+  <div class="container mx-auto px-4 py-12 sm:py-20 max-w-4xl">
+    <p class="mb-8 text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp">
+      {p.privacy.lastUpdatedLabel} · {lastUpdated}
+    </p>
+
+    <div class="bg-brand-cream divide-y divide-line card card-2">
+      {sections.map((section, i) => (
+        <section class="p-6 sm:p-10">
+          <div class="flex items-baseline gap-4 mb-5">
+            <span class="font-display font-black text-2xl sm:text-3xl text-brand-walnut leading-none tracking-tightest">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h2 class="font-display font-bold text-xl sm:text-2xl text-brand-ink leading-snug tracking-tight">
+              {section.heading}
+            </h2>
+          </div>
+
+          {section.paragraphs?.map(text => (
+            <p class="text-ink-soft leading-relaxed mb-4 last:mb-0">{text}</p>
+          ))}
+
+          {section.bullets && (
+            <ul class="mt-4 space-y-2.5">
+              {section.bullets.map(text => (
+                <li class="flex gap-3 text-ink-soft leading-relaxed">
+                  <span class="text-brand-stamp font-bold flex-shrink-0" aria-hidden="true">—</span>
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {section.after?.map(text => (
+            <p class="mt-4 text-ink-soft leading-relaxed">{text}</p>
+          ))}
+        </section>
+      ))}
+    </div>
+
+    <div class="mt-10 bg-brand-ink text-brand-cream p-7 sm:p-9 card card-2">
+      <h2 class="font-display font-black text-2xl sm:text-3xl tracking-tightest leading-none mb-3">
+        {p.privacy.ctaTitle}
+      </h2>
+      <p class="text-sm sm:text-base text-brand-cream/90 max-w-xl mb-6">
+        {p.privacy.ctaText}
+      </p>
+      <a href="mailto:bilgi@kozder.com" class="inline-flex items-center justify-center gap-2 bg-brand-cream text-brand-ink hover:bg-brand-stamp hover:text-brand-cream px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-colors">
+        bilgi@kozder.com →
+      </a>
+    </div>
+  </div>
+</BaseLayout>
