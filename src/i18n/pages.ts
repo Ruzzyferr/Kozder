@@ -374,6 +374,7 @@ const tr = {
         ],
         bullets: [
           'Vercel — sitenin barındırılması ve çerez kullanmayan, kişiyi tanımlamayan toplu ziyaret istatistikleri (Vercel Analytics)',
+          'hits.sh — sayfanın alt bölümündeki toplam ziyaretçi sayacının çalışması için IP adresi ve standart istek bilgileri bu servise iletilir',
           "Google Maps — yalnızca İletişim sayfasındaki harita; haritayı görüntülediğinizde IP adresiniz Google'a iletilir",
         ],
         after: [
@@ -791,6 +792,7 @@ const en: typeof tr = {
         ],
         bullets: [
           'Vercel — hosting for the site, plus aggregate visit statistics that use no cookies and do not identify individuals (Vercel Analytics)',
+          'hits.sh — your IP address and standard request information are sent to this service so the total visitor counter in the footer can operate',
           'Google Maps — only the map on the Contact page; when the map loads, your IP address is sent to Google',
         ],
         after: [
