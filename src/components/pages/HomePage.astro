@@ -74,6 +74,28 @@ const affiliationRows = [
   { ...affiliations.partners, label: lang === 'en' ? affiliations.partners.label_en : affiliations.partners.label, direction: 'right' as const, duration: 46 },
 ];
 
+const heroMessage = lang === 'en'
+  ? {
+      line1: 'Europe.',
+      line2: 'Volunteer.',
+      rotating: ['Join In.', 'Gain Experience.', 'Discover the World.', 'Make a Difference.'],
+      lead: 'From Kilis to Europe, volunteer, gain experience and discover the world through Erasmus+ and European Solidarity Corps opportunities.',
+      primary: 'Explore Opportunities',
+      secondary: 'Discover KOZ-DER',
+      how: 'How can I join?',
+      trust: ['Active since 2019', 'ESC Lead & Support Organisation', 'Volunteering across Europe'],
+    }
+  : {
+      line1: 'Avrupa.',
+      line2: 'Gönüllü Ol.',
+      rotating: ['Sen de Katıl.', 'Deneyim Kazan.', 'Dünyayı Keşfet.', 'Fark Oluştur.'],
+      lead: "Kilis’ten Avrupa’ya uzanan Erasmus+ ve Avrupa Dayanışma Programı fırsatlarıyla gönüllü ol, deneyim kazan ve dünyayı keşfet.",
+      primary: 'Fırsatları İncele',
+      secondary: 'KOZ-DER’i Tanı',
+      how: 'Nasıl katılırım?',
+      trust: ['2019’dan beri aktif', 'ESC Lider ve Destek Kuruluşu', 'Avrupa çapında gönüllülük'],
+    };
+
 const steps = [
   { n: '01', title: t('home.steps.1.title'), text: t('home.steps.1.text'), href: path(lang, 'projects') },
   { n: '02', title: t('home.steps.2.title'), text: t('home.steps.2.text'), href: path(lang, 'faq') },
@@ -110,35 +132,54 @@ function dateParts(value: string) {
             {t('home.hero.kicker')}
           </p>
 
+
           <h1 class="font-display text-brand-ink leading-[0.88] tracking-tightest">
-            <span class="block text-[3.4rem] sm:text-7xl xl:text-8xl font-black">{t('home.hero.l1')}</span>
+            <span class="block text-[3.15rem] sm:text-7xl xl:text-8xl font-black">{heroMessage.line1}</span>
             <span
-              class="block text-[3.4rem] sm:text-7xl xl:text-8xl font-black text-brand-stamp"
+              class="block text-[3.15rem] sm:text-7xl xl:text-8xl font-black text-brand-stamp"
               style="font-variation-settings: 'opsz' 96, 'wdth' 78;"
-            >{t('home.hero.l2')}</span>
-            <span class="block text-[3.4rem] sm:text-7xl xl:text-8xl font-black">{t('home.hero.l3')}</span>
+            >{heroMessage.line2}</span>
+            <span
+              class="hero-rotating-line block min-h-[0.9em] text-[3.15rem] sm:text-7xl xl:text-8xl font-black"
+              data-hero-rotating
+              data-rotating-words={JSON.stringify(heroMessage.rotating)}
+              aria-live="polite"
+            >{heroMessage.rotating[0]}</span>
           </h1>
 
-          <p class="mt-8 text-base sm:text-lg text-ink-soft leading-relaxed max-w-lg">
-            {t('home.hero.lead.a')}
-            <em class="not-italic font-semibold text-brand-ink">{t('home.hero.lead.b')}</em>
-            {t('home.hero.lead.c')}
+          <p class="mt-7 text-base sm:text-lg text-ink-soft leading-relaxed max-w-lg">
+            {heroMessage.lead}
           </p>
 
-          <div class="mt-10 flex flex-col sm:flex-row gap-3">
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
             <a
               href={path(lang, 'projects')}
-              class="group inline-flex items-center justify-center gap-3 bg-brand-ink text-brand-cream hover:bg-brand-stamp px-7 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300"
+              class="group inline-flex items-center justify-center gap-3 bg-brand-stamp text-white hover:bg-brand-ink px-7 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300"
             >
-              {t('home.hero.cta1')}
+              {heroMessage.primary}
               <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </a>
             <a
-              href={path(lang, 'stories')}
+              href={path(lang, 'about')}
               class="inline-flex items-center justify-center gap-2 border border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-cream px-7 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300"
             >
-              {t('home.hero.cta2')}
+              {heroMessage.secondary}
             </a>
+          </div>
+
+          <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+            <a href={path(lang, 'faq')} class="text-[11px] font-semibold text-brand-stamp underline underline-offset-4 hover:text-brand-ink transition-colors">
+              {heroMessage.how} →
+            </a>
+            <span class="hidden sm:block h-3 w-px bg-line-strong" aria-hidden="true"></span>
+            <div class="flex flex-wrap gap-x-4 gap-y-1.5 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.11em] text-ink-muted">
+              {heroMessage.trust.map((item) => (
+                <span class="inline-flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-stamp" aria-hidden="true"></span>
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -624,11 +665,49 @@ function dateParts(value: string) {
     });
   }
 
+
+  function initHeroRotatingText() {
+    document.querySelectorAll('[data-hero-rotating]').forEach((element) => {
+      if (!(element instanceof HTMLElement) || element.dataset.rotatingInitialized === 'true') return;
+      element.dataset.rotatingInitialized = 'true';
+
+      let words = [];
+      try {
+        words = JSON.parse(element.dataset.rotatingWords || '[]');
+      } catch {
+        return;
+      }
+      if (words.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      let index = 0;
+      window.setInterval(() => {
+        element.classList.add('is-changing');
+        window.setTimeout(() => {
+          index = (index + 1) % words.length;
+          element.textContent = words[index];
+          element.classList.remove('is-changing');
+        }, 220);
+      }, 3000);
+    });
+  }
+
   document.addEventListener('astro:page-load', initHeroNewsSliders);
+  document.addEventListener('astro:page-load', initHeroRotatingText);
   initHeroNewsSliders();
+  initHeroRotatingText();
 </script>
 
 <style>
+  .hero-rotating-line {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 220ms ease, transform 220ms ease;
+  }
+  .hero-rotating-line.is-changing {
+    opacity: 0;
+    transform: translateY(0.12em);
+  }
+
   .hero-news-slide {
     opacity: 0;
     visibility: hidden;
