@@ -127,7 +127,7 @@ const navColumns = [
     const counter = document.getElementById('goatcounter-total');
     if (!counter) return;
 
-    fetch('https://kozder.goatcounter.com/counter/TOTAL.json')
+    fetch('https://kozder.goatcounter.com/counter/TOTAL.json?start=2026-08-16')
       .then((response) => {
         if (!response.ok) throw new Error('Counter unavailable');
         return response.json();
