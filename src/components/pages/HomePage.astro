@@ -164,8 +164,15 @@ function dateParts(value: string) {
                 >
                   <img
                     src={item.data.coverImage}
+                    alt=""
+                    aria-hidden="true"
+                    class="absolute inset-0 w-full h-full object-cover scale-110 blur-xl opacity-40"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                  />
+                  <img
+                    src={item.data.coverImage}
                     alt={title}
-                    class={`absolute inset-0 w-full h-full transition-transform duration-[1200ms] group-hover:scale-[1.02] ${item.data.coverFit === 'contain' ? 'object-contain bg-brand-ink' : 'object-cover'}`}
+                    class="absolute inset-0 w-full h-full object-contain transition-transform duration-[1200ms] group-hover:scale-[1.01]"
                     loading={index === 0 ? 'eager' : 'lazy'}
                     fetchpriority={index === 0 ? 'high' : 'auto'}
                     width="960"
