@@ -107,7 +107,7 @@ const steps = [
 // Kartlarda uzun proje adını kısa program etiketi olarak gösterir.
 function storyProgramLabel(programName: string) {
   if (/Erasmus|The Power of Stories/i.test(programName)) return 'Erasmus+';
-  if (/\b(?:ESC|EVS)\b|Avrupa Dayanışma|European Solidarity|gönüllülük|volunteering|summer project|yaz dönemi projesi/i.test(programName)) return 'ESC';
+  if (/ESC|EVS|Avrupa Dayanışma|European Solidarity|gönüllül|volunteering|summer project|yaz dönemi projesi/i.test(programName)) return 'ESC';
   return programName;
 }
 
