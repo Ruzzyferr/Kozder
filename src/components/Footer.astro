@@ -133,7 +133,10 @@ const navColumns = [
         return response.json();
       })
       .then((data) => {
-        counter.textContent = data.count || '0';
+        const goatCount = Number.parseInt(String(data.count || '0').replace(/[^\d]/g, ''), 10) || 0;
+        const totalCount = 13768 + goatCount;
+        const locale = document.documentElement.lang === 'en' ? 'en-US' : 'tr-TR';
+        counter.textContent = new Intl.NumberFormat(locale).format(totalCount);
       })
       .catch(() => {
         counter.textContent = '—';
