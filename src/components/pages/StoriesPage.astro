@@ -16,7 +16,7 @@ const stories = storiesRaw.sort(byNewest('stories', 'startDate'));
 
 // Kartlarda uzun proje adını kısa program etiketi olarak gösterir.
 function storyProgramLabel(programName: string) {
-  if (/\\bESC\\b|Avrupa Dayanışma|European Solidarity/i.test(programName)) return 'ESC';
+  if (/\bESC\b|Avrupa Dayanışma|European Solidarity/i.test(programName)) return 'ESC';
   if (/Erasmus/i.test(programName)) return 'Erasmus+';
   return programName;
 }
