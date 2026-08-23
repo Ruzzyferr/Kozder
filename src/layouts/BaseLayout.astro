@@ -10,6 +10,9 @@ interface Props {
   description: string;
   image?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  socialUrl?: string;
   noindex?: boolean;
   jsonLd?: Record<string, any> | Record<string, any>[];
   lang?: Lang;
@@ -17,10 +20,22 @@ interface Props {
   alternate?: string;
 }
 
-const { title, description, image = '/images/logo.png', imageAlt = title, noindex = false, jsonLd, alternate } = Astro.props;
+const {
+  title,
+  description,
+  image = '/images/logo.png',
+  imageAlt = title,
+  imageWidth,
+  imageHeight,
+  socialUrl,
+  noindex = false,
+  jsonLd,
+  alternate,
+} = Astro.props;
 const lang: Lang = Astro.props.lang ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialURL = socialUrl ? new URL(socialUrl, Astro.site) : canonicalURL;
 const ogImage = new URL(image, Astro.site);
 const cleanImagePath = ogImage.pathname.toLowerCase();
 const ogImageType = cleanImagePath.endsWith('.png')
@@ -56,16 +71,18 @@ const other: Lang = lang === 'tr' ? 'en' : 'tr';
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="KOZ-DER" />
     <meta property="og:locale" content={lang === 'tr' ? 'tr_TR' : 'en_GB'} />
-    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:url" content={socialURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:secure_url" content={ogImage} />
     <meta property="og:image:type" content={ogImageType} />
+    {imageWidth && <meta property="og:image:width" content={imageWidth} />}
+    {imageHeight && <meta property="og:image:height" content={imageHeight} />}
     <meta property="og:image:alt" content={imageAlt} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:url" content={socialURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
