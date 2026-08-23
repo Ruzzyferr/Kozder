@@ -48,9 +48,10 @@ const sequence: LogoItem[] = Array.from({ length: repeats }, () => items).flat()
       aria-hidden={copy === 1 ? 'true' : undefined}
     >
       {sequence.map((item, i) => {
-        // Sadece ilk kopyanın ilk turu gerçek bağlantı; kalanlar görsel tekrar.
+        // Yinelenen logolar erişilebilirlik açısından dekoratif kalır; ancak
+        // ekranda görünen her kopya fare/dokunmayla aynı siteye gidebilmelidir.
         const decorative = copy === 1 || i >= items.length;
-        const linked = Boolean(item.url) && !decorative;
+        const linked = Boolean(item.url);
         const Tag = linked ? 'a' : 'div';
         const height = logoHeight(item);
         return (
