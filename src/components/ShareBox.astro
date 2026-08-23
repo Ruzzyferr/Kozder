@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations, type Lang } from '../i18n';
 
+
 interface Props {
   title: string;
   url: string;
@@ -8,26 +9,68 @@ interface Props {
   applicationUrl?: string;
 }
 
+
 const { title, url, lang: langProp, applicationUrl } = Astro.props;
 const lang: Lang = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const applicationLabel = lang === 'en' ? 'Application' : 'Başvuru';
 const shareText = applicationUrl ? `${title}\n${applicationLabel}: ${applicationUrl}` : title;
+const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(shareText)}`;
 ---
+
 
 <div class="card bg-brand-cream p-6" data-share>
   <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">{t('common.share')}</p>
   <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
     <a href={`https://wa.me/?text=${encodeURIComponent(shareText + ' ' + url)}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">WhatsApp</a>
     <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">X</a>
-    <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">Facebook</a>
+    <button
+      type="button"
+      data-facebook-share
+      data-url={url}
+      data-title={title}
+      data-text={shareText}
+      data-fallback={facebookShareUrl}
+      class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors"
+    >Facebook</button>
     <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">LinkedIn</a>
     <button type="button" data-copy={url} class="col-span-2 md:col-span-2 flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">{t('common.link')}</button>
   </div>
   <p data-copy-toast class="mt-3 text-xs font-bold uppercase tracking-wider text-brand-stamp hidden">{t('common.copied')}</p>
 </div>
 
+
 <script>
+  function isMobileDevice() {
+    const ua = navigator.userAgent;
+    const iPadOS = /Macintosh/i.test(ua) && navigator.maxTouchPoints > 1;
+    return /Android|iPhone|iPad|iPod/i.test(ua) || iPadOS;
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-share] button[data-facebook-share]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const url = btn.dataset.url ?? window.location.href;
+      const title = btn.dataset.title ?? document.title;
+      const text = btn.dataset.text ?? title;
+      const fallback = btn.dataset.fallback ?? `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+
+      if (isMobileDevice() && navigator.share) {
+        try {
+          await navigator.share({ title, text, url });
+          return;
+        } catch (error) {
+          if (error instanceof DOMException && error.name === 'AbortError') return;
+        }
+      }
+
+      if (isMobileDevice()) {
+        window.location.assign(fallback);
+      } else {
+        window.open(fallback, '_blank', 'noopener,noreferrer');
+      }
+    });
+  });
+
   document.querySelectorAll<HTMLButtonElement>('[data-share] button[data-copy]').forEach(btn => {
     btn.addEventListener('click', async () => {
       const text = btn.dataset.copy ?? '';
@@ -40,3 +83,4 @@ const shareText = applicationUrl ? `${title}\n${applicationLabel}: ${application
     });
   });
 </script>
+
