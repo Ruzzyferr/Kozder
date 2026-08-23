@@ -4,11 +4,11 @@ programName: "Truth or Trick? Click with Care"
 country: "Bulgaristan"
 startDate: "13.07.2026"
 images:
-  - "/images/stories/halilozkaraca.jpg"
-  - "/images/stories/halilozkaraca1.jpg"
-  - "/images/stories/halilozkaraca2.jpg"
-  - "/images/stories/halilozkaraca3.jpg"
-  - "/images/stories/halilozkaraca4.jpg"
+  - "/images/stories/halilozkaraca.jpeg"
+  - "/images/stories/halilozkaraca1.jpeg"
+  - "/images/stories/halilozkaraca2.jpeg"
+  - "/images/stories/halilozkaraca3.jpeg"
+  - "/images/stories/halilozkaraca4.jpeg"
 summary: "Uzun bir aradan sonra katıldığım Truth or Trick? Click with Care Erasmus+ projesi; benim için eğlenceli, öğretici, bağlantılar kurduğum ve yeni ortaklık fırsatları geliştirdiğim çok özel bir deneyim oldu."
 featured: true
 ---
