@@ -104,21 +104,15 @@ const navColumns = [
     <div class="border-t border-brand-cream/15 mt-12 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-brand-cream/80">
       <p>© {currentYear} KOZ-DER · {t('footer.rights')}</p>
       <div class="flex flex-wrap items-center gap-3">
-        <a
-          href="https://hits.sh/kozder.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex"
-          aria-label={lang === 'en' ? 'KOZ-DER visitor count' : 'KOZ-DER ziyaretçi sayısı'}
+        <span
+          class="inline-flex h-7 items-center overflow-hidden rounded border border-brand-cream/30"
+          aria-label={lang === 'en' ? 'KOZ-DER total visitor count' : 'KOZ-DER toplam ziyaretçi sayısı'}
         >
-          <img
-            alt={lang === 'en' ? 'Site visitor count' : 'Site ziyaretçi sayısı'}
-            src={lang === 'en'
-              ? 'https://hits.sh/kozder.com.svg?label=Visitors&color=6B4630&labelColor=161110'
-              : 'https://hits.sh/kozder.com.svg?label=Ziyaret%C3%A7i&color=6B4630&labelColor=161110'}
-            class="h-6"
-          />
-        </a>
+          <span class="bg-brand-cream/10 px-2 py-1 text-[10px] font-bold uppercase tracking-wider">
+            {lang === 'en' ? 'Visitors' : 'Ziyaretçi'}
+          </span>
+          <span id="goatcounter-total" class="min-w-9 px-2 py-1 text-center text-[11px] font-black text-brand-postage">—</span>
+        </span>
         <p class="tracking-[0.12em] uppercase text-[10px] text-brand-cream/70">
           Kilis · Türkiye
         </p>
@@ -126,3 +120,23 @@ const navColumns = [
     </div>
   </div>
 </footer>
+
+<script is:inline data-goatcounter="https://kozder.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script is:inline>
+  (() => {
+    const counter = document.getElementById('goatcounter-total');
+    if (!counter) return;
+
+    fetch('https://kozder.goatcounter.com/counter/TOTAL.json')
+      .then((response) => {
+        if (!response.ok) throw new Error('Counter unavailable');
+        return response.json();
+      })
+      .then((data) => {
+        counter.textContent = data.count || '0';
+      })
+      .catch(() => {
+        counter.textContent = '—';
+      });
+  })();
+</script>
