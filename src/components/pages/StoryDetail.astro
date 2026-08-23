@@ -15,6 +15,9 @@ import { formatEventDate } from '../../utils/date';
 
 const { Content } = await story.render();
 const url = new URL(Astro.url.pathname, Astro.site).toString();
+const shareUrl = new URL(url);
+if (story.data.socialVersion) shareUrl.searchParams.set('share', story.data.socialVersion);
+const socialImage = story.data.socialImage ?? story.data.images?.[0] ?? '/images/logo.png';
 const alternate = alternatePath(lang, 'stories', stripLangPrefix(story.slug));
 ---
 
@@ -23,8 +26,11 @@ const alternate = alternatePath(lang, 'stories', stripLangPrefix(story.slug));
   alternate={alternate}
   title={`${story.data.name} — ${t('stories.metaSuffix')} — KOZ-DER`}
   description={story.data.summary}
-  image={story.data.images?.[0] ?? '/images/logo.png'}
+  image={socialImage}
   imageAlt={`${story.data.name} — ${story.data.programName}`}
+  imageWidth={story.data.socialImageWidth}
+  imageHeight={story.data.socialImageHeight}
+  socialUrl={shareUrl.toString()}
 >
   <article class="bg-brand-paper">
     <div class="container mx-auto px-4 pt-8 sm:pt-12">
@@ -96,7 +102,7 @@ const alternate = alternatePath(lang, 'stories', stripLangPrefix(story.slug));
               </div>
             )}
 
-            <ShareBox title={`${story.data.name} — ${story.data.programName}`} url={url} lang={lang} />
+            <ShareBox title={`${story.data.name} — ${story.data.programName}`} url={shareUrl.toString()} lang={lang} />
           </div>
         </aside>
       </div>
