@@ -141,36 +141,96 @@ const tr = {
   faq: {
     items: [
       {
-        q: 'ESC (European Solidarity Corps) nedir?',
-        a: 'Avrupa Dayanışma Programı, 18-30 yaş aralığındaki gençlerin başka bir Avrupa ülkesinde 2-12 ay arasında gönüllülük yapmasına imkân tanıyan bir Avrupa Birliği programıdır. Konaklama, yemek, ulaşım ve cep harçlığı tamamen Avrupa Komisyonu tarafından karşılanır.',
+        q: "KOZ-DER ne zaman ve nerede kuruldu?",
+        a: "KOZ-DER’in kuruluş hazırlıkları ve resmî başvurusu 2018 yılında Kilis’te yapılmıştır. Dernek, resmî işlemlerin tamamlanmasının ardından 2 Ocak 2019 tarihinde tüzel kişilik kazanarak faaliyetlerine başlamıştır.",
       },
       {
-        q: 'Erasmus+ ile ESC arasındaki fark nedir?',
-        a: 'Erasmus+ kısa süreli (genellikle 5-15 gün) gençlik değişimleri ve eğitim faaliyetleridir; her yaş için seçenekler vardır. ESC ise daha uzun süreli (2-12 ay) gönüllülük odaklı bir programdır ve 18-30 yaş aralığındaki gençler içindir.',
+        q: "KOZ-DER’in logosunda neden 2018 yazıyor?",
+        a: "Derneğin kuruluş fikri, hazırlıkları ve resmî başvurusu 2018 yılında başladığı için logomuzda 2018 tarihi bulunmaktadır. 2 Ocak 2019 ise derneğimizin resmen tüzel kişilik kazandığı tarihtir. Dolayısıyla 2018 kuruluş sürecimizin başlangıcını, 2019 ise resmî kuruluşumuzu ifade eder.",
       },
       {
-        q: "KOZ-DER'in projelerine nasıl başvururum?",
-        a: 'Aktif çağrılarımızı Projeler sayfasında bulabilirsiniz. Her projenin "Bilgi Paketi" linki ve "Başvuru" butonu vardır. Önce bilgi paketini oku, sonra başvuru formunu doldur. Sorun olursa WhatsApp\'tan veya bilgi@kozder.com üzerinden bize yaz.',
+        q: "“KOZ-DER” ismi nereden geliyor?",
+        a: "“Koz” kelimesi Kilis yöresinde ceviz anlamına gelir. Ceviz, görünümü ve besleyici özellikleriyle beyin ve zihinsel gelişimle ilişkilendirilir. Zekâ oyunları, robotik kodlama ve dijital beceriler de düşünme, problem çözme ve üretme becerilerini destekler. Derneğimizin ismi, yerel kültürümüzü gençlerin zihinsel ve teknolojik gelişimiyle bir araya getiren bu anlayıştan doğmuştur.",
       },
       {
-        q: 'Başvurmak için İngilizcem yeterli olmalı mı?',
-        a: 'Çoğu projede orta düzey (B1) İngilizce yeterlidir. Bazı projelerde başlangıç seviyesi de kabul edilir. Speaking Club etkinliklerimize katılarak konuşma pratiği yapabilirsiniz.',
+        q: "KOZ-DER’in amaçları ve hedefleri nelerdir?",
+        a: "KOZ-DER; gençlerin kişisel, sosyal, akademik ve mesleki gelişimlerini desteklemeyi amaçlar. Zekâ oyunları, robotik kodlama, dijital beceriler, yabancı dil, çevre, afet bilinci, aktif vatandaşlık, gönüllülük ve kültürlerarası öğrenme alanlarında çalışmalar yürütür. Özellikle daha az fırsata sahip gençlerin ulusal ve uluslararası imkânlara erişimini artırmayı hedefler.",
       },
       {
-        q: 'Hangi masrafları KOZ-DER karşılıyor?',
-        a: 'ESC projelerinde uçak bileti, vize masrafları, konaklama, yemek, sağlık sigortası, ulaşım ve cep harçlığı Avrupa Komisyonu fonlarıyla karşılanır. KOZ-DER size bu süreci yönetir; cebinizden ekstra ücret çıkmaz.',
+        q: "KOZ-DER hangi alanlarda faaliyet yürütmektedir?",
+        a: "Temel faaliyet alanlarımız; zekâ oyunları, robotik kodlama, dijital beceriler, İngilizce konuşma, çevre ve geri dönüşüm, afet bilinci, aktif vatandaşlık, sosyal kapsayıcılık, mülteci entegrasyonu, gönüllülük ve uluslararası gençlik çalışmalarıdır.",
       },
       {
-        q: 'Vize için yardım alabilir miyim?',
-        a: 'Evet. Tüm vize sürecinde gerekli davet mektupları, sigorta poliçeleri ve diğer belgelerin hazırlanmasında size yardımcı oluruz. Vize ücretleri de proje fonundan karşılanır.',
+        q: "KOZ-DER faaliyetlerine katılmak için Kilis’te yaşamak gerekir mi?",
+        a: "Hayır. Yüz yüze faaliyetlerimizin önemli bir bölümü Kilis’te gerçekleştirilmektedir. Ancak Türkiye’nin farklı şehirlerinde yaşayan gençler çevrim içi eğitimlere, toplantılara, bilgilendirme faaliyetlerine ve uygun ulusal veya uluslararası projelere katılabilir. Her faaliyetin özel katılım koşulları duyurusunda belirtilir.",
       },
       {
-        q: 'Başvuru sonrası süreç nasıl işliyor?',
-        a: 'Başvurunuz bize ulaştıktan sonra 1 hafta içinde dönüş yaparız. Uygun bulunduğunuzda kısa bir online görüşme yaparız ve birlikte projeyi planlarız. Yola çıkmadan önce online oryantasyon eğitimleri düzenleriz.',
+        q: "KOZ-DER’de nasıl gönüllü olabilirim?",
+        a: "Web sitemizi ve linktr.ee/kozder sayfamızı takip ederek güncel gönüllülük gruplarımıza katılabilirsiniz. İlgi alanınıza göre Speaking Club, zekâ oyunları, robotik kodlama, çevre, afet bilinci, sosyal medya, proje hazırlama ve yaygınlaştırma çalışmalarında gönüllü görev alabilirsiniz.",
       },
       {
-        q: 'KOZ-DER nerede ve ne zaman buluşuyor?',
-        a: "Dernek merkezimiz Kilis, Kazım Karabekir Mahallesi'nde. Her hafta düzenli olarak Speaking Club, ayda bir Kitap Kulübü ve dönemsel ESC bilgilendirme buluşmaları yapıyoruz. Tüm etkinlikleri Etkinlikler sayfasından takip edebilirsin.",
+        q: "KOZ-DER’e nasıl üye olabilirim?",
+        a: "linktr.ee/kozder sayfasındaki üyelik bölümünden üyelik şartlarını okuyabilir ve başvuru adımlarını takip edebilirsiniz. Üyelik başvuruları dernek tüzüğü ve ilgili mevzuat doğrultusunda değerlendirilir. Derneğe üye olmadan da faaliyetlerimize gönüllü olarak katılabilirsiniz.",
+      },
+      {
+        q: "KOZ-DER’in projelerine kimler başvurabilir?",
+        a: "Başvuru şartları projeye göre değişir. Yaş, ülke, yabancı dil seviyesi, eğitim veya mesleki profil gibi koşullar her çağrıda farklı olabilir. Projeye ait yaş aralığı, katılımcı profili ve diğer koşullar duyuru metninde açıkça paylaşılır.",
+      },
+      {
+        q: "KOZ-DER’in projelerine nasıl başvurabilirim?",
+        a: "Güncel fırsatları web sitemizdeki Projeler bölümünden ve linktr.ee/kozder sayfasından takip edebilirsiniz. Başvurmadan önce proje açıklamasını ve varsa bilgi paketini dikkatlice okuyarak ilgili başvuru formunu doldurmanız gerekir.",
+      },
+      {
+        q: "Proje katılımcıları hangi ölçütlerle seçilir?",
+        a: "Seçimlerde projenin hedef grubuna uygunluk, motivasyon, sorumluluk bilinci, ilgili alana ilgi ve gerektiğinde yabancı dil yeterliliği dikkate alınır. Daha önce uluslararası projeye katılmamış, daha az fırsata sahip veya çağrının hedef grubunda bulunan gençlere öncelik verilebilir. Her projeye özgü ölçütler duyuruda açıklanır.",
+      },
+      {
+        q: "Başvuru veya projeye katılım için ücret ödemem gerekir mi?",
+        a: "Hayır. KOZ-DER; başvuru, mülakat, aday gösterme veya katılımcı seçimi karşılığında ücret talep etmez. Seyahat, konaklama, yemek, sigorta, vize ve cep harçlığı gibi destekler projenin bütçe kurallarına göre karşılanır ve her çağrıda ayrıca açıklanır.",
+      },
+      {
+        q: "Daha önce yurtdışına çıkmamış kişiler başvurabilir mi?",
+        a: "Evet. Daha önce yurtdışına çıkmamış veya Erasmus+ ve ESC deneyimi bulunmayan gençlerin başvurularını özellikle teşvik ediyoruz. Seçilen katılımcılara proje hazırlığı, seyahat planlaması, kültürel uyum ve yurtdışı süreci hakkında oryantasyon desteği verilir.",
+      },
+      {
+        q: "Pasaportum veya vizem yoksa başvurabilir miyim?",
+        a: "Projenin başlangıç tarihine ve başvuru koşullarına bağlı olarak başvurabilirsiniz. Seçilmeniz durumunda pasaport, vize, davet mektubu, sigorta ve gerekli belgeler konusunda size yol gösterilir. Belgelerin zamanında hazırlanması ve resmî başvuruların yapılması ise katılımcının sorumluluğundadır.",
+      },
+      {
+        q: "İngilizcem çok iyi değilse projelere katılabilir miyim?",
+        a: "Birçok projede temel veya orta düzey İngilizce yeterlidir. Önemli olan iletişim kurmaya açık olmak, öğrenmeye istekli davranmak ve faaliyetlere aktif katılmaktır. Bazı projelerde daha ileri seviyede İngilizce istenebilir. İngilizcesini geliştirmek isteyen gençler KOZ-DER Speaking Club faaliyetlerine katılabilir.",
+      },
+      {
+        q: "Daha az fırsata sahip gençlere öncelik veriliyor mu?",
+        a: "Evet. Ekonomik, coğrafi, sosyal, eğitsel veya kültürel engeller yaşayan gençlerin fırsatlara erişimini artırmak temel önceliklerimizdendir. Kilis ve Güneydoğu Anadolu’da yaşayan, daha önce uluslararası deneyim edinmemiş veya imkânlara erişimi sınırlı gençler bazı projelerde öncelikli olarak değerlendirilebilir.",
+      },
+      {
+        q: "Avrupa Dayanışma Programı (ESC) nedir?",
+        a: "Avrupa Dayanışma Programı, 18–30 yaş arasındaki gençlerin yurtiçinde veya yurtdışında gönüllülük faaliyetlerine katılmasını sağlayan bir Avrupa Birliği programıdır. Proje türüne göre konaklama, yemek, seyahat, sigorta, yerel ulaşım, vize giderleri ve cep harçlığı program bütçesinden desteklenebilir.",
+      },
+      {
+        q: "Erasmus+ ile ESC arasındaki fark nedir?",
+        a: "Erasmus+; gençlik değişimleri, eğitim kursları ve farklı öğrenme hareketliliklerini kapsar. ESC ise ağırlıklı olarak gönüllülük ve dayanışma faaliyetlerine odaklanır. Yaş, süre, görevler ve mali destekler projenin türüne göre değişir.",
+      },
+      {
+        q: "KOZ-DER’in Avrupa Dayanışma Programı kapsamındaki rolü nedir?",
+        a: "KOZ-DER, Avrupa Dayanışma Programı Kalite Sertifikası kapsamında destekleyen ve lider kuruluş olarak çalışmaktadır. Gönüllülerin uygun projelerle eşleştirilmesi, proje öncesi hazırlık, seyahat, vize, sigorta, mentorluk, izleme ve proje sonrası değerlendirme süreçlerinde destek sağlar.",
+      },
+      {
+        q: "Başvuru yaptıktan sonra süreç nasıl ilerler?",
+        a: "Başvurular proje koşullarına göre incelenir. Uygun adaylarla çevrim içi veya yüz yüze görüşme yapılabilir. Seçilen katılımcılara proje, görevler, seyahat, bütçe, sigorta, vize ve kültürel hazırlık konularında bilgi verilir. Bazı projelerde nihai seçim ev sahibi kuruluş tarafından yapılabilir.",
+      },
+      {
+        q: "KOZ-DER’in yüz yüze ve çevrim içi faaliyetlerini nasıl takip edebilirim?",
+        a: "Güncel faaliyetleri web sitemizden, sosyal medya hesaplarımızdan ve linktr.ee/kozder sayfasından takip edebilirsiniz. İlgili WhatsApp veya duyuru gruplarına katılarak yeni etkinliklerden ve proje çağrılarından haberdar olabilirsiniz.",
+      },
+      {
+        q: "Bir projeye katıldıktan sonra KOZ-DER’de çalışmaya devam edebilir miyim?",
+        a: "Evet. Eski katılımcılar deneyimlerini yeni adaylarla paylaşabilir, yerel faaliyetlerde gönüllü olabilir, tanıtım ve yaygınlaştırma çalışmalarına katılabilir veya yeni projelerin hazırlanmasına destek verebilir. Bir hareketliliğin tamamlanması, KOZ-DER ile kurulan ilişkinin sona erdiği anlamına gelmez.",
+      },
+      {
+        q: "KOZ-DER ile kurumsal ortaklık kurulabilir mi?",
+        a: "Evet. Türkiye’den ve Avrupa’dan sivil toplum kuruluşları, belediyeler, gençlik merkezleri, eğitim kurumları ve diğer kuruluşlarla Erasmus+, ESC ve yerel gençlik çalışmaları kapsamında iş birliği yapıyoruz. Ortaklık teklifleri bilgi@kozder.com adresine gönderilebilir.",
       },
     ] as FaqItem[],
     ctaTitle: 'Cevabını bulamadın mı?',
@@ -498,36 +558,96 @@ const en: typeof tr = {
   faq: {
     items: [
       {
-        q: 'What is the ESC (European Solidarity Corps)?',
-        a: 'The European Solidarity Corps is a European Union programme that lets people aged 18–30 volunteer in another European country for between 2 and 12 months. Accommodation, food, travel and pocket money are covered in full by the European Commission.',
+        q: "When and where was KOZ-DER founded?",
+        a: "KOZ-DER’s establishment preparations and official application were completed in Kilis in 2018. After the official procedures were finalised, the association acquired legal personality and formally began operating on 2 January 2019.",
       },
       {
-        q: 'What is the difference between Erasmus+ and the ESC?',
-        a: 'Erasmus+ covers short youth exchanges and training activities — usually 5 to 15 days — with options for every age group. The ESC is a longer volunteering programme lasting 2 to 12 months, open to people aged 18–30.',
+        q: "Why does the KOZ-DER logo show 2018?",
+        a: "The idea, preparations and official application for the association began in 2018, which is why 2018 appears on our logo. The association officially acquired legal personality on 2 January 2019. Therefore, 2018 represents the beginning of our establishment process, while 2019 is our year of official incorporation.",
       },
       {
-        q: "How do I apply to KOZ-DER's projects?",
-        a: 'You will find our open calls on the Projects page. Every project has an "info pack" link and an "apply" button. Read the info pack first, then fill in the application form. If anything goes wrong, message us on WhatsApp or write to bilgi@kozder.com.',
+        q: "Where does the name “KOZ-DER” come from?",
+        a: "In the Kilis region, the word “koz” means walnut. The walnut is associated with the brain and mental development because of its appearance and nutritional qualities. Mind games, robotics, coding and digital skills likewise support thinking, problem-solving and creativity. Our name brings this local cultural reference together with the mental and technological development of young people.",
       },
       {
-        q: 'Does my English need to be good enough to apply?',
-        a: 'Intermediate (B1) English is enough for most projects, and some accept beginners. You can practise speaking by joining our Speaking Club sessions.',
+        q: "What are KOZ-DER’s aims and goals?",
+        a: "KOZ-DER aims to support young people’s personal, social, academic and professional development. We work in mind games, robotics and coding, digital skills, foreign languages, the environment, disaster awareness, active citizenship, volunteering and intercultural learning. We particularly aim to improve access to national and international opportunities for young people with fewer opportunities.",
       },
       {
-        q: 'Which costs does KOZ-DER cover?',
-        a: 'On ESC projects, flights, visa costs, accommodation, food, health insurance, local transport and pocket money are all covered by European Commission funding. KOZ-DER manages the process for you; nothing comes out of your own pocket.',
+        q: "In which fields does KOZ-DER work?",
+        a: "Our main fields are mind games, robotics and coding, digital skills, English speaking, the environment and recycling, disaster awareness, active citizenship, social inclusion, refugee integration, volunteering and international youth work.",
       },
       {
-        q: 'Can I get help with the visa?',
-        a: 'Yes. We help you prepare the invitation letters, insurance policies and other documents you need throughout the visa process. Visa fees are covered by the project fund too.',
+        q: "Do I have to live in Kilis to join KOZ-DER activities?",
+        a: "No. A significant part of our face-to-face work takes place in Kilis, but young people from other cities in Türkiye may join online training, meetings, information sessions and suitable national or international projects. Specific participation conditions are stated in each announcement.",
       },
       {
-        q: 'What happens after I apply?',
-        a: 'We reply within a week of receiving your application. If you are a good fit we hold a short online interview and plan the project together. Before you travel, we run online orientation sessions.',
+        q: "How can I volunteer with KOZ-DER?",
+        a: "You can follow our website and linktr.ee/kozder to join our current volunteering groups. Depending on your interests, you may contribute to Speaking Club, mind games, robotics and coding, environmental and disaster-awareness activities, social media, project preparation and dissemination work.",
       },
       {
-        q: 'Where and when does KOZ-DER meet?',
-        a: 'Our office is in the Kazım Karabekir neighbourhood of Kilis. We hold Speaking Club every week, Book Club once a month, and ESC information meet-ups through the year. You can follow everything on the Events page.',
+        q: "How can I become a member of KOZ-DER?",
+        a: "You can read the membership conditions and follow the application steps in the membership section of linktr.ee/kozder. Applications are assessed under the association’s statute and the applicable legislation. You may also volunteer in our activities without becoming a formal member.",
+      },
+      {
+        q: "Who can apply for KOZ-DER projects?",
+        a: "Application requirements vary by project. Conditions relating to age, country, foreign-language level, education or professional profile may differ from one call to another. The age range, participant profile and all other requirements are stated clearly in each announcement.",
+      },
+      {
+        q: "How can I apply for KOZ-DER projects?",
+        a: "You can follow current opportunities through the Projects section of our website and linktr.ee/kozder. Before applying, carefully read the project description and information pack, when available, and complete the relevant application form.",
+      },
+      {
+        q: "How are project participants selected?",
+        a: "Selection considers suitability for the target group, motivation, responsibility, interest in the subject and, where necessary, foreign-language ability. Priority may be given to first-time international participants, young people with fewer opportunities or members of the call’s target group. Project-specific criteria are explained in each announcement.",
+      },
+      {
+        q: "Do I have to pay to apply for or join a project?",
+        a: "No. KOZ-DER does not charge fees for applications, interviews, nominations or participant selection. Support for travel, accommodation, food, insurance, visa costs and pocket money is provided according to the project’s budget rules and explained separately in each call.",
+      },
+      {
+        q: "Can I apply if I have never travelled abroad before?",
+        a: "Yes. We particularly encourage applications from young people who have never travelled abroad or taken part in Erasmus+ or ESC. Selected participants receive orientation on project preparation, travel planning, cultural adjustment and the experience of going abroad.",
+      },
+      {
+        q: "Can I apply if I do not have a passport or visa?",
+        a: "You may apply depending on the project start date and application conditions. If selected, you will receive guidance on passports, visas, invitation letters, insurance and other required documents. Preparing the documents and completing official applications on time remain the participant’s responsibility.",
+      },
+      {
+        q: "Can I join a project if my English is not very good?",
+        a: "Basic or intermediate English is enough for many projects. The important things are being willing to communicate, learn and participate actively. Some projects may require more advanced English. Young people who want to improve can join KOZ-DER Speaking Club activities.",
+      },
+      {
+        q: "Are young people with fewer opportunities given priority?",
+        a: "Yes. Improving access for young people facing economic, geographical, social, educational or cultural barriers is one of our main priorities. Young people from Kilis and south-eastern Türkiye, first-time international participants and those with limited access to opportunities may receive priority in relevant projects.",
+      },
+      {
+        q: "What is the European Solidarity Corps (ESC)?",
+        a: "The European Solidarity Corps is a European Union programme enabling young people aged 18–30 to take part in volunteering activities in their own country or abroad. Depending on the project, accommodation, food, travel, insurance, local transport, visa costs and pocket money may be supported by the programme budget.",
+      },
+      {
+        q: "What is the difference between Erasmus+ and the ESC?",
+        a: "Erasmus+ includes youth exchanges, training courses and other learning mobility activities. The ESC focuses mainly on volunteering and solidarity activities. Age limits, duration, tasks and financial support vary according to the type of project.",
+      },
+      {
+        q: "What is KOZ-DER’s role in the European Solidarity Corps?",
+        a: "KOZ-DER works as a supporting and lead organisation under its European Solidarity Corps Quality Label. We support volunteers with suitable project matching, preparation, travel, visas, insurance, mentoring, monitoring and post-project evaluation.",
+      },
+      {
+        q: "What happens after I submit an application?",
+        a: "Applications are reviewed according to the project conditions. Suitable candidates may be invited to an online or face-to-face interview. Selected participants receive information about the project, tasks, travel, budget, insurance, visas and cultural preparation. In some projects, the hosting organisation makes the final selection.",
+      },
+      {
+        q: "How can I follow KOZ-DER’s face-to-face and online activities?",
+        a: "You can follow current activities through our website, social-media accounts and linktr.ee/kozder. By joining the relevant WhatsApp or announcement groups, you can receive updates about new activities and project calls.",
+      },
+      {
+        q: "Can I continue working with KOZ-DER after completing a project?",
+        a: "Yes. Former participants may share their experience with new applicants, volunteer in local activities, contribute to promotion and dissemination or support the preparation of new projects. Completing a mobility activity does not mean that your relationship with KOZ-DER has ended.",
+      },
+      {
+        q: "Can an organisation establish a partnership with KOZ-DER?",
+        a: "Yes. We cooperate with civil-society organisations, municipalities, youth centres, educational institutions and other organisations in Türkiye and across Europe through Erasmus+, ESC and local youth work. Partnership proposals may be sent to bilgi@kozder.com.",
       },
     ] as FaqItem[],
     ctaTitle: "Couldn't find your answer?",
