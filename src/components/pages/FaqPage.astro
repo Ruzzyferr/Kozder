@@ -31,7 +31,7 @@ const ld = faqSchema(faqs.map(f => ({ question: f.q, answer: f.a })));
   />
 
   <div class="container mx-auto px-4 py-12 sm:py-20 max-w-4xl">
-    <div class="bg-brand-cream divide-y divide-line card card-2">
+    <div class="bg-brand-cream divide-y divide-line card card-2" data-faq-list>
       {faqs.map((f, i) => (
         <details class="group">
           <summary class="cursor-pointer list-none flex items-start justify-between gap-6 p-5 sm:p-7 hover:bg-brand-paper transition-colors">
@@ -42,7 +42,18 @@ const ld = faqSchema(faqs.map(f => ({ question: f.q, answer: f.a })));
             <span class="flex-shrink-0 w-9 h-9 border border-brand-ink bg-brand-cream group-hover:bg-brand-ink group-hover:text-brand-cream text-brand-ink flex items-center justify-center transition-all group-open:rotate-45 font-mono text-lg font-bold">+</span>
           </summary>
           <div class="px-5 sm:px-7 pb-6 sm:pb-7 sm:pl-[6.5rem] text-ink-soft leading-relaxed font-body">
-            {f.a}
+            {f.a.split(/(linktr\.ee\/kozder)/gi).map((part) =>
+              part.toLowerCase() === 'linktr.ee/kozder' ? (
+                <a
+                  href="https://linktr.ee/kozder"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-semibold text-brand-ink underline decoration-brand-stamp underline-offset-4 hover:text-brand-stamp transition-colors"
+                >
+                  {part}
+                </a>
+              ) : part
+            )}
           </div>
         </details>
       ))}
@@ -58,3 +69,25 @@ const ld = faqSchema(faqs.map(f => ({ question: f.q, answer: f.a })));
     </div>
   </div>
 </BaseLayout>
+
+<script>
+  function initFaqAccordion() {
+    document.querySelectorAll('[data-faq-list]').forEach((list) => {
+      if (!(list instanceof HTMLElement) || list.dataset.accordionReady === 'true') return;
+      list.dataset.accordionReady = 'true';
+
+      const items = Array.from(list.querySelectorAll('details'));
+      items.forEach((item) => {
+        item.addEventListener('toggle', () => {
+          if (!item.open) return;
+          items.forEach((other) => {
+            if (other !== item) other.removeAttribute('open');
+          });
+        });
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initFaqAccordion);
+  initFaqAccordion();
+</script>
