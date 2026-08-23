@@ -103,9 +103,26 @@ const navColumns = [
 
     <div class="border-t border-brand-cream/15 mt-12 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-brand-cream/80">
       <p>© {currentYear} KOZ-DER · {t('footer.rights')}</p>
-      <p class="tracking-[0.12em] uppercase text-[10px] text-brand-cream/70">
-        Kilis · Türkiye
-      </p>
+      <div class="flex flex-wrap items-center gap-3">
+        <a
+          href="https://hits.sh/kozder.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex"
+          aria-label={lang === 'en' ? 'KOZ-DER visitor count' : 'KOZ-DER ziyaretçi sayısı'}
+        >
+          <img
+            alt={lang === 'en' ? 'Site visitor count' : 'Site ziyaretçi sayısı'}
+            src={lang === 'en'
+              ? 'https://hits.sh/kozder.com.svg?label=Visitors&color=6B4630&labelColor=161110'
+              : 'https://hits.sh/kozder.com.svg?label=Ziyaret%C3%A7i&color=6B4630&labelColor=161110'}
+            class="h-6"
+          />
+        </a>
+        <p class="tracking-[0.12em] uppercase text-[10px] text-brand-cream/70">
+          Kilis · Türkiye
+        </p>
+      </div>
     </div>
   </div>
 </footer>
