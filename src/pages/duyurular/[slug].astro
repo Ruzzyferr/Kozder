@@ -1,86 +1,13 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { formatEventDate } from '../../utils/date';
-import { articleSchema } from '../../utils/seo';
-import ShareBox from '../../components/ShareBox.astro';
+import PostDetail from '../../components/pages/PostDetail.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts', e => !e.slug.startsWith('en/'));
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+  const entries = await getCollection('posts', e => !e.slug.startsWith('en/'));
+  return entries.map(e => ({ params: { slug: e.slug }, props: { post: e } }));
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
-const formattedDate = formatEventDate(post.data.date);
-const url = new URL(Astro.url.pathname, Astro.site).toString();
-
-const ld = articleSchema({
-  headline: post.data.title_tr,
-  description: post.data.summary_tr,
-  datePublished: post.data.date,
-  url,
-});
 ---
 
-<BaseLayout
-  title={`${post.data.title_tr} — KOZ-DER`}
-  description={post.data.summary_tr}
-  jsonLd={ld}
->
-  <article class="bg-brand-paper">
-    <div class="container mx-auto px-4 pt-8 sm:pt-12">
-      <a href="/duyurular" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-brand-ink hover:text-brand-stamp transition-colors mb-6 border-b border-brand-ink/40 pb-1">
-        <span>←</span> Duyurular
-      </a>
-    </div>
-
-    <div class="container mx-auto px-4 pb-20 max-w-4xl">
-      <header class="mb-10">
-        <time datetime={post.data.date} class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3 block">{formattedDate}</time>
-        <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-[0.95] text-brand-ink">
-          {post.data.title_tr}
-        </h1>
-        {post.data.tags.length > 0 && (
-          <div class="mt-6 flex flex-wrap gap-2">
-            {post.data.tags.map(tag => (
-              <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 border border-brand-ink/40 text-brand-walnut">{tag}</span>
-            ))}
-          </div>
-        )}
-      </header>
-
-      <div class="prose-kozder bg-brand-cream p-6 sm:p-12 card card-2">
-        <Content />
-      </div>
-
-      {post.data.applicationUrl && (
-        <div class="mt-10">
-          <a
-            href={post.data.applicationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block bg-brand-ink text-brand-cream hover:bg-brand-stamp p-5 transition-colors card card-2"
-          >
-            <p class="font-display font-black text-2xl flex items-center justify-between">
-              {post.data.applicationLabel ?? 'Başvuru Yap'} <span>→</span>
-            </p>
-          </a>
-        </div>
-      )}
-
-      <div class="mt-10">
-        <ShareBox title={post.data.title_tr} url={url} />
-      </div>
-
-      <div class="mt-10 pt-8 border-t border-line">
-        <a href="/duyurular" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-brand-ink hover:text-brand-stamp transition-colors">
-          ← Tüm duyurular
-        </a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+<PostDetail post={post} lang="tr" />

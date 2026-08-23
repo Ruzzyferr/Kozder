@@ -1,74 +1,85 @@
 {
   "networks": {
     "label": "Üyesi Olduğumuz Ağlar",
+    "label_en": "Networks We Belong To",
     "items": [
       {
         "name": "EntreComp Europe",
         "logo": "/images/networks/entrecomp-europe.png",
         "url": "https://entrecompeurope.eu/",
         "w": 410,
-        "h": 261
+        "h": 261,
+        "name_en": "EntreComp Europe"
       },
       {
         "name": "UNITED for Intercultural Action",
         "logo": "/images/networks/united.png",
         "url": "https://unitedagainstracism.org/",
         "w": 480,
-        "h": 159
+        "h": 159,
+        "name_en": "UNITED for Intercultural Action"
       },
       {
         "name": "Young European Shapers",
         "logo": "/images/networks/young-european-shapers.png",
         "url": "https://europeanshapers.com/",
         "w": 480,
-        "h": 294
+        "h": 294,
+        "name_en": "Young European Shapers"
       }
     ]
   },
   "partners": {
     "label": "Paydaşlarımız ve Destekçilerimiz",
+    "label_en": "Our Partners and Supporters",
     "items": [
       {
         "name": "Erasmus+",
         "logo": "/images/partners/erasmus-plus.webp",
         "url": "https://erasmus-plus.ec.europa.eu/",
         "w": 430,
-        "h": 88
+        "h": 88,
+        "name_en": "Erasmus+"
       },
       {
         "name": "T.C. Gençlik ve Spor Bakanlığı",
         "logo": "/images/partners/genclik-ve-spor-bakanligi.webp",
         "url": "https://www.gsb.gov.tr/",
         "w": 480,
-        "h": 480
+        "h": 480,
+        "name_en": "Ministry of Youth and Sports of Türkiye"
       },
       {
         "name": "Avrupa Dayanışma Programı (ESC)",
         "logo": "/images/partners/european-solidarity-corps.png",
         "url": "https://youth.europa.eu/solidarity_en",
         "w": 480,
-        "h": 128
+        "h": 128,
+        "name_en": "European Solidarity Corps (ESC)"
       },
       {
         "name": "T.C. İçişleri Bakanlığı",
         "logo": "/images/partners/icisleri-bakanligi.png",
         "url": "https://www.icisleri.gov.tr/",
         "w": 477,
-        "h": 477
+        "h": 477,
+        "name_en": "Ministry of Interior of Türkiye"
       },
       {
         "name": "Avrupa Gençlik Yılı",
         "logo": "/images/partners/avrupa-genclik-yili.png",
         "url": "https://youth.europa.eu/year-of-youth_en",
         "w": 558,
-        "h": 490
+        "h": 490,
+        "name_en": "European Year of Youth"
       },
       {
         "name": "Türkiye Ulusal Ajansı",
         "logo": "/images/partners/turkiye-ulusal-ajansi.png",
         "url": "https://www.ua.gov.tr/",
         "w": 378,
-        "h": 207
+        "h": 207,
+        "name_en": "Turkish National Agency"
       }
     ]
   }

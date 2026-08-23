@@ -1,20 +1,25 @@
 ---
+import { getLangFromUrl, useTranslations, type Lang } from '../i18n';
+
 interface Props {
   title: string;
   url: string;
+  lang?: Lang;
 }
 
-const { title, url } = Astro.props;
+const { title, url, lang: langProp } = Astro.props;
+const lang: Lang = langProp ?? getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div class="card bg-brand-cream p-6" data-share>
-  <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">Paylaş</p>
+  <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">{t('common.share')}</p>
   <div class="grid grid-cols-3 gap-2">
     <a href={`https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">WhatsApp</a>
     <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">X</a>
-    <button type="button" data-copy={url} class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">Link</button>
+    <button type="button" data-copy={url} class="flex items-center justify-center h-11 border border-brand-ink/40 hover:bg-brand-ink hover:text-brand-cream text-sm font-bold uppercase tracking-wider transition-colors">{t('common.link')}</button>
   </div>
-  <p data-copy-toast class="mt-3 text-xs font-bold uppercase tracking-wider text-brand-stamp hidden">Kopyalandı ✓</p>
+  <p data-copy-toast class="mt-3 text-xs font-bold uppercase tracking-wider text-brand-stamp hidden">{t('common.copied')}</p>
 </div>
 
 <script>

@@ -1,0 +1,128 @@
+---
+import { useTranslations, usePage, path, alternatePath, type Lang } from '../../i18n';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+const p = usePage(lang);
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EventCard from '../../components/EventCard.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+import { getEventDateSortKey } from '../../utils/date';
+
+const events = (await getCollection('events', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(e => !e.data.draft);
+const todayMidnight = new Date();
+todayMidnight.setHours(0, 0, 0, 0);
+
+const isUpcoming = (date: string) => getEventDateSortKey(date) >= todayMidnight.getTime();
+
+// Yaklaşanlar tarihi en yakın olan önce, geçmişler en yeni olan önce.
+const upcoming = events
+  .filter(e => isUpcoming(e.data.date))
+  .sort((a, b) => getEventDateSortKey(a.data.date) - getEventDateSortKey(b.data.date));
+
+const past = events
+  .filter(e => !isUpcoming(e.data.date))
+  .sort((a, b) => getEventDateSortKey(b.data.date) - getEventDateSortKey(a.data.date));
+---
+
+<BaseLayout
+  lang={lang}
+  title={p.meta.events.title}
+  description={p.meta.events.description}
+  alternate={alternatePath(lang, 'events')}
+>
+  <Breadcrumb
+    lang={lang}
+    kicker={t('events.kicker')}
+    items={[{ label: t('nav.home'), href: path(lang, 'home') }, { label: t('nav.events'), href: path(lang, 'events') }]}
+    pageTitle={t('events.title')}
+    intro={t('events.intro')}
+  />
+
+  <div class="container mx-auto px-4 py-12 sm:py-16">
+
+    <section class="mb-16">
+      <header class="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+        <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tightest text-brand-ink leading-none">
+          {t('events.upcoming')}
+        </h2>
+        {upcoming.length > 0 && (
+          <p class="text-sm font-semibold uppercase tracking-[0.15em] text-brand-walnut">
+            {t('events.soonest')} · {upcoming.length}
+          </p>
+        )}
+      </header>
+
+      {upcoming.length > 0 ? (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 stagger">
+          {upcoming.map(event => (
+            <EventCard
+              lang={lang}
+              title={event.data.title_tr}
+              date={event.data.date}
+              time={event.data.time}
+              location={event.data.location}
+              coverImage={event.data.coverImage}
+              coverFit={event.data.coverFit}
+              slug={event.slug}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="bg-brand-cream p-8 sm:p-10 card card-2">
+          <p class="font-display font-bold text-xl sm:text-2xl text-brand-ink leading-snug">
+            {t('events.none.title')}
+          </p>
+          <p class="mt-3 text-ink-soft leading-relaxed max-w-xl">
+            {t('events.none.text')}
+          </p>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a href={path(lang, 'projects')} class="inline-flex items-center justify-center gap-2 bg-brand-ink text-brand-cream hover:bg-brand-stamp px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-colors">
+              {t('events.none.cta1')} →
+            </a>
+            <a href="https://www.instagram.com/kozder2018" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-cream px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-colors">
+              {t('events.none.cta2')} ↗
+            </a>
+          </div>
+        </div>
+      )}
+    </section>
+
+    {past.length > 0 && (
+      <section>
+        <header class="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+          <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tightest text-brand-ink leading-none">
+            {t('events.past')}
+          </h2>
+          <p class="text-sm font-semibold uppercase tracking-[0.15em] text-brand-walnut">
+            {t('events.newestFirst')} · {past.length}
+          </p>
+        </header>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 stagger">
+          {past.map(event => (
+            <EventCard
+              lang={lang}
+              title={event.data.title_tr}
+              date={event.data.date}
+              time={event.data.time}
+              location={event.data.location}
+              coverImage={event.data.coverImage}
+              coverFit={event.data.coverFit}
+              slug={event.slug}
+              past
+            />
+          ))}
+        </div>
+      </section>
+    )}
+
+    {events.length === 0 && (
+      <div class="text-center py-16 bg-brand-cream card card-2">
+        <p class="font-display font-bold text-xl text-brand-ink">{t('events.empty')}</p>
+      </div>
+    )}
+  </div>
+</BaseLayout>

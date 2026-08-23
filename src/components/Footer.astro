@@ -49,8 +49,7 @@ const navColumns = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
       <div class="lg:col-span-5">
         <p class="text-sm text-brand-cream leading-relaxed max-w-md mb-6">
-          Erasmus+ ve Avrupa Dayanışma Programı (ESC) projeleriyle gençlerin
-          ufkunu açan, Kilis merkezli bir gönüllülük hareketi.
+          {t('footer.blurb')}
         </p>
 
         <div class="flex items-center gap-2 flex-wrap">
@@ -69,7 +68,7 @@ const navColumns = [
 
       {navColumns.map(col => (
         <div class="lg:col-span-2">
-          <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-4">{col.title}</h3>
+          <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-brand-postage mb-4">{col.title}</h3>
           <ul class="text-sm -my-1.5">
             {col.links.map(link => (
               <li>
@@ -89,7 +88,7 @@ const navColumns = [
       ))}
 
       <div class="lg:col-span-3">
-        <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-4">{t('footer.contact')}</h3>
+        <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-brand-postage mb-4">{t('footer.contact')}</h3>
         <address class="not-italic text-sm text-brand-cream leading-relaxed space-y-2">
           <p>Kazım Karabekir Mh.<br/>İstiklal Cd. No:33D<br/>79000 Kilis · TR</p>
           <p>
@@ -100,9 +99,9 @@ const navColumns = [
       </div>
     </div>
 
-    <div class="border-t border-brand-cream/15 mt-12 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-brand-cream/70">
+    <div class="border-t border-brand-cream/15 mt-12 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-brand-cream/80">
       <p>© {currentYear} KOZ-DER · {t('footer.rights')}</p>
-      <p class="tracking-[0.12em] uppercase text-[10px] text-brand-cream/50">
+      <p class="tracking-[0.12em] uppercase text-[10px] text-brand-cream/70">
         Kilis · Türkiye
       </p>
     </div>

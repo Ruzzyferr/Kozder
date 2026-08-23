@@ -20,8 +20,8 @@ export default {
           paper: '#FBFBFA',   // sayfa zemini
           cream: '#FFFFFF',   // kart yüzeyi
           ink: '#0B0B0C',     // başlık / koyu blok
-          walnut: '#6E6E77',  // ikincil metin (eski kahve kaldırıldı)
-          stamp: '#E1442B',   // aksan — canlı vermilyon
+          walnut: '#6B6B75',  // ikincil metin (eski kahve kaldırıldı)
+          stamp: '#CE3A1F',   // aksan — canlı vermilyon
           postage: '#FF6B4A', // koyu zeminde aksan
           sun: '#F5B841',
           ocean: '#2F6BFF',
@@ -38,8 +38,8 @@ export default {
         ink: {
           DEFAULT: '#16161A',
           soft: '#4B4B54',
-          muted: '#7B7B85',
-          subtle: '#A3A3AC',
+          muted: '#67676F',
+          subtle: '#8F8F98',
         },
         line: {
           subtle: 'rgb(11 11 12 / 0.06)',
@@ -48,15 +48,15 @@ export default {
         },
         primary: {
           50: '#FFF3F0', 100: '#FFE2DB', 200: '#FFBFB0', 300: '#FF9781',
-          400: '#F56A4D', 500: '#E1442B', 600: '#C2331D', 700: '#9C2717',
+          400: '#F56A4D', 500: '#CE3A1F', 600: '#C2331D', 700: '#9C2717',
           800: '#761D11', 900: '#4F130B',
         },
         accent: {
           50: '#FFF8EC', 100: '#FDEFD3', 200: '#FADFA6', 300: '#F5B841',
-          400: '#FF8A3D', 500: '#E1442B', 600: '#3FA96B', 700: '#2FB8B5',
+          400: '#FF8A3D', 500: '#CE3A1F', 600: '#3FA96B', 700: '#2FB8B5',
           800: '#8B5CF6', 900: '#2F6BFF',
         },
-        dark: { DEFAULT: '#16161A', text: '#4B4B54', muted: '#7B7B85' },
+        dark: { DEFAULT: '#16161A', text: '#4B4B54', muted: '#67676F' },
         light: { DEFAULT: '#FBFBFA', surface: '#FFFFFF', cream: '#F7F7F5' },
       },
 

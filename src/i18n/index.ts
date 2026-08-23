@@ -2,6 +2,8 @@ import { ui, defaultLang, type Lang, type UIKey } from './ui';
 
 export { languages, defaultLang } from './ui';
 export type { Lang } from './ui';
+export { usePage, pageContent } from './pages';
+export type { FaqItem, PrivacySection } from './pages';
 
 /** URL yolundan dili çıkarır. Türkçe kökte, İngilizce /en/ altında. */
 export function getLangFromUrl(url: URL): Lang {

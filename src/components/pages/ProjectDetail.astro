@@ -1,0 +1,125 @@
+---
+import { useTranslations, path, entryPath, stripLangPrefix, alternatePath, type Lang } from '../../i18n';
+
+interface Props { project: any; lang: Lang }
+const { project } = Astro.props;
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DetailCover from '../../components/DetailCover.astro';
+import { getCollection } from 'astro:content';
+import ShareBox from '../../components/ShareBox.astro';
+
+
+
+const { Content } = await project.render();
+const isActive = project.data.status === 'Aktif';
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+const alternate = alternatePath(lang, 'projects', stripLangPrefix(project.slug));
+---
+
+<BaseLayout
+  lang={lang}
+  alternate={alternate}
+  title={`${project.data.title_tr} — KOZ-DER`}
+  description={project.data.summary_tr}
+  image={project.data.coverImage}
+>
+  <article class="bg-brand-paper">
+    <div class="container mx-auto px-4 pt-8 sm:pt-12">
+      <a href={path(lang, 'projects')} class="inline-flex items-center gap-2 py-2 font-mono text-[11px] uppercase tracking-[0.2em] text-brand-ink hover:text-brand-stamp transition-colors mb-6 border-b border-line-strong pb-2">
+        <span>←</span> {t('nav.projects')}
+      </a>
+    </div>
+
+    <div class="container mx-auto px-4 pb-20">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
+        <div class="lg:col-span-8">
+          <DetailCover src={project.data.coverImage} alt={project.data.title_tr} fit={project.data.coverFit} />
+
+          <header class="mb-8">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">{project.data.programType} · {project.data.year}</p>
+            <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-[0.95] text-brand-ink mb-6">
+              {project.data.title_tr}
+            </h1>
+            <p class="font-display text-xl sm:text-2xl text-ink-soft leading-snug border-l-2 border-brand-walnut pl-5">
+              {project.data.summary_tr}
+            </p>
+          </header>
+
+          <div class="prose-kozder bg-brand-cream p-6 sm:p-10 card card-2">
+            <Content />
+          </div>
+        </div>
+
+        <aside class="lg:col-span-4">
+          <div class="sticky top-28 space-y-5">
+            <div class={`card card-2 p-6 ${isActive ? 'bg-brand-stamp text-brand-cream' : 'bg-brand-cream text-brand-ink'}`}>
+              <p class={`text-xs font-bold uppercase tracking-[0.2em] mb-2 ${isActive ? 'text-brand-cream' : 'text-brand-stamp'}`}>{t('common.status')}</p>
+              <p class="font-display font-black text-3xl tracking-tight leading-none">
+                {isActive ? t('projects.activeApplication') : t('common.completed')}
+              </p>
+            </div>
+
+            <div class="card card-2 bg-brand-cream divide-y divide-line">
+              <div class="p-5">
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">{t('common.program')}</p>
+                <p class="font-display font-bold text-xl text-brand-ink">{project.data.programType}</p>
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">{t('common.year')}</p>
+                <p class="font-display font-bold text-xl text-brand-ink">{project.data.year}</p>
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">{t('common.location')}</p>
+                <p class="font-display font-bold text-lg text-brand-ink leading-snug">{project.data.location}</p>
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">{t('common.date')}</p>
+                <p class="text-sm text-brand-ink font-semibold">{project.data.startDate}{project.data.endDate ? ` → ${project.data.endDate}` : ''}</p>
+              </div>
+              {project.data.themes.length > 0 && (
+                <div class="p-5">
+                  <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">{t('common.themes')}</p>
+                  <div class="flex flex-wrap gap-1.5">
+                    {project.data.themes.map(theme => (
+                      <span lang="en" class="text-xs font-medium tracking-wide px-2.5 py-1 border border-line-strong text-ink-soft">{theme}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div class="space-y-3">
+              {project.data.infoPackUrl && (
+                <a
+                  href={project.data.infoPackUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block card bg-brand-cream hover:bg-brand-paper p-5 transition-colors"
+                >
+                  <p class="font-display font-bold text-lg text-brand-ink flex items-center justify-between">
+                    {t('common.infoPack')} <span>↓</span>
+                  </p>
+                </a>
+              )}
+              <a
+                href={project.data.applicationUrl ?? path(lang, 'contact')}
+                target={project.data.applicationUrl ? '_blank' : undefined}
+                rel={project.data.applicationUrl ? 'noopener noreferrer' : undefined}
+                class="block bg-brand-ink text-brand-cream hover:bg-brand-stamp p-5 transition-colors card card-2"
+              >
+                <p class="font-display font-black text-2xl flex items-center justify-between">
+                  {project.data.applicationLabel ?? t('common.apply')} <span>→</span>
+                </p>
+              </a>
+            </div>
+
+            <ShareBox title={project.data.title_tr} url={url} lang={lang} />
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

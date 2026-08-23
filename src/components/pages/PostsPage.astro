@@ -1,0 +1,53 @@
+---
+import { useTranslations, usePage, path, alternatePath, type Lang } from '../../i18n';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+const p = usePage(lang);
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+import { byNewest } from '../../utils/contentSort';
+
+const posts = (await getCollection('posts', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(p => !p.data.draft);
+const sortedPosts = posts.sort(byNewest('posts', 'date'));
+---
+
+<BaseLayout
+  lang={lang}
+  title={p.meta.posts.title}
+  description={p.meta.posts.description}
+  alternate={alternatePath(lang, 'posts')}
+>
+  <Breadcrumb
+    lang={lang}
+    kicker={t('posts.kicker')}
+    items={[{ label: t('nav.home'), href: path(lang, 'home') }, { label: t('nav.posts'), href: path(lang, 'posts') }]}
+    pageTitle={t('posts.title')}
+    intro={t('posts.intro')}
+  />
+
+  <div class="container mx-auto px-4 py-12 sm:py-16">
+    {sortedPosts.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger">
+        {sortedPosts.map((post) => (
+          <PostCard
+              lang={lang}
+            title={post.data.title_tr}
+            summary={post.data.summary_tr}
+            date={post.data.date}
+            tags={post.data.tags}
+            slug={post.slug}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-16 bg-brand-cream card card-2">
+        <p class="font-display font-bold text-xl text-brand-ink">{t('posts.empty')}</p>
+      </div>
+    )}
+  </div>
+</BaseLayout>
