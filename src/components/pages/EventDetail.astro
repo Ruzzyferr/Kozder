@@ -181,7 +181,7 @@ const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 's
               </div>
             )}
 
-            <ShareBox title={event.data.title_tr} url={url} lang={lang} />
+            <ShareBox title={lang === 'en' ? event.data.title_en : event.data.title_tr} url={url} lang={lang} />
           </div>
         </aside>
       </div>
