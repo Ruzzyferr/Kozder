@@ -9,6 +9,10 @@ images:
   - "/images/stories/halilozkaraca2.jpeg"
   - "/images/stories/halilozkaraca3.jpeg"
   - "/images/stories/halilozkaraca4.jpeg"
+socialImage: "/social/halil-ozkaraca.jpg?v=20260823-2"
+socialImageWidth: 1200
+socialImageHeight: 630
+socialVersion: "20260823-2"
 summary: "Uzun bir aradan sonra katıldığım Truth or Trick? Click with Care Erasmus+ projesi; benim için eğlenceli, öğretici, bağlantılar kurduğum ve yeni ortaklık fırsatları geliştirdiğim çok özel bir deneyim oldu."
 featured: true
 ---
