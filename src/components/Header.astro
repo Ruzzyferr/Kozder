@@ -1,6 +1,5 @@
 ---
 import { getLangFromUrl, useTranslations, path, alternatePath, type Lang } from '../i18n';
-import { languages } from '../i18n/ui';
 
 interface Props { lang?: Lang; alternate?: string }
 const lang: Lang = Astro.props.lang ?? getLangFromUrl(Astro.url);
@@ -137,7 +136,7 @@ function isActive(href: string) {
           hreflang={other}
           class="mt-5 inline-flex items-center justify-center rounded-full border border-line-strong px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-muted"
         >
-          {languages[other]}
+          {other === 'en' ? 'ENGLISH' : 'TÜRKÇE'}
         </a>
 
         <a
