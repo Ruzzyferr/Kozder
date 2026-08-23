@@ -23,6 +23,8 @@ const alternate = alternatePath(lang, 'stories', stripLangPrefix(story.slug));
   alternate={alternate}
   title={`${story.data.name} — ${t('stories.metaSuffix')} — KOZ-DER`}
   description={story.data.summary}
+  image={story.data.images?.[0] ?? '/images/logo.png'}
+  imageAlt={`${story.data.name} — ${story.data.programName}`}
 >
   <article class="bg-brand-paper">
     <div class="container mx-auto px-4 pt-8 sm:pt-12">
