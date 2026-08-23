@@ -1,4 +1,9 @@
 ---
+import { getLangFromUrl, useTranslations, path, type Lang } from '../i18n';
+
+interface Props { lang?: Lang }
+const lang: Lang = Astro.props.lang ?? getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
 
 const socials = [
@@ -9,23 +14,23 @@ const socials = [
 ];
 
 const navColumns = [
-  { title: 'Keşfet', links: [
-    { href: '/projeler', text: 'Projeler' },
-    { href: '/etkinlikler', text: 'Etkinlikler' },
-    { href: '/haberler', text: 'Haberler' },
-    { href: '/gonullu-hikayeleri', text: 'Hikayeler' },
-    { href: '/duyurular', text: 'Duyurular' },
+  { title: t('footer.discover'), links: [
+    { href: path(lang, 'projects'), text: t('nav.projects') },
+    { href: path(lang, 'events'), text: t('nav.events') },
+    { href: path(lang, 'news'), text: t('nav.news') },
+    { href: path(lang, 'stories'), text: t('nav.stories') },
+    { href: path(lang, 'posts'), text: t('nav.posts') },
   ]},
-  { title: 'Kurum', links: [
-    { href: '/hakkimizda', text: 'Hakkımızda' },
-    { href: '/sss', text: 'Sıkça Sorulan' },
-    { href: '/baglantilar', text: 'Bağlantılar' },
-    { href: '/iletisim', text: 'İletişim' },
+  { title: t('footer.org'), links: [
+    { href: path(lang, 'about'), text: t('nav.about') },
+    { href: path(lang, 'faq'), text: t('footer.faqShort') },
+    { href: path(lang, 'links'), text: t('footer.links') },
+    { href: path(lang, 'contact'), text: t('nav.contact') },
   ]},
-  { title: 'Programlar', links: [
+  { title: t('footer.programs'), links: [
     { href: 'https://europa.eu/youth/solidarity_en', text: 'ESC', external: true },
     { href: 'https://erasmus-plus.ec.europa.eu/', text: 'Erasmus+', external: true },
-    { href: '/kvkk', text: 'KVKK Aydınlatma' },
+    { href: path(lang, 'privacy'), text: t('footer.kvkk') },
   ]},
 ];
 ---
@@ -84,7 +89,7 @@ const navColumns = [
       ))}
 
       <div class="lg:col-span-3">
-        <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-4">İletişim</h3>
+        <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-4">{t('footer.contact')}</h3>
         <address class="not-italic text-sm text-brand-cream leading-relaxed space-y-2">
           <p>Kazım Karabekir Mh.<br/>İstiklal Cd. No:33D<br/>79000 Kilis · TR</p>
           <p>
@@ -96,7 +101,7 @@ const navColumns = [
     </div>
 
     <div class="border-t border-brand-cream/15 mt-12 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-brand-cream/70">
-      <p>© {currentYear} KOZ-DER · Tüm hakları saklıdır.</p>
+      <p>© {currentYear} KOZ-DER · {t('footer.rights')}</p>
       <p class="tracking-[0.12em] uppercase text-[10px] text-brand-cream/50">
         Kilis · Türkiye
       </p>

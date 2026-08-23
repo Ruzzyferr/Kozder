@@ -1,20 +1,32 @@
 ---
+import { getLangFromUrl, useTranslations, path, alternatePath, type Lang } from '../i18n';
+import { languages } from '../i18n/ui';
+
+interface Props { lang?: Lang }
+const lang: Lang = Astro.props.lang ?? getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const currentPath = Astro.url.pathname;
 
 const navItems = [
-  { href: '/', text: 'Ana Sayfa' },
-  { href: '/hakkimizda', text: 'Hakkımızda' },
-  { href: '/projeler', text: 'Projeler' },
-  { href: '/gonullu-hikayeleri', text: 'Hikayeler' },
-  { href: '/etkinlikler', text: 'Etkinlikler' },
-  { href: '/haberler', text: 'Haberler' },
-  { href: '/duyurular', text: 'Duyurular' },
-  { href: '/sss', text: 'SSS' },
-  { href: '/iletisim', text: 'İletişim' },
+  { href: path(lang, 'home'), text: t('nav.home') },
+  { href: path(lang, 'about'), text: t('nav.about') },
+  { href: path(lang, 'projects'), text: t('nav.projects') },
+  { href: path(lang, 'stories'), text: t('nav.stories') },
+  { href: path(lang, 'events'), text: t('nav.events') },
+  { href: path(lang, 'news'), text: t('nav.news') },
+  { href: path(lang, 'posts'), text: t('nav.posts') },
+  { href: path(lang, 'faq'), text: t('nav.faq') },
+  { href: path(lang, 'contact'), text: t('nav.contact') },
 ];
 
+const home = path(lang, 'home');
+const contact = path(lang, 'contact');
+const other: Lang = lang === 'tr' ? 'en' : 'tr';
+const otherHome = path(other, 'home');
+
 function isActive(href: string) {
-  return href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+  if (href === '/' || href === '/en/') return currentPath === href;
+  return currentPath.startsWith(href);
 }
 ---
 
@@ -24,7 +36,7 @@ function isActive(href: string) {
 >
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between h-16 md:h-20 gap-4">
-      <a href="/" class="flex items-center gap-3 group flex-shrink-0" aria-label="KOZ-DER ana sayfa">
+      <a href={home} class="flex items-center gap-3 group flex-shrink-0" aria-label={t('nav.home.aria')}>
         <img
           src="/images/logo.png"
           alt=""
@@ -39,12 +51,12 @@ function isActive(href: string) {
           <!-- Uzun alt başlık + 9 menü maddesi ancak 2xl'de yan yana sığıyor;
                daha darda taşma yapıp sayfayı yatay kaydırıyordu. -->
           <div class="hidden 2xl:block text-[11px] uppercase tracking-[0.2em] text-brand-walnut font-semibold mt-1">
-            Gençlik Zeka Oyunları ve Kodlama Derneği
+            {t('site.orgName')}
           </div>
         </div>
       </a>
 
-      <nav class="hidden lg:flex items-center gap-0.5" aria-label="Birincil navigasyon">
+      <nav class="hidden lg:flex items-center gap-0.5" aria-label={t('nav.primary')}>
         {navItems.map(item => {
           const active = isActive(item.href);
           return (
@@ -63,10 +75,19 @@ function isActive(href: string) {
         })}
 
         <a
-          href="/iletisim"
+          href={otherHome}
+          hreflang={other}
+          class="ml-2 hidden lg:inline-flex items-center rounded-full border border-line-strong px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-ink-muted hover:text-brand-ink hover:border-brand-ink transition-colors"
+          aria-label={t('nav.langSwitch')}
+        >
+          {other.toUpperCase()}
+        </a>
+
+        <a
+          href={contact}
           class="ml-3 hidden xl:inline-flex whitespace-nowrap items-center gap-2 bg-brand-ink hover:bg-brand-stamp text-brand-cream px-4 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.1em] font-heading transition-colors duration-300"
         >
-          Bize Yaz
+          {t('nav.cta')}
           <span>→</span>
         </a>
       </nav>
@@ -74,7 +95,7 @@ function isActive(href: string) {
       <button
         id="mobile-menu-btn"
         class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-line-strong bg-brand-cream text-brand-ink hover:bg-brand-ink hover:text-brand-cream hover:border-brand-ink transition-colors"
-        aria-label="Menüyü aç"
+        aria-label={t('nav.open')}
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
@@ -93,7 +114,7 @@ function isActive(href: string) {
     class="lg:hidden grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out border-t border-line bg-brand-cream"
   >
     <div class="overflow-hidden">
-      <nav class="container mx-auto px-4 py-5 flex flex-col" aria-label="Mobil navigasyon">
+      <nav class="container mx-auto px-4 py-5 flex flex-col" aria-label={t('nav.mobile')}>
         {navItems.map(item => {
           const active = isActive(item.href);
           return (
@@ -111,10 +132,18 @@ function isActive(href: string) {
           );
         })}
         <a
-          href="/iletisim"
-          class="mt-5 inline-flex items-center justify-center gap-2 bg-brand-ink text-brand-cream px-4 py-3.5 rounded-full text-sm font-bold uppercase tracking-[0.15em] font-heading transition-colors hover:bg-brand-stamp"
+          href={otherHome}
+          hreflang={other}
+          class="mt-5 inline-flex items-center justify-center rounded-full border border-line-strong px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-muted"
         >
-          Bize Yaz <span>→</span>
+          {languages[other]}
+        </a>
+
+        <a
+          href={contact}
+          class="mt-3 inline-flex items-center justify-center gap-2 bg-brand-ink text-brand-cream px-4 py-3.5 rounded-full text-sm font-bold uppercase tracking-[0.15em] font-heading transition-colors hover:bg-brand-stamp"
+        >
+          {t('nav.cta')} <span>→</span>
         </a>
       </nav>
     </div>
