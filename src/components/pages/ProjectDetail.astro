@@ -116,7 +116,7 @@ const alternate = alternatePath(lang, 'projects', stripLangPrefix(project.slug))
               </a>
             </div>
 
-            <ShareBox title={project.data.title_tr} url={url} lang={lang} />
+            <ShareBox title={lang === 'en' ? project.data.title_en : project.data.title_tr} url={url} lang={lang} applicationUrl={project.data.applicationUrl} />
           </div>
         </aside>
       </div>
