@@ -14,6 +14,13 @@ import { byNewest } from '../../utils/contentSort';
 const storiesRaw = (await getCollection('stories', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(s => !s.data.draft);
 const stories = storiesRaw.sort(byNewest('stories', 'startDate'));
 
+// Kartlarda uzun proje adını kısa program etiketi olarak gösterir.
+function storyProgramLabel(programName: string) {
+  if (/\\bESC\\b|Avrupa Dayanışma|European Solidarity/i.test(programName)) return 'ESC';
+  if (/Erasmus/i.test(programName)) return 'Erasmus+';
+  return programName;
+}
+
 // Helper to get initials
 const getInitials = (name: string) => {
   return name.split(' ').map(n => n[0]).join('').toUpperCase();
@@ -63,7 +70,7 @@ const getInitials = (name: string) => {
               </div>
 
               <div class="p-5 sm:p-6">
-                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-2">{story.data.country}</p>
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-2">{story.data.country} · {storyProgramLabel(story.data.programName)}</p>
                 <h3 class="font-display font-bold text-2xl text-brand-ink leading-[1.05] tracking-tight mb-4 group-hover:text-brand-stamp transition-colors">
                   {story.data.name}
                 </h3>
