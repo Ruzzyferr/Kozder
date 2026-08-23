@@ -9,15 +9,15 @@ const p = usePage(lang);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
-import { byNewest } from '../../utils/contentSort';
+import { getEventDateSortKey } from '../../utils/date';
 
 const storiesRaw = (await getCollection('stories', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(s => !s.data.draft);
-const stories = storiesRaw.sort(byNewest('stories', 'startDate'));
+const stories = storiesRaw.sort((a, b) => getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate));
 
 // Kartlarda uzun proje adını kısa program etiketi olarak gösterir.
 function storyProgramLabel(programName: string) {
-  if (/\bESC\b|Avrupa Dayanışma|European Solidarity/i.test(programName)) return 'ESC';
-  if (/Erasmus/i.test(programName)) return 'Erasmus+';
+  if (/Erasmus|The Power of Stories/i.test(programName)) return 'Erasmus+';
+  if (/\b(?:ESC|EVS)\b|Avrupa Dayanışma|European Solidarity|gönüllülük|volunteering|summer project|yaz dönemi projesi/i.test(programName)) return 'ESC';
   return programName;
 }
 
