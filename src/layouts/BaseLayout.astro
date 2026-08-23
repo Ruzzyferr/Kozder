@@ -263,73 +263,6 @@ const other: Lang = lang === 'tr' ? 'en' : 'tr';
   }
 
 
-<script>
-  function linkifyEmailAddresses(root = document.body) {
-    if (!root) return;
-
-    const emailPattern = /([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/gi;
-    const exactEmailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    const textNodes = [];
-
-    while (walker.nextNode()) {
-      const node = walker.currentNode;
-      const parent = node.parentElement;
-      if (!parent || parent.closest('a, script, style, code, pre, textarea, input, [contenteditable]')) continue;
-      if (exactEmailPattern.test(node.textContent || '') || emailPattern.test(node.textContent || '')) {
-        textNodes.push(node);
-      }
-      emailPattern.lastIndex = 0;
-    }
-
-    textNodes.forEach((node) => {
-      const text = node.textContent || '';
-      const parts = text.split(emailPattern);
-      if (parts.length < 2) return;
-
-
-<script>
-  document.addEventListener('click', (event) => {
-    const clicked = event.target;
-    if (!(clicked instanceof Element)) return;
-
-    const emailLink = clicked.closest('a[href^="mailto:"]');
-    if (!(emailLink instanceof HTMLAnchorElement)) return;
-
-    const address = emailLink.href.replace(/^mailto:/i, '').split('?')[0];
-    if (!address) return;
-
-    event.preventDefault();
-    const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(address)}`;
-    window.open(gmailComposeUrl, '_blank', 'noopener,noreferrer');
-  });
-</script>
-
-      const fragment = document.createDocumentFragment();
-      parts.forEach((part) => {
-        if (exactEmailPattern.test(part)) {
-          const link = document.createElement('a');
-          link.href = `mailto:${part}`;
-          link.textContent = part;
-          link.className = 'underline decoration-brand-stamp underline-offset-4 hover:text-brand-stamp transition-colors';
-          fragment.appendChild(link);
-        } else {
-          fragment.appendChild(document.createTextNode(part));
-        }
-      });
-      node.parentNode?.replaceChild(fragment, node);
-    });
-  }
-
-  const initEmailLinks = () => linkifyEmailAddresses(document.body);
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initEmailLinks, { once: true });
-  } else {
-    initEmailLinks();
-  }
-  document.addEventListener('astro:page-load', initEmailLinks);
-</script>
-
   .prose-kozder h2 {
     font-size: 1.7rem;
     font-weight: 700;
@@ -501,4 +434,67 @@ const other: Lang = lang === 'tr' ? 'en' : 'tr';
   } else {
     init();
   }
+</script>
+
+<script>
+  function linkifyEmailAddresses(root: Node = document.body) {
+    const emailPattern = /([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/gi;
+    const exactEmailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const textNodes: Text[] = [];
+
+    while (walker.nextNode()) {
+      const node = walker.currentNode as Text;
+      const parent = node.parentElement;
+      if (!parent || parent.closest('a, script, style, code, pre, textarea, input, [contenteditable]')) continue;
+
+      emailPattern.lastIndex = 0;
+      if (emailPattern.test(node.textContent || '')) textNodes.push(node);
+    }
+
+    textNodes.forEach((node) => {
+      const parts = (node.textContent || '').split(emailPattern);
+      if (parts.length < 2) return;
+
+      const fragment = document.createDocumentFragment();
+      parts.forEach((part) => {
+        if (exactEmailPattern.test(part)) {
+          const link = document.createElement('a');
+          link.href = `mailto:${part}`;
+          link.textContent = part;
+          link.className = 'underline decoration-brand-stamp underline-offset-4 hover:text-brand-stamp transition-colors';
+          fragment.appendChild(link);
+        } else {
+          fragment.appendChild(document.createTextNode(part));
+        }
+      });
+      node.parentNode?.replaceChild(fragment, node);
+    });
+  }
+
+  function initEmailLinks() {
+    linkifyEmailAddresses(document.body);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initEmailLinks, { once: true });
+  } else {
+    initEmailLinks();
+  }
+  document.addEventListener('astro:page-load', initEmailLinks);
+
+  document.addEventListener('click', (event) => {
+    const clicked = event.target;
+    if (!(clicked instanceof Element)) return;
+
+    const emailLink = clicked.closest('a[href^="mailto:"]');
+    if (!(emailLink instanceof HTMLAnchorElement)) return;
+
+    const address = emailLink.href.replace(/^mailto:/i, '').split('?')[0];
+    if (!address) return;
+
+    event.preventDefault();
+    const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(address)}`;
+    window.open(gmailComposeUrl, '_blank', 'noopener,noreferrer');
+  });
 </script>
