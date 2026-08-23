@@ -102,6 +102,13 @@ const steps = [
   { n: '03', title: t('home.steps.3.title'), text: t('home.steps.3.text'), href: path(lang, 'stories') },
 ];
 
+// Kartlarda uzun proje adını kısa program etiketi olarak gösterir.
+function storyProgramLabel(programName: string) {
+  if (/\\bESC\\b|Avrupa Dayanışma|European Solidarity/i.test(programName)) return 'ESC';
+  if (/Erasmus/i.test(programName)) return 'Erasmus+';
+  return programName;
+}
+
 // Etkinlik tarihini gün + kısaltılmış ay olarak parçalar.
 function dateParts(value: string) {
   const key = getEventDateSortKey(value);
@@ -439,7 +446,7 @@ function dateParts(value: string) {
               )}
               <span class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/85 via-black/45 to-transparent"></span>
               <span class="absolute bottom-0 left-0 right-0 p-4">
-                <span class="block text-[10px] uppercase tracking-[0.2em] text-white/90 font-semibold">{story.data.country}</span>
+                <span class="block text-[10px] uppercase tracking-[0.2em] text-white/90 font-semibold">{story.data.country} · {storyProgramLabel(story.data.programName)}</span>
                 <span class="mt-1 block font-display font-bold text-lg text-white leading-tight">{story.data.name}</span>
               </span>
             </div>
