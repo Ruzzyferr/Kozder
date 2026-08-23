@@ -116,7 +116,7 @@ const galleryImages = item.data.images.filter(src => src !== item.data.coverImag
               )}
             </div>
 
-            <ShareBox title={item.data.title_tr} url={url} lang={lang} />
+            <ShareBox title={lang === 'en' ? item.data.title_en : item.data.title_tr} url={url} lang={lang} />
           </div>
         </aside>
       </div>
