@@ -76,7 +76,7 @@ const ld = articleSchema({
       )}
 
       <div class="mt-10">
-        <ShareBox title={post.data.title_tr} url={url} lang={lang} />
+        <ShareBox title={lang === 'en' ? post.data.title_en : post.data.title_tr} url={url} lang={lang} />
       </div>
 
       <div class="mt-10 pt-8 border-t border-line">
