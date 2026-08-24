@@ -166,7 +166,7 @@ export const ui = {
     'footer.contact': 'İletişim',
     'footer.rights': 'Tüm hakları saklıdır.',
     'footer.links': 'Bağlantılar',
-    'footer.faqShort': 'Sıkça Sorulan',
+    'footer.faqShort': 'SSS',
     'footer.kvkk': 'KVKK Aydınlatma',
 
     'common.completed': 'Tamamlandı',
