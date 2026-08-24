@@ -66,6 +66,44 @@ const bioText = (member: TeamMember) => p.about.bios[member.name] ?? member.bio;
       </div>
     </section>
 
+    <section class="mb-16 sm:mb-24" aria-labelledby="pif-heading">
+      <div class="card card-2 overflow-hidden bg-brand-ink text-brand-cream">
+        <div class="grid lg:grid-cols-[1fr_auto] items-center gap-7 p-7 sm:p-10">
+          <div class="max-w-3xl">
+            <p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-brand-postage">
+              {lang === 'en' ? 'Corporate document' : 'Kurumsal belge'}
+            </p>
+            <h2 id="pif-heading" class="font-display text-3xl sm:text-4xl font-black tracking-tightest leading-none">
+              KOZ-DER PIF 2026
+            </h2>
+            <p class="mt-4 text-sm sm:text-base leading-relaxed text-brand-cream/80">
+              {lang === 'en'
+                ? 'Review our Partner Identification Form for KOZ-DER’s institutional information, experience and partnership profile.'
+                : 'KOZ-DER’in kurumsal bilgilerini, deneyimini ve ortaklık profilini Partner Tanımlama Formumuz üzerinden inceleyebilirsiniz.'}
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 lg:min-w-[300px]">
+            <a
+              href="/documents/kozder-pif-2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="h-12 px-5 border border-brand-cream bg-brand-cream text-brand-ink hover:bg-brand-postage hover:border-brand-postage inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.14em] transition-colors"
+            >
+              {lang === 'en' ? 'View PIF' : 'PIF’i Görüntüle'} <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              href="/documents/kozder-pif-2026.pdf"
+              download="KOZ-DER-PIF-2026.pdf"
+              class="h-12 px-5 border border-brand-cream/70 text-brand-cream hover:bg-brand-cream hover:text-brand-ink inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.14em] transition-colors"
+            >
+              {lang === 'en' ? 'Download PDF' : 'PDF’yi İndir'} <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {teamData && teamData.length > 0 && (
       <section>
         <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-none text-brand-ink mb-10">{p.about.teamHeading}</h2>
