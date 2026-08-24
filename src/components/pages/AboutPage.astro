@@ -66,41 +66,79 @@ const bioText = (member: TeamMember) => p.about.bios[member.name] ?? member.bio;
       </div>
     </section>
 
-    <section class="mb-16 sm:mb-24" aria-labelledby="pif-heading">
-      <div class="card card-2 overflow-hidden bg-brand-ink text-brand-cream">
-        <div class="grid lg:grid-cols-[1fr_auto] items-center gap-7 p-7 sm:p-10">
-          <div class="max-w-3xl">
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-brand-postage">
-              {lang === 'en' ? 'Corporate document' : 'Kurumsal belge'}
-            </p>
-            <h2 id="pif-heading" class="font-display text-3xl sm:text-4xl font-black tracking-tightest leading-none">
-              KOZ-DER PIF 2026
-            </h2>
-            <p class="mt-4 text-sm sm:text-base leading-relaxed text-brand-cream/80">
-              {lang === 'en'
-                ? 'Review our Partner Identification Form for KOZ-DER’s institutional information, experience and partnership profile.'
-                : 'KOZ-DER’in kurumsal bilgilerini, deneyimini ve ortaklık profilini Partner Tanımlama Formumuz üzerinden inceleyebilirsiniz.'}
-            </p>
-          </div>
+    <section class="mb-16 sm:mb-24" aria-labelledby="partnership-profiles-heading">
+      <div class="mb-7 max-w-3xl">
+        <p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp">
+          {lang === 'en' ? 'Institutional documents' : 'Kurumsal belgeler'}
+        </p>
+        <h2 id="partnership-profiles-heading" class="font-display text-4xl sm:text-5xl font-black tracking-tightest leading-none text-brand-ink">
+          {lang === 'en' ? 'Erasmus+ Partnership Profiles' : 'Erasmus+ Ortaklık Profilleri'}
+        </h2>
+        <p class="mt-4 text-sm sm:text-base leading-relaxed text-ink-soft">
+          {lang === 'en'
+            ? 'Choose the profile that matches your application type and access KOZ-DER’s ready-to-use institutional information, experience and partnership capacity.'
+            : 'Başvuru türünüze uygun profili seçerek KOZ-DER’in kullanıma hazır kurumsal bilgilerine, deneyimine ve ortaklık kapasitesine ulaşabilirsiniz.'}
+        </p>
+      </div>
 
-          <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 lg:min-w-[300px]">
+      <div class="grid md:grid-cols-2 gap-5">
+        <article class="card card-2 overflow-hidden bg-brand-ink text-brand-cream p-7 sm:p-9 flex flex-col">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-postage">Erasmus+ KA1</p>
+          <h3 class="mt-3 font-display text-3xl sm:text-4xl font-black tracking-tightest leading-none">
+            {lang === 'en' ? 'KA1 Partnership Profile' : 'KA1 Ortaklık Profili'}
+          </h3>
+          <p class="mt-4 mb-7 text-sm leading-relaxed text-brand-cream/80 flex-1">
+            {lang === 'en'
+              ? 'For youth mobility projects: organisational profile, regular youth work, key staff, mobility experience and associated persons.'
+              : 'Gençlik hareketliliği projeleri için kurumsal profil, düzenli gençlik çalışmaları, kilit ekip, hareketlilik deneyimi ve ilişkili kişiler.'}
+          </p>
+          <div class="grid sm:grid-cols-2 gap-3">
             <a
-              href="/documents/kozder-pif-2026.pdf"
+              href="/documents/KA1_Partner_Profile_2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              class="h-12 px-5 border border-brand-cream bg-brand-cream text-brand-ink hover:bg-brand-postage hover:border-brand-postage inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.14em] transition-colors"
+              class="h-12 px-4 border border-brand-cream bg-brand-cream text-brand-ink hover:bg-brand-postage hover:border-brand-postage inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors"
             >
-              {lang === 'en' ? 'View PIF' : 'PIF’i Görüntüle'} <span aria-hidden="true">↗</span>
+              {lang === 'en' ? 'View Profile' : 'Profili Görüntüle'} <span aria-hidden="true">↗</span>
             </a>
             <a
-              href="/documents/kozder-pif-2026.pdf"
-              download="KOZ-DER-PIF-2026.pdf"
-              class="h-12 px-5 border border-brand-cream/70 text-brand-cream hover:bg-brand-cream hover:text-brand-ink inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.14em] transition-colors"
+              href="/documents/KA1_Partner_Profile_2026.pdf"
+              download="KOZ-DER-KA1-Partner-Profile-2026.pdf"
+              class="h-12 px-4 border border-brand-cream/70 text-brand-cream hover:bg-brand-cream hover:text-brand-ink inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors"
             >
               {lang === 'en' ? 'Download PDF' : 'PDF’yi İndir'} <span aria-hidden="true">↓</span>
             </a>
           </div>
-        </div>
+        </article>
+
+        <article class="card card-2 overflow-hidden bg-brand-ocean text-brand-cream p-7 sm:p-9 flex flex-col">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-cream/75">Erasmus+ KA2</p>
+          <h3 class="mt-3 font-display text-3xl sm:text-4xl font-black tracking-tightest leading-none">
+            {lang === 'en' ? 'KA2 Partnership Profile' : 'KA2 Ortaklık Profili'}
+          </h3>
+          <p class="mt-4 mb-7 text-sm leading-relaxed text-brand-cream/85 flex-1">
+            {lang === 'en'
+              ? 'For cooperation partnerships: main activities, application-field experience, learner profiles, past participation and partnership capacity.'
+              : 'İş birliği ortaklıkları için temel faaliyetler, başvuru alanındaki deneyim, öğrenici profilleri, geçmiş katılım ve ortaklık kapasitesi.'}
+          </p>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <a
+              href="/documents/KA2_Partner_Profile_2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="h-12 px-4 border border-brand-cream bg-brand-cream text-brand-ink hover:bg-brand-postage hover:border-brand-postage inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors"
+            >
+              {lang === 'en' ? 'View Profile' : 'Profili Görüntüle'} <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              href="/documents/KA2_Partner_Profile_2026.pdf"
+              download="KOZ-DER-KA2-Partner-Profile-2026.pdf"
+              class="h-12 px-4 border border-brand-cream/80 text-brand-cream hover:bg-brand-cream hover:text-brand-ink inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors"
+            >
+              {lang === 'en' ? 'Download PDF' : 'PDF’yi İndir'} <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 
