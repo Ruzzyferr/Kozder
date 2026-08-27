@@ -2,7 +2,7 @@
 name: "Deniz DEMİR"
 programName: "Green World-2 ESC Volunteering Project"
 country: "Bulgaria"
-startDate: "04.05.2026"
+startDate: "29.06.2026"
 images:
   - "/images/stories/denizdemir.jpeg"
   - "/images/stories/denizdemir1.jpeg"
