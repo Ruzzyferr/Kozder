@@ -13,71 +13,78 @@ images:
   - "/images/stories/denizdemir6.jpeg"
   - "/images/stories/denizdemir7.jpeg"
   - "/images/stories/denizdemir8.jpeg"
-summary: "Bulgaristan’ın Madan şehrinde Green World-2 ESC projesine katılan Deniz Demir; gönüllülük faaliyetleri, kültürlerarası öğrenme, robotik kodlama etkinlikleri ve unutulmaz dostluklarla hayatını değiştiren bir deneyim yaşadı."
+summary: "Bulgaristan’ın Madan şehrinde Green World-2 ESC projesine katılan Deniz Demir; gönüllülük, dostluk, kültürlerarası öğrenme ve unutulmaz anılarla dolu iki aylık özel bir deneyim yaşadı."
 featured: true
 ---
 
 # Madan’da İki Ay: Gönüllülük, Dostluk ve Unutulmaz Anılar
 
-Merhaba, ben **Deniz DEMİR**.
+Hayatta bazı deneyimler vardır ki yalnızca bir yere gitmenizi değil, kendinize ve dünyaya bakışınızı da değiştirir. Benim için Bulgaristan’ın Madan şehrinde geçirdiğim iki aylık Avrupa Dayanışma Programı gönüllülük deneyimi tam olarak böyle bir süreç oldu.
 
-Hayatta bazı deneyimler vardır ki yalnızca bir yere gitmenizi değil, kendinize ve dünyaya bakışınızı da değiştirir. Benim için Bulgaristan’ın **Madan** şehrinde gerçekleştirdiğim **Green World-2 Avrupa Dayanışma Programı (ESC)** projesi tam olarak böyle bir deneyimdi.
-
-**04 Mayıs - 29 Haziran 2026** tarihleri arasında yaklaşık iki ay boyunca Madan’da gönüllü olarak yer aldım. Bu süreçte farklı bir ülkede yaşama deneyimi kazandım, yeni insanlarla tanıştım ve kendimi birçok açıdan geliştirme fırsatı buldum.
-
-Projeye başlamadan önce heyecanlı ve meraklıydım. Ancak Madan’a geldiğim ilk günden itibaren hem şehir hem de insanlar sayesinde kısa sürede bu ortama alıştım. Bu iki ay boyunca sadece gönüllülük faaliyetlerinde bulunmadım; aynı zamanda kendim için birçok değerli deneyim kazandım.
+İki ay boyunca Madan’da gönüllü olarak yaşamak, farklı insanlarla aynı ortamı paylaşmak, birlikte çalışmak, üretmek ve yeni kültürler tanımak benim için hayatımda özel bir yere sahip olacak bir deneyime dönüştü. Projenin sonunda Madan benim için sadece gönüllülük yaptığım bir şehir değil; huzur bulduğum, güzel dostluklar kurduğum ve kendimden bir parça bıraktığımı hissettiğim bir yer haline geldi.
 
 ## Madan’da Yaşam
 
-Madan; doğası, sakinliği ve huzurlu atmosferiyle beni etkileyen küçük ama çok özel bir şehirdi. Şehrin sakin yapısı, günlük hayatın stresinden uzaklaşmamı ve yeni deneyimler yaşamamı sağladı.
+Madan küçük, sakin ve doğayla iç içe bir şehir. İlk geldiğimde şehrin sessizliği ve sakinliği dikkatimi çekmişti. Zaman geçtikçe bu sakinliğin benim için çok daha anlamlı bir hale geldiğini fark ettim.
 
-Proje kapsamında konaklama, ulaşım ve temel ihtiyaçlarımız konusunda gerekli destekler sağlandı. Kaldığımız yerde yemek hazırlayabileceğimiz ortak bir mutfak bulunuyordu. Market, restoran ve diğer ihtiyaçlarımızı karşılayabileceğimiz yerler de yürüyüş mesafesindeydi. Bu sayede proje sürecini rahat ve düzenli bir şekilde geçirdik.
+Günlük hayatın yoğunluğundan uzak olmak, doğayla iç içe yaşamak ve aynı zamanda farklı ülkelerden gelen insanlarla birlikte olmak bana farklı bir yaşam deneyimi sundu. Madan’da geçirdiğim zaman boyunca kendimi huzurlu hissettim.
 
-Yerel halkın samimiyeti ve misafirperverliği de bu deneyimi benim için daha özel hale getirdi. İnsanların bize yaklaşımı, sohbetleri ve gösterdikleri ilgi sayesinde kendimizi kısa sürede bu küçük şehrin bir parçası gibi hissettik.
+Bunun yanında yerel halkın samimiyeti ve misafirperverliği de bu deneyimi benim için daha özel hale getirdi. İnsanların bize yaklaşımı, sohbetleri ve gösterdikleri ilgi sayesinde kendimizi kısa sürede bu küçük şehrin bir parçası gibi hissettik.
 
-## Gönüllülük Faaliyetleri
+## Gönüllülük Faaliyetlerimiz
 
-Green World-2 projesinin temel amacı çevreye katkı sağlamak ve toplum yararına çalışmalar gerçekleştirmekti.
+Proje boyunca hem çevreye hem de yerel topluma katkı sağlayabileceğimiz birçok farklı çalışmada yer aldık.
 
-Proje boyunca ortak kullanım alanlarında çevre düzenlemeleri yaptık, kaldırımlardaki yabani otları temizledik, çim biçme çalışmalarına katıldık ve köylerde yaşayan insanların kış hazırlıkları için odun kırıp düzenlemelerine yardımcı olduk.
+Ortak kullanım alanlarında çevre düzenlemeleri yaptık, kaldırımlardaki yabani otları temizledik ve çim biçme çalışmalarına katıldık. Bunun yanında köylerde yaşayan insanların kış hazırlıklarına destek olmak amacıyla odun kırma ve düzenleme çalışmalarında da görev aldık.
 
-Yaşlı insanlarla gerçekleştirdiğimiz çalışmalar ise benim için projenin en anlamlı bölümlerinden biriydi. Onlarla zaman geçirmek, sohbet etmek ve günlük hayatlarında onlara yardımcı olmak; gönüllülüğün yalnızca fiziksel yardım olmadığını, aynı zamanda insanlara zaman ayırmak ve onları dinlemek olduğunu bana gösterdi.
+Yaşlı insanlarla gerçekleştirdiğimiz çalışmalar ise benim için projenin en anlamlı bölümlerinden biriydi. Onlarla zaman geçirmek, sohbet etmek ve günlük hayatlarında onlara yardımcı olmak, gönüllülüğün yalnızca fiziksel bir yardım olmadığını görmemi sağladı. Bazen yaptığımız küçük bir yardımın veya ayırdığımız birkaç dakikanın bile insanlar için ne kadar değerli olabileceğini deneyimledim.
 
-Ayrıca gençlerle birlikte **robotik kodlama atölyeleri** gerçekleştirdik. Kendi bilgi ve deneyimlerimi paylaşmak, teknolojiye ilgi duyan gençlerle birlikte üretmek ve onların gelişimine katkı sunmak gönüllülük deneyimimin en keyifli bölümlerinden biri oldu.
+Proje boyunca gençlerle birlikte robotik kodlama atölyeleri de gerçekleştirdik. Kendi ilgi ve deneyimlerimi başka gençlerle paylaşmak, onlara teknoloji ve robotik alanında yeni şeyler göstermek benim için ayrıca keyifliydi. Birlikte üretmek, öğrenmek ve bir şeyler ortaya çıkarmak gönüllülük deneyimimin benim için en özel taraflarından biri oldu.
 
 ## Farklı Kültürler, Yeni Dostluklar
 
-Bu iki ay boyunca farklı ülkelerden gelen gönüllülerle aynı ortamı paylaşmak bana kültürel anlamda çok şey kattı.
+Bu iki ay boyunca farklı ülkelerden gelen gönüllülerle aynı ortamı paylaşmak bana kültürel anlamda da çok şey kattı.
 
-Birlikte çalıştık, yemek yaptık, oyunlar oynadık, sohbet ettik, gezdik ve bazen hiçbir şey yapmadan sadece birlikte vakit geçirdik. Zamanla farklı ülkelerden gelen insanlar benim için yalnızca proje arkadaşları değil, gerçek dostlar haline geldi.
+Birlikte çalıştık, yemekler yaptık, oyunlar oynadık, sohbet ettik, gezdik ve bazen hiçbir şey yapmadan sadece birlikte vakit geçirdik. Zamanla farklı ülkelerden gelen insanlar benim için sadece proje arkadaşları olmaktan çıktı ve gerçek dostluklara dönüştü.
 
-Her birimizin farklı hikâyeleri, alışkanlıkları ve yaşam tarzları vardı. Buna rağmen ortak bir amaç için bir araya gelerek ne kadar güçlü bağlar kurulabileceğini yaşayarak gördüm.
+Farklı kültürlerden insanların aynı amaç için bir araya gelmesinin ne kadar güzel olduğunu deneyimledim. Her birimizin farklı hikâyeleri, alışkanlıkları ve bakış açıları vardı. Buna rağmen birlikte çok güzel bir uyum yakaladık.
 
-## Boş Zamanlar ve Seyahatler
+Bu süreç bana insanların farklılıklarından çok ortak noktalarının olduğunu bir kez daha gösterdi.
 
-Gönüllülük faaliyetlerinin dışında kalan zamanlarımızda voleybol oynadık, piknikler yaptık, karaoke ve film geceleri düzenledik, çeşitli oyunlar oynadık ve uzun sohbetlerle keyifli vakit geçirdik.
+## Madan’da Biriktirdiğim Anılar
 
-ESC kapsamında verilen izin günlerini değerlendirerek Bulgaristan dışında farklı Avrupa şehirlerini ve ülkelerini keşfetme fırsatı da yakaladım. Bu seyahatler bana farklı kültürleri daha yakından tanıma ve kendi başıma hareket etme konusunda daha fazla özgüven kazandırdı.
+Gönüllülük faaliyetlerinin dışında kalan zamanlarımızda da birlikte birçok güzel anı yaşadık. Voleybol oynadık, piknikler yaptık, karaoke ve film geceleri düzenledik, çeşitli oyunlar oynadık ve uzun sohbetler ettik.
+
+Bazen en güzel anılarımız büyük etkinliklerde değil, birlikte geçirdiğimiz sıradan bir akşamda oluştu. Aynı masada oturup saatlerce konuşmak, birlikte gülmek veya günün sonunda yaşadıklarımızı paylaşmak benim için bu sürecin en değerli parçalarından biri oldu.
+
+Ayrıca ESC kapsamında verilen izin günlerini değerlendirerek Bulgaristan dışında farklı Avrupa şehirlerini ve ülkelerini keşfetme fırsatı buldum. Farklı şehirleri görmek, yeni kültürlerle tanışmak ve zaman zaman kendi başıma hareket etmek özgüvenimi de geliştirdi.
 
 ## Bu Deneyim Bana Ne Kazandırdı?
 
-Bu iki aylık süreç bana sadece gönüllülük deneyimi kazandırmadı.
+Madan’da geçirdiğim iki ay boyunca yalnızca gönüllülük yapmadım. Aynı zamanda kendimi birçok farklı açıdan geliştirdim.
 
-Takım çalışmasına uyum sağlamayı, sorumluluk almayı, farklı insanlarla etkili iletişim kurmayı ve yeni ortamlara kolay adapte olmayı öğrendim. Günlük hayatımda İngilizceyi aktif kullanarak iletişim becerilerimi geliştirdim.
+Farklı insanlarla iletişim kurmayı, takım içerisinde çalışmayı, sorumluluk almayı ve farklı koşullara daha kolay adapte olmayı öğrendim. Günlük hayatımda İngilizceyi daha fazla kullanarak iletişim becerilerimi geliştirme fırsatı buldum.
 
-Belki de en önemlisi; farklı bir ülkede tek başıma yaşayabileceğimi, yeni insanlarla güçlü bağlar kurabileceğimi ve düşündüğümden çok daha cesur olduğumu fark ettim.
+Farklı kültürlerden insanlarla birlikte yaşamak ise dünyaya daha geniş bir perspektiften bakmamı sağladı. İnsanları ve olayları kendi alışkanlıklarımın dışından değerlendirmeyi öğrendim.
+
+Belki de en önemlisi, kendime daha fazla güvenmeyi öğrendim. Farklı bir ülkede iki ay boyunca yaşamak, yeni insanlarla tanışmak, farklı ortamlara girmek ve zaman zaman alışık olmadığım şeylerin üstesinden gelmek bana düşündüğümden çok daha fazlasını kattı.
 
 ## Madan’dan Ayrılırken
 
 İki ayın nasıl geçtiğini anlamadan ayrılık zamanı geldi.
 
-Madan’dan ayrılırken geride yalnızca bir proje bırakmadığımı hissettim. Kurduğum dostlukları, yaşadığım güzel anıları, birlikte güldüğümüz akşamları ve bana hissettirdiği huzuru da yanıma aldım.
+Madan’dan ayrılırken geride yalnızca bir proje bırakmadığımı hissettim. Orada kurduğum dostlukları, yaşadığım güzel anıları, birlikte güldüğümüz akşamları, yaptığımız çalışmaları ve bana hissettirdiği huzuru yanımda götürdüm.
 
-Belki bir gün yeniden Madan’a dönerim. Çünkü bazı yerler sadece ziyaret edilir, bazı yerler ise insanda geri dönme isteği bırakır. Madan benim için kesinlikle ikinci türden bir yer oldu.
+Madan benim için sakin bir şehirden çok daha fazlası oldu. Orada geçirdiğim zaman bana huzurun bazen bir yerde, bazen insanlarda, bazen de birlikte geçirilen güzel anlarda saklı olduğunu gösterdi.
+
+Belki bir gün yeniden Madan’a dönerim. Çünkü bazı yerler yalnızca ziyaret edilir, bazı yerler ise insanda geri dönme isteği bırakır. Madan benim için kesinlikle ikinci türden bir yer oldu.
 
 ## Teşekkür
 
-Bu güzel deneyimi yaşamama vesile olan **KOZ-DER ailesine**, süreç boyunca desteğini her zaman hissettiren **Halil ÖZKARACA hocama**, ev sahibi kuruluşumuza ve bu iki ayı benim için unutulmaz kılan tüm proje arkadaşlarıma gönülden teşekkür ederim.
+Bu güzel deneyimi yaşamama vesile olan KOZ-DER ailesine, süreç boyunca desteğini esirgemeyen Halil ÖZKARACA hocama, ev sahibi kuruluşumuza ve bu iki ayı benim için unutulmaz hale getiren tüm proje arkadaşlarıma teşekkür ederim.
 
-Bu iki aylık gönüllülük deneyimi benim için yalnızca bir ESC projesi değil; yeni dostluklar, farklı kültürler, unutulmaz anılar ve hayatım boyunca benimle kalacak çok değerli kazanımlar oldu.
-```
+Birlikte çalıştığım, güldüğüm, öğrendiğim ve güzel anılar biriktirdiğim herkese minnettarım.
+
+Bu iki aylık gönüllülük deneyimi benim için yalnızca bir ESC projesi değil; yeni dostluklar, farklı kültürler, yeni deneyimler ve hayatım boyunca hatırlayacağım güzel bir dönemin başlangıcı oldu.
+
+Madan’dan ayrıldım ama orada yaşadığım iki ayı, kurduğum dostlukları ve güzel anılarımı yanımda götürdüm.
