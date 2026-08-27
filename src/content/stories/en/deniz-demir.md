@@ -13,69 +13,78 @@ images:
   - "/images/stories/denizdemir6.jpeg"
   - "/images/stories/denizdemir7.jpeg"
   - "/images/stories/denizdemir8.jpeg"
-summary: "During the Green World-2 ESC project in Madan, Bulgaria, Deniz Demir gained unforgettable experiences through volunteering, intercultural learning, robotics workshops and lifelong friendships."
+summary: "Deniz Demir experienced two unforgettable months in Madan, Bulgaria through the Green World-2 ESC project, filled with volunteering, friendship, intercultural learning and meaningful memories."
 featured: true
 ---
 
 # Two Months in Madan: Volunteering, Friendship and Unforgettable Memories
 
-Hello, I am **Deniz DEMİR**.
+Some experiences do not only take you to a place; they also change the way you look at yourself and the world. For me, the two-month European Solidarity Corps volunteering experience I had in Madan, Bulgaria was exactly such a process.
 
-Some experiences do more than take you to a new place—they change the way you see yourself and the world. For me, taking part in the **Green World-2 European Solidarity Corps (ESC)** project in **Madan, Bulgaria** was exactly that kind of experience.
-
-Between **4 May and 29 June 2026**, I spent nearly two months as a volunteer in Madan. During this time, I experienced life in a different country, met amazing people and developed myself in many ways.
-
-Although I arrived feeling excited and curious, I quickly adapted thanks to the welcoming atmosphere of both the town and its people. Those two months became much more than a volunteering project—they became an unforgettable life experience.
+Living as a volunteer in Madan for two months, sharing the same environment with different people, working together, producing together and discovering new cultures became an experience that will always have a special place in my life. By the end of the project, Madan was not just a city where I volunteered; it had become a place where I found peace, built beautiful friendships and felt that I had left a part of myself behind.
 
 ## Life in Madan
 
-Madan is a small town surrounded by nature, known for its peaceful atmosphere.
+Madan is a small, calm city surrounded by nature. When I first arrived, the silence and peacefulness of the city caught my attention. As time passed, I realised that this calmness became much more meaningful for me.
 
-The project provided accommodation, transportation and support for our daily needs. We stayed in a place with a shared kitchen, while markets, restaurants and other facilities were all within walking distance, making everyday life comfortable and well organised.
+Being away from the intensity of daily life, living close to nature and being together with people from different countries offered me a different life experience. Throughout my time in Madan, I felt peaceful.
 
-The kindness and hospitality of the local people made the experience even more meaningful. Their warmth helped us feel like part of the community in a very short time.
+In addition, the sincerity and hospitality of the local people made this experience even more special for me. Thanks to their approach, conversations and interest, we quickly felt like a part of this small city.
 
-## Volunteering Activities
+## Our Volunteering Activities
 
-The main aim of the Green World-2 project was to contribute to both the environment and the local community.
+Throughout the project, we took part in many different activities where we could contribute both to the environment and to the local community.
 
-We cleaned public areas, removed weeds, mowed grass and helped local families prepare firewood for winter. Working with elderly people became one of the most meaningful parts of the project. Spending time with them taught me that volunteering is not only about physical help, but also about sharing time, listening and showing care.
+We carried out environmental arrangements in common areas, cleaned weeds from pavements and took part in grass-cutting activities. In addition, we helped people living in villages with their winter preparations by chopping and arranging firewood.
 
-We also organised **robotics workshops** for young people. Sharing my own knowledge and seeing their curiosity and enthusiasm made this one of the most rewarding parts of the experience.
+The activities we carried out with elderly people were among the most meaningful parts of the project for me. Spending time with them, talking to them and helping them in their daily lives helped me see that volunteering is not only physical support. I experienced how even a small help or a few minutes of our time can be very valuable for people.
 
-## New Cultures, New Friendships
+Throughout the project, we also organised robotics and coding workshops with young people. Sharing my own interests and experiences with other young people and showing them new things in the field of technology and robotics was also very enjoyable for me. Producing, learning and creating something together became one of the most special parts of my volunteering experience.
 
-Living and working together with volunteers from different countries gave me a completely new perspective.
+## Different Cultures, New Friendships
 
-We cooked together, played games, travelled, talked for hours and shared countless unforgettable moments. Those people became much more than project partners—they became lifelong friends.
+Sharing the same environment with volunteers from different countries for these two months contributed a lot to me culturally.
 
-This experience showed me that, despite our different backgrounds, we have far more in common than we often realise.
+We worked together, cooked together, played games, talked, travelled and sometimes simply spent time together without doing anything. Over time, people from different countries became not only project friends for me, but real friendships.
 
-## Free Time and Discoveries
+I experienced how beautiful it is when people from different cultures come together for the same purpose. Each of us had different stories, habits and perspectives. Despite this, we built a very beautiful harmony together.
 
-Outside our volunteering activities, we played volleyball, organised picnics, karaoke nights, movie evenings and many other social activities.
+This process once again showed me that people have more similarities than differences.
 
-Thanks to the free days provided by the ESC programme, I also had the chance to visit different European cities and countries. These trips broadened my horizons and increased my confidence in travelling independently.
+## Memories I Collected in Madan
 
-## What This Experience Gave Me
+Outside the volunteering activities, we also created many beautiful memories together. We played volleyball, had picnics, organised karaoke and movie nights, played different games and had long conversations.
 
-These two months taught me much more than volunteering.
+Sometimes our best memories were not created during big events, but on an ordinary evening we spent together. Sitting around the same table and talking for hours, laughing together or sharing what we experienced at the end of the day became one of the most valuable parts of this process for me.
 
-I improved my teamwork, communication and adaptability while becoming more confident in using English in everyday life.
+I also used the free days provided within the ESC programme to discover different European cities and countries outside Bulgaria. Seeing different cities, meeting new cultures and sometimes travelling on my own also improved my self-confidence.
 
-Most importantly, I realised that I am capable of adapting to new environments, building meaningful friendships and stepping outside my comfort zone with confidence.
+## What Did This Experience Give Me?
+
+During my two months in Madan, I did not only volunteer. I also developed myself in many different ways.
+
+I learned how to communicate with different people, work in a team, take responsibility and adapt more easily to different conditions. I had the opportunity to improve my communication skills by using English more in daily life.
+
+Living together with people from different cultures allowed me to look at the world from a broader perspective. I learned to evaluate people and situations from outside my own habits.
+
+Perhaps most importantly, I learned to trust myself more. Living in a different country for two months, meeting new people, entering different environments and sometimes overcoming things I was not used to gave me much more than I expected.
 
 ## Leaving Madan
 
-When the project ended, I realised I was leaving much more than a town behind.
+Before I realised how fast the two months had passed, it was time to say goodbye.
 
-I returned home with unforgettable memories, lifelong friendships and experiences that will always stay with me.
+When I left Madan, I felt that I was not leaving only a project behind. I took with me the friendships I built there, the beautiful memories I had, the evenings we laughed together, the work we did and the peace it made me feel.
 
-Some places are simply visited once. Others leave a part of themselves in your heart. Madan became one of those places for me.
+Madan became much more than a calm city for me. The time I spent there showed me that peace can sometimes be hidden in a place, sometimes in people and sometimes in beautiful moments shared together.
+
+Maybe one day I will return to Madan. Because some places are only visited, while some places leave you with the desire to return. Madan was definitely the second kind for me.
 
 ## Thank You
 
-I would like to sincerely thank the **KOZ-DER family**, **Halil ÖZKARACA**, our hosting organisation and all my project friends who made these two months unforgettable.
+I would like to thank the KOZ-DER family, Halil ÖZKARACA, whose support I felt throughout the process, our hosting organisation and all my project friends who made these two months unforgettable for me.
 
-For me, this ESC journey was much more than a volunteering project—it became the beginning of lifelong friendships, unforgettable memories and invaluable personal growth.
-```
+I am grateful to everyone I worked with, laughed with, learned with and created beautiful memories with.
+
+This two-month volunteering experience was not only an ESC project for me; it became the beginning of a beautiful period full of new friendships, different cultures, new experiences and memories I will remember throughout my life.
+
+I left Madan, but I took with me the two months I spent there, the friendships I built and my beautiful memories.
