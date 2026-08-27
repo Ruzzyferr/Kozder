@@ -19,7 +19,7 @@ featured: true
 
 # Two Months in Madan: Volunteering, Friendship and Unforgettable Memories
 
-Some experiences do not only take you to a place; they also change the way you look at yourself and the world. For me, the two-month European Solidarity Corps volunteering experience I had in Madan, Bulgaria was exactly such a process.
+Some experiences do not only take you to a place; they also change the way you look at yourself and the world. For me, the two-month **European Solidarity Corps volunteering experience** I had in **Madan, Bulgaria** was exactly such a process.
 
 Living as a volunteer in Madan for two months, sharing the same environment with different people, working together, producing together and discovering new cultures became an experience that will always have a special place in my life. By the end of the project, Madan was not just a city where I volunteered; it had become a place where I found peace, built beautiful friendships and felt that I had left a part of myself behind.
 
@@ -29,23 +29,23 @@ Madan is a small, calm city surrounded by nature. When I first arrived, the sile
 
 Being away from the intensity of daily life, living close to nature and being together with people from different countries offered me a different life experience. Throughout my time in Madan, I felt peaceful.
 
-In addition, the sincerity and hospitality of the local people made this experience even more special for me. Thanks to their approach, conversations and interest, we quickly felt like a part of this small city.
+In addition, the **sincerity and hospitality of the local people** made this experience even more special for me. Thanks to their approach, conversations and interest, we quickly felt like a part of this small city.
 
 ## Our Volunteering Activities
 
 Throughout the project, we took part in many different activities where we could contribute both to the environment and to the local community.
 
-We carried out environmental arrangements in common areas, cleaned weeds from pavements and took part in grass-cutting activities. In addition, we helped people living in villages with their winter preparations by chopping and arranging firewood.
+We carried out **environmental arrangements in common areas**, cleaned weeds from pavements and took part in grass-cutting activities. In addition, we helped people living in villages with their winter preparations by chopping and arranging firewood.
 
-The activities we carried out with elderly people were among the most meaningful parts of the project for me. Spending time with them, talking to them and helping them in their daily lives helped me see that volunteering is not only physical support. I experienced how even a small help or a few minutes of our time can be very valuable for people.
+The activities we carried out with **elderly people** were among the most meaningful parts of the project for me. Spending time with them, talking to them and helping them in their daily lives helped me see that volunteering is not only physical support. I experienced how even a small help or a few minutes of our time can be very valuable for people.
 
-Throughout the project, we also organised robotics and coding workshops with young people. Sharing my own interests and experiences with other young people and showing them new things in the field of technology and robotics was also very enjoyable for me. Producing, learning and creating something together became one of the most special parts of my volunteering experience.
+Throughout the project, we also organised **robotics and coding workshops** with young people. Sharing my own interests and experiences with other young people and showing them new things in the field of technology and robotics was also very enjoyable for me. Producing, learning and creating something together became one of the most special parts of my volunteering experience.
 
 ## Different Cultures, New Friendships
 
 Sharing the same environment with volunteers from different countries for these two months contributed a lot to me culturally.
 
-We worked together, cooked together, played games, talked, travelled and sometimes simply spent time together without doing anything. Over time, people from different countries became not only project friends for me, but real friendships.
+We worked together, cooked together, played games, talked, travelled and sometimes simply spent time together without doing anything. Over time, people from different countries became not only project friends for me, but **real friendships**.
 
 I experienced how beautiful it is when people from different cultures come together for the same purpose. Each of us had different stories, habits and perspectives. Despite this, we built a very beautiful harmony together.
 
@@ -67,7 +67,7 @@ I learned how to communicate with different people, work in a team, take respons
 
 Living together with people from different cultures allowed me to look at the world from a broader perspective. I learned to evaluate people and situations from outside my own habits.
 
-Perhaps most importantly, I learned to trust myself more. Living in a different country for two months, meeting new people, entering different environments and sometimes overcoming things I was not used to gave me much more than I expected.
+Perhaps most importantly, **I learned to trust myself more**. Living in a different country for two months, meeting new people, entering different environments and sometimes overcoming things I was not used to gave me much more than I expected.
 
 ## Leaving Madan
 
@@ -77,14 +77,14 @@ When I left Madan, I felt that I was not leaving only a project behind. I took w
 
 Madan became much more than a calm city for me. The time I spent there showed me that peace can sometimes be hidden in a place, sometimes in people and sometimes in beautiful moments shared together.
 
-Maybe one day I will return to Madan. Because some places are only visited, while some places leave you with the desire to return. Madan was definitely the second kind for me.
+Maybe one day I will return to Madan. Because some places are only visited, while some places leave you with the desire to return. **Madan was definitely the second kind for me.**
 
 ## Thank You
 
-I would like to thank the KOZ-DER family, Halil ÖZKARACA, whose support I felt throughout the process, our hosting organisation and all my project friends who made these two months unforgettable for me.
+I would like to thank the **KOZ-DER family**, **Halil ÖZKARACA**, whose support I felt throughout the process, our hosting organisation and all my project friends who made these two months unforgettable for me.
 
 I am grateful to everyone I worked with, laughed with, learned with and created beautiful memories with.
 
-This two-month volunteering experience was not only an ESC project for me; it became the beginning of a beautiful period full of new friendships, different cultures, new experiences and memories I will remember throughout my life.
+This two-month volunteering experience was not only an ESC project for me; it became the beginning of a beautiful period full of **new friendships, different cultures, new experiences and memories I will remember throughout my life**.
 
 I left Madan, but I took with me the two months I spent there, the friendships I built and my beautiful memories.
