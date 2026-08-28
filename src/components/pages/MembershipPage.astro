@@ -1,0 +1,144 @@
+---
+import { useTranslations, path, alternatePath, type Lang } from '../../i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+
+const tr = lang === 'tr';
+const copy = tr ? {
+  title: 'Üyelik ve İstifa — KOZ-DER',
+  description: 'KOZ-DER üyelik başvurusu ve üyelikten istifa işlemleri, gerekli belgeler ve indirilebilir formlar.',
+  pageTitle: 'Üyelik ve İstifa.',
+  intro: 'KOZ-DER üyeliğine başlamak veya üyeliğinizi sona erdirmek için gerekli bilgi ve belgeler.',
+  kicker: 'Kurumsal İşlemler',
+  statuteTitle: 'Önce dernek tüzüğümüzü inceleyin.',
+  statuteText: 'Üyelik başvurusu yapmadan önce KOZ-DER tüzüğünde yer alan amaçları, üyelik şartlarını, hakları ve yükümlülükleri okumanızı rica ederiz.',
+  statuteButton: 'Tüzüğü Görüntüle', statuteDownload: 'Tüzüğü İndir',
+  membershipTitle: 'Dernek Üyeliği',
+  membershipLead: 'Üyelik başvurunuz, belgelerin eksiksiz biçimde Derneğimize ulaşmasının ardından Yönetim Kurulu tarafından değerlendirilir.',
+  steps: [
+    ['Formu doldurun', 'Üyelik başvuru formunu indirerek eksiksiz doldurunuz ve imzalayınız.'],
+    ['Giriş aidatını yatırın', '250 TL üyelik giriş aidatını aşağıdaki hesaba yatırınız. Açıklamaya adınızı, soyadınızı ve “Üyelik Giriş Aidatı” yazınız.'],
+    ['Başvuru dosyasını hazırlayın', 'İmzalı üyelik formu, banka dekontu, kimlik veya pasaport fotokopisi ve adli sicil kaydını hazırlayınız.'],
+    ['E-posta ve asıl belgeyi gönderin', 'Belgeleri bilgi@kozder.com adresine e-posta ile gönderiniz. Üyelik formunun ıslak imzalı aslını posta yoluyla veya elden ulaştırınız.'],
+    ['Sonucu bekleyin', 'Başvurunuzun sonucu 30 gün içinde e-posta yoluyla tarafınıza bildirilir.'],
+  ],
+  requiredTitle: 'Başvuru dosyasında bulunması gerekenler',
+  required: ['İmzalı üyelik başvuru formu', '250 TL giriş aidatı banka dekontu', 'Kimlik veya pasaport fotokopisi', 'Adli sicil kaydı belgesi'],
+  bankTitle: 'Aidat ve banka bilgileri',
+  bank: [['Giriş aidatı', '250 TL'], ['Hesap adı', 'Gençlik Zeka Oyunları ve Kodlama Derneği'], ['Banka / Şube', 'VakıfBank Kilis Şubesi'], ['IBAN', 'TR30 0001 5001 5800 7326 5772 12'], ['Açıklama', 'Ad Soyad - Üyelik Giriş Aidatı']],
+  viewMembership: 'Formu Görüntüle', downloadMembership: 'Üyelik Formunu İndir',
+  resignationTitle: 'Üyelikten İstifa',
+  resignationLead: 'Üyeliğinizi sona erdirmek için istifa dilekçesini doldurup imzalayarak Derneğimize ulaştırmanız gerekir.',
+  resignationSteps: [
+    ['Dilekçeyi doldurun', 'İstifa dilekçesindeki üye bilgileri, tarih ve imza alanlarını eksiksiz doldurunuz.'],
+    ['Islak imzalı aslını gönderin', 'Dilekçeyi dernek merkezine posta yoluyla gönderiniz veya dernek yetkilisine elden teslim ediniz.'],
+    ['Ön bildirim yapın', 'Taranmış dilekçeyi bilgi@kozder.com adresine göndererek işlemi önceden bildirebilirsiniz.'],
+  ],
+  viewResignation: 'Dilekçeyi Görüntüle', downloadResignation: 'İstifa Dilekçesini İndir',
+  deliveryTitle: 'Teslimat ve iletişim',
+  deliveryAddress: 'Mehmet Rıfat Kazancıoğlu Mahallesi, Hamit Bey Sokak, Çınar Apartmanı No: 13, Daire: 7, Kilis',
+  treasurer: 'Dernek saymanı', email: 'E-posta', address: 'Teslimat adresi',
+} : {
+  title: 'Membership and Resignation — KOZ-DER',
+  description: 'KOZ-DER membership applications and resignation procedures, required documents and downloadable forms.',
+  pageTitle: 'Membership and Resignation.',
+  intro: 'The information and documents required to join KOZ-DER or end your membership.',
+  kicker: 'Institutional Procedures',
+  statuteTitle: 'Read our association statute first.',
+  statuteText: 'Before applying, please review the objectives, membership conditions, rights and responsibilities set out in the KOZ-DER statute.',
+  statuteButton: 'View the Statute', statuteDownload: 'Download the Statute',
+  membershipTitle: 'Association Membership',
+  membershipLead: 'Your application is evaluated by the Executive Board after all required documents reach the Association.',
+  steps: [
+    ['Complete the form', 'Download, complete and sign the membership application form.'],
+    ['Pay the entrance fee', 'Transfer the TRY 250 entrance fee to the account below and write your full name and “Membership Entrance Fee” in the description.'],
+    ['Prepare the application file', 'Include the signed form, bank receipt, ID or passport copy and criminal record certificate.'],
+    ['Send the documents', 'Email the documents to bilgi@kozder.com and deliver the original wet-signed form by post or in person.'],
+    ['Wait for the result', 'The outcome is communicated to you by email within 30 days.'],
+  ],
+  requiredTitle: 'Documents required in the application file',
+  required: ['Signed membership application form', 'Bank receipt for the TRY 250 entrance fee', 'Copy of ID or passport', 'Criminal record certificate'],
+  bankTitle: 'Fee and bank details',
+  bank: [['Entrance fee', 'TRY 250'], ['Account name', 'Gençlik Zeka Oyunları ve Kodlama Derneği'], ['Bank / Branch', 'VakıfBank Kilis Branch'], ['IBAN', 'TR30 0001 5001 5800 7326 5772 12'], ['Description', 'Full Name - Membership Entrance Fee']],
+  viewMembership: 'View Form', downloadMembership: 'Download Membership Form',
+  resignationTitle: 'Resignation from Membership',
+  resignationLead: 'To end your membership, complete and sign the resignation petition and deliver it to the Association.',
+  resignationSteps: [
+    ['Complete the petition', 'Fill in the member details, date and signature fields in full.'],
+    ['Deliver the signed original', 'Send it to the Association by post or deliver it in person.'],
+    ['Send advance notice', 'You may email a scanned copy to bilgi@kozder.com as advance notice.'],
+  ],
+  viewResignation: 'View Petition', downloadResignation: 'Download Resignation Petition',
+  deliveryTitle: 'Delivery and contact',
+  deliveryAddress: 'Mehmet Rıfat Kazancıoğlu Mahallesi, Hamit Bey Sokak, Çınar Apartmanı No: 13, Daire: 7, Kilis, Türkiye',
+  treasurer: 'Association treasurer', email: 'Email', address: 'Delivery address',
+};
+
+const membershipPdf = '/documents/KOZ-DER_Dernek_Uyelik_Basvuru_Formu.pdf';
+const resignationPdf = '/documents/KOZ-DER_Uyelikten_Istifa_Dilekcesi.pdf';
+const statutePdf = '/documents/KOZ-DER_Dernek_Tuzugu.pdf';
+---
+
+<BaseLayout lang={lang} title={copy.title} description={copy.description} alternate={alternatePath(lang, 'membership')}>
+  <Breadcrumb lang={lang} kicker={copy.kicker} items={[{ label: t('nav.home'), href: path(lang, 'home') }, { label: t('nav.membership'), href: path(lang, 'membership') }]} pageTitle={copy.pageTitle} intro={copy.intro} />
+
+  <main class="container mx-auto max-w-6xl px-4 py-12 sm:py-20">
+    <section class="mb-12 grid gap-7 bg-brand-ink p-7 text-brand-cream sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
+      <div>
+        <p class="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-brand-postage">KOZ-DER</p>
+        <h2 class="mb-3 font-display text-2xl font-black tracking-tight sm:text-3xl">{copy.statuteTitle}</h2>
+        <p class="max-w-3xl leading-relaxed text-brand-cream/85">{copy.statuteText}</p>
+      </div>
+      <div class="flex flex-wrap gap-3 lg:justify-end">
+        <a href={statutePdf} target="_blank" class="inline-flex items-center justify-center rounded-full bg-brand-cream px-6 py-3 text-sm font-bold text-brand-ink transition-colors hover:bg-brand-stamp hover:text-brand-cream">{copy.statuteButton}</a>
+        <a href={statutePdf} download class="inline-flex items-center justify-center rounded-full border border-brand-cream/60 px-6 py-3 text-sm font-bold text-brand-cream transition-colors hover:bg-brand-cream hover:text-brand-ink">{copy.statuteDownload} ↓</a>
+      </div>
+    </section>
+
+    <div class="grid gap-8 lg:grid-cols-2">
+      <section class="border border-line bg-brand-cream p-6 sm:p-8">
+        <p class="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp">01</p>
+        <h2 class="mb-3 font-display text-3xl font-black tracking-tight text-brand-ink">{copy.membershipTitle}</h2>
+        <p class="mb-7 leading-relaxed text-ink-soft">{copy.membershipLead}</p>
+        <ol class="space-y-5">
+          {copy.steps.map((step, index) => <li class="grid grid-cols-[2.25rem_1fr] gap-3"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-brand-ink text-sm font-black text-brand-cream">{index + 1}</span><div><h3 class="font-bold text-brand-ink">{step[0]}</h3><p class="mt-1 text-sm leading-relaxed text-ink-soft">{step[1]}</p></div></li>)}
+        </ol>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={membershipPdf} target="_blank" class="rounded-full bg-brand-ink px-5 py-3 text-sm font-bold text-brand-cream hover:bg-brand-stamp">{copy.viewMembership}</a>
+          <a href={membershipPdf} download class="rounded-full border border-brand-ink px-5 py-3 text-sm font-bold text-brand-ink hover:bg-surface-sunken">{copy.downloadMembership} ↓</a>
+        </div>
+      </section>
+
+      <div class="space-y-8">
+        <section class="border border-line bg-surface-sunken p-6 sm:p-8">
+          <h2 class="mb-5 font-display text-2xl font-black tracking-tight text-brand-ink">{copy.requiredTitle}</h2>
+          <ul class="space-y-3">{copy.required.map(item => <li class="flex gap-3 text-ink-soft"><span class="font-black text-brand-stamp">✓</span><span>{item}</span></li>)}</ul>
+        </section>
+        <section class="border border-line bg-brand-cream p-6 sm:p-8">
+          <h2 class="mb-5 font-display text-2xl font-black tracking-tight text-brand-ink">{copy.bankTitle}</h2>
+          <dl class="divide-y divide-line">{copy.bank.map(row => <div class="grid gap-1 py-3 sm:grid-cols-[8.5rem_1fr]"><dt class="text-sm font-bold text-brand-walnut">{row[0]}</dt><dd class="break-words text-sm font-semibold text-brand-ink">{row[1]}</dd></div>)}</dl>
+        </section>
+      </div>
+    </div>
+
+    <section class="mt-12 border-t-4 border-brand-stamp bg-brand-cream p-6 shadow-card sm:p-9">
+      <div class="grid gap-10 lg:grid-cols-[1fr_0.9fr]">
+        <div>
+          <p class="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp">02</p>
+          <h2 class="mb-3 font-display text-3xl font-black tracking-tight text-brand-ink">{copy.resignationTitle}</h2>
+          <p class="mb-7 leading-relaxed text-ink-soft">{copy.resignationLead}</p>
+          <ol class="space-y-5">{copy.resignationSteps.map((step, index) => <li class="grid grid-cols-[2.25rem_1fr] gap-3"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-brand-stamp text-sm font-black text-white">{index + 1}</span><div><h3 class="font-bold text-brand-ink">{step[0]}</h3><p class="mt-1 text-sm leading-relaxed text-ink-soft">{step[1]}</p></div></li>)}</ol>
+          <div class="mt-8 flex flex-wrap gap-3"><a href={resignationPdf} target="_blank" class="rounded-full bg-brand-stamp px-5 py-3 text-sm font-bold text-white hover:bg-brand-ink">{copy.viewResignation}</a><a href={resignationPdf} download class="rounded-full border border-brand-stamp px-5 py-3 text-sm font-bold text-brand-stamp hover:bg-surface-sunken">{copy.downloadResignation} ↓</a></div>
+        </div>
+        <aside class="bg-brand-ink p-6 text-brand-cream sm:p-7">
+          <h3 class="mb-5 font-display text-2xl font-black">{copy.deliveryTitle}</h3>
+          <dl class="space-y-5 text-sm"><div><dt class="mb-1 font-bold text-brand-postage">{copy.address}</dt><dd class="leading-relaxed text-brand-cream/90">{copy.deliveryAddress}</dd></div><div><dt class="mb-1 font-bold text-brand-postage">{copy.treasurer}</dt><dd><a href="tel:+905535934573" class="font-semibold hover:text-brand-stamp">0553 593 45 73</a></dd></div><div><dt class="mb-1 font-bold text-brand-postage">{copy.email}</dt><dd><a href="mailto:bilgi@kozder.com" class="font-semibold hover:text-brand-stamp">bilgi@kozder.com</a></dd></div></dl>
+        </aside>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
