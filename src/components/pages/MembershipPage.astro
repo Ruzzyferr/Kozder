@@ -86,7 +86,7 @@ const statutePdf = '/documents/KOZ-DER_Dernek_Tuzugu.pdf';
 <BaseLayout lang={lang} title={copy.title} description={copy.description} alternate={alternatePath(lang, 'membership')}>
   <Breadcrumb lang={lang} kicker={copy.kicker} items={[{ label: t('nav.home'), href: path(lang, 'home') }, { label: t('nav.membership'), href: path(lang, 'membership') }]} pageTitle={copy.pageTitle} intro={copy.intro} />
 
-  <main class="container mx-auto max-w-6xl px-4 py-12 sm:py-20">
+  <div class="container mx-auto max-w-6xl px-4 py-12 sm:py-20">
     <section class="mb-12 grid gap-7 bg-brand-ink p-7 text-brand-cream sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
       <div>
         <p class="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-brand-postage">KOZ-DER</p>
@@ -140,5 +140,5 @@ const statutePdf = '/documents/KOZ-DER_Dernek_Tuzugu.pdf';
         </aside>
       </div>
     </section>
-  </main>
+  </div>
 </BaseLayout>
