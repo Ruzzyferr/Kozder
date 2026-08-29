@@ -15,6 +15,7 @@ export const ui = {
 
     'nav.home': 'Ana Sayfa',
     'nav.about': 'Hakkımızda',
+    'nav.membership': 'Üyelik',
     'nav.projects': 'Projeler',
     'nav.stories': 'Hikayeler',
     'nav.events': 'Etkinlikler',
