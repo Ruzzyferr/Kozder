@@ -17,8 +17,6 @@ summary: "Joining the Truth or Trick? Click with Care Erasmus+ project after a l
 featured: true
 ---
 
-# Back to Erasmus+ After a Long Break
-
 Hello, I am **Halil ÖZKARACA**.
 
 Returning to an Erasmus+ project after a long break was both a highly enjoyable and productive experience for me. Held in **Madan, Bulgaria**, **“Truth or Trick? Click with Care”** earned a special place in my memory through both its content and its atmosphere.
