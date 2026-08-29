@@ -34,6 +34,7 @@ const ROUTES = {
   contact: { tr: '/iletisim', en: '/en/contact' },
   links: { tr: '/baglantilar', en: '/en/links' },
   privacy: { tr: '/kvkk', en: '/en/privacy' },
+  membership: { tr: '/uyelik-ve-istifa', en: '/en/membership-and-resignation' },
 } as const;
 
 export type RouteKey = keyof typeof ROUTES;
