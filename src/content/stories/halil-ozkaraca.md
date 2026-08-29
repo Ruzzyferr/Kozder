@@ -17,8 +17,6 @@ summary: "Uzun bir aradan sonra katıldığım Truth or Trick? Click with Care E
 featured: true
 ---
 
-# Uzun Bir Aradan Sonra Yeniden Erasmus+
-
 Merhaba, ben **Halil ÖZKARACA**.
 
 Uzun süre sonra yeniden katıldığım Erasmus+ projesi, benim için hem çok keyifli hem de oldukça verimli bir deneyim oldu. Bulgaristan’ın **Madan** şehrinde gerçekleştirilen **“Truth or Trick? Click with Care”** isimli bu proje, içerik olarak olduğu kadar atmosferiyle de hafızamda güzel bir yer edindi.
