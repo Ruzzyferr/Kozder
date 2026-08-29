@@ -196,6 +196,7 @@ export const ui = {
 
     'nav.home': 'Home',
     'nav.about': 'About',
+    'nav.membership': 'Membership',
     'nav.projects': 'Projects',
     'nav.stories': 'Stories',
     'nav.events': 'Events',
