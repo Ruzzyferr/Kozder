@@ -2,7 +2,7 @@
 name: "Tuğçenur SARIGÜNEY"
 programName: "Grandchildren For Rent Kısa Dönem ESC Gönüllülüğü"
 country: "Bulgaristan"
-startDate: "2026"
+startDate: "29.06.2026"
 images:
   - "/images/stories/tugcenurr.jpeg"
   - "/images/stories/tugcenurr1.jpeg"
