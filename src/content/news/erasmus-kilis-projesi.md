@@ -1,7 +1,7 @@
 ---
 title_tr: "No More Walls, Europe Calls Projesi Kapsamında Rektörlük Ziyareti Gerçekleştirildi"
 title_en: "Rectorate Visit Held within the Scope of the No More Walls, Europe Calls Project"
-date: "30.08.2026"
+date: "28.08.2026"
 category: "Kurumsal İş Birliği"
 coverImage: "/images/events/rektorbulusmasi.jpeg"
 images:
