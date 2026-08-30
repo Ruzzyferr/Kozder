@@ -3,7 +3,7 @@ title_tr: "No More Walls, Europe Calls Projesi Kapsamında Gaziantep Kültür Ge
 title_en: "Gaziantep Cultural Trip Held within the Scope of the No More Walls, Europe Calls Project"
 date: "30.08.2026"
 category: "Kültürel Gezi"
-coverImage: "/images/events/gaziantepgezisi.jpeg"
+coverImage: "/images/news/gaziantepgezisi.jpeg"
 images:
   - "/images/news/gaziantepgezisi.jpeg"
   - "/images/news/gaziantepgezisi1.jpeg"
