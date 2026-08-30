@@ -1,5 +1,5 @@
 ---
-name: "Tuğçenur SARIĞÜNEY"
+name: "Tuğçenur SARIGÜNEY"
 programName: "Grandchildren For Rent Kısa Dönem ESC Gönüllülüğü"
 country: "Bulgaristan"
 startDate: "2026"
@@ -81,7 +81,7 @@ Madan’dan ayrılırken arkamda harika dostluklar, güzel anılar, öğrenilmi�
 
 Bazı şehirler sadece gezilip görülür, bazıları ise insanın zihninde ve kalbinde iz bırakır. **Madan benim için kesinlikle ikinci gruptaydı.**
 
-Bu güzel deneyimi yaşamama vesile olan ve bana bu kapıyı aralayan **KOZ-DER ailesine**, süreç boyunca rehberliğini ve desteğini her zaman hissettiren **Halil ÖZKARACA Hocama**, ev sahibi kuruluşumuza ve bu yolculuğu benimle paylaşan tüm gönüllü kardeşlerime yürekten teşekkür ederim.
+Bu güzel deneyimi yaşamama vesile olan ve bana bu kapıyı aralayan **KOZ-DER ailesine**, süreç boyunca rehberliğini ve desteğini her zaman hissettiren **Halil ÖZKARACA** Hocama, ev sahibi kuruluşumuza ve bu yolculuğu benimle paylaşan tüm gönüllü kardeşlerime yürekten teşekkür ederim.
 
 Bunun yanında, bu süreçte bir şekilde yoluma dokunan, bana destek olan, birlikte çalıştığım, sohbet ettiğim ve güzel anılar biriktirdiğim herkese ayrıca teşekkür etmek istiyorum.
 
