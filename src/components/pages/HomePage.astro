@@ -75,21 +75,23 @@ const affiliationRows = [
   { ...affiliations.partners, label: lang === 'en' ? affiliations.partners.label_en : affiliations.partners.label, direction: 'right' as const, duration: 46 },
 ];
 
+const heroSyllableColors = ['#CE3A1F', '#2F6BFF', '#248552', '#7C3AED', '#0F766E', '#B83280', '#C2410C', '#2563EB', '#5B5BD6', '#0E7490'];
+
 const heroMessage = lang === 'en'
   ? {
       line1: 'Europe.',
       line2: 'Volunteer.',
       rotating: [
-        { text: 'Join In.', color: '#CE3A1F' },
-        { text: 'Create Together.', color: '#2F6BFF' },
-        { text: 'Take Part Equally.', color: '#248552' },
-        { text: 'For Everyone.', color: '#7C3AED' },
-        { text: 'Every Voice Counts.', color: '#0F766E' },
-        { text: 'Diversity Is Strength.', color: '#B83280' },
-        { text: 'Break Barriers.', color: '#C2410C' },
-        { text: 'Grow Together.', color: '#2563EB' },
-        { text: 'Code the Future.', color: '#5B5BD6' },
-        { text: 'Discover the World.', color: '#0E7490' },
+        { text: 'Join In.', syllables: ['Join ', 'In.'] },
+        { text: 'Create Together.', syllables: ['Cre', 'ate ', 'To', 'ge', 'ther.'] },
+        { text: 'Take Part Equally.', syllables: ['Take ', 'Part ', 'E', 'qual', 'ly.'] },
+        { text: 'For Everyone.', syllables: ['For ', 'Ev', 'ery', 'one.'] },
+        { text: 'Every Voice Counts.', syllables: ['Ev', 'ery ', 'Voice ', 'Counts.'] },
+        { text: 'Diversity Is Strength.', syllables: ['Di', 'ver', 'si', 'ty ', 'Is ', 'Strength.'] },
+        { text: 'Break Barriers.', syllables: ['Break ', 'Bar', 'ri', 'ers.'] },
+        { text: 'Grow Together.', syllables: ['Grow ', 'To', 'ge', 'ther.'] },
+        { text: 'Code the Future.', syllables: ['Code ', 'the ', 'Fu', 'ture.'] },
+        { text: 'Discover the World.', syllables: ['Dis', 'cov', 'er ', 'the ', 'World.'] },
       ],
       lead: 'From Kilis to Europe, volunteer, gain experience and discover the world through Erasmus+ and European Solidarity Corps opportunities.',
       primary: 'Explore Opportunities',
@@ -101,16 +103,16 @@ const heroMessage = lang === 'en'
       line1: 'Avrupa.',
       line2: 'Gönüllü Ol.',
       rotating: [
-        { text: 'Sen de Katıl.', color: '#CE3A1F' },
-        { text: 'Birlikte Üret.', color: '#2F6BFF' },
-        { text: 'Eşitçe Katıl.', color: '#248552' },
-        { text: 'Herkes İçin.', color: '#7C3AED' },
-        { text: 'Sesini Duyur.', color: '#0F766E' },
-        { text: 'Farklılık Güçtür.', color: '#B83280' },
-        { text: 'Engelleri Aş.', color: '#C2410C' },
-        { text: 'Dayanışmayla Büyü.', color: '#2563EB' },
-        { text: 'Geleceği Kodla.', color: '#5B5BD6' },
-        { text: 'Dünyayı Keşfet.', color: '#0E7490' },
+        { text: 'Sen de Katıl.', syllables: ['Sen ', 'de ', 'Ka', 'tıl.'] },
+        { text: 'Birlikte Üret.', syllables: ['Bir', 'lik', 'te ', 'Ü', 'ret.'] },
+        { text: 'Eşitçe Katıl.', syllables: ['E', 'şit', 'çe ', 'Ka', 'tıl.'] },
+        { text: 'Herkes İçin.', syllables: ['Her', 'kes ', 'İ', 'çin.'] },
+        { text: 'Sesini Duyur.', syllables: ['Se', 'si', 'ni ', 'Du', 'yur.'] },
+        { text: 'Farklılık Güçtür.', syllables: ['Fark', 'lı', 'lık ', 'Güç', 'tür.'] },
+        { text: 'Engelleri Aş.', syllables: ['En', 'gel', 'le', 'ri ', 'Aş.'] },
+        { text: 'Dayanışmayla Büyü.', syllables: ['Da', 'ya', 'nış', 'may', 'la ', 'Bü', 'yü.'] },
+        { text: 'Geleceği Kodla.', syllables: ['Ge', 'le', 'ce', 'ği ', 'Kod', 'la.'] },
+        { text: 'Dünyayı Keşfet.', syllables: ['Dün', 'ya', 'yı ', 'Keş', 'fet.'] },
       ],
       lead: "Kilis’ten Avrupa’ya uzanan Erasmus+ ve Avrupa Dayanışma Programı fırsatlarıyla gönüllü ol, deneyim kazan ve dünyayı keşfet.",
       primary: 'Fırsatları İncele',
@@ -173,9 +175,10 @@ function dateParts(value: string) {
               class="hero-rotating-line block min-h-[0.9em] whitespace-nowrap text-[2.75rem] sm:text-6xl xl:text-7xl font-black"
               data-hero-rotating
               data-rotating-words={JSON.stringify(heroMessage.rotating)}
+              data-rotating-colors={JSON.stringify(heroSyllableColors)}
               aria-live="polite"
-              style={`color: ${heroMessage.rotating[0].color}; font-variation-settings: 'opsz' 96, 'wdth' 78;`}
-            >{heroMessage.rotating[0].text}</span>
+              style="font-variation-settings: 'opsz' 96, 'wdth' 78;"
+            >{heroMessage.rotating[0].syllables.map((syllable, index) => <span style={`color: ${heroSyllableColors[index % heroSyllableColors.length]};`}>{syllable}</span>)}</span>
           </h1>
 
           <p class="mt-7 text-base sm:text-lg text-ink-soft leading-relaxed max-w-lg">
@@ -764,8 +767,10 @@ function dateParts(value: string) {
       element.dataset.rotatingInitialized = 'true';
 
       let words = [];
+      let colors = [];
       try {
         words = JSON.parse(element.dataset.rotatingWords || '[]');
+        colors = JSON.parse(element.dataset.rotatingColors || '[]');
       } catch {
         return;
       }
@@ -777,8 +782,14 @@ function dateParts(value: string) {
         window.setTimeout(() => {
           index = (index + 1) % words.length;
           const item = words[index];
-          element.textContent = typeof item === 'string' ? item : item.text;
-          if (typeof item === 'object' && item?.color) element.style.color = item.color;
+          const syllables = typeof item === 'string' ? [item] : item.syllables;
+          element.replaceChildren();
+          syllables.forEach((syllable, syllableIndex) => {
+            const span = document.createElement('span');
+            span.textContent = syllable;
+            span.style.color = colors[(index + syllableIndex) % colors.length] || 'currentColor';
+            element.appendChild(span);
+          });
           element.classList.remove('is-changing');
         }, 220);
       }, 3000);
@@ -795,7 +806,7 @@ function dateParts(value: string) {
   .hero-rotating-line {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 220ms ease, transform 220ms ease, color 320ms ease;
+    transition: opacity 220ms ease, transform 220ms ease;
   }
   .hero-rotating-line.is-changing {
     opacity: 0;
