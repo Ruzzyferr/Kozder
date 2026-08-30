@@ -79,7 +79,18 @@ const heroMessage = lang === 'en'
   ? {
       line1: 'Europe.',
       line2: 'Volunteer.',
-      rotating: ['Join In.', 'Gain Experience.', 'Discover the World.', 'Make a Difference.'],
+      rotating: [
+        { text: 'Join In.', color: '#CE3A1F' },
+        { text: 'Create Together.', color: '#2F6BFF' },
+        { text: 'Take Part Equally.', color: '#248552' },
+        { text: 'For Everyone.', color: '#7C3AED' },
+        { text: 'Every Voice Counts.', color: '#0F766E' },
+        { text: 'Diversity Is Strength.', color: '#B83280' },
+        { text: 'Break Barriers.', color: '#C2410C' },
+        { text: 'Grow Together.', color: '#2563EB' },
+        { text: 'Code the Future.', color: '#5B5BD6' },
+        { text: 'Discover the World.', color: '#0E7490' },
+      ],
       lead: 'From Kilis to Europe, volunteer, gain experience and discover the world through Erasmus+ and European Solidarity Corps opportunities.',
       primary: 'Explore Opportunities',
       secondary: 'Discover KOZ-DER',
@@ -89,7 +100,18 @@ const heroMessage = lang === 'en'
   : {
       line1: 'Avrupa.',
       line2: 'Gönüllü Ol.',
-      rotating: ['Sen de Katıl.', 'Deneyim Kazan.', 'Dünyayı Keşfet.', 'Fark Oluştur.'],
+      rotating: [
+        { text: 'Sen de Katıl.', color: '#CE3A1F' },
+        { text: 'Birlikte Üret.', color: '#2F6BFF' },
+        { text: 'Eşitçe Katıl.', color: '#248552' },
+        { text: 'Herkes İçin.', color: '#7C3AED' },
+        { text: 'Sesini Duyur.', color: '#0F766E' },
+        { text: 'Farklılık Güçtür.', color: '#B83280' },
+        { text: 'Engelleri Aş.', color: '#C2410C' },
+        { text: 'Dayanışmayla Büyü.', color: '#2563EB' },
+        { text: 'Geleceği Kodla.', color: '#5B5BD6' },
+        { text: 'Dünyayı Keşfet.', color: '#0E7490' },
+      ],
       lead: "Kilis’ten Avrupa’ya uzanan Erasmus+ ve Avrupa Dayanışma Programı fırsatlarıyla gönüllü ol, deneyim kazan ve dünyayı keşfet.",
       primary: 'Fırsatları İncele',
       secondary: 'KOZ-DER’i Tanı',
@@ -152,7 +174,8 @@ function dateParts(value: string) {
               data-hero-rotating
               data-rotating-words={JSON.stringify(heroMessage.rotating)}
               aria-live="polite"
-            >{heroMessage.rotating[0]}</span>
+              style={`color: ${heroMessage.rotating[0].color}; font-variation-settings: 'opsz' 96, 'wdth' 78;`}
+            >{heroMessage.rotating[0].text}</span>
           </h1>
 
           <p class="mt-7 text-base sm:text-lg text-ink-soft leading-relaxed max-w-lg">
@@ -753,7 +776,9 @@ function dateParts(value: string) {
         element.classList.add('is-changing');
         window.setTimeout(() => {
           index = (index + 1) % words.length;
-          element.textContent = words[index];
+          const item = words[index];
+          element.textContent = typeof item === 'string' ? item : item.text;
+          if (typeof item === 'object' && item?.color) element.style.color = item.color;
           element.classList.remove('is-changing');
         }, 220);
       }, 3000);
@@ -770,7 +795,7 @@ function dateParts(value: string) {
   .hero-rotating-line {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 220ms ease, transform 220ms ease;
+    transition: opacity 220ms ease, transform 220ms ease, color 320ms ease;
   }
   .hero-rotating-line.is-changing {
     opacity: 0;
