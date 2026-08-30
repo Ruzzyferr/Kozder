@@ -11,6 +11,7 @@ images:
   - "/images/news/gaziantepgezisi3.jpeg"
   - "/images/news/gaziantepgezisi4.jpeg"
   - "/images/news/gaziantepgezisi5.jpeg"
+  - "/images/news/gaziantepgezisi6.jpeg"
 summary_tr: "No More Walls, Europe Calls Erasmus+ projesi kapsamında katılımcılarla Gaziantep’in tarihi ve kültürel mekânları ziyaret edilerek şehrin zengin mirası tanıtıldı."
 summary_en: "Within the scope of the No More Walls, Europe Calls Erasmus+ project, participants visited historical and cultural sites in Gaziantep and explored the city’s rich heritage."
 featured: true
