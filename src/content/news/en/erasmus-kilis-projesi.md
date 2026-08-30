@@ -1,5 +1,5 @@
 ---
-title_tr: "No More Walls, Europe Calls Projesi Kapsamında Rektörlük Ziyareti Gerçekleştirildi"
+title_tr: "Rectorate Visit Held within the Scope of the No More Walls, Europe Calls Project"
 title_en: "Rectorate Visit Held within the Scope of the No More Walls, Europe Calls Project"
 date: "28.08.2026"
 category: "Institutional Cooperation"
