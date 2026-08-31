@@ -10,10 +10,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import NewsCard from '../../components/NewsCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
-import { byNewest } from '../../utils/contentSort';
+import { getEventDateSortKey } from '../../utils/date';
 
 const newsRaw = (await getCollection('news', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(n => !n.data.draft);
-const news = newsRaw.sort(byNewest('news', 'date'));
+const news = newsRaw.sort((a, b) => {
+  const dateDifference = getEventDateSortKey(b.data.date) - getEventDateSortKey(a.data.date);
+  return dateDifference || a.id.localeCompare(b.id);
+});
 ---
 
 <BaseLayout
