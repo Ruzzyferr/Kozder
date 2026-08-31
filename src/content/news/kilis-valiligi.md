@@ -3,9 +3,9 @@ title_tr: "KOZ-DER Heyetinden Kilis Valisi Ömer Kalaylı’ya Nezaket Ziyareti"
 title_en: "KOZ-DER Delegation Pays a Courtesy Visit to Kilis Governor Ömer Kalaylı"
 date: "03.08.2026"
 category: "Kurumsal Ziyaret"
-coverImage: "/images/news/kilis-valiligi.jpeg"
+coverImage: "/images/news/kilisvaliligi.jpeg"
 images:
-  - "/images/news/kilis-valiligi.jpeg"
+  - "/images/news/kilisvaliligi.jpeg"
 summary_tr: "KOZ-DER Başkanı Mevlide Özkaraca ve yönetim kurulu üyeleri, Kilis Valisi Ömer Kalaylı’yı makamında ziyaret ederek derneğin gençlere, teknolojiye, zeka oyunlarına ve kodlama alanına yönelik çalışmaları hakkında bilgi verdi."
 summary_en: "KOZ-DER President Mevlide Özkaraca and board members paid a courtesy visit to Kilis Governor Ömer Kalaylı and shared information about the association’s youth, technology, mind games and coding activities."
 featured: true
