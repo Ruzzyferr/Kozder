@@ -8,7 +8,6 @@ images:
   - "/images/news/kentkonseyi.jpeg"
   - "/images/news/kentkonseyi1.jpeg"
   - "/images/news/kentkonseyi2.jpeg"
-  - "/images/news/kentkonseyi3.jpeg"
 summary_tr: "No More Walls, Europe Calls projesi kapsamında uluslararası heyetimiz Kilis Kent Konseyi’ni ziyaret ederek gençlik çalışmaları, yerel katılım, kültürlerarası faaliyetler ve gelecekte geliştirilebilecek ortak projeler üzerine görüşmeler gerçekleştirdi."
 summary_en: "Within the scope of the No More Walls, Europe Calls project, our international delegation visited Kilis City Council to discuss youth work, local participation, intercultural activities and possible future joint projects."
 featured: true
