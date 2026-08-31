@@ -9,6 +9,7 @@ images:
   - "/images/news/kilisbelediyesi1.jpeg"
   - "/images/news/kilisbelediyesi2.jpeg"
   - "/images/news/kilisbelediyesi3.jpeg"
+  - "/images/news/kilisbelediyesi4.jpeg"
 summary_tr: "No More Walls, Europe Calls projesi kapsamında Kilis Belediye Başkanı Hakan Bilecen ziyaret edilerek uluslararası iş birlikleri, gençlik çalışmaları ve Kilis ile Madan arasındaki dostluk bağları üzerine görüşmeler gerçekleştirildi."
 summary_en: "Within the scope of the No More Walls, Europe Calls project, Kilis Mayor Hakan Bilecen was visited to discuss international cooperation, youth work and friendship ties between Kilis and Madan."
 featured: true
