@@ -1,7 +1,7 @@
 ---
 title_tr: "KOZ-DER Heyetinden Kilis Valisi Ömer Kalaylı’ya Nezaket Ziyareti"
 title_en: "KOZ-DER Delegation Pays a Courtesy Visit to Kilis Governor Ömer Kalaylı"
-date: "31.08.2026"
+date: "03.08.2026"
 category: "Kurumsal Ziyaret"
 coverImage: "/images/news/kilis-valiligi.jpeg"
 images:
