@@ -1,7 +1,7 @@
 ---
 title_tr: "No More Walls, Europe Calls Katılımcılarından İstasyon Gaziantep’e Ziyaret"
 title_en: "No More Walls, Europe Calls Participants Visit İstasyon Gaziantep"
-date: "02.09.2026"
+date: "29.08.2026"
 category: "Cultural and Institutional Visit"
 coverImage: "/images/news/istasyongaziantep.jpeg"
 images:
