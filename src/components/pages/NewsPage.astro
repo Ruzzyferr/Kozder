@@ -38,14 +38,14 @@ const news = newsRaw.sort((a, b) => {
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 stagger">
         {news.map((item) => (
           <NewsCard
-              lang={lang}
-            title={item.data.title_tr}
+            lang={lang}
+            title={lang === 'en' ? item.data.title_en : item.data.title_tr}
             date={item.data.date}
             category={item.data.category}
             location={item.data.location}
             coverImage={item.data.coverImage}
-              coverFit={item.data.coverFit}
-            summary={item.data.summary_tr}
+            coverFit={item.data.coverFit}
+            summary={lang === 'en' ? item.data.summary_en : item.data.summary_tr}
             slug={item.slug}
           />
         ))}
