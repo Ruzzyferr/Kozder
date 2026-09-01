@@ -19,6 +19,8 @@ const { Content } = await item.render();
 const formattedDate = formatEventDate(item.data.date, { weekday: true, lang });
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const alternate = alternatePath(lang, 'news', stripLangPrefix(item.slug));
+const localizedTitle = lang === 'en' ? item.data.title_en : item.data.title_tr;
+const localizedSummary = lang === 'en' ? item.data.summary_en : item.data.summary_tr;
 
 // Cover image is shown separately; avoid duplicating it in the gallery.
 const galleryImages = item.data.images.filter(src => src !== item.data.coverImage);
@@ -27,8 +29,8 @@ const galleryImages = item.data.images.filter(src => src !== item.data.coverImag
 <BaseLayout
   lang={lang}
   alternate={alternate}
-  title={`${item.data.title_tr} — KOZ-DER`}
-  description={item.data.summary_tr}
+  title={`${localizedTitle} — KOZ-DER`}
+  description={localizedSummary}
   image={item.data.coverImage}
 >
   <article class="bg-brand-paper">
@@ -41,7 +43,7 @@ const galleryImages = item.data.images.filter(src => src !== item.data.coverImag
     <div class="container mx-auto px-4 pb-20">
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
         <div class="lg:col-span-8">
-          <DetailCover src={item.data.coverImage} alt={item.data.title_tr} fit={item.data.coverFit} />
+          <DetailCover src={item.data.coverImage} alt={localizedTitle} fit={item.data.coverFit} />
 
           <header class="mb-8">
             {item.data.category && (
@@ -50,7 +52,7 @@ const galleryImages = item.data.images.filter(src => src !== item.data.coverImag
               </p>
             )}
             <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-[0.95] text-brand-ink">
-              {item.data.title_tr}
+              {localizedTitle}
             </h1>
             <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-base sm:text-lg font-semibold text-brand-walnut">
               <span class="flex items-center gap-2">
@@ -89,7 +91,7 @@ const galleryImages = item.data.images.filter(src => src !== item.data.coverImag
                     <div class="relative aspect-square bg-surface-muted overflow-hidden card">
                       <img
                         src={src}
-                        alt={item.data.title_tr}
+                        alt={localizedTitle}
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
@@ -116,7 +118,7 @@ const galleryImages = item.data.images.filter(src => src !== item.data.coverImag
               )}
             </div>
 
-            <ShareBox title={lang === 'en' ? item.data.title_en : item.data.title_tr} url={url} lang={lang} />
+            <ShareBox title={localizedTitle} url={url} lang={lang} />
           </div>
         </aside>
       </div>
