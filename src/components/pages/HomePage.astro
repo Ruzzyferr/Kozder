@@ -611,7 +611,7 @@ function dateParts(value: string) {
               <div class="relative aspect-[16/10] overflow-hidden bg-surface-muted card mb-6">
                 <img
                   src={leadNews.data.coverImage}
-                  alt={leadNews.data.title_tr}
+                  alt={lang === 'en' ? leadNews.data.title_en : leadNews.data.title_tr}
                   loading="lazy"
                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
@@ -628,9 +628,11 @@ function dateParts(value: string) {
               )}
             </div>
             <h3 class="font-display font-bold text-2xl sm:text-3xl text-brand-ink leading-tight tracking-tight group-hover:text-brand-stamp transition-colors duration-300">
-              {leadNews.data.title_tr}
+              {lang === 'en' ? leadNews.data.title_en : leadNews.data.title_tr}
             </h3>
-            <p class="mt-3 text-ink-soft leading-relaxed line-clamp-2 max-w-xl">{leadNews.data.summary_tr}</p>
+            <p class="mt-3 text-ink-soft leading-relaxed line-clamp-2 max-w-xl">
+              {lang === 'en' ? leadNews.data.summary_en : leadNews.data.summary_tr}
+            </p>
           </a>
 
           <ul class="lg:col-span-5 border-t border-line">
@@ -647,7 +649,7 @@ function dateParts(value: string) {
                       {formatEventDate(item.data.date, { lang })}
                     </span>
                     <span class="font-display font-bold text-base sm:text-lg text-brand-ink leading-snug tracking-tight line-clamp-3 group-hover:text-brand-stamp transition-colors duration-300">
-                      {item.data.title_tr}
+                      {lang === 'en' ? item.data.title_en : item.data.title_tr}
                     </span>
                   </span>
                 </a>
