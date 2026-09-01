@@ -46,12 +46,12 @@ const getInitials = (name: string) => {
 
   <section class="py-12 sm:py-16 bg-brand-paper">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 stagger">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {stories.map((story, index) => (
           <a
             href={entryPath(lang, 'stories', stripLangPrefix(story.slug))}
             class="group block reveal"
-            style={`transition-delay: ${index * 60}ms`}
+            style={`transition-delay: ${Math.min(index, 8) * 60}ms`}
           >
             <article class="relative bg-brand-cream transition-all duration-300 hover:-translate-y-1 hover:translate-x-0.5 card card-2">
               <div class="relative aspect-[4/5] bg-surface-muted overflow-hidden border-b border-line">
