@@ -1,7 +1,7 @@
 ---
 title_tr: "No More Walls, Europe Calls ile Kilis’in Tarihini Keşfettik"
 title_en: "We Explored the History of Kilis with No More Walls, Europe Calls"
-date: "02.09.2026"
+date: "03.09.2026"
 category: "Kültürel Gezi"
 coverImage: "/images/news/kiliskulturgezisi.jpeg"
 images:
