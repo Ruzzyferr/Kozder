@@ -1,7 +1,7 @@
 ---
 title_tr: "Dört Ülkenin Kültürü No More Walls, Europe Calls Projesinde Kilis’te Buluştu"
 title_en: "Cultures of Four Countries Came Together in Kilis within the No More Walls, Europe Calls Project"
-date: "04.09.2026"
+date: "02.09.2026"
 category: "Kültürel Etkinlik"
 coverImage: "/images/news/kulturgecesikilis.jpeg"
 images:
