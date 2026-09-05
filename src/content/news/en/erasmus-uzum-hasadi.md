@@ -15,6 +15,8 @@ images:
   - "/images/news/uzumhasadi7.jpeg"
   - "/images/news/uzumhasadi8.jpeg"
   - "/images/news/uzumhasadi9.jpeg"
+  - "/images/news/uzumhasadi10.jpeg"
+  - "/images/news/uzumhasadi11.jpeg"
 summary_tr: "No More Walls, Europe Calls Gençlik Değişimi Projesi kapsamında katılımcılar, Kilis’in Duruca Köyü’nde üzüm hasadı ve kurutma etkinliğine katılarak yerel üretim kültürünü uygulamalı olarak deneyimledi."
 summary_en: "Within the scope of the No More Walls, Europe Calls Youth Exchange Project, participants joined a grape harvesting and drying activity in Duruca Village, Kilis, and experienced local production culture through practice."
 featured: true
