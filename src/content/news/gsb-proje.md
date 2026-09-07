@@ -55,6 +55,8 @@ Afet bilinci ve psikososyal destek oturumları ise gençlerin yaşadıkları sü
 
 Projenin kapanış sürecinde gençlerin proje boyunca edindikleri becerileri kullanabilecekleri **turnuvalar ve çeşitli etkinlikler** gerçekleştirildi. Zeka oyunları ve dijital beceri temelli uygulamalarla gençler hem öğrendiklerini pekiştirdi hem de eğlenceli ve etkileşimli bir kapanış süreci yaşadı.
 
+
+<!-- Deployment refresh: GSB images -->
 Kapanış programında ayrıca gençlerin aktif katılımını artırmak amacıyla **Kahoot etkinlikleri** düzenlendi. Katılımcılar, proje sürecinde öğrendikleri bilgileri eğlenceli bir yarışma ortamında değerlendirme fırsatı buldu. Kahoot etkinliklerinde dereceye giren **1., 2. ve 3. katılımcılara hediyeler** takdim edildi.
 
 Bu kapanış süreci, gençlerin proje boyunca kazandıkları bilgi ve becerileri görünür hale getirirken aynı zamanda motivasyonlarını artıran, eğlenceli ve katılımcı bir öğrenme ortamı oluşturdu.
