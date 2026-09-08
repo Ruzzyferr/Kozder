@@ -4,10 +4,10 @@ programName: "European Solidarity Corps (ESC) Volunteering Project"
 country: "Bulgaria"
 startDate: "29.06.2026"
 images:
-  - "/images/stories/egesemsettindemir.jpeg"
-  - "/images/stories/egesemsettindemir1.jpeg"
-  - "/images/stories/egesemsettindemir2.jpeg"
-  - "/images/stories/egesemsettindemir3.jpeg"
+  - "/images/stories/egesemsettindemir.jpg"
+  - "/images/stories/egesemsettindemir1.jpg"
+  - "/images/stories/egesemsettindemir2.jpg"
+  - "/images/stories/egesemsettindemir3.jpg"
 summary: "Ege Şemsettin SÖNMEZ shares his ESC volunteering experience in Madan, Bulgaria, where he discovered the value of solidarity, field work, intercultural friendships and personal growth."
 featured: true
 ---
