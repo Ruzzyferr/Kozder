@@ -62,7 +62,7 @@ Projemize ev sahipliği yapan **Kilis 7 Aralık Üniversitesine**; desteklerini 
 
 **KOZ-DER olarak**, bu değerli projenin Kilis’te gerçekleştirilmesini sağlayan **Association Children With Special Needs (CWSN) Derneğine**; kurumumuza duydukları güven, güçlü iş birlikleri ve süreç boyunca sundukları destek için içtenlikle teşekkür ediyoruz.
 
-Projemizin Kilis’te güçlü bir şekilde yürütülmesine katkı sunan **Kilis 7 Aralık Üniversitesi Rektörü Prof. Dr. Zekeriya AKMAN’a**, **Kilis 7 Aralık Üniversitesi Proje Ofisi Koordinatörü Öğr. Gör. Mehmet KARAOĞLAN’a**, **KOZ-DER Proje Koordinatörü Halil ÖZKARACA’ya** ve **KOZ-DER Başkanı Mevlide ÖZKARACA’ya** emekleri, koordinasyonları ve destekleri için teşekkür ederiz.
+Projemizin Kilis’te güçlü bir şekilde yürütülmesine katkı sunan **Kilis 7 Aralık Üniversitesi Rektörü Prof. Dr. Zekeriya AKMAN’a**, **Kilis 7 Aralık Üniversitesi Proje Ofisi Koordinatör Yardımcısı Öğr. Gör. Mehmet KARAOĞLAN’a**, **KOZ-DER Proje Koordinatörü Halil ÖZKARACA’ya** ve **KOZ-DER Başkanı Mevlide ÖZKARACA’ya** emekleri, koordinasyonları ve destekleri için teşekkür ederiz.
 
 Ayrıca proje sürecinde desteklerini esirgemeyen **Kilis Gençlik ve Spor İl Müdürü Mustafa ERTUNÇ’a**, **Gençlik Hizmetleri Müdürü Mehmet ALKAN’a**, **Kilis İl Kültür ve Turizm Müdürü Hüseyin ERKMEN’e**, **Kilis Belediye Başkanı Av. Hakan BİLECEN’e**, **Kilis Belediyesine**, **Kilis Gençlik ve Spor İl Müdürlüğüne**, **Kilis İl Kültür ve Turizm Müdürlüğüne**, **İstasyon Gaziantep Sorumlusu Dr.Ekrem ARSLAN**a ve süreçte katkı sunan tüm paydaş kurumlarımıza teşekkür ederiz.
 
