@@ -5,7 +5,7 @@ date: "30.12.2025"
 category: "Youth and Disaster Awareness"
 coverImage: "/images/news/gsbproje.jpeg"
 images:
- - "/images/news/gsbproje.jpeg"
+  - "/images/news/gsbproje.jpeg"
   - "/images/news/gsbproje1.jpeg"
   - "/images/news/gsbproje2.jpeg"
   - "/images/news/gsbproje3.jpeg"
