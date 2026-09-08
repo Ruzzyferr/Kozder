@@ -4,10 +4,10 @@ programName: "Avrupa Dayanışma Programı (ESC) Gönüllülük Projesi"
 country: "Bulgaristan"
 startDate: "29.06.2026"
 images:
-  - "/images/stories/egesemsettindemir.jpeg"
-  - "/images/stories/egesemsettindemir1.jpeg"
-  - "/images/stories/egesemsettindemir2.jpeg"
-  - "/images/stories/egesemsettindemir3.jpeg"
+  - "/images/stories/egesemsettindemir.jpg"
+  - "/images/stories/egesemsettindemir1.jpg"
+  - "/images/stories/egesemsettindemir2.jpg"
+  - "/images/stories/egesemsettindemir3.jpg"
 summary: "Ege Şemsettin SÖNMEZ, KOZ-DER aracılığıyla Bulgaristan’ın Madan şehrinde katıldığı ESC gönüllülük projesinde yerel halka destek olmanın, dayanışmanın ve kültürlerarası dostlukların kendisine kattığı deneyimleri paylaşıyor."
 featured: true
 ---
