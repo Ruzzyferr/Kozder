@@ -58,13 +58,13 @@ As **KOZ-DER**, we sincerely thank **Association Children With Special Needs (CW
 
 We would also like to thank **Kilis 7 Aralık University** for hosting the project; **Kilis Municipality**, **Kilis Provincial Directorate of Youth and Sports**, **Kilis Provincial Directorate of Culture and Tourism**, **İstasyon Gaziantep**, all our stakeholders, group leaders, volunteers and participants for their valuable support.
 
-## Thank You
+## Special Thank You
 
 As **KOZ-DER**, we sincerely thank **Association Children With Special Needs (CWSN)** for making it possible to implement this valuable project in Kilis, for the trust they placed in our organisation, for their strong cooperation and for their support throughout the process.
 
 We would like to express our special thanks to **Prof. Dr. Zekeriya AKMAN**, Rector of **Kilis 7 Aralık University**, **Lect. Mehmet KARAOĞLAN**, Coordinator of the Project Office of Kilis 7 Aralık University, **Halil ÖZKARACA**, KOZ-DER Project Coordinator, and **Mevlide ÖZKARACA**, President of KOZ-DER, for their efforts, coordination and support throughout the project.
 
-We also thank **Mustafa ERTUNÇ**, Kilis Provincial Director of Youth and Sports, **Mehmet ALKAN**, Director of Youth Services, **Hüseyin ERKMEN**, Kilis Provincial Director of Culture and Tourism, **Av. Hakan BİLECEN**, Mayor of Kilis, **Kilis Municipality**, **Kilis Provincial Directorate of Youth and Sports**, **Kilis Provincial Directorate of Culture and Tourism**, **İstasyon Gaziantep** and all stakeholder institutions that supported the process.
+We also thank **Mustafa ERTUNÇ**, Kilis Provincial Director of Youth and Sports, **Mehmet ALKAN**, Director of Youth Services, **Hüseyin ERKMEN**, Kilis Provincial Director of Culture and Tourism, **Av. Hakan BİLECEN**, Mayor of Kilis, **Kilis Municipality**, **Kilis Provincial Directorate of Youth and Sports**, **Kilis Provincial Directorate of Culture and Tourism**, Dr.Ekrem ARSLAN **Head of İstasyon Gaziantep** and all stakeholder institutions that supported the process.
 
 We would also like to extend our heartfelt thanks to all institution representatives, group leaders, volunteers and participants whose names we may not have mentioned one by one, but whose efforts, support and contributions were valuable at every stage of the project.
 
