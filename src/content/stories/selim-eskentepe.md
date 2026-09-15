@@ -4,6 +4,7 @@ programName: "Avrupa Dayanışma Programı (ESC) Gönüllülük Projesi"
 country: "Bulgaristan"
 startDate: "29.06.2026"
 images:
+  - "/images/stories/selimeskentepe.jpeg"
   - "/images/stories/selimeskentepe1.jpeg"
   - "/images/stories/selimeskentepe2.jpeg"
   - "/images/stories/selimeskentepe3.jpeg"
