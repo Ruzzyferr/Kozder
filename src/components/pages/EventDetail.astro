@@ -9,7 +9,7 @@ const t = useTranslations(lang);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import DetailCover from '../../components/DetailCover.astro';
 import { getCollection } from 'astro:content';
-import { formatEventDate, formatEventTime } from '../../utils/date';
+import { formatEventDate, formatEventTime, getEffectiveEventDate } from '../../utils/date';
 import { buildEventStartDate, buildIcsString, googleCalendarUrl, isAllDay } from '../../utils/calendar';
 import { eventSchema } from '../../utils/seo';
 import ShareBox from '../../components/ShareBox.astro';
@@ -18,10 +18,16 @@ import ShareBox from '../../components/ShareBox.astro';
 
 const { Content } = await event.render();
 
-const formattedDate = formatEventDate(event.data.date, { weekday: true, lang });
+const effectiveDate = getEffectiveEventDate(event.data.date, {
+  recurring: event.data.recurring,
+  weekday: event.data.weekday,
+  time: event.data.time,
+  timezone: event.data.timezone,
+});
+const formattedDate = formatEventDate(effectiveDate, { weekday: true, lang });
 const formattedTime = formatEventTime(event.data.time);
 
-const startDate = buildEventStartDate(event.data.date, event.data.time);
+const startDate = buildEventStartDate(effectiveDate, event.data.time, event.data.timezone);
 const allDay = startDate ? isAllDay(startDate) : true;
 const endDate = startDate ? new Date(startDate.getTime() + (allDay ? 0 : 2 * 60 * 60 * 1000)) : null;
 
@@ -38,6 +44,7 @@ const ics = startDate
       end: endDate ?? undefined,
       url,
       allDay,
+      timeZone: event.data.timezone,
     })
   : null;
 const icsDataUri = ics ? `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}` : null;
@@ -52,6 +59,7 @@ const gcalUrl = startDate
       end: endDate ?? undefined,
       url,
       allDay,
+      timeZone: event.data.timezone,
     })
   : null;
 
@@ -68,8 +76,6 @@ const ld = startDate
     })
   : undefined;
 
-const dayNum = startDate ? startDate.getDate() : '?';
-const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 'short' }).toUpperCase().replace('.', '') : '';
 ---
 
 <BaseLayout
@@ -80,7 +86,19 @@ const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 's
   image={event.data.coverImage}
   jsonLd={ld}
 >
-  <article class="bg-brand-paper">
+  <article
+    class="bg-brand-paper"
+    data-recurring-event={event.data.recurring}
+    data-weekday={event.data.weekday}
+    data-time={event.data.time}
+    data-timezone={event.data.timezone}
+    data-lang={lang}
+    data-show-weekday="true"
+    data-event-title={lang === 'en' ? event.data.title_en : event.data.title_tr}
+    data-event-location={event.data.location}
+    data-event-url={url}
+    data-event-uid={`${event.slug}@kozder.com`}
+  >
     <div class="container mx-auto px-4 pt-8 sm:pt-12">
       <a href={path(lang, 'events')} class="inline-flex items-center gap-2 py-2 font-mono text-[11px] uppercase tracking-[0.2em] text-brand-ink hover:text-brand-stamp transition-colors mb-6 border-b border-line-strong pb-2">
         <span>←</span> {t('nav.events')}
@@ -101,7 +119,7 @@ const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 's
                 <svg class="w-5 h-5 text-brand-stamp" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                 </svg>
-                {formattedDate}
+                <span data-event-date>{formattedDate}</span>
               </span>
               {formattedTime && (
                 <>
@@ -135,7 +153,7 @@ const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 's
             <div class="bg-brand-cream divide-y divide-line card card-2">
               <div class="p-5">
                 <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">{t('common.date')}</p>
-                <p class="font-display font-bold text-xl text-brand-ink leading-snug">{formattedDate}</p>
+                <p data-event-date class="font-display font-bold text-xl text-brand-ink leading-snug">{formattedDate}</p>
               </div>
               {formattedTime && (
                 <div class="p-5">
@@ -168,12 +186,12 @@ const monthShort = startDate ? startDate.toLocaleDateString('tr-TR', { month: 's
                 <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">{t('events.addCalendar')}</p>
                 <div class="space-y-2">
                   {gcalUrl && (
-                    <a href={gcalUrl} target="_blank" rel="noopener noreferrer" class="flex items-center justify-between border border-brand-ink/40 hover:border-brand-ink hover:bg-brand-paper px-4 py-2.5 rounded-full transition-colors text-sm font-semibold text-brand-ink">
+                    <a data-event-gcal href={gcalUrl} target="_blank" rel="noopener noreferrer" class="flex items-center justify-between border border-brand-ink/40 hover:border-brand-ink hover:bg-brand-paper px-4 py-2.5 rounded-full transition-colors text-sm font-semibold text-brand-ink">
                       {t('events.gcal')} <span>→</span>
                     </a>
                   )}
                   {icsDataUri && (
-                    <a href={icsDataUri} download={`${event.slug}.ics`} class="flex items-center justify-between border border-brand-ink/40 hover:border-brand-ink hover:bg-brand-paper px-4 py-2.5 rounded-full transition-colors text-sm font-semibold text-brand-ink">
+                    <a data-event-ics href={icsDataUri} download={`${event.slug}.ics`} class="flex items-center justify-between border border-brand-ink/40 hover:border-brand-ink hover:bg-brand-paper px-4 py-2.5 rounded-full transition-colors text-sm font-semibold text-brand-ink">
                       Apple / Outlook (.ics) <span>↓</span>
                     </a>
                   )}
