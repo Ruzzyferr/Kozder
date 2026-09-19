@@ -1,12 +1,15 @@
 ---
 import { getLangFromUrl, entryPath, stripLangPrefix, useTranslations, type Lang } from '../i18n';
 import CardMedia from './CardMedia.astro';
-import { formatEventDate, formatEventTime, getEventDateSortKey } from '../utils/date';
+import { formatEventDate, formatEventTime, getEffectiveEventDate, getEventDateSortKey, type EventWeekday } from '../utils/date';
 
 interface Props {
   title: string;
   date: string;
   time?: string;
+  recurring?: 'weekly';
+  weekday?: EventWeekday;
+  timezone?: string;
   location: string;
   coverImage?: string;
   coverFit?: 'cover' | 'contain';
@@ -16,24 +19,32 @@ interface Props {
   past?: boolean;
 }
 
-const { title, date, time, location, coverImage, coverFit = 'cover', slug, past = false, lang: langProp } = Astro.props;
+const { title, date, time, recurring, weekday, timezone = 'Europe/Istanbul', location, coverImage, coverFit = 'cover', slug, past = false, lang: langProp } = Astro.props;
 const lang: Lang = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const formattedDate = formatEventDate(date, { lang });
+const effectiveDate = getEffectiveEventDate(date, { recurring, weekday, time, timezone });
+const formattedDate = formatEventDate(effectiveDate, { lang });
 const formattedTime = formatEventTime(time);
 
-const key = getEventDateSortKey(date);
+const key = getEventDateSortKey(effectiveDate);
 const d = key ? new Date(key) : null;
 const day = d ? String(d.getDate()).padStart(2, '0') : '·';
 const month = d ? d.toLocaleDateString(lang === 'en' ? 'en-GB' : 'tr-TR', { month: 'short' }).replace('.', '').toUpperCase() : '';
 ---
 
 <a href={entryPath(lang, 'events', stripLangPrefix(slug))} class="group block h-full">
-  <article class="card card-hover h-full bg-brand-cream flex flex-col">
+  <article
+    class="card card-hover h-full bg-brand-cream flex flex-col"
+    data-recurring-event={recurring}
+    data-weekday={weekday}
+    data-time={time}
+    data-timezone={timezone}
+    data-lang={lang}
+  >
     <CardMedia src={coverImage} alt={title} fit={coverFit} ratio="aspect-square">
       <span class="absolute top-3 left-3 bg-brand-cream/95 backdrop-blur-sm px-2.5 py-1.5 text-center leading-none">
-        <span class="block font-display font-black text-lg text-brand-ink tracking-tightest">{day}</span>
-        <span class="mt-0.5 block text-[9px] font-semibold uppercase tracking-[0.14em] text-brand-stamp">{month}</span>
+        <span data-event-day class="block font-display font-black text-lg text-brand-ink tracking-tightest">{day}</span>
+        <span data-event-month class="mt-0.5 block text-[9px] font-semibold uppercase tracking-[0.14em] text-brand-stamp">{month}</span>
       </span>
       {past && (
         <span class="absolute top-3 right-3 bg-brand-ink/85 backdrop-blur-sm text-brand-cream text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1.5">
@@ -51,7 +62,7 @@ const month = d ? d.toLocaleDateString(lang === 'en' ? 'en-GB' : 'tr-TR', { mont
         <div class="flex gap-2">
           <dt class="sr-only">{t('common.date')}</dt>
           <dd class="text-brand-ink font-medium">
-            {formattedDate}{formattedTime ? ` · ${formattedTime}` : ''}
+            <span data-event-date>{formattedDate}</span>{formattedTime ? ` · ${formattedTime}` : ''}
           </dd>
         </div>
         <div class="flex gap-2">
