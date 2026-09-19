@@ -1,30 +1,52 @@
 ---
-title_tr: "Speaking Club"
-title_en: "Speaking Club"
-date: "19.06.2026"
+title_tr: "KOZ-DER Speaking Club"
+title_en: "KOZ-DER Speaking Club"
+date: "2026-09-25"
 time: "20:00"
-location: "Kilis - Association Centre"
-coverImage: "/images/events/speaking.jpeg"
+location: "KOZ-DER Association Centre, Kilis"
+coverImage: "/images/events/speakingclub.png"
 coverFit: "contain"
-registrationUrl: "https://chat.whatsapp.com/L5sDZNQRGD94mnwk1iFJCT?mode=gi_t"
+registrationUrl: "https://chat.whatsapp.com/L5sDZNQRGD94mnwk1iFJCT?s=cl&p=i&mlu=4&ilr=4"
+recurring: "weekly"
+weekday: "friday"
 ---
 
-Speaking Club is back. We meet every Friday at 20:00 at the association centre — for anyone who wants to learn English while having fun, practise speaking and meet new people.
+At KOZ-DER, we bring together young people who want to practise speaking English through our **Speaking Club**. During our regular Friday meetings, participants can practise English, meet new people and become more confident in expressing themselves in English.
 
-## What to Expect
+Rather than offering a conventional English lesson, the Speaking Club provides a friendly and interactive environment where participants speak actively, discuss a variety of topics and use English in everyday communication.
 
-- English speaking practice
-- Enjoyable group activities
-- Social interaction and new friendships
-- Building vocabulary and confidence
-- Learning by speaking
+## What We Do
 
-Speaking Club is a good opportunity for anyone who wants to use English more comfortably, improve their speaking and be part of an enjoyable learning environment.
+- Everyday English speaking practice
+- Group conversations on different topics
+- Vocabulary and speaking games
+- Question-and-answer activities
+- Small-group speaking exercises
+- Meeting new people and socialising
+- Building confidence in spoken English
 
-## Joining
+## Who Can Join?
 
-You can join the WhatsApp group to take part and follow announcements.
+Young people who want to practise speaking English, improve their confidence and use English actively in a social environment are welcome to join.
 
-[Join the WhatsApp group](https://chat.whatsapp.com/L5sDZNQRGD94mnwk1iFJCT?mode=gi_t).
+The Speaking Club is open to participants with different levels of English. Our main goal is not to speak perfect English, but to **practise without being afraid to speak, learn through mistakes and improve together.**
 
-[Open the location on the map](https://maps.app.goo.gl/kJSTkibBsjGuNRfs6).
+## Event Information
+
+- Day: Every Friday
+- Time: 20:00
+- Venue: KOZ-DER Association Centre, Kilis
+- Format: Face-to-face
+- Participation: Free of charge
+
+## How to Join
+
+Anyone wishing to follow the Speaking Club, receive weekly announcements and participate in the meetings is invited to join our WhatsApp group.
+
+[Click here to join the WhatsApp group](https://chat.whatsapp.com/L5sDZNQRGD94mnwk1iFJCT?s=cl&p=i&mlu=4&ilr=4).
+
+[Click here to open the venue location](https://maps.app.goo.gl/kJSTkibBsjGuNRfs6).
+
+For more information, visit [kozder.com](https://kozder.com).
+
+**Speak, share, practise and improve your English!**
