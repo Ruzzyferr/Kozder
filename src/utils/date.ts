@@ -16,6 +16,85 @@ const EN_WEEKDAYS = [
   'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
 ];
 
+export const EVENT_WEEKDAYS = [
+  'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday',
+] as const;
+
+export type EventWeekday = (typeof EVENT_WEEKDAYS)[number];
+
+interface RecurringEventDateOptions {
+  recurring?: 'weekly';
+  weekday?: EventWeekday;
+  time?: string;
+  timezone?: string;
+  now?: Date;
+}
+
+function timezoneParts(now: Date, timezone: string) {
+  const read = (zone: string) => {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: zone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      weekday: 'short',
+      hour: '2-digit',
+      minute: '2-digit',
+      hourCycle: 'h23',
+    }).formatToParts(now);
+    const value = (type: Intl.DateTimeFormatPartTypes) => parts.find(part => part.type === type)?.value ?? '';
+    return {
+      year: Number(value('year')),
+      month: Number(value('month')),
+      day: Number(value('day')),
+      weekday: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(value('weekday')),
+      hour: Number(value('hour')),
+      minute: Number(value('minute')),
+    };
+  };
+
+  try {
+    return read(timezone);
+  } catch {
+    return read('Europe/Istanbul');
+  }
+}
+
+export function getNextWeeklyEventDate(
+  weekday: EventWeekday,
+  time = '00:00',
+  timezone = 'Europe/Istanbul',
+  now = new Date(),
+): string {
+  const current = timezoneParts(now, timezone);
+  const targetWeekday = EVENT_WEEKDAYS.indexOf(weekday);
+  const [eventHour = 0, eventMinute = 0] = /^\d{1,2}:\d{2}$/.test(time)
+    ? time.split(':').map(Number)
+    : [0, 0];
+
+  let daysAhead = (targetWeekday - current.weekday + 7) % 7;
+  const eventMinutes = eventHour * 60 + eventMinute;
+  const currentMinutes = current.hour * 60 + current.minute;
+
+  // Etkinlik saati geldiğinde kart bir sonraki haftanın tarihine geçer.
+  if (daysAhead === 0 && currentMinutes >= eventMinutes) daysAhead = 7;
+
+  const result = new Date(Date.UTC(current.year, current.month - 1, current.day + daysAhead));
+  return `${result.getUTCFullYear()}-${String(result.getUTCMonth() + 1).padStart(2, '0')}-${String(result.getUTCDate()).padStart(2, '0')}`;
+}
+
+export function getEffectiveEventDate(dateStr: string, opts: RecurringEventDateOptions = {}): string {
+  if (opts.recurring === 'weekly' && opts.weekday) {
+    return getNextWeeklyEventDate(
+      opts.weekday,
+      opts.time,
+      opts.timezone ?? 'Europe/Istanbul',
+      opts.now,
+    );
+  }
+  return dateStr;
+}
+
 function parseEventDate(dateStr: string): Date | null {
   if (!dateStr) return null;
   const trimmed = dateStr.trim();
