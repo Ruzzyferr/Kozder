@@ -2,7 +2,34 @@ function pad(n: number) {
   return n.toString().padStart(2, '0');
 }
 
-function toICSDate(date: Date, allDay: boolean): string {
+function timezoneDateParts(date: Date, timeZone: string) {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hourCycle: 'h23',
+  }).formatToParts(date);
+  const value = (type: Intl.DateTimeFormatPartTypes) => parts.find(part => part.type === type)?.value ?? '';
+  return {
+    year: Number(value('year')),
+    month: Number(value('month')),
+    day: Number(value('day')),
+    hour: Number(value('hour')),
+    minute: Number(value('minute')),
+    second: Number(value('second')),
+  };
+}
+
+function toICSDate(date: Date, allDay: boolean, timeZone?: string): string {
+  if (timeZone) {
+    const parts = timezoneDateParts(date, timeZone);
+    const day = `${parts.year}${pad(parts.month)}${pad(parts.day)}`;
+    return allDay ? day : `${day}T${pad(parts.hour)}${pad(parts.minute)}${pad(parts.second)}`;
+  }
   if (allDay) {
     return `${date.getFullYear()}${pad(date.getMonth() + 1)}${pad(date.getDate())}`;
   }
@@ -22,14 +49,15 @@ export interface IcsEvent {
   end?: Date;
   url?: string;
   allDay?: boolean;
+  timeZone?: string;
 }
 
 export function buildIcsString(ev: IcsEvent): string {
   const allDay = !!ev.allDay;
-  const start = toICSDate(ev.start, allDay);
-  const end = toICSDate(ev.end ?? new Date(ev.start.getTime() + 60 * 60 * 1000), allDay);
-  const stamp = toICSDate(new Date(), false);
-  const dtPrefix = allDay ? ';VALUE=DATE' : '';
+  const start = toICSDate(ev.start, allDay, ev.timeZone);
+  const end = toICSDate(ev.end ?? new Date(ev.start.getTime() + 60 * 60 * 1000), allDay, ev.timeZone);
+  const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
+  const dtPrefix = allDay ? ';VALUE=DATE' : ev.timeZone ? `;TZID=${ev.timeZone}` : '';
 
   const lines = [
     'BEGIN:VCALENDAR',
@@ -39,7 +67,7 @@ export function buildIcsString(ev: IcsEvent): string {
     'METHOD:PUBLISH',
     'BEGIN:VEVENT',
     `UID:${ev.uid}`,
-    `DTSTAMP:${stamp}Z`,
+    `DTSTAMP:${stamp}`,
     `DTSTART${dtPrefix}:${start}`,
     `DTEND${dtPrefix}:${end}`,
     `SUMMARY:${escapeICS(ev.title)}`,
@@ -55,8 +83,8 @@ export function buildIcsString(ev: IcsEvent): string {
 
 export function googleCalendarUrl(ev: IcsEvent): string {
   const allDay = !!ev.allDay;
-  const start = toICSDate(ev.start, allDay);
-  const end = toICSDate(ev.end ?? new Date(ev.start.getTime() + 60 * 60 * 1000), allDay);
+  const start = toICSDate(ev.start, allDay, ev.timeZone);
+  const end = toICSDate(ev.end ?? new Date(ev.start.getTime() + 60 * 60 * 1000), allDay, ev.timeZone);
   const params = new URLSearchParams({
     action: 'TEMPLATE',
     text: ev.title,
@@ -64,11 +92,12 @@ export function googleCalendarUrl(ev: IcsEvent): string {
     details: ev.description,
     location: ev.location,
   });
+  if (ev.timeZone && !allDay) params.set('ctz', ev.timeZone);
   if (ev.url) params.set('sprop', `website:${ev.url}`);
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
-export function buildEventStartDate(date: string, time?: string): Date | null {
+export function buildEventStartDate(date: string, time?: string, timeZone?: string): Date | null {
   if (!date) return null;
   const trimmed = date.trim();
   let y: number, m: number, d: number;
@@ -89,7 +118,16 @@ export function buildEventStartDate(date: string, time?: string): Date | null {
     [hh, mm] = time.trim().split(':').map(Number);
     allDay = false;
   }
-  const dt = new Date(y, m - 1, d, hh, mm);
+  let dt: Date;
+  if (timeZone && !allDay) {
+    const guess = Date.UTC(y, m - 1, d, hh, mm);
+    const guessDate = new Date(guess);
+    const zoned = timezoneDateParts(guessDate, timeZone);
+    const renderedAsUtc = Date.UTC(zoned.year, zoned.month - 1, zoned.day, zoned.hour, zoned.minute, zoned.second);
+    dt = new Date(guess - (renderedAsUtc - guess));
+  } else {
+    dt = new Date(y, m - 1, d, hh, mm);
+  }
   (dt as any).__allDay = allDay;
   return dt;
 }
