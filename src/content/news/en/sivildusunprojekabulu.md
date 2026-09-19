@@ -1,7 +1,7 @@
 ---
 title_tr: "Our Green Skills Bridge: Waste, Labour and Rights Project Has Been Awarded Support"
 title_en: "Our Green Skills Bridge: Waste, Labour and Rights Project Has Been Awarded Support"
-date: "19.09.2026"
+date: "18.09.2026"
 category: "Sivil Düşün Support Programme"
 location: "Kilis, Türkiye"
 coverImage: "/images/news/sivildusunproje.png"
