@@ -471,6 +471,100 @@ const other: Lang = lang === 'tr' ? 'en' : 'tr';
 </script>
 
 <script>
+  import {
+    formatEventDate,
+    getEventDateSortKey,
+    getNextWeeklyEventDate,
+    type EventWeekday,
+  } from '../utils/date';
+  import {
+    buildEventStartDate,
+    buildIcsString,
+    googleCalendarUrl,
+    isAllDay,
+  } from '../utils/calendar';
+
+  let recurringEventsTimer: number | undefined;
+
+  function refreshRecurringEvents() {
+    document.querySelectorAll<HTMLElement>('[data-recurring-event="weekly"]').forEach((element) => {
+      const weekday = element.dataset.weekday as EventWeekday | undefined;
+      if (!weekday) return;
+
+      const time = element.dataset.time || '00:00';
+      const timezone = element.dataset.timezone || 'Europe/Istanbul';
+      const lang = element.dataset.lang === 'en' ? 'en' : 'tr';
+      const effectiveDate = getNextWeeklyEventDate(weekday, time, timezone);
+      const includeWeekday = element.dataset.showWeekday === 'true';
+      const formattedDate = formatEventDate(effectiveDate, { weekday: includeWeekday, lang });
+
+      element.querySelectorAll<HTMLElement>('[data-event-date]').forEach((node) => {
+        node.textContent = formattedDate;
+      });
+
+      const dateKey = getEventDateSortKey(effectiveDate);
+      if (dateKey) {
+        const date = new Date(dateKey);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = date
+          .toLocaleDateString(lang === 'en' ? 'en-GB' : 'tr-TR', { month: 'short' })
+          .replace('.', '')
+          .toUpperCase();
+
+        element.querySelectorAll<HTMLElement>('[data-event-day]').forEach(node => {
+          node.textContent = day;
+        });
+        element.querySelectorAll<HTMLElement>('[data-event-month]').forEach(node => {
+          node.textContent = month;
+        });
+      }
+
+      const gcalLink = element.querySelector<HTMLAnchorElement>('[data-event-gcal]');
+      const icsLink = element.querySelector<HTMLAnchorElement>('[data-event-ics]');
+      if (!gcalLink && !icsLink) return;
+
+      const start = buildEventStartDate(effectiveDate, time, timezone);
+      if (!start) return;
+      const allDay = isAllDay(start);
+      const end = new Date(start.getTime() + (allDay ? 0 : 2 * 60 * 60 * 1000));
+      const title = element.dataset.eventTitle || 'KOZ-DER Speaking Club';
+      const location = element.dataset.eventLocation || '';
+      const url = element.dataset.eventUrl || window.location.href;
+      const uid = element.dataset.eventUid || 'speakingclub-2026@kozder.com';
+      const calendarEvent = {
+        uid,
+        title,
+        description: `${title}\n\n${url}`,
+        location,
+        start,
+        end,
+        url,
+        allDay,
+        timeZone: timezone,
+      };
+
+      if (gcalLink) gcalLink.href = googleCalendarUrl(calendarEvent);
+      if (icsLink) {
+        icsLink.href = `data:text/calendar;charset=utf-8,${encodeURIComponent(buildIcsString(calendarEvent))}`;
+      }
+    });
+  }
+
+  function initRecurringEvents() {
+    refreshRecurringEvents();
+    if (recurringEventsTimer) window.clearInterval(recurringEventsTimer);
+    recurringEventsTimer = window.setInterval(refreshRecurringEvents, 30_000);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRecurringEvents, { once: true });
+  } else {
+    initRecurringEvents();
+  }
+  document.addEventListener('astro:page-load', initRecurringEvents);
+</script>
+
+<script>
   function linkifyEmailAddresses(root: Node = document.body) {
     const emailPattern = /([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/gi;
     const exactEmailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
