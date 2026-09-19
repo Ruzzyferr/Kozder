@@ -39,6 +39,9 @@ const eventsCollection = defineCollection({
     // Fotoğraflar varsayılan 'cover' ile tam kanar.
     coverFit: z.enum(['cover', 'contain']).default('cover'),
     registrationUrl: z.string().url().optional(),
+    recurring: z.enum(['weekly']).optional(),
+    weekday: z.enum(['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']).optional(),
+    timezone: z.string().default('Europe/Istanbul'),
     draft: z.boolean().default(false),
   }),
 });
