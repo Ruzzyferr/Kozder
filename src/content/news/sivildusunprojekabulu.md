@@ -1,7 +1,7 @@
 ---
 title_tr: "Yeşil Beceri Köprüsü: Atık, Emek ve Hak Projemiz Destek Almaya Hak Kazandı"
 title_en: "Our Green Skills Bridge: Waste, Labour and Rights Project Has Been Awarded Support"
-date: "19.09.2026"
+date: "18.09.2026"
 category: "Sivil Düşün Destek Programı"
 location: "Kilis, Türkiye"
 coverImage: "/images/news/sivildusunproje.png"
