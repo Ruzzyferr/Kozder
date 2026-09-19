@@ -10,21 +10,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import EventCard from '../../components/EventCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
-import { getEventDateSortKey } from '../../utils/date';
+import { getEffectiveEventDate, getEventDateSortKey } from '../../utils/date';
 
 const events = (await getCollection('events', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(e => !e.data.draft);
 const todayMidnight = new Date();
 todayMidnight.setHours(0, 0, 0, 0);
 
-const isUpcoming = (date: string) => getEventDateSortKey(date) >= todayMidnight.getTime();
+const eventDate = (event: (typeof events)[number]) => getEffectiveEventDate(event.data.date, {
+  recurring: event.data.recurring,
+  weekday: event.data.weekday,
+  time: event.data.time,
+  timezone: event.data.timezone,
+});
+const isUpcoming = (event: (typeof events)[number]) =>
+  event.data.recurring === 'weekly' || getEventDateSortKey(event.data.date) >= todayMidnight.getTime();
 
 // Yaklaşanlar tarihi en yakın olan önce, geçmişler en yeni olan önce.
 const upcoming = events
-  .filter(e => isUpcoming(e.data.date))
-  .sort((a, b) => getEventDateSortKey(a.data.date) - getEventDateSortKey(b.data.date));
+  .filter(isUpcoming)
+  .sort((a, b) => getEventDateSortKey(eventDate(a)) - getEventDateSortKey(eventDate(b)));
 
 const past = events
-  .filter(e => !isUpcoming(e.data.date))
+  .filter(e => !isUpcoming(e))
   .sort((a, b) => getEventDateSortKey(b.data.date) - getEventDateSortKey(a.data.date));
 ---
 
@@ -64,6 +71,9 @@ const past = events
               title={event.data.title_tr}
               date={event.data.date}
               time={event.data.time}
+              recurring={event.data.recurring}
+              weekday={event.data.weekday}
+              timezone={event.data.timezone}
               location={event.data.location}
               coverImage={event.data.coverImage}
               coverFit={event.data.coverFit}
@@ -108,6 +118,9 @@ const past = events
               title={event.data.title_tr}
               date={event.data.date}
               time={event.data.time}
+              recurring={event.data.recurring}
+              weekday={event.data.weekday}
+              timezone={event.data.timezone}
               location={event.data.location}
               coverImage={event.data.coverImage}
               coverFit={event.data.coverFit}
