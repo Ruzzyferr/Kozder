@@ -10,7 +10,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import LogoMarquee from '../../components/LogoMarquee.astro';
 import affiliations from '../../data/affiliations.json';
 import { getCollection } from 'astro:content';
-import { getEventDateSortKey, formatEventDate } from '../../utils/date';
+import { getEffectiveEventDate, getEventDateSortKey, formatEventDate } from '../../utils/date';
 import { byNewest } from '../../utils/contentSort';
 
 const projects = (await getCollection('projects', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(p => !p.data.draft);
@@ -35,11 +35,17 @@ const featuredProjects = projects
 // en son yapılanlar gösterilir.
 const todayMidnight = new Date();
 todayMidnight.setHours(0, 0, 0, 0);
+const eventDate = (event: (typeof events)[number]) => getEffectiveEventDate(event.data.date, {
+  recurring: event.data.recurring,
+  weekday: event.data.weekday,
+  time: event.data.time,
+  timezone: event.data.timezone,
+});
 const upcomingEvents = events
-  .filter(e => getEventDateSortKey(e.data.date) >= todayMidnight.getTime())
-  .sort((a, b) => getEventDateSortKey(a.data.date) - getEventDateSortKey(b.data.date));
+  .filter(e => e.data.recurring === 'weekly' || getEventDateSortKey(e.data.date) >= todayMidnight.getTime())
+  .sort((a, b) => getEventDateSortKey(eventDate(a)) - getEventDateSortKey(eventDate(b)));
 const pastEvents = events
-  .filter(e => getEventDateSortKey(e.data.date) < todayMidnight.getTime())
+  .filter(e => e.data.recurring !== 'weekly' && getEventDateSortKey(e.data.date) < todayMidnight.getTime())
   .sort((a, b) => getEventDateSortKey(b.data.date) - getEventDateSortKey(a.data.date));
 const showingUpcoming = upcomingEvents.length > 0;
 const homeEvents = (showingUpcoming ? upcomingEvents : pastEvents).slice(0, 4);
@@ -563,13 +569,20 @@ function dateParts(value: string) {
 
         <ul class="grid md:grid-cols-2 md:gap-x-14 border-t border-line">
           {homeEvents.map(event => {
-            const { day, month } = dateParts(event.data.date);
+            const { day, month } = dateParts(eventDate(event));
             return (
-              <li class="border-b border-line">
+              <li
+                class="border-b border-line"
+                data-recurring-event={event.data.recurring}
+                data-weekday={event.data.weekday}
+                data-time={event.data.time}
+                data-timezone={event.data.timezone}
+                data-lang={lang}
+              >
                 <a href={entryPath(lang, 'events', stripLangPrefix(event.slug))} class="group flex items-start gap-5 py-6 transition-colors duration-300 hover:bg-brand-paper/70 -mx-3 px-3">
                   <span class="shrink-0 w-14 text-center pt-0.5">
-                    <span class="block font-display font-black text-2xl text-brand-ink leading-none tracking-tightest">{day}</span>
-                    <span class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-stamp">{month}</span>
+                    <span data-event-day class="block font-display font-black text-2xl text-brand-ink leading-none tracking-tightest">{day}</span>
+                    <span data-event-month class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-stamp">{month}</span>
                   </span>
                   <span class="min-w-0 flex-1">
                     <span class="block font-display font-bold text-lg sm:text-xl text-brand-ink leading-snug tracking-tight group-hover:text-brand-stamp transition-colors duration-300">
