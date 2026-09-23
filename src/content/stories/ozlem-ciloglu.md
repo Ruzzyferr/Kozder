@@ -4,11 +4,11 @@ programName: "Avrupa Dayanışma Programı (ESC) Gönüllülük Projesi"
 country: "Portekiz"
 startDate: "18.09.2025"
 images:
-  - "/images/stories/ozlemciloglu.jpeg"
-  - "/images/stories/ozlemciloglu1.jpeg"
-  - "/images/stories/ozlemciloglu2.jpeg"
-  - "/images/stories/ozlemciloglu3.jpeg"
-  - "/images/stories/ozlemciloglu4.jpeg"
+  - "/images/stories/ozlemcioglu.jpeg"
+  - "/images/stories/ozlemcioglu1.jpeg"
+  - "/images/stories/ozlemcioglu2.jpeg"
+  - "/images/stories/ozlemcioglu3.jpeg"
+  - "/images/stories/ozlemcioglu4.jpeg"
 summary: "Özlem ÇİLOĞLU, KOZ-DER aracılığıyla Portekiz'in Viana do Castelo şehrinde katıldığı 'Toys Lab' adlı ESC gönüllülük projesinde onarılan oyuncakları, gelişen özgüvenini ve iki ayda kurduğu kültürlerarası dostlukları anlatıyor."
 featured: true
 ---
