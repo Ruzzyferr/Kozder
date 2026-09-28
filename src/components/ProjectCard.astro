@@ -38,8 +38,8 @@ const isActive = isProjectApplicationOpen({ status, startDate, applicationDeadli
     </CardMedia>
 
     <div class="p-5 sm:p-6 flex-1 flex flex-col">
-      <p data-project-status-label data-open-label={t('projects.applyOpen')} data-closed-label={t('projects.applicationClosed')} data-archive-label={t('common.archive')} class="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-muted mb-3">
-        {year} · {isActive ? t('projects.applyOpen') : status === 'Aktif' ? t('projects.applicationClosed') : t('common.archive')}
+      <p data-project-status-label data-open-label={t('projects.applyOpen')} data-closed-label={t('projects.applicationClosed')} class="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-muted mb-3">
+        {year} · {isActive ? t('projects.applyOpen') : t('projects.applicationClosed')}
       </p>
 
       <h3 class="font-display font-bold text-xl sm:text-[1.4rem] text-brand-ink leading-[1.12] tracking-tight line-clamp-2 group-hover:text-brand-stamp transition-colors duration-300">
