@@ -10,11 +10,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import DetailCover from '../../components/DetailCover.astro';
 import { getCollection } from 'astro:content';
 import ShareBox from '../../components/ShareBox.astro';
+import { isProjectApplicationOpen } from '../../utils/projectApplications';
 
 
 
 const { Content } = await project.render();
-const isActive = project.data.status === 'Aktif';
+const isActive = isProjectApplicationOpen(project.data);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const alternate = alternatePath(lang, 'projects', stripLangPrefix(project.slug));
 ---
@@ -48,17 +49,24 @@ const alternate = alternatePath(lang, 'projects', stripLangPrefix(project.slug))
             </p>
           </header>
 
-          <div class="prose-kozder bg-brand-cream p-6 sm:p-10 card card-2">
+          <div data-project-body class="prose-kozder bg-brand-cream p-6 sm:p-10 card card-2">
             <Content />
           </div>
         </div>
 
         <aside class="lg:col-span-4">
           <div class="sticky top-28 space-y-5">
-            <div class={`card card-2 p-6 ${isActive ? 'bg-brand-stamp text-brand-cream' : 'bg-brand-cream text-brand-ink'}`}>
-              <p class={`text-xs font-bold uppercase tracking-[0.2em] mb-2 ${isActive ? 'text-brand-cream' : 'text-brand-stamp'}`}>{t('common.status')}</p>
-              <p class="font-display font-black text-3xl tracking-tight leading-none">
-                {isActive ? t('projects.activeApplication') : t('common.completed')}
+            <div
+              data-project-status-panel
+              data-project-static-status={project.data.status}
+              data-project-start-date={project.data.startDate}
+              data-project-deadline={project.data.applicationDeadline}
+              data-project-application-url={project.data.applicationUrl}
+              class={`card card-2 p-6 ${isActive ? 'bg-brand-stamp text-brand-cream' : 'bg-brand-cream text-brand-ink'}`}
+            >
+              <p data-project-status-heading class={`text-xs font-bold uppercase tracking-[0.2em] mb-2 ${isActive ? 'text-brand-cream' : 'text-brand-stamp'}`}>{t('common.status')}</p>
+              <p data-project-status-text data-open-label={t('projects.activeApplication')} data-closed-label={t('projects.applicationClosed')} data-archive-label={t('common.completed')} class="font-display font-black text-3xl tracking-tight leading-none">
+                {isActive ? t('projects.activeApplication') : project.data.status === 'Aktif' ? t('projects.applicationClosed') : t('common.completed')}
               </p>
             </div>
 
@@ -105,21 +113,68 @@ const alternate = alternatePath(lang, 'projects', stripLangPrefix(project.slug))
                 </a>
               )}
               <a
+                data-project-application-link
                 href={project.data.applicationUrl ?? path(lang, 'contact')}
                 target={project.data.applicationUrl ? '_blank' : undefined}
                 rel={project.data.applicationUrl ? 'noopener noreferrer' : undefined}
-                class="block bg-brand-ink text-brand-cream hover:bg-brand-stamp p-5 transition-colors card card-2"
+                class={`block bg-brand-ink text-brand-cream hover:bg-brand-stamp p-5 transition-colors card card-2 ${isActive ? '' : 'hidden'}`}
               >
                 <p class="font-display font-black text-2xl flex items-center justify-between">
                   {project.data.applicationLabel ?? t('common.apply')} <span>→</span>
                 </p>
               </a>
+              <p data-project-closed-notice class={`card card-2 bg-brand-cream text-brand-ink p-5 font-display font-bold text-xl ${isActive ? 'hidden' : ''}`}>
+                {project.data.status === 'Aktif' ? t('projects.applicationClosed') : t('common.completed')}
+              </p>
             </div>
 
-            <ShareBox title={lang === 'en' ? project.data.title_en : project.data.title_tr} url={url} lang={lang} applicationUrl={project.data.applicationUrl} />
+            <ShareBox title={lang === 'en' ? project.data.title_en : project.data.title_tr} url={url} lang={lang} />
           </div>
         </aside>
       </div>
     </div>
   </article>
 </BaseLayout>
+
+<script>
+  import { isProjectApplicationOpen } from '../../utils/projectApplications';
+
+  const panel = document.querySelector<HTMLElement>('[data-project-status-panel]');
+  const heading = panel?.querySelector<HTMLElement>('[data-project-status-heading]');
+  const label = panel?.querySelector<HTMLElement>('[data-project-status-text]');
+  const button = document.querySelector<HTMLElement>('[data-project-application-link]');
+  const notice = document.querySelector<HTMLElement>('[data-project-closed-notice]');
+
+  function syncProjectApplication() {
+    const status = panel?.dataset.projectStaticStatus;
+    if (!panel || (status !== 'Aktif' && status !== 'Tamamlandı')) return;
+    const open = isProjectApplicationOpen({
+      status,
+      startDate: panel.dataset.projectStartDate ?? '',
+      applicationDeadline: panel.dataset.projectDeadline,
+    });
+    panel.classList.toggle('bg-brand-stamp', open);
+    panel.classList.toggle('text-brand-cream', open);
+    panel.classList.toggle('bg-brand-cream', !open);
+    panel.classList.toggle('text-brand-ink', !open);
+    heading?.classList.toggle('text-brand-cream', open);
+    heading?.classList.toggle('text-brand-stamp', !open);
+    if (label) label.textContent = open ? label.dataset.openLabel ?? '' : status === 'Aktif' ? label.dataset.closedLabel ?? '' : label.dataset.archiveLabel ?? '';
+    button?.classList.toggle('hidden', !open);
+    notice?.classList.toggle('hidden', open);
+    if (!open) {
+      const applicationUrl = panel.dataset.projectApplicationUrl;
+      document.querySelectorAll<HTMLAnchorElement>('[data-project-body] a, [data-share] a').forEach(link => {
+        if (applicationUrl && link.href === applicationUrl) {
+          link.removeAttribute('href');
+          link.removeAttribute('target');
+          link.setAttribute('aria-disabled', 'true');
+          link.classList.add('pointer-events-none', 'opacity-60');
+        }
+      });
+    }
+  }
+
+  syncProjectApplication();
+  window.setInterval(syncProjectApplication, 60_000);
+</script>
