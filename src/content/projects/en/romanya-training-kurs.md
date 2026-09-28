@@ -5,177 +5,175 @@ programType: "ERASMUS"
 year: 2026
 status: "Aktif"
 themes:
-  - "İyi Oluş"
-  - "Sağlıklı Yaşam"
-  - "Bağımlılıkların Önlenmesi"
-  - "Kapsayıcı Gençlik Çalışması"
-  - "Yaygın Eğitim"
-location: "Sărata Monteoru & Buzău, Romanya"
+  - "Well-being"
+  - "Healthy Lifestyle"
+  - "Addiction Prevention"
+  - "Inclusive Youth Work"
+  - "Non-formal Education"
+location: "Sărata Monteoru & Buzău, Romania"
 startDate: "04.12.2026"
 endDate: "13.12.2026"
 coverImage: "/images/projects/white-rainbow.png"
 coverFit: "contain"
 applicationUrl: "https://forms.gle/Y3YQsuZNxPQeufiW7"
-applicationLabel: "Başvuru Formu"
+applicationLabel: "Application Form"
 infoPackUrl: "https://drive.google.com/file/d/10LlnmZeygHf5LZpbJHUSELHKoPo-wiwE/view?usp=sharing"
 featured: true
 summary_tr: "White Rainbow, gençlik çalışanlarının gençlerin iyi oluşunu desteklemek için kullanabilecekleri pratik araçlar, yaygın eğitim yöntemleri ve kapsayıcı gençlik çalışması yaklaşımlarına odaklanan uluslararası bir Erasmus+ eğitim kursudur."
 summary_en: "White Rainbow is an international Erasmus+ training course focused on practical tools, non-formal education methods and inclusive youth work approaches that youth workers can use to promote young people's well-being."
 ---
 
-# White Rainbow — Erasmus+ Eğitim Kursu
+# White Rainbow — Erasmus+ Training Course
 
-KOZ-DER olarak gençlik çalışanlarına yönelik yeni bir uluslararası eğitim fırsatını duyuruyoruz.
+KOZ-DER is pleased to announce a new international training opportunity for youth workers.
 
-**White Rainbow**, 4–13 Aralık 2026 tarihleri arasında **Sărata Monteoru ve Buzău, Romanya’da** gerçekleştirilecek uluslararası bir Erasmus+ eğitim kursudur. Projenin organizatörü **FPT Buzău** olup eğitim süreci gençlik çalışanlarının gençlerin iyi oluşunu destekleyebilecekleri somut yöntemler, araçlar ve yaygın eğitim yaklaşımları geliştirmelerine odaklanmaktadır.
+**White Rainbow** is an international Erasmus+ Training Course that will take place from **4 to 13 December 2026** in **Sărata Monteoru and Buzău, Romania**. The project is organised by **FPT Buzău** and focuses on providing youth workers with practical methods, tools and non-formal education approaches to support young people's well-being.
 
-Projede yaklaşık **34 gençlik çalışanı, gençlik lideri ve proje koordinatörü ile 4 uzman** yer alacaktır. Katılımcıların 20 yaş ve üzeri olması beklenmektedir.
+The project will bring together approximately **34 youth workers, youth leaders and project coordinators, together with 4 experts**. Participants are expected to be aged 20 or above.
 
-## Projenin Amacı
+## Project Aim
 
-White Rainbow’un temel amacı, gençlik çalışanlarının gençlerle yürüttükleri çalışmalarda **iyi oluş, sağlıklı ve aktif yaşam, öz farkındalık ve bağımlılıkların önlenmesi** konularını ele alabilmeleri için gerekli bilgi, yöntem ve pratik araçları kazanmalarını sağlamaktır.
+The main aim of White Rainbow is to equip youth workers with the knowledge, methods and practical tools they need to address topics such as **well-being, healthy and active lifestyles, self-awareness and addiction prevention** in their work with young people.
 
-Eğitim kursu aynı zamanda gençlik çalışanlarının gençler için daha destekleyici ve kapsayıcı ortamlar oluşturma kapasitelerini geliştirmeyi hedeflemektedir.
+The training course also aims to strengthen youth workers' capacity to create more supportive and inclusive environments for young people.
 
-Proje kapsamında iyi oluş;
+Well-being will be explored through its:
 
-- duygusal,
-- zihinsel,
-- fiziksel,
-- sosyal,
-- finansal,
-- dijital
+- emotional,
+- mental,
+- physical,
+- social,
+- financial,
+- digital
 
-boyutlarıyla ele alınacaktır.
+dimensions.
 
-## Eğitimde Neler Ele Alınacak?
+## What Will Be Covered?
 
-Proje süresince katılımcılar gençlerle iyi oluş üzerine çalışabilecekleri yaygın eğitim araçlarını keşfedecek, sağlıklı ve aktif yaşam tarzlarını destekleyen yöntemler geliştirecek ve öz farkındalık ile bağımlılıkların önlenmesine yönelik uygulamalar üzerinde çalışacaktır.
+Throughout the project, participants will explore non-formal education tools that can be used to work with young people on well-being, develop methods that encourage healthy and active lifestyles, and take part in activities related to self-awareness and addiction prevention.
 
-Farklı ülkelerden gençlik çalışanlarının deneyim ve iyi uygulamalarını paylaşacağı eğitim sürecinde, kapsayıcı ve destekleyici gençlik ortamlarının nasıl oluşturulabileceği üzerine de çalışmalar gerçekleştirilecektir.
+Youth workers from different countries will exchange experiences and good practices while exploring how more inclusive and supportive youth environments can be created.
 
-Projenin sonunda katılımcılar tarafından **forum tiyatrosu çalışmaları, videolar ve iyi oluşu destekleyen bir dergi** hazırlanması planlanmaktadır.
+The expected final products include **forum theatre plays, videos and a magazine promoting well-being**.
 
-## Katılımcı Profili
+## Participant Profile
 
-Projeye katılacak kişilerin:
+Participants are expected to:
 
-- 20 yaş ve üzerinde olması,
-- gençlik çalışmalarıyla ilgili veya bu alanda aktif olması,
-- eğitim programının tamamına katılım sağlaması,
-- kültürlerarası öğrenmeye açık olması,
-- grup çalışmalarına aktif katılım göstermesi,
-- proje sonrasındaki yaygınlaştırma faaliyetlerine katkı sunması
+- be at least 20 years old,
+- be involved or interested in youth work,
+- participate in the full training programme,
+- be open to intercultural learning,
+- actively contribute to group activities,
+- contribute to dissemination activities after the project.
 
-beklenmektedir.
+The project will involve **34 youth workers, youth leaders and project coordinators plus 4 experts**.
 
-Projede toplam **34 gençlik çalışanı, gençlik lideri ve proje koordinatörü ile 4 uzman** yer alacaktır.
+A total of **17 partner countries are planned, although the participating countries have not yet been finalised.**
 
-Partner ülkelerin toplam sayısının **17 olması planlanmakta olup ülkeler henüz kesinleştirilmemiştir.**
+## Preparation Before the Project
 
-## Proje Öncesi Hazırlık
+Before arriving, participants are expected to carry out a short research activity on the current situation regarding **well-being, lifestyle and addictions in their city, region or country**.
 
-Katılımcılardan projeye gelmeden önce kendi şehirleri veya ülkelerindeki **iyi oluş, yaşam tarzı ve bağımlılıkların mevcut durumu** hakkında kısa bir araştırma yapmaları beklenmektedir.
+Participants are also encouraged to propose games, energisers and group activities that can be used during workshops or free time.
 
-Katılımcılar ayrıca eğitimlerde veya boş zamanlarda uygulanabilecek oyunlar, energizerlar ve grup etkinlikleri önerebilirler.
+For the intercultural evening, participants should bring traditional food or drinks from their country and be prepared to share a song or teach a traditional dance.
 
-Kültürlerarası gece için katılımcıların kendi ülkelerinden geleneksel yiyecek veya içecekler getirmeleri ve ülkelerine ait bir şarkı ya da dans paylaşmaya hazır olmaları beklenmektedir.
+As the organisers aim to reduce plastic consumption, participants are encouraged to bring their own **water bottle and coffee or tea mug**.
 
-Organizatörler plastik kullanımını azaltmak istediği için katılımcıların kendi **su şişelerini ve kahve/çay kupalarını** getirmeleri önerilmektedir.
+## Accommodation
 
-## Konaklama
+During the first part of the project, participants will stay at **Casa cu Tei Pension in Sărata Monteoru**.
 
-Projenin ilk bölümünde konaklama **Sărata Monteoru’daki Casa cu Tei Pension** tesisinde gerçekleştirilecektir.
+Accommodation will be provided in twin rooms with private bathrooms. Towels, soap and bed linen will be provided. Laundry and ironing services are not available.
 
-Katılımcılar iki kişilik ve özel banyolu odalarda kalacaktır. Havlu, sabun ve çarşaf sağlanacaktır. Tesiste çamaşır yıkama ve ütü hizmeti bulunmamaktadır.
+For the final **two nights**, participants will stay at **Hotel Sport B90 in Buzău**, in rooms for two or three people with private bathrooms.
 
-Projenin son **iki gecesinde** konaklama **Buzău’daki Hotel Sport B90** tesisinde gerçekleştirilecektir. Burada katılımcılar iki veya üç kişilik, özel banyolu odalarda kalacaktır.
+## Meals
 
-## Yemek
+Participants will receive every day:
 
-Katılımcılara proje boyunca her gün:
+- 3 meals
+- 2 coffee breaks
 
-- 3 öğün yemek
-- 2 kahve molası
+throughout the project.
 
-sağlanacaktır.
+## Transportation
 
-## Ulaşım
+Depending on the arrival times of the participating teams, the organisers plan to arrange a **private bus transfer from Bucharest Otopeni Airport to Sărata Monteoru** on the arrival day.
 
-Katılımcı ekiplerin varış saatlerine bağlı olarak organizatörler, varış günü **Bükreş Otopeni Havalimanı’ndan Sărata Monteoru’ya özel otobüs transferi** planlamaktadır.
+The transfer is expected to take place at approximately **18:00**, so participants are advised to choose travel options that arrive in Bucharest earlier.
 
-Transferin yaklaşık **18.00** civarında yapılması planlandığı için katılımcıların Bükreş’e daha erken ulaşacak seyahat seçeneklerini tercih etmeleri önerilmektedir.
+Travelling independently to Sărata Monteoru is also possible, although the organisers note that this option may be more complicated.
 
-Kendi imkânlarıyla Sărata Monteoru’ya ulaşmak da mümkündür ancak organizatörler bunun daha karmaşık olabileceğini belirtmektedir.
+## Travel Reimbursement
 
-## Seyahat Masrafları
+Travel expenses will be reimbursed after the project according to **real eligible costs**, within the maximum amounts defined by the Erasmus+ distance calculator.
 
-Seyahat masrafları, Erasmus+ mesafe hesaplayıcısına göre belirlenen maksimum tutarlar dahilinde ve **gerçekleşen uygun masraflar üzerinden** proje sonrasında geri ödenecektir.
+Maximum travel support indicated in the information pack:
 
-Belirtilen maksimum seyahat destekleri:
+- **100–499 km:** €211 / Green travel €285
+- **500–1999 km:** €309 / Green travel €417
+- **2000–2999 km:** €395 / Green travel €535
 
-- **100–499 km:** 211 € / Yeşil seyahat 285 €
-- **500–1999 km:** 309 € / Yeşil seyahat 417 €
-- **2000–2999 km:** 395 € / Yeşil seyahat 535 €
+Participants must keep all bus, train, ferry or flight tickets and invoices.
 
-Katılımcıların otobüs, tren, feribot veya uçak biletleri ile faturalarını eksiksiz olarak saklamaları gerekmektedir.
+For participants travelling by plane, **boarding passes are compulsory**. Screenshots may be accepted when mobile check-in is used.
 
-Uçakla seyahat edecek katılımcılar için **boarding pass belgeleri zorunludur**. Mobil check-in yapılması durumunda ekran görüntüsü de kabul edilebilmektedir.
+Extra baggage fees purchased during airport check-in are not eligible for reimbursement.
 
-Check-in sırasında alınan ekstra bagaj ücretleri uygun masraf olarak kabul edilmemektedir.
+Taxi, Uber, Bolt and similar transport costs are only considered eligible in exceptional situations where public transportation is unavailable.
 
-Taksi, Uber, Bolt ve benzeri ulaşım seçenekleri yalnızca toplu taşımanın bulunmadığı istisnai durumlarda uygun kabul edilebilir.
+## Green Travel
 
-## Yeşil Seyahat
+A journey may qualify as **green travel** when more than half of the journey is completed by bus, train or other lower-emission means of transportation.
 
-Yolculuğun yarısından fazlasının otobüs, tren veya benzeri düşük emisyonlu ulaşım seçenekleriyle gerçekleştirilmesi durumunda seyahat **green travel** kapsamında değerlendirilebilir.
+Teams planning to use green travel should inform the organisers approximately one month in advance.
 
-Yeşil seyahat planlayan ekiplerin organizatöre yaklaşık bir ay önceden bilgi vermesi gerekmektedir.
+## Important Rules
 
-## Önemli Kurallar
+Participants will live and work in an intercultural environment and are therefore expected to show respect and tolerance towards different cultures.
 
-Katılımcıların kültürlerarası bir ortamda yaşayacaklarını göz önünde bulundurarak farklı kültürlere saygılı ve hoşgörülü olmaları beklenmektedir.
+Drug use is strictly prohibited during the project. Alcohol may only be consumed responsibly after the training activities and in accordance with the relevant national legislation.
 
-Proje kapsamında uyuşturucu kullanımına kesinlikle izin verilmemektedir. Alkol yalnızca eğitim faaliyetleri tamamlandıktan sonra, sorumlu şekilde ve ilgili ülke mevzuatına uygun olarak tüketilebilir.
+All participants are required to **actively attend all training activities and participate in the dissemination phase after the project.**
 
-Tüm katılımcıların eğitim programındaki **bütün faaliyetlere ve proje sonrası yaygınlaştırma sürecine aktif olarak katılması zorunludur.**
+## Weather
 
-## Hava Durumu
+Weather conditions in the area can be unpredictable in December.
 
-Aralık ayında bölgedeki hava koşulları değişken olabilir.
-
-Gündüz sıcaklıklarının genellikle **5–10°C**, gece sıcaklıklarının ise yaklaşık **0°C** civarında olması beklenmektedir. Yağmur veya kar ihtimali bulunduğu için katılımcıların kış koşullarına uygun kıyafetler getirmeleri önerilmektedir.
+Daytime temperatures are generally expected to be around **5–10°C**, while night temperatures may be around **0°C**. Rain, snow or colder conditions are possible, so participants should bring clothing suitable for winter weather.
 
 ## Youthpass
 
-Projenin tüm katılımcılarına **Youthpass sertifikası** verilecektir.
+All participants will receive a **Youthpass Certificate**.
 
-Youthpass, Erasmus+ kapsamında edinilen bilgi, beceri ve öğrenme çıktılarının tanınmasına katkı sağlayan önemli bir araçtır.
+Youthpass supports the recognition of knowledge, skills and learning outcomes gained through Erasmus+ activities.
 
-## Etkinlik Bilgileri
+## Event Information
 
-- **Proje:** White Rainbow
-- **Program:** Erasmus+ Training Course
-- **Varış:** 4 Aralık 2026
-- **Ayrılış:** 13 Aralık 2026
-- **Yer:** Sărata Monteoru & Buzău, Romanya
-- **Organizatör:** FPT Buzău
-- **Koordinatör:** Tolea Postovei
-- **Katılımcı profili:** Gençlik çalışanları, gençlik liderleri ve proje koordinatörleri
-- **Yaş:** 20+
-- **Katılımcı sayısı:** 34 katılımcı + 4 uzman
-- **Youthpass:** Var
+- **Project:** White Rainbow
+- **Programme:** Erasmus+ Training Course
+- **Arrival:** 4 December 2026
+- **Departure:** 13 December 2026
+- **Venue:** Sărata Monteoru & Buzău, Romania
+- **Organiser:** FPT Buzău
+- **Coordinator:** Tolea Postovei
+- **Participant profile:** Youth workers, youth leaders and project coordinators
+- **Age:** 20+
+- **Participants:** 34 participants + 4 experts
+- **Youthpass:** Yes
 
-## Bilgi Paketi
+## Info Pack
 
-Projenin konaklama, ulaşım, seyahat geri ödemeleri, hazırlık süreci ve katılım kurallarına ilişkin ayrıntılı bilgileri içeren resmi bilgi paketini inceleyebilirsiniz:
+The official project information pack includes detailed information about accommodation, travel arrangements, reimbursement rules, preparation requirements and participation conditions:
 
-[**White Rainbow Bilgi Paketini Aç**](https://drive.google.com/file/d/10LlnmZeygHf5LZpbJHUSELHKoPo-wiwE/view?usp=sharing)
+[**Open the White Rainbow Info Pack**](https://drive.google.com/file/d/10LlnmZeygHf5LZpbJHUSELHKoPo-wiwE/view?usp=sharing)
 
-## Başvuru
+## Application
 
-White Rainbow Erasmus+ Eğitim Kursu’na katılmak isteyen adaylar aşağıdaki başvuru formunu doldurabilir:
+Candidates who would like to participate in the White Rainbow Erasmus+ Training Course can apply using the form below:
 
-[**Başvuru Formuna Git**](https://forms.gle/Y3YQsuZNxPQeufiW7)
+[**Go to Application Form**](https://forms.gle/Y3YQsuZNxPQeufiW7)
 
-Başvuru yapmadan önce **bilgi paketini**, proje tarihlerini, ulaşım koşullarını, katılım yükümlülüklerini ve seyahat belgelerine ilişkin kuralları dikkatle incelemenizi öneriyoruz.
+Before applying, please carefully review the **information pack**, project dates, travel arrangements, participation requirements and rules concerning travel documents.
