@@ -17,6 +17,7 @@ coverImage: "/images/projects/white-rainbow.png"
 coverFit: "contain"
 applicationUrl: "https://forms.gle/Y3YQsuZNxPQeufiW7"
 applicationLabel: "Başvuru Formu"
+infoPackUrl: "https://drive.google.com/file/d/10LlnmZeygHf5LZpbJHUSELHKoPo-wiwE/view?usp=sharing"
 featured: true
 summary_tr: "White Rainbow, gençlik çalışanlarının gençlerin iyi oluşunu desteklemek için kullanabilecekleri pratik araçlar, yaygın eğitim yöntemleri ve kapsayıcı gençlik çalışması yaklaşımlarına odaklanan uluslararası bir Erasmus+ eğitim kursudur."
 summary_en: "White Rainbow is an international Erasmus+ training course focused on practical tools, non-formal education methods and inclusive youth work approaches that youth workers can use to promote young people's well-being."
@@ -64,7 +65,9 @@ Projeye katılacak kişilerin:
 - eğitim programının tamamına katılım sağlaması,
 - kültürlerarası öğrenmeye açık olması,
 - grup çalışmalarına aktif katılım göstermesi,
-- proje sonrasındaki yaygınlaştırma faaliyetlerine katkı sunması beklenmektedir.
+- proje sonrasındaki yaygınlaştırma faaliyetlerine katkı sunması
+
+beklenmektedir.
 
 Projede toplam **34 gençlik çalışanı, gençlik lideri ve proje koordinatörü ile 4 uzman** yer alacaktır.
 
@@ -163,10 +166,16 @@ Youthpass, Erasmus+ kapsamında edinilen bilgi, beceri ve öğrenme çıktılar�
 - **Katılımcı sayısı:** 34 katılımcı + 4 uzman
 - **Youthpass:** Var
 
+## Bilgi Paketi
+
+Projenin konaklama, ulaşım, seyahat geri ödemeleri, hazırlık süreci ve katılım kurallarına ilişkin ayrıntılı bilgileri içeren resmi bilgi paketini inceleyebilirsiniz:
+
+[**White Rainbow Bilgi Paketini Aç**](https://drive.google.com/file/d/10LlnmZeygHf5LZpbJHUSELHKoPo-wiwE/view?usp=sharing)
+
 ## Başvuru
 
 White Rainbow Erasmus+ Eğitim Kursu’na katılmak isteyen adaylar aşağıdaki başvuru formunu doldurabilir:
 
 [**Başvuru Formuna Git**](https://forms.gle/Y3YQsuZNxPQeufiW7)
 
-Başvuru yapmadan önce proje tarihlerini, ulaşım koşullarını, katılım yükümlülüklerini ve seyahat belgelerine ilişkin kuralları dikkatle incelemenizi öneriyoruz.
+Başvuru yapmadan önce **bilgi paketini**, proje tarihlerini, ulaşım koşullarını, katılım yükümlülüklerini ve seyahat belgelerine ilişkin kuralları dikkatle incelemenizi öneriyoruz.
