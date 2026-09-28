@@ -12,6 +12,7 @@ const projectsCollection = defineCollection({
     location: z.string(),
     startDate: z.string(),
     endDate: z.string().optional(),
+    applicationDeadline: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
     coverImage: z.string().optional(),
     // Kapak bir afiş/grafikse 'contain': kırpılmadan tonlu panelde gösterilir.
     // Fotoğraflar varsayılan 'cover' ile tam kanar.

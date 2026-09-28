@@ -120,6 +120,7 @@ export const ui = {
     'projects.empty': 'Bu filtrelere uyan proje bulunamadı.',
     'projects.applyOpen': 'Başvuruya açık',
     'projects.activeApplication': 'Aktif başvuru',
+    'projects.applicationClosed': 'Başvuru süresi sona erdi',
 
     'news.kicker': 'Haberler',
     'news.title': 'Sahadan kareler.',
@@ -304,6 +305,7 @@ export const ui = {
     'projects.empty': 'No projects match these filters.',
     'projects.applyOpen': 'Applications open',
     'projects.activeApplication': 'Applications open',
+    'projects.applicationClosed': 'Applications closed',
 
     'news.kicker': 'News',
     'news.title': 'From the field.',
