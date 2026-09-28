@@ -515,8 +515,8 @@ function dateParts(value: string) {
                 </span>
 
                 <span class="col-span-4 sm:col-span-1 flex items-center justify-end gap-3">
-                  <span data-featured-project-status data-open-label={t('common.open')} data-closed-label={t('projects.applicationClosed')} data-archive-label={t('common.archive')} class={`hidden lg:inline-block text-[10px] font-semibold uppercase tracking-[0.14em] px-2 py-1 border ${isProjectApplicationOpen(project.data) ? 'border-brand-stamp text-brand-stamp' : 'border-line-strong text-ink-muted'}`}>
-                    {isProjectApplicationOpen(project.data) ? t('common.open') : project.data.status === 'Aktif' ? t('projects.applicationClosed') : t('common.archive')}
+                  <span data-featured-project-status data-open-label={t('common.open')} data-closed-label={t('projects.applicationClosed')} class={`hidden lg:inline-block text-[10px] font-semibold uppercase tracking-[0.14em] px-2 py-1 border ${isProjectApplicationOpen(project.data) ? 'border-brand-stamp text-brand-stamp' : 'border-line-strong text-ink-muted'}`}>
+                    {isProjectApplicationOpen(project.data) ? t('common.open') : t('projects.applicationClosed')}
                   </span>
                   <span class="text-brand-walnut text-lg transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
                 </span>
@@ -767,7 +767,7 @@ function dateParts(value: string) {
       });
       const badge = item.querySelector<HTMLElement>('[data-featured-project-status]');
       if (!badge) return;
-      badge.textContent = open ? badge.dataset.openLabel ?? '' : status === 'Aktif' ? badge.dataset.closedLabel ?? '' : badge.dataset.archiveLabel ?? '';
+      badge.textContent = open ? badge.dataset.openLabel ?? '' : badge.dataset.closedLabel ?? '';
       badge.classList.toggle('border-brand-stamp', open);
       badge.classList.toggle('text-brand-stamp', open);
       badge.classList.toggle('border-line-strong', !open);
