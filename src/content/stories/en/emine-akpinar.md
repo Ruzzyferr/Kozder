@@ -4,11 +4,11 @@ programName: "No More Walls, Europe Calls — Erasmus+ Youth Exchange"
 country: "Türkiye"
 startDate: "27.08.2026"
 images:
-  - "/images/stories/eminekpinar.jpg"
-  - "/images/stories/eminekpinar1.jpg"
-  - "/images/stories/eminekpinar2.jpg"
-  - "/images/stories/eminekpinar3.jpg"
-  - "/images/stories/eminekpinar4.jpg"
+  - "/images/stories/emineakpinar.jpg"
+  - "/images/stories/emineakpinar1.jpg"
+  - "/images/stories/emineakpinar2.jpg"
+  - "/images/stories/emineakpinar3.jpg"
+  - "/images/stories/emineakpinar4.jpg"
 summary: "Through the No More Walls, Europe Calls Erasmus+ youth exchange held in her hometown of Kilis, Emine Akpınar had the chance to present her own culture while building meaningful connections with young people from different countries."
 featured: true
 ---
