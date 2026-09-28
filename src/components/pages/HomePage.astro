@@ -12,6 +12,7 @@ import affiliations from '../../data/affiliations.json';
 import { getCollection } from 'astro:content';
 import { getEffectiveEventDate, getEventDateSortKey, formatEventDate } from '../../utils/date';
 import { byNewest } from '../../utils/contentSort';
+import { isProjectApplicationOpen } from '../../utils/projectApplications';
 
 const projects = (await getCollection('projects', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(p => !p.data.draft);
 const events = (await getCollection('events', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(e => !e.data.draft);
@@ -19,13 +20,13 @@ const posts = (await getCollection('posts', e => lang === 'en' ? e.slug.startsWi
 const news = (await getCollection('news', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(n => !n.data.draft);
 const stories = (await getCollection('stories', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(s => !s.data.draft);
 
-const projectStatusRank = (s: string) => (s === 'Aktif' ? 0 : 1);
+const projectStatusRank = (p: (typeof projects)[number]) => (isProjectApplicationOpen(p.data) ? 0 : 1);
 const newestProject = byNewest('projects', 'startDate');
 
 const featuredProjects = projects
   .filter(p => p.data.featured)
   .sort((a, b) => {
-    const s = projectStatusRank(a.data.status) - projectStatusRank(b.data.status);
+    const s = projectStatusRank(a) - projectStatusRank(b);
     if (s !== 0) return s;
     return newestProject(a, b);
   })
@@ -472,7 +473,13 @@ function dateParts(value: string) {
 
         <ul class="border-t border-line stagger">
           {featuredProjects.map((project, i) => (
-            <li class="border-b border-line">
+            <li
+              data-featured-project
+              data-project-static-status={project.data.status}
+              data-project-start-date={project.data.startDate}
+              data-project-deadline={project.data.applicationDeadline}
+              class="border-b border-line"
+            >
               <a href={entryPath(lang, 'projects', stripLangPrefix(project.slug))} class="group grid grid-cols-12 items-center gap-x-4 sm:gap-x-6 gap-y-3 py-6 sm:py-7 transition-colors duration-300 hover:bg-brand-paper/70 -mx-3 px-3">
                 <span class="col-span-2 sm:col-span-1 font-display font-black text-2xl sm:text-3xl text-brand-walnut/35 leading-none tracking-tightest group-hover:text-brand-walnut transition-colors duration-300">
                   {String(i + 1).padStart(2, '0')}
@@ -508,8 +515,8 @@ function dateParts(value: string) {
                 </span>
 
                 <span class="col-span-4 sm:col-span-1 flex items-center justify-end gap-3">
-                  <span class={`hidden lg:inline-block text-[10px] font-semibold uppercase tracking-[0.14em] px-2 py-1 border ${project.data.status === 'Aktif' ? 'border-brand-stamp text-brand-stamp' : 'border-line-strong text-ink-muted'}`}>
-                    {project.data.status === 'Aktif' ? t('common.open') : t('common.archive')}
+                  <span data-featured-project-status data-open-label={t('common.open')} data-closed-label={t('projects.applicationClosed')} data-archive-label={t('common.archive')} class={`hidden lg:inline-block text-[10px] font-semibold uppercase tracking-[0.14em] px-2 py-1 border ${isProjectApplicationOpen(project.data) ? 'border-brand-stamp text-brand-stamp' : 'border-line-strong text-ink-muted'}`}>
+                    {isProjectApplicationOpen(project.data) ? t('common.open') : project.data.status === 'Aktif' ? t('projects.applicationClosed') : t('common.archive')}
                   </span>
                   <span class="text-brand-walnut text-lg transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
                 </span>
@@ -747,6 +754,27 @@ function dateParts(value: string) {
 </BaseLayout>
 
 <script>
+  import { isProjectApplicationOpen } from '../../utils/projectApplications';
+
+  function syncFeaturedProjects() {
+    document.querySelectorAll<HTMLElement>('[data-featured-project]').forEach(item => {
+      const status = item.dataset.projectStaticStatus;
+      if (status !== 'Aktif' && status !== 'Tamamlandı') return;
+      const open = isProjectApplicationOpen({
+        status,
+        startDate: item.dataset.projectStartDate ?? '',
+        applicationDeadline: item.dataset.projectDeadline,
+      });
+      const badge = item.querySelector<HTMLElement>('[data-featured-project-status]');
+      if (!badge) return;
+      badge.textContent = open ? badge.dataset.openLabel ?? '' : status === 'Aktif' ? badge.dataset.closedLabel ?? '' : badge.dataset.archiveLabel ?? '';
+      badge.classList.toggle('border-brand-stamp', open);
+      badge.classList.toggle('text-brand-stamp', open);
+      badge.classList.toggle('border-line-strong', !open);
+      badge.classList.toggle('text-ink-muted', !open);
+    });
+  }
+
   function initHeroNewsSliders() {
     document.querySelectorAll('[data-hero-news-slider]').forEach((slider) => {
       if (!(slider instanceof HTMLElement) || slider.dataset.initialized === 'true') return;
@@ -831,6 +859,8 @@ function dateParts(value: string) {
   document.addEventListener('astro:page-load', initHeroRotatingText);
   initHeroNewsSliders();
   initHeroRotatingText();
+  syncFeaturedProjects();
+  window.setInterval(syncFeaturedProjects, 60_000);
 </script>
 
 <style>

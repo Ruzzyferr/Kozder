@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, entryPath, stripLangPrefix, useTranslations, type Lang } from '../i18n';
 import CardMedia from './CardMedia.astro';
+import { isProjectApplicationOpen } from '../utils/projectApplications';
 
 interface Props {
   title: string;
@@ -10,24 +11,26 @@ interface Props {
   programType: 'ESC' | 'ERASMUS';
   year: number;
   status: 'Aktif' | 'Tamamlandı';
+  startDate: string;
+  applicationDeadline?: string;
   slug: string;
   lang?: Lang;
 }
 
-const { title, summary, coverImage, coverFit = 'cover', programType, year, status, slug, lang: langProp } = Astro.props;
+const { title, summary, coverImage, coverFit = 'cover', programType, year, status, startDate, applicationDeadline, slug, lang: langProp } = Astro.props;
 const lang: Lang = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const isActive = status === 'Aktif';
+const isActive = isProjectApplicationOpen({ status, startDate, applicationDeadline });
 ---
 
 <a href={entryPath(lang, 'projects', stripLangPrefix(slug))} class="group block h-full">
-  <article class="card card-hover h-full bg-brand-cream flex flex-col">
+  <article data-project-card class="card card-hover h-full bg-brand-cream flex flex-col">
     <CardMedia src={coverImage} alt={title} fit={coverFit} ratio="aspect-square">
       <span class="absolute top-3 left-3 bg-brand-ink/90 backdrop-blur-sm text-brand-cream text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1.5">
         {programType}
       </span>
-      {isActive && (
-        <span class="absolute top-3 right-3 flex items-center gap-1.5 bg-brand-stamp text-brand-cream text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1.5">
+      {status === 'Aktif' && (
+        <span data-project-open-badge class={`absolute top-3 right-3 flex items-center gap-1.5 bg-brand-stamp text-brand-cream text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1.5 ${isActive ? '' : 'hidden'}`}>
           <span class="w-1.5 h-1.5 rounded-full bg-brand-cream"></span>
           {t('common.open')}
         </span>
@@ -35,8 +38,8 @@ const isActive = status === 'Aktif';
     </CardMedia>
 
     <div class="p-5 sm:p-6 flex-1 flex flex-col">
-      <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-muted mb-3">
-        {year} · {isActive ? t('projects.applyOpen') : t('common.archive')}
+      <p data-project-status-label data-open-label={t('projects.applyOpen')} data-closed-label={t('projects.applicationClosed')} data-archive-label={t('common.archive')} class="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-muted mb-3">
+        {year} · {isActive ? t('projects.applyOpen') : status === 'Aktif' ? t('projects.applicationClosed') : t('common.archive')}
       </p>
 
       <h3 class="font-display font-bold text-xl sm:text-[1.4rem] text-brand-ink leading-[1.12] tracking-tight line-clamp-2 group-hover:text-brand-stamp transition-colors duration-300">

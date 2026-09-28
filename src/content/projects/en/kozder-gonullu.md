@@ -14,6 +14,7 @@ themes:
 location: "Kilis / Online"
 startDate: "19.06.2026"
 endDate: "15.10.2026"
+applicationDeadline: "2026-10-15"
 coverImage: "/images/events/kozdergonullu.png"
 coverFit: "contain"
 applicationUrl: "https://forms.gle/UHrDcqzVg6sTuAY5A"

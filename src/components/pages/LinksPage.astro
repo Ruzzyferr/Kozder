@@ -9,12 +9,14 @@ const p = usePage(lang);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
+import { isProjectApplicationOpen } from '../../utils/projectApplications';
 
 interface LinkItem {
   title: string;
   desc: string;
   href: string;
   external?: boolean;
+  isActiveCalls?: boolean;
 }
 
 interface LinkGroup {
@@ -24,19 +26,21 @@ interface LinkGroup {
 }
 
 // Aktif çağrı sayısını sayfada göstermek için — boşsa o kart hiç çıkmaz.
-const activeProjects = (await getCollection('projects', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/')))
+const candidates = (await getCollection('projects', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/')))
   .filter(p => !p.data.draft && p.data.status === 'Aktif');
+const activeProjects = candidates.filter(p => isProjectApplicationOpen(p.data));
 
 const groups: LinkGroup[] = [
   {
     kicker: '01',
     heading: p.links.applyHeading,
     items: [
-      ...(activeProjects.length > 0
+      ...(candidates.length > 0
         ? [{
             title: p.links.activeCalls,
             desc: p.links.activeCallsDesc(activeProjects.length),
             href: path(lang, 'projects'),
+            isActiveCalls: true,
           }]
         : []),
       { title: t('stories.title').replace(/\.$/, ''), desc: p.links.storiesDesc, href: path(lang, 'stories') },
@@ -99,7 +103,11 @@ const groups: LinkGroup[] = [
 
           <ul class="bg-brand-cream divide-y divide-line card card-2">
             {group.items.map(item => (
-              <li>
+              <li data-active-calls={item.isActiveCalls ? '' : undefined} data-projects={item.isActiveCalls ? JSON.stringify(candidates.map(project => ({
+                status: project.data.status,
+                startDate: project.data.startDate,
+                applicationDeadline: project.data.applicationDeadline,
+              }))) : undefined} class={item.isActiveCalls && activeProjects.length === 0 ? 'hidden' : undefined}>
                 <a
                   href={item.href}
                   target={item.external ? '_blank' : undefined}
@@ -110,7 +118,7 @@ const groups: LinkGroup[] = [
                     <span class="block font-display font-bold text-lg sm:text-xl text-brand-ink group-hover:text-brand-stamp transition-colors leading-tight tracking-tight">
                       {item.title}
                     </span>
-                    <span class="block text-sm text-ink-soft leading-snug mt-1">{item.desc}</span>
+                    <span data-active-calls-desc={item.isActiveCalls ? '' : undefined} class="block text-sm text-ink-soft leading-snug mt-1">{item.desc}</span>
                   </span>
                   <span
                     class="flex-shrink-0 w-9 h-9 border border-brand-ink bg-brand-cream group-hover:bg-brand-ink group-hover:text-brand-cream text-brand-ink flex items-center justify-center transition-colors font-mono text-lg font-bold"
@@ -144,3 +152,29 @@ const groups: LinkGroup[] = [
     </div>
   </div>
 </BaseLayout>
+
+<script>
+  import { isProjectApplicationOpen, type ProjectApplicationData } from '../../utils/projectApplications';
+
+  function syncActiveCalls() {
+    const card = document.querySelector<HTMLElement>('[data-active-calls]');
+    if (!card) return;
+    let projects: ProjectApplicationData[] = [];
+    try {
+      projects = JSON.parse(card.dataset.projects ?? '[]') as ProjectApplicationData[];
+    } catch {
+      return;
+    }
+    const count = projects.filter(project => isProjectApplicationOpen(project)).length;
+    card.classList.toggle('hidden', count === 0);
+    const description = card.querySelector<HTMLElement>('[data-active-calls-desc]');
+    if (description) {
+      description.textContent = document.documentElement.lang === 'en'
+        ? `${count} open Erasmus+ / ESC project${count === 1 ? '' : 's'} waiting for applications`
+        : `${count} açık Erasmus+ / ESC projesi başvuru bekliyor`;
+    }
+  }
+
+  syncActiveCalls();
+  window.setInterval(syncActiveCalls, 60_000);
+</script>

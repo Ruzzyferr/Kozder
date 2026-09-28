@@ -11,22 +11,23 @@ import ProjectCard from '../../components/ProjectCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import { byNewest } from '../../utils/contentSort';
+import { isProjectApplicationOpen } from '../../utils/projectApplications';
 
 const allProjects = (await getCollection('projects', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(p => !p.data.draft);
 
-const statusRank = (s: string) => (s === 'Aktif' ? 0 : 1);
+const statusRank = (p: (typeof allProjects)[number]) => (isProjectApplicationOpen(p.data) ? 0 : 1);
 const newest = byNewest('projects', 'startDate');
 
 // Active projects first; within each status group, newest-added first.
 const projects = allProjects.sort((a, b) => {
-  const s = statusRank(a.data.status) - statusRank(b.data.status);
+  const s = statusRank(a) - statusRank(b);
   if (s !== 0) return s;
   return newest(a, b);
 });
 
 const allPrograms = [...new Set(projects.map(p => p.data.programType))];
 const allYears = [...new Set(projects.map(p => p.data.year))].sort((a, b) => b - a);
-const allStatuses = [...new Set(projects.map(p => p.data.status))];
+const allStatuses = ['Aktif', 'Tamamlandı'] as const;
 const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
 ---
 
@@ -79,7 +80,7 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
           <select id="filter-status">
             <option value="">{t('common.all')}</option>
             {allStatuses.map(status => (
-              <option value={status}>{status === 'Aktif' ? t('common.open') : t('common.completed')}</option>
+              <option value={status}>{status === 'Aktif' ? t('common.open') : t('projects.applicationClosed')}</option>
             ))}
           </select>
         </div>
@@ -99,7 +100,10 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
           class="project-item reveal"
           data-program={project.data.programType}
           data-year={project.data.year}
-          data-status={project.data.status}
+          data-status={isProjectApplicationOpen(project.data) ? 'Aktif' : 'Tamamlandı'}
+          data-project-static-status={project.data.status}
+          data-project-start-date={project.data.startDate}
+          data-project-deadline={project.data.applicationDeadline}
           data-themes={project.data.themes.join(',')}
         >
           <ProjectCard
@@ -111,6 +115,8 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
             programType={project.data.programType}
             year={project.data.year}
             status={project.data.status}
+            startDate={project.data.startDate}
+            applicationDeadline={project.data.applicationDeadline}
             slug={project.slug}
           />
         </div>
@@ -125,12 +131,35 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
 </BaseLayout>
 
 <script>
+  import { isProjectApplicationOpen } from '../../utils/projectApplications';
   const ids = ['filter-program', 'filter-year', 'filter-status', 'filter-theme'];
   const selects = ids.map(id => document.getElementById(id) as HTMLSelectElement | null);
   const reset = document.getElementById('reset-filters');
   const container = document.getElementById('projects-container');
   const noResults = document.getElementById('no-results');
   const items = document.querySelectorAll<HTMLElement>('.project-item');
+
+  function syncProjectStatuses() {
+    items.forEach(item => {
+      const status = item.dataset.projectStaticStatus;
+      if (status !== 'Aktif' && status !== 'Tamamlandı') return;
+      const open = isProjectApplicationOpen({
+        status,
+        startDate: item.dataset.projectStartDate ?? '',
+        applicationDeadline: item.dataset.projectDeadline,
+      });
+      item.dataset.status = open ? 'Aktif' : 'Tamamlandı';
+      item.querySelector('[data-project-open-badge]')?.classList.toggle('hidden', !open);
+      const label = item.querySelector<HTMLElement>('[data-project-status-label]');
+      if (label) {
+        const year = item.dataset.year ?? '';
+        label.textContent = `${year} · ${open ? label.dataset.openLabel : status === 'Aktif' ? label.dataset.closedLabel : label.dataset.archiveLabel}`;
+      }
+    });
+    const sorted = Array.from(items).sort((a, b) => Number(b.dataset.status === 'Aktif') - Number(a.dataset.status === 'Aktif'));
+    sorted.forEach(item => container?.append(item));
+    applyFilters();
+  }
 
   function applyFilters() {
     const [program, year, status, theme] = selects.map(s => s?.value ?? '');
@@ -148,6 +177,8 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
     container?.classList.toggle('hidden', visible === 0);
   }
 
+  syncProjectStatuses();
+  window.setInterval(syncProjectStatuses, 60_000);
   selects.forEach(s => s?.addEventListener('change', applyFilters));
   reset?.addEventListener('click', () => {
     selects.forEach(s => { if (s) s.value = ''; });
