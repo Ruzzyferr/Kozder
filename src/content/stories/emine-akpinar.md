@@ -4,11 +4,11 @@ programName: "No More Walls, Europe Calls — Erasmus+ Gençlik Değişimi"
 country: "Türkiye"
 startDate: "27.08.2026"
 images:
-  - "/images/stories/eminekpinar.jpg"
-  - "/images/stories/eminekpinar1.jpg"
-  - "/images/stories/eminekpinar2.jpg"
-  - "/images/stories/eminekpinar3.jpg"
-  - "/images/stories/eminekpinar4.jpg"
+  - "/images/stories/emineakpinar.jpg"
+  - "/images/stories/emineakpinar1.jpg"
+  - "/images/stories/emineakpinar2.jpg"
+  - "/images/stories/emineakpinar3.jpg"
+  - "/images/stories/emineakpinar4.jpg"
 summary: "Emine Akpınar, kendi şehri Kilis’te gerçekleştirilen No More Walls, Europe Calls Erasmus+ gençlik değişimi kapsamında uluslararası bir deneyim yaşayarak hem kendi kültürünü tanıtma hem de farklı ülkelerden gençlerle güçlü bağlar kurma fırsatı elde etti."
 featured: true
 ---
