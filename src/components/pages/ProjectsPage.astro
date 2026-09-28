@@ -153,7 +153,7 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
       const label = item.querySelector<HTMLElement>('[data-project-status-label]');
       if (label) {
         const year = item.dataset.year ?? '';
-        label.textContent = `${year} · ${open ? label.dataset.openLabel : status === 'Aktif' ? label.dataset.closedLabel : label.dataset.archiveLabel}`;
+        label.textContent = `${year} · ${open ? label.dataset.openLabel : label.dataset.closedLabel}`;
       }
     });
     const sorted = Array.from(items).sort((a, b) => Number(b.dataset.status === 'Aktif') - Number(a.dataset.status === 'Aktif'));
