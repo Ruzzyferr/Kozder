@@ -1,14 +1,14 @@
 ---
 title_tr: "KOZ-DER Speaking Club"
 title_en: "KOZ-DER Speaking Club"
-date: "2026-09-25"
+date: "2026-09-30"
 time: "20:00"
 location: "KOZ-DER Association Centre, Kilis"
 coverImage: "/images/events/speakingclub.png"
 coverFit: "contain"
 registrationUrl: "https://chat.whatsapp.com/L5sDZNQRGD94mnwk1iFJCT?s=cl&p=i&mlu=4&ilr=4"
 recurring: "weekly"
-weekday: "friday"
+weekday: "wednesday"
 ---
 
 At KOZ-DER, we bring together young people who want to practise speaking English through our **Speaking Club**. During our regular Friday meetings, participants can practise English, meet new people and become more confident in expressing themselves in English.
