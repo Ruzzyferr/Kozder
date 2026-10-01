@@ -7,7 +7,6 @@ const t = useTranslations(lang);
 const p = usePage(lang);
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ProjectCard from '../ProjectCard.astro';
 import LogoMarquee from '../../components/LogoMarquee.astro';
 import affiliations from '../../data/affiliations.json';
 import { getCollection } from 'astro:content';
@@ -24,8 +23,14 @@ const stories = (await getCollection('stories', e => lang === 'en' ? e.slug.star
 const projectStatusRank = (p: (typeof projects)[number]) => (isProjectApplicationOpen(p.data) ? 0 : 1);
 const newestProject = byNewest('projects', 'startDate');
 
-const featuredProjects = [...projects].sort(newestProject);
-const heroPhoto = news.find(item => stripLangPrefix(item.slug) === 'life-for-prr');
+const featuredProjects = projects
+  .filter(p => p.data.featured)
+  .sort((a, b) => {
+    const s = projectStatusRank(a) - projectStatusRank(b);
+    if (s !== 0) return s;
+    return newestProject(a, b);
+  })
+  .slice(0, 5);
 
 // Etkinlik bölümü: yaklaşan varsa onlar, yoksa bölüm kaybolmasın diye
 // en son yapılanlar gösterilir.
@@ -72,12 +77,72 @@ const stats = [
   { value: '7', label: t('home.stats.countries') },
 ];
 
-const affiliationRows = [{
-  label: lang === 'en' ? 'Our networks, partners and supporters' : 'Ağlarımız, paydaşlarımız ve destekçilerimiz',
-  items: [...affiliations.networks.items, ...affiliations.partners.items],
-  direction: 'left' as const,
-  duration: 48,
-}];
+const affiliationRows = [
+  { ...affiliations.networks, label: lang === 'en' ? affiliations.networks.label_en : affiliations.networks.label, direction: 'left' as const, duration: 30 },
+  { ...affiliations.partners, label: lang === 'en' ? affiliations.partners.label_en : affiliations.partners.label, direction: 'right' as const, duration: 46 },
+];
+
+const heroSyllableColors = ['#0066FF', '#00B894', '#8B5CF6', '#EC3B83', '#00A9CE', '#2ECC71', '#D946EF', '#4F46E5', '#14B8A6', '#E11D48'];
+
+const heroMessage = lang === 'en'
+  ? {
+      line1: 'Europe.',
+      line2: 'Volunteer.',
+          rotating: [
+        { text: 'Join In.', syllables: ['Join ', 'In.'] },
+        { text: 'Create Together.', syllables: ['Cre', 'ate ', 'To', 'ge', 'ther.'] },
+        { text: 'Take Part Equally.', syllables: ['Take ', 'Part ', 'E', 'qual', 'ly.'] },
+        { text: 'For Everyone.', syllables: ['For ', 'Ev', 'ery', 'one.'] },
+        { text: 'Every Voice Counts.', syllables: ['Ev', 'ery ', 'Voice ', 'Counts.'] },
+        { text: 'Diversity Is Strength.', syllables: ['Di', 'ver', 'si', 'ty ', 'Is ', 'Strength.'] },
+        { text: 'Break Barriers.', syllables: ['Break ', 'Bar', 'ri', 'ers.'] },
+        { text: 'Grow Together.', syllables: ['Grow ', 'To', 'ge', 'ther.'] },
+        { text: 'Code the Future.', syllables: ['Code ', 'the ', 'Fu', 'ture.'] },
+        { text: 'Discover the World.', syllables: ['Dis', 'cov', 'er ', 'the ', 'World.'] },
+        { text: 'Go Greener.', syllables: ['Go ', 'Green', 'er.'] },
+        { text: 'Gather Experience.', syllables: ['Gath', 'er ', 'Ex', 'pe', 'ri', 'ence.'] },
+        { text: 'Start the Journey.', syllables: ['Start ', 'the ', 'Jour', 'ney.'] },
+        { text: 'From Kilis to Europe.', syllables: ['From ', 'Ki', 'lis ', 'to ', 'Eu', 'rope.'] },
+        { text: 'Share Your Idea.', syllables: ['Share ', 'Your ', 'I', 'de', 'a.'] },
+        { text: 'Find Your Courage.', syllables: ['Find ', 'Your ', 'Cour', 'age.'] },
+        { text: 'Stronger Together.', syllables: ['Strong', 'er ', 'To', 'ge', 'ther.'] },
+        { text: 'Start the Change.', syllables: ['Start ', 'the ', 'Change.'] },
+      ],
+      lead: 'From Kilis to Europe, volunteer, gain experience and discover the world through Erasmus+ and European Solidarity Corps opportunities.',
+      primary: 'Explore Opportunities',
+      secondary: 'Discover KOZ-DER',
+      how: 'How can I join?',
+      trust: ['Active since 2019', 'ESC Lead & Support Organisation', 'Volunteering across Europe'],
+    }
+  : {
+      line1: 'Avrupa.',
+      line2: 'Gönüllü Ol.',
+            rotating: [
+        { text: 'Sen de Katıl.', syllables: ['Sen ', 'de ', 'Ka', 'tıl.'] },
+        { text: 'Birlikte Üret.', syllables: ['Bir', 'lik', 'te ', 'Ü', 'ret.'] },
+        { text: 'Eşitçe Katıl.', syllables: ['E', 'şit', 'çe ', 'Ka', 'tıl.'] },
+        { text: 'Herkes İçin.', syllables: ['Her', 'kes ', 'İ', 'çin.'] },
+        { text: 'Sesini Duyur.', syllables: ['Se', 'si', 'ni ', 'Du', 'yur.'] },
+        { text: 'Farklılık Güçtür.', syllables: ['Fark', 'lı', 'lık ', 'Güç', 'tür.'] },
+        { text: 'Engelleri Aş.', syllables: ['En', 'gel', 'le', 'ri ', 'Aş.'] },
+        { text: 'Dayanışmayla Büyü.', syllables: ['Da', 'ya', 'nış', 'may', 'la ', 'Bü', 'yü.'] },
+        { text: 'Geleceği Kodla.', syllables: ['Ge', 'le', 'ce', 'ği ', 'Kod', 'la.'] },
+        { text: 'Dünyayı Keşfet.', syllables: ['Dün', 'ya', 'yı ', 'Keş', 'fet.'] },
+        { text: 'Yeşili Büyüt.', syllables: ['Ye', 'şi', 'li ', 'Bü', 'yüt.'] },
+        { text: 'Deneyim Biriktir.', syllables: ['De', 'ne', 'yim ', 'Bi', 'rik', 'tir.'] },
+        { text: 'Yolculuğa Çık.', syllables: ['Yol', 'cu', 'lu', 'ğa ', 'Çık.'] },
+        { text: 'Kilis’ten Avrupa’ya.', syllables: ['Ki', 'lis’', 'ten ', 'Av', 'ru', 'pa’', 'ya.'] },
+        { text: 'Fikrini Paylaş.', syllables: ['Fik', 'ri', 'ni ', 'Pay', 'laş.'] },
+        { text: 'Cesaretini Topla.', syllables: ['Ce', 'sa', 're', 'ti', 'ni ', 'Top', 'la.'] },
+        { text: 'Birlikte Güçlüyüz.', syllables: ['Bir', 'lik', 'te ', 'Güç', 'lü', 'yüz.'] },
+        { text: 'Değişimi Başlat.', syllables: ['De', 'ği', 'şi', 'mi ', 'Baş', 'lat.'] },
+      ],
+      lead: "Kilis’ten Avrupa’ya uzanan Erasmus+ ve Avrupa Dayanışma Programı fırsatlarıyla gönüllü ol, deneyim kazan ve dünyayı keşfet.",
+      primary: 'Fırsatları İncele',
+      secondary: 'KOZ-DER’i Tanı',
+      how: 'Nasıl katılırım?',
+      trust: ['2019’dan beri aktif', 'ESC Lider ve Destek Kuruluşu', 'Avrupa çapında gönüllülük'],
+    };
 
 const steps = [
   { n: '01', title: t('home.steps.1.title'), text: t('home.steps.1.text'), href: path(lang, 'projects') },
@@ -104,58 +169,378 @@ function dateParts(value: string) {
 }
 ---
 
-<BaseLayout lang={lang} title={p.meta.home.title} description={p.meta.home.description} alternate={alternatePath(lang, 'home')}>
-  <section class="journey-hero">
-    <div class="container mx-auto px-4 journey-grid">
-      <div class="journey-copy">
-        <p class="journey-kicker">KİLİS · ERASMUS+ · ESC</p>
-        <h1>{lang === 'en' ? 'From Kilis to Europe.' : 'Kilis’ten Avrupa’ya.'}<br /><span>{lang === 'en' ? 'Together.' : 'Birlikte.'}</span></h1>
-        <p class="journey-lead">{lang === 'en' ? 'Meet new cultures, volunteer and turn your ideas into action. Find your next opportunity with KOZ-DER.' : 'Yeni kültürlerle tanış, gönüllü ol, fikirlerini hayata geçir. KOZ-DER ile sana uygun fırsatı keşfet.'}</p>
-        <div class="journey-actions">
-          <a class="journey-button" href="#opportunities">{lang === 'en' ? 'Explore opportunities' : 'Fırsatları keşfet'}</a>
-          <a class="journey-button journey-button-outline" href={entryPath(lang, 'projects', 'kozder-gonullu')}>{lang === 'en' ? 'Volunteer with us' : 'Gönüllü ol'}</a>
+<BaseLayout
+  lang={lang}
+  title={p.meta.home.title}
+  description={p.meta.home.description}
+  alternate={alternatePath(lang, 'home')}
+>
+  <!-- ============ HERO — asimetrik, sağda tam kanayan fotoğraf ============ -->
+  <section class="bg-brand-paper">
+    <div class="grid lg:grid-cols-2 items-stretch lg:h-[720px] xl:h-[760px]">
+      <div
+        class="flex items-center px-5 sm:px-8 py-14 sm:py-20 lg:py-16 xl:py-20
+               lg:pl-[max(1.5rem,calc((100vw-1280px)/2+1rem))] lg:pr-12 xl:pr-20"
+      >
+        <div class="w-full max-w-xl reveal">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-stamp mb-7">
+            {t('home.hero.kicker')}
+          </p>
+
+
+          <h1 class="font-display text-brand-ink leading-[0.88] tracking-tightest">
+            <span class="block text-[3.15rem] sm:text-7xl xl:text-8xl font-black">{heroMessage.line1}</span>
+            <span
+              class="block text-[3.15rem] sm:text-7xl xl:text-8xl font-black text-brand-stamp"
+              style="font-variation-settings: 'opsz' 96, 'wdth' 78;"
+            >{heroMessage.line2}</span>
+            <span
+              class="hero-rotating-line block min-h-[0.9em] whitespace-nowrap text-[2.75rem] sm:text-6xl xl:text-7xl font-black"
+              data-hero-rotating
+              data-rotating-words={JSON.stringify(heroMessage.rotating)}
+              data-rotating-colors={JSON.stringify(heroSyllableColors)}
+              aria-live="polite"
+              style="font-variation-settings: 'opsz' 96, 'wdth' 78;"
+            >{heroMessage.rotating[0].syllables.map((syllable, index) => <span style={`color: ${heroSyllableColors[index % heroSyllableColors.length]};`}>{syllable}</span>)}</span>
+          </h1>
+
+          <p class="mt-7 text-base sm:text-lg text-ink-soft leading-relaxed max-w-lg">
+            {heroMessage.lead}
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a
+              href={path(lang, 'projects')}
+              class="group inline-flex items-center justify-center gap-3 bg-brand-stamp text-white hover:bg-brand-ink px-7 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300"
+            >
+              {heroMessage.primary}
+              <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </a>
+            <a
+              href={path(lang, 'about')}
+              class="inline-flex items-center justify-center gap-2 border border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-cream px-7 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300"
+            >
+              {heroMessage.secondary}
+            </a>
+          </div>
+
+          <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+            <a href={path(lang, 'faq')} class="text-[11px] font-semibold text-brand-stamp underline underline-offset-4 hover:text-brand-ink transition-colors">
+              {heroMessage.how} →
+            </a>
+            <span class="hidden sm:block h-3 w-px bg-line-strong" aria-hidden="true"></span>
+            <div class="flex flex-wrap gap-x-4 gap-y-1.5 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.11em] text-ink-muted">
+              {heroMessage.trust.map((item) => (
+                <span class="inline-flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-stamp" aria-hidden="true"></span>
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
-        <a class="journey-help" href={path(lang, 'faq')}>{lang === 'en' ? 'Your first project? Start here.' : 'İlk projen mi? Buradan başla.'}</a>
-        <p class="journey-trust">{lang === 'en' ? 'Since 2019 · ESC Lead & Support Organisation' : '2019’dan beri · ESC Lider ve Destek Kuruluşu'}</p>
       </div>
-      <figure class="journey-photo">
-        <img src={heroPhoto?.data.coverImage ?? '/images/hero-bremen.jpg'} alt={lang === 'en' ? 'Youth exchange participants together in Kilis' : 'Kilis’te bir araya gelen gençlik değişimi katılımcıları'} width="2048" height="1152" fetchpriority="high" />
-        <figcaption><span>{lang === 'en' ? 'Different countries. Shared experiences.' : 'Farklı ülkeler. Ortak deneyimler.'}</span><a href={entryPath(lang, 'news', heroPhoto ? stripLangPrefix(heroPhoto.slug) : 'bridges-for-future2')}>{lang === 'en' ? 'Discover our activities' : 'Çalışmalarımızı keşfet'}</a></figcaption>
-      </figure>
+
+      <div
+        class="hero-media hero-news-slider relative min-h-[340px] sm:min-h-[460px] lg:min-h-0 lg:my-8 lg:mr-6 xl:mr-10 overflow-hidden rounded-[24px] lg:rounded-[28px] bg-brand-ink"
+        data-hero-news-slider
+        aria-roledescription="carousel"
+        aria-label={lang === 'en' ? 'Latest news' : 'Son haberler'}
+      >
+        {heroNews.length > 0 ? (
+          <>
+            {heroNews.map((item, index) => {
+              const title = lang === 'en' ? item.data.title_en : item.data.title_tr;
+              return (
+                <a
+                  href={entryPath(lang, 'news', stripLangPrefix(item.slug))}
+                  class="hero-news-slide group absolute inset-0 block"
+                  data-hero-news-slide
+                  data-active={index === 0 ? 'true' : 'false'}
+                  aria-hidden={index === 0 ? 'false' : 'true'}
+                  tabindex={index === 0 ? 0 : -1}
+                >
+                  <img
+                    src={item.data.coverImage}
+                    alt=""
+                    aria-hidden="true"
+                    class="absolute inset-0 w-full h-full object-cover scale-110 blur-xl opacity-40"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                  />
+                  <img
+                    src={item.data.coverImage}
+                    alt={title}
+                    class="absolute inset-0 w-full h-full object-contain transition-transform duration-[1200ms] group-hover:scale-[1.01]"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    fetchpriority={index === 0 ? 'high' : 'auto'}
+                    width="960"
+                    height="1200"
+                  />
+                  <span class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></span>
+                  <span class="absolute inset-x-0 bottom-0 p-5 sm:p-7 lg:p-9 text-white">
+                    <span class="block text-[10px] font-semibold uppercase tracking-[0.18em] text-white/80 mb-2">
+                      {formatEventDate(item.data.date, { lang })}
+                    </span>
+                    <span class="block font-display font-bold text-2xl sm:text-3xl leading-tight max-w-2xl">{title}</span>
+                    <span class="mt-3 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em]">
+                      {lang === 'en' ? 'Read the news' : 'Haberi oku'} <span aria-hidden="true">→</span>
+                    </span>
+                  </span>
+                </a>
+              );
+            })}
+
+            {heroNews.length > 1 && (
+              <>
+                <div class="absolute z-10 right-4 top-4 flex items-center gap-2">
+                  <button type="button" class="hero-news-control" data-hero-news-prev aria-label={lang === 'en' ? 'Previous news' : 'Önceki haber'}>←</button>
+                  <button type="button" class="hero-news-control" data-hero-news-next aria-label={lang === 'en' ? 'Next news' : 'Sonraki haber'}>→</button>
+                </div>
+                <div class="absolute z-10 left-5 sm:left-7 lg:left-9 top-5 sm:top-7 flex gap-2" aria-hidden="true">
+                  {heroNews.map((_, index) => (
+                    <span class="hero-news-dot" data-hero-news-dot data-active={index === 0 ? 'true' : 'false'}></span>
+                  ))}
+                </div>
+              </>
+            )}
+          </>
+        ) : (
+          <figure class="absolute inset-0 m-0">
+            <img
+              src="/images/hero-bremen.jpg"
+              alt={t('home.hero.alt')}
+              class="absolute inset-0 w-full h-full object-cover object-[50%_58%] lg:object-center"
+              loading="eager"
+              fetchpriority="high"
+              width="960"
+              height="1200"
+            />
+            <figcaption class="absolute bottom-0 left-0 right-0 px-5 pt-16 pb-4 text-[10px] font-medium uppercase tracking-[0.18em] text-white bg-gradient-to-t from-black/80 via-black/35 to-transparent">
+              {t('home.hero.caption')}
+            </figcaption>
+          </figure>
+        )}
+      </div>
     </div>
   </section>
 
-  <section class="bg-brand-cream border-b border-line"><dl class="container mx-auto px-4 py-7 grid grid-cols-2 md:grid-cols-4 gap-6">{stats.map(stat => <div><dt class="text-sm text-ink-muted">{stat.label}</dt><dd class="font-display text-3xl font-bold text-brand-ink mt-1">{stat.value}</dd></div>)}</dl></section>
-
-  <section id="opportunities" class="py-16 sm:py-20 bg-brand-paper border-b border-line">
+  <!-- ============ İSTATİSTİK — ince şerit ============ -->
+  <section class="border-y border-line bg-brand-cream">
     <div class="container mx-auto px-4">
-      <header class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-8">
-        <div><p class="text-sm font-semibold text-brand-stamp mb-3">{lang === 'en' ? 'Take the first step' : 'İlk adımı at'}</p><h2 class="font-display font-black text-4xl sm:text-5xl text-brand-ink">{lang === 'en' ? 'Open opportunities' : 'Açık fırsatlar'}</h2></div>
-        <a class="text-base font-semibold underline underline-offset-4" href={path(lang, 'projects')}>{t('common.allProjects')}</a>
-      </header>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {featuredProjects.map(project => (
-          <div data-home-opportunity data-project-static-status={project.data.status} data-project-start-date={project.data.startDate} data-project-deadline={project.data.applicationDeadline} hidden={!isProjectApplicationOpen(project.data)}>
-            <ProjectCard lang={lang} title={lang === 'en' ? project.data.title_en : project.data.title_tr} summary={lang === 'en' ? project.data.summary_en : project.data.summary_tr} coverImage={project.data.coverImage} coverFit={project.data.coverFit} programType={project.data.programType} year={project.data.year} status={project.data.status} startDate={project.data.startDate} endDate={project.data.endDate} location={project.data.location} applicationDeadline={project.data.applicationDeadline} slug={project.slug} />
+      <dl class="grid grid-cols-2 md:grid-cols-4">
+        {stats.map((s, i) => (
+          <div class={`py-7 sm:py-9 ${i % 2 === 1 ? 'pl-6' : ''} ${i > 0 ? 'md:pl-8' : ''} ${i < 2 ? 'border-b md:border-b-0 border-line' : ''} ${i > 0 ? 'md:border-l md:border-line' : ''}`}>
+            <dt class="sr-only">{s.label}</dt>
+            <dd class="m-0">
+              <span class="font-display font-black text-4xl sm:text-5xl text-brand-ink leading-none tracking-tightest block">
+                {s.value}
+              </span>
+              <span class="mt-2.5 block text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-ink-muted font-semibold">
+                {s.label}
+              </span>
+            </dd>
           </div>
         ))}
-      </div>
-      <p data-home-empty hidden={featuredProjects.some(project => isProjectApplicationOpen(project.data))} class="p-8 bg-brand-cream rounded-2xl text-base text-ink-soft">{lang === 'en' ? 'There are no open calls at the moment. Explore our projects and stay in touch for new opportunities.' : 'Şu anda başvurusu açık bir çağrı bulunmuyor. Projelerimizi inceleyebilir, yeni fırsatlar için bizimle iletişimde kalabilirsin.'}</p>
+      </dl>
     </div>
   </section>
+
+  <!-- ============ AĞLAR & PAYDAŞLAR ============ -->
+  <section class="bg-brand-paper border-b border-line py-12 sm:py-16" aria-labelledby="aglar-paydaslar">
+    <h2 id="aglar-paydaslar" class="sr-only">{t('home.affiliations.title')}</h2>
+    <div class="space-y-9 sm:space-y-11">
+      {affiliationRows.map(row => (
+        <div>
+          <div class="container mx-auto px-4">
+            <div class="flex items-center gap-4 mb-5">
+              <p class="text-[10px] uppercase tracking-[0.22em] font-semibold text-ink-muted whitespace-nowrap">
+                {row.label}
+              </p>
+              <span class="h-px flex-1 bg-line"></span>
+            </div>
+          </div>
+          <LogoMarquee label={row.label} lang={lang} items={row.items} direction={row.direction} duration={row.duration} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ ERASMUS+ ORTAKLIK PROFİLLERİ ============ -->
+  <section class="bg-brand-paper border-b border-line py-16 sm:py-20" aria-labelledby="partnership-profiles-heading">
+    <div class="container mx-auto px-4">
+      <div class="mb-8 max-w-3xl">
+        <p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp">
+          {lang === 'en' ? 'Institutional documents' : 'Kurumsal belgeler'}
+        </p>
+        <h2 id="partnership-profiles-heading" class="font-display text-4xl sm:text-5xl font-black tracking-tightest leading-none text-brand-ink">
+          {lang === 'en' ? 'Erasmus+ Partnership Profiles' : 'Erasmus+ Ortaklık Profilleri'}
+        </h2>
+        <p class="mt-4 text-sm sm:text-base leading-relaxed text-ink-soft">
+          {lang === 'en'
+            ? 'Choose the profile that matches your application type and access KOZ-DER’s ready-to-use institutional information, experience and partnership capacity.'
+            : 'Başvuru türünüze uygun profili seçerek KOZ-DER’in kullanıma hazır kurumsal bilgilerine, deneyimine ve ortaklık kapasitesine ulaşabilirsiniz.'}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        <article class="card card-2 overflow-hidden bg-brand-ink text-brand-cream p-7 sm:p-9 flex flex-col">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-postage">Erasmus+ KA1</p>
+          <h3 class="mt-3 font-display text-3xl sm:text-4xl font-black tracking-tightest leading-none">
+            {lang === 'en' ? 'KA1 Partnership Profile' : 'KA1 Ortaklık Profili'}
+          </h3>
+          <p class="mt-4 mb-7 text-sm leading-relaxed text-brand-cream/80 flex-1">
+            {lang === 'en'
+              ? 'For youth mobility projects: organisational profile, regular youth work, key staff, mobility experience and associated persons.'
+              : 'Gençlik hareketliliği projeleri için kurumsal profil, düzenli gençlik çalışmaları, kilit ekip, hareketlilik deneyimi ve ilişkili kişiler.'}
+          </p>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <a href="/documents/KA1_Partner_Profile_2026.pdf" target="_blank" rel="noopener noreferrer" class="h-12 px-4 border border-brand-cream bg-brand-cream text-brand-ink hover:bg-brand-postage hover:border-brand-postage inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors">
+              {lang === 'en' ? 'View Profile' : 'Profili Görüntüle'} <span aria-hidden="true">↗</span>
+            </a>
+            <a href="/documents/KA1_Partner_Profile_2026.pdf" download="KOZ-DER-KA1-Partner-Profile-2026.pdf" class="h-12 px-4 border border-brand-cream/70 text-brand-cream hover:bg-brand-cream hover:text-brand-ink inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors">
+              {lang === 'en' ? 'Download PDF' : 'PDF’yi İndir'} <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="card card-2 overflow-hidden bg-brand-ocean text-brand-cream p-7 sm:p-9 flex flex-col">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-cream/75">Erasmus+ KA2</p>
+          <h3 class="mt-3 font-display text-3xl sm:text-4xl font-black tracking-tightest leading-none">
+            {lang === 'en' ? 'KA2 Partnership Profile' : 'KA2 Ortaklık Profili'}
+          </h3>
+          <p class="mt-4 mb-7 text-sm leading-relaxed text-brand-cream/85 flex-1">
+            {lang === 'en'
+              ? 'For cooperation partnerships: main activities, application-field experience, learner profiles, past participation and partnership capacity.'
+              : 'İş birliği ortaklıkları için temel faaliyetler, başvuru alanındaki deneyim, öğrenici profilleri, geçmiş katılım ve ortaklık kapasitesi.'}
+          </p>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <a href="/documents/KA2_Partner_Profile_2026.pdf" target="_blank" rel="noopener noreferrer" class="h-12 px-4 border border-brand-cream bg-brand-cream text-brand-ink hover:bg-brand-postage hover:border-brand-postage inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors">
+              {lang === 'en' ? 'View Profile' : 'Profili Görüntüle'} <span aria-hidden="true">↗</span>
+            </a>
+            <a href="/documents/KA2_Partner_Profile_2026.pdf" download="KOZ-DER-KA2-Partner-Profile-2026.pdf" class="h-12 px-4 border border-brand-cream/80 text-brand-cream hover:bg-brand-cream hover:text-brand-ink inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors">
+              {lang === 'en' ? 'Download PDF' : 'PDF’yi İndir'} <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ÜÇ ADIM ============ -->
+  <section class="py-20 sm:py-28 bg-brand-paper">
+    <div class="container mx-auto px-4">
+      <header class="max-w-2xl mb-14 reveal">
+        <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-stamp mb-5">{t('home.steps.kicker')}</p>
+        <h2 class="font-display font-black text-4xl sm:text-5xl tracking-tightest leading-[1.02] text-brand-ink">
+          {t('home.steps.title')}
+        </h2>
+      </header>
+
+      <ol class="grid md:grid-cols-3 gap-px bg-line border-y border-line stagger">
+        {steps.map(step => (
+          <li class="bg-brand-paper">
+            <a href={step.href} class="group block h-full p-7 sm:p-9 hover:bg-brand-cream transition-colors duration-300">
+              <span class="font-display font-black text-5xl text-brand-walnut/35 leading-none tracking-tightest block group-hover:text-brand-walnut transition-colors duration-300">
+                {step.n}
+              </span>
+              <h3 class="font-display font-bold text-2xl text-brand-ink mt-7 mb-3 tracking-tight">{step.title}</h3>
+              <p class="text-sm text-ink-soft leading-relaxed">{step.text}</p>
+              <span class="mt-6 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-walnut">
+                {t('home.steps.more')} <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ AÇIK ÇAĞRILAR — editoryal liste ============ -->
+  {featuredProjects.length > 0 && (
+    <section class="py-20 sm:py-28 bg-brand-cream border-y border-line">
+      <div class="container mx-auto px-4">
+        <header class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-12 reveal">
+          <div class="max-w-2xl">
+            <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-stamp mb-5">{t('home.projects.kicker')}</p>
+            <h2 class="font-display font-black text-4xl sm:text-5xl tracking-tightest leading-[1.02] text-brand-ink">
+              {t('home.projects.title')}
+            </h2>
+          </div>
+          <a href={path(lang, 'projects')} class="group inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-ink border-b border-brand-ink pb-1 py-2 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+            {t('common.allProjects')} <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+        </header>
+
+        <ul class="border-t border-line stagger">
+          {featuredProjects.map((project, i) => (
+            <li
+              data-featured-project
+              data-project-static-status={project.data.status}
+              data-project-start-date={project.data.startDate}
+              data-project-deadline={project.data.applicationDeadline}
+              class="border-b border-line"
+            >
+              <a href={entryPath(lang, 'projects', stripLangPrefix(project.slug))} class="group grid grid-cols-12 items-center gap-x-4 sm:gap-x-6 gap-y-3 py-6 sm:py-7 transition-colors duration-300 hover:bg-brand-paper/70 -mx-3 px-3">
+                <span class="col-span-2 sm:col-span-1 font-display font-black text-2xl sm:text-3xl text-brand-walnut/35 leading-none tracking-tightest group-hover:text-brand-walnut transition-colors duration-300">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+
+                {project.data.coverImage ? (
+                  <span class="hidden sm:block sm:col-span-2 overflow-hidden rounded-lg bg-surface-muted aspect-[16/10]">
+                    <img
+                      src={project.data.coverImage}
+                      alt=""
+                      loading="lazy"
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    />
+                  </span>
+                ) : (
+                  <span class="hidden sm:block sm:col-span-2"></span>
+                )}
+
+                <span class="col-span-10 sm:col-span-5">
+                  <span class="block font-display font-bold text-xl sm:text-2xl text-brand-ink leading-tight tracking-tight group-hover:text-brand-stamp transition-colors duration-300">
+                    {project.data.title_tr}
+                  </span>
+                  <span class="mt-1.5 text-sm text-ink-muted leading-snug line-clamp-2">
+                    {project.data.summary_tr}
+                  </span>
+                </span>
+
+                <span class="col-span-8 sm:col-span-3 text-xs sm:text-sm text-ink-soft leading-snug">
+                  <span class="block font-medium text-brand-ink">{project.data.location}</span>
+                  <span class="block text-ink-muted mt-0.5">
+                    {project.data.startDate}{project.data.endDate ? ` – ${project.data.endDate}` : ''}
+                  </span>
+                </span>
+
+                <span class="col-span-4 sm:col-span-1 flex items-center justify-end gap-3">
+                  <span data-featured-project-status data-open-label={t('common.open')} data-closed-label={t('projects.applicationClosed')} class={`hidden lg:inline-block text-[10px] font-semibold uppercase tracking-[0.14em] px-2 py-1 border ${isProjectApplicationOpen(project.data) ? 'border-brand-stamp text-brand-stamp' : 'border-line-strong text-ink-muted'}`}>
+                    {isProjectApplicationOpen(project.data) ? t('common.open') : t('projects.applicationClosed')}
+                  </span>
+                  <span class="text-brand-walnut text-lg transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
   <!-- ============ HİKAYELER — tam kanayan yatay şerit ============ -->
   {featuredStories.length > 0 && (
     <section class="py-20 sm:py-28 bg-brand-paper overflow-hidden">
       <div class="container mx-auto px-4">
         <header class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-12 reveal">
           <div class="max-w-2xl">
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brand-stamp mb-5">{t('home.stories.kicker')}</p>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-stamp mb-5">{t('home.stories.kicker')}</p>
             <h2 class="font-display font-black text-4xl sm:text-5xl tracking-tightest leading-[1.02] text-brand-ink">
               {t('home.stories.title.a')} <span class="text-brand-stamp" style="font-variation-settings: 'opsz' 72, 'wdth' 80;">{t('home.stories.title.b')}</span>
             </h2>
           </div>
-          <a href={path(lang, 'stories')} class="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-brand-ink border-b border-brand-ink pb-1 py-2 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
-            {t('common.allStories')}
+          <a href={path(lang, 'stories')} class="group inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-ink border-b border-brand-ink pb-1 py-2 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+            {t('common.allStories')} <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>
         </header>
       </div>
@@ -178,11 +563,10 @@ function dateParts(value: string) {
               )}
               <span class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/85 via-black/45 to-transparent"></span>
               <span class="absolute bottom-0 left-0 right-0 p-4">
-                <span class="block text-sm uppercase tracking-[0.2em] text-white/90 font-semibold">{story.data.country} · {storyProgramLabel(story.data.programName)}</span>
+                <span class="block text-[10px] uppercase tracking-[0.2em] text-white/90 font-semibold">{story.data.country} · {storyProgramLabel(story.data.programName)}</span>
                 <span class="mt-1 block font-display font-bold text-lg text-white leading-tight">{story.data.name}</span>
               </span>
             </div>
-            <p class="mt-4 text-base text-ink-soft leading-relaxed line-clamp-3">{story.data.summary}</p>
           </a>
         ))}
         <span class="shrink-0 w-4" aria-hidden="true"></span>
@@ -190,48 +574,19 @@ function dateParts(value: string) {
     </section>
   )}
 
-  <!-- ============ ÜÇ ADIM ============ -->
-  <section class="py-20 sm:py-28 bg-brand-paper">
-    <div class="container mx-auto px-4">
-      <header class="max-w-2xl mb-14 reveal">
-        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brand-stamp mb-5">{t('home.steps.kicker')}</p>
-        <h2 class="font-display font-black text-4xl sm:text-5xl tracking-tightest leading-[1.02] text-brand-ink">
-          {t('home.steps.title')}
-        </h2>
-      </header>
-
-      <ol class="grid md:grid-cols-3 gap-px bg-line border-y border-line stagger">
-        {steps.map(step => (
-          <li class="bg-brand-paper">
-            <a href={step.href} class="group block h-full p-7 sm:p-9 hover:bg-brand-cream transition-colors duration-300">
-              <span class="font-display font-black text-5xl text-brand-walnut/35 leading-none tracking-tightest block group-hover:text-brand-walnut transition-colors duration-300">
-                {step.n}
-              </span>
-              <h3 class="font-display font-bold text-2xl text-brand-ink mt-7 mb-3 tracking-tight">{step.title}</h3>
-              <p class="text-base text-ink-soft leading-relaxed">{step.text}</p>
-              <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-brand-walnut">
-                {t('home.steps.more')}
-              </span>
-            </a>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
   <!-- ============ ETKİNLİKLER — ajanda ============ -->
   {homeEvents.length > 0 && (
     <section class="py-20 sm:py-28 bg-brand-cream border-y border-line">
       <div class="container mx-auto px-4">
         <header class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-12 reveal">
           <div class="max-w-2xl">
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brand-stamp mb-5">{t('home.events.kicker')}</p>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-stamp mb-5">{t('home.events.kicker')}</p>
             <h2 class="font-display font-black text-4xl sm:text-5xl tracking-tightest leading-[1.02] text-brand-ink">
               {showingUpcoming ? t('home.events.title.upcoming') : t('home.events.title.past')}
             </h2>
           </div>
-          <a href={path(lang, 'events')} class="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-brand-ink border-b border-brand-ink pb-1 py-2 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
-            {t('common.allEvents')}
+          <a href={path(lang, 'events')} class="group inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-ink border-b border-brand-ink pb-1 py-2 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+            {t('common.allEvents')} <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>
         </header>
 
@@ -250,7 +605,7 @@ function dateParts(value: string) {
                 <a href={entryPath(lang, 'events', stripLangPrefix(event.slug))} class="group flex items-start gap-5 py-6 transition-colors duration-300 hover:bg-brand-paper/70 -mx-3 px-3">
                   <span class="shrink-0 w-14 text-center pt-0.5">
                     <span data-event-day class="block font-display font-black text-2xl text-brand-ink leading-none tracking-tightest">{day}</span>
-                    <span data-event-month class="mt-1 block text-sm font-semibold uppercase tracking-[0.14em] text-brand-stamp">{month}</span>
+                    <span data-event-month class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-stamp">{month}</span>
                   </span>
                   <span class="min-w-0 flex-1">
                     <span class="block font-display font-bold text-lg sm:text-xl text-brand-ink leading-snug tracking-tight group-hover:text-brand-stamp transition-colors duration-300">
@@ -260,7 +615,7 @@ function dateParts(value: string) {
                       {event.data.time ? `${event.data.time} · ` : ''}{event.data.location}
                     </span>
                   </span>
-
+                  <span class="shrink-0 text-brand-walnut text-lg pt-1 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
                 </a>
               </li>
             );
@@ -276,13 +631,13 @@ function dateParts(value: string) {
       <div class="container mx-auto px-4">
         <header class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-12 reveal">
           <div class="max-w-2xl">
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brand-stamp mb-5">{t('home.news.kicker')}</p>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-stamp mb-5">{t('home.news.kicker')}</p>
             <h2 class="font-display font-black text-4xl sm:text-5xl tracking-tightest leading-[1.02] text-brand-ink">
               {t('home.news.title')}
             </h2>
           </div>
-          <a href={path(lang, 'news')} class="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-brand-ink border-b border-brand-ink pb-1 py-2 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
-            {t('common.allNews')}
+          <a href={path(lang, 'news')} class="group inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-ink border-b border-brand-ink pb-1 py-2 hover:text-brand-stamp hover:border-brand-stamp transition-colors w-fit">
+            {t('common.allNews')} <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>
         </header>
 
@@ -299,11 +654,11 @@ function dateParts(value: string) {
               </div>
             )}
             <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3">
-              <span class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-stamp">
+              <span class="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-stamp">
                 {formatEventDate(leadNews.data.date, { lang })}
               </span>
               {leadNews.data.category && (
-                <span class="text-sm font-semibold uppercase tracking-[0.14em] text-ink-muted border border-line-strong px-1.5 py-0.5">
+                <span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted border border-line-strong px-1.5 py-0.5">
                   {leadNews.data.category}
                 </span>
               )}
@@ -326,7 +681,7 @@ function dateParts(value: string) {
                     </span>
                   )}
                   <span class="min-w-0">
-                    <span class="block text-sm font-semibold uppercase tracking-[0.18em] text-brand-stamp mb-1.5">
+                    <span class="block text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-stamp mb-1.5">
                       {formatEventDate(item.data.date, { lang })}
                     </span>
                     <span class="font-display font-bold text-base sm:text-lg text-brand-ink leading-snug tracking-tight line-clamp-3 group-hover:text-brand-stamp transition-colors duration-300">
@@ -347,9 +702,9 @@ function dateParts(value: string) {
     <section class="bg-brand-cream border-y border-line">
       <div class="container mx-auto px-4 py-10 sm:py-12">
         <div class="flex items-center gap-4 mb-6">
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brand-stamp whitespace-nowrap">{t('home.posts.kicker')}</p>
+          <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-stamp whitespace-nowrap">{t('home.posts.kicker')}</p>
           <span class="h-px flex-1 bg-line"></span>
-          <a href={path(lang, 'posts')} class="text-sm font-semibold uppercase tracking-[0.16em] text-ink-muted hover:text-brand-stamp transition-colors whitespace-nowrap">
+          <a href={path(lang, 'posts')} class="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted hover:text-brand-stamp transition-colors whitespace-nowrap">
             {t('common.all')} →
           </a>
         </div>
@@ -357,13 +712,13 @@ function dateParts(value: string) {
           {recentPosts.map(post => (
             <li>
               <a href={entryPath(lang, 'posts', stripLangPrefix(post.slug))} class="group flex items-baseline gap-4 sm:gap-6 py-3.5 transition-colors duration-300 hover:bg-brand-paper/70 -mx-3 px-3">
-                <span class="shrink-0 w-16 sm:w-24 text-sm font-semibold uppercase tracking-[0.14em] text-ink-muted">
+                <span class="shrink-0 w-16 sm:w-24 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
                   {formatEventDate(post.data.date, { lang })}
                 </span>
                 <span class="min-w-0 flex-1 font-display font-semibold text-base sm:text-lg text-brand-ink leading-snug tracking-tight truncate group-hover:text-brand-stamp transition-colors duration-300">
-                  {lang === 'en' ? post.data.title_en : post.data.title_tr}
+                  {post.data.title_tr}
                 </span>
-
+                <span class="shrink-0 text-brand-walnut transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
               </a>
             </li>
           ))}
@@ -372,92 +727,11 @@ function dateParts(value: string) {
     </section>
   )}
 
-  <!-- ============ ERASMUS+ ORTAKLIK PROFİLLERİ ============ -->
-  <section class="bg-brand-paper border-b border-line py-16 sm:py-20" aria-labelledby="partnership-profiles-heading">
-    <div class="container mx-auto px-4">
-      <div class="mb-8 max-w-3xl">
-        <p class="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-brand-stamp">
-          {lang === 'en' ? 'Institutional documents' : 'Kurumsal belgeler'}
-        </p>
-        <h2 id="partnership-profiles-heading" class="font-display text-4xl sm:text-5xl font-black tracking-tightest leading-none text-brand-ink">
-          {lang === 'en' ? 'Erasmus+ Partnership Profiles' : 'Erasmus+ Ortaklık Profilleri'}
-        </h2>
-        <p class="mt-4 text-sm sm:text-base leading-relaxed text-ink-soft">
-          {lang === 'en'
-            ? 'Choose the profile that matches your application type and access KOZ-DER’s ready-to-use institutional information, experience and partnership capacity.'
-            : 'Başvuru türünüze uygun profili seçerek KOZ-DER’in kullanıma hazır kurumsal bilgilerine, deneyimine ve ortaklık kapasitesine ulaşabilirsiniz.'}
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-5">
-        <article class="card card-2 overflow-hidden bg-brand-ink text-brand-cream p-7 sm:p-9 flex flex-col">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-brand-postage">Erasmus+ KA1</p>
-          <h3 class="mt-3 font-display text-3xl sm:text-4xl font-black tracking-tightest leading-none">
-            {lang === 'en' ? 'KA1 Partnership Profile' : 'KA1 Ortaklık Profili'}
-          </h3>
-          <p class="mt-4 mb-7 text-sm leading-relaxed text-brand-cream/80 flex-1">
-            {lang === 'en'
-              ? 'For youth mobility projects: organisational profile, regular youth work, key staff, mobility experience and associated persons.'
-              : 'Gençlik hareketliliği projeleri için kurumsal profil, düzenli gençlik çalışmaları, kilit ekip, hareketlilik deneyimi ve ilişkili kişiler.'}
-          </p>
-          <div class="grid sm:grid-cols-2 gap-3">
-            <a href="/documents/KA1_Partner_Profile_2026.pdf" target="_blank" rel="noopener noreferrer" class="h-12 px-4 border border-brand-cream bg-brand-cream text-brand-ink hover:bg-brand-postage hover:border-brand-postage inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.12em] transition-colors">
-              {lang === 'en' ? 'View Profile' : 'Profili Görüntüle'} <span aria-hidden="true">↗</span>
-            </a>
-            <a href="/documents/KA1_Partner_Profile_2026.pdf" download="KOZ-DER-KA1-Partner-Profile-2026.pdf" class="h-12 px-4 border border-brand-cream/70 text-brand-cream hover:bg-brand-cream hover:text-brand-ink inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.12em] transition-colors">
-              {lang === 'en' ? 'Download PDF' : 'PDF’yi İndir'} <span aria-hidden="true">↓</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="card card-2 overflow-hidden bg-brand-ocean text-brand-cream p-7 sm:p-9 flex flex-col">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-brand-cream/75">Erasmus+ KA2</p>
-          <h3 class="mt-3 font-display text-3xl sm:text-4xl font-black tracking-tightest leading-none">
-            {lang === 'en' ? 'KA2 Partnership Profile' : 'KA2 Ortaklık Profili'}
-          </h3>
-          <p class="mt-4 mb-7 text-sm leading-relaxed text-brand-cream/85 flex-1">
-            {lang === 'en'
-              ? 'For cooperation partnerships: main activities, application-field experience, learner profiles, past participation and partnership capacity.'
-              : 'İş birliği ortaklıkları için temel faaliyetler, başvuru alanındaki deneyim, öğrenici profilleri, geçmiş katılım ve ortaklık kapasitesi.'}
-          </p>
-          <div class="grid sm:grid-cols-2 gap-3">
-            <a href="/documents/KA2_Partner_Profile_2026.pdf" target="_blank" rel="noopener noreferrer" class="h-12 px-4 border border-brand-cream bg-brand-cream text-brand-ink hover:bg-brand-postage hover:border-brand-postage inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.12em] transition-colors">
-              {lang === 'en' ? 'View Profile' : 'Profili Görüntüle'} <span aria-hidden="true">↗</span>
-            </a>
-            <a href="/documents/KA2_Partner_Profile_2026.pdf" download="KOZ-DER-KA2-Partner-Profile-2026.pdf" class="h-12 px-4 border border-brand-cream/80 text-brand-cream hover:bg-brand-cream hover:text-brand-ink inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.12em] transition-colors">
-              {lang === 'en' ? 'Download PDF' : 'PDF’yi İndir'} <span aria-hidden="true">↓</span>
-            </a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ AĞLAR & PAYDAŞLAR ============ -->
-  <section class="bg-brand-paper border-b border-line py-12 sm:py-16" aria-labelledby="aglar-paydaslar">
-    <h2 id="aglar-paydaslar" class="sr-only">{t('home.affiliations.title')}</h2>
-    <div class="space-y-9 sm:space-y-11">
-      {affiliationRows.map(row => (
-        <div>
-          <div class="container mx-auto px-4">
-            <div class="flex items-center gap-4 mb-5">
-              <p class="text-sm uppercase tracking-[0.12em] font-semibold text-ink-muted">
-                {row.label}
-              </p>
-              <span class="h-px flex-1 bg-line"></span>
-            </div>
-          </div>
-          <LogoMarquee label={row.label} lang={lang} items={row.items} direction={row.direction} duration={row.duration} />
-        </div>
-      ))}
-    </div>
-  </section>
-
   <!-- ============ CTA ============ -->
   <section class="bg-brand-ink text-brand-cream">
     <div class="container mx-auto px-4 py-24 sm:py-32">
       <div class="max-w-3xl reveal">
-        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-brand-postage mb-7">{t('home.cta.kicker')}</p>
+        <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-postage mb-7">{t('home.cta.kicker')}</p>
         <h2 class="font-display font-black text-4xl sm:text-6xl xl:text-7xl tracking-tight leading-[1.05] text-brand-cream">
           <span class="block">{t('home.cta.title.a')}</span>
           <span class="mt-2 sm:mt-3 block text-brand-postage" style="font-variation-settings: 'opsz' 96, 'wdth' 78;">{t('home.cta.title.b')}</span>
@@ -466,11 +740,11 @@ function dateParts(value: string) {
           {t('home.cta.lead')}
         </p>
         <div class="mt-11 flex flex-col sm:flex-row gap-3">
-          <a href={path(lang, 'contact')} class="group inline-flex items-center justify-center gap-3 bg-brand-cream text-brand-ink hover:bg-brand-postage hover:text-brand-cream px-7 py-4 rounded-full text-sm font-semibold uppercase tracking-[0.16em] transition-colors duration-300">
+          <a href={path(lang, 'contact')} class="group inline-flex items-center justify-center gap-3 bg-brand-cream text-brand-ink hover:bg-brand-postage hover:text-brand-cream px-7 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300">
             {t('home.cta.form')}
-
+            <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>
-          <a href="https://wa.me/905511972997" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-brand-cream/40 text-brand-cream hover:border-brand-cream hover:bg-brand-cream hover:text-brand-ink px-7 py-4 rounded-full text-sm font-semibold uppercase tracking-[0.16em] transition-colors duration-300">
+          <a href="https://wa.me/905511972997" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-brand-cream/40 text-brand-cream hover:border-brand-cream hover:bg-brand-cream hover:text-brand-ink px-7 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300">
             {t('home.cta.whatsapp')}
           </a>
         </div>
@@ -481,44 +755,175 @@ function dateParts(value: string) {
 
 <script>
   import { isProjectApplicationOpen } from '../../utils/projectApplications';
-  function syncOpportunities() {
-    let count = 0;
-    document.querySelectorAll<HTMLElement>('[data-home-opportunity]').forEach(item => {
+
+  function syncFeaturedProjects() {
+    document.querySelectorAll<HTMLElement>('[data-featured-project]').forEach(item => {
       const status = item.dataset.projectStaticStatus;
       if (status !== 'Aktif' && status !== 'Tamamlandı') return;
-      const open = isProjectApplicationOpen({ status, startDate: item.dataset.projectStartDate ?? '', applicationDeadline: item.dataset.projectDeadline });
-      item.hidden = !open || count >= 3;
-      if (open) count++;
+      const open = isProjectApplicationOpen({
+        status,
+        startDate: item.dataset.projectStartDate ?? '',
+        applicationDeadline: item.dataset.projectDeadline,
+      });
+      const badge = item.querySelector<HTMLElement>('[data-featured-project-status]');
+      if (!badge) return;
+      badge.textContent = open ? badge.dataset.openLabel ?? '' : badge.dataset.closedLabel ?? '';
+      badge.classList.toggle('border-brand-stamp', open);
+      badge.classList.toggle('text-brand-stamp', open);
+      badge.classList.toggle('border-line-strong', !open);
+      badge.classList.toggle('text-ink-muted', !open);
     });
-    const empty = document.querySelector<HTMLElement>('[data-home-empty]');
-    if (empty) empty.hidden = count > 0;
   }
-  syncOpportunities();
-  window.setInterval(syncOpportunities, 60_000);
+
+  function initHeroNewsSliders() {
+    document.querySelectorAll('[data-hero-news-slider]').forEach((slider) => {
+      if (!(slider instanceof HTMLElement) || slider.dataset.initialized === 'true') return;
+      slider.dataset.initialized = 'true';
+
+      const slides = Array.from(slider.querySelectorAll('[data-hero-news-slide]'));
+      const dots = Array.from(slider.querySelectorAll('[data-hero-news-dot]'));
+      if (slides.length < 2) return;
+
+      let current = 0;
+      let timer;
+
+      const show = (nextIndex) => {
+        current = (nextIndex + slides.length) % slides.length;
+        slides.forEach((slide, index) => {
+          const active = index === current;
+          slide.setAttribute('data-active', String(active));
+          slide.setAttribute('aria-hidden', String(!active));
+          if (slide instanceof HTMLElement) slide.tabIndex = active ? 0 : -1;
+          dots[index]?.setAttribute('data-active', String(active));
+        });
+      };
+
+      const start = () => {
+        window.clearInterval(timer);
+        timer = window.setInterval(() => show(current + 1), 10000);
+      };
+
+      slider.querySelector('[data-hero-news-prev]')?.addEventListener('click', () => {
+        show(current - 1);
+        start();
+      });
+      slider.querySelector('[data-hero-news-next]')?.addEventListener('click', () => {
+        show(current + 1);
+        start();
+      });
+      slider.addEventListener('mouseenter', () => window.clearInterval(timer));
+      slider.addEventListener('mouseleave', start);
+      slider.addEventListener('focusin', () => window.clearInterval(timer));
+      slider.addEventListener('focusout', start);
+      start();
+    });
+  }
+
+
+  function initHeroRotatingText() {
+    document.querySelectorAll('[data-hero-rotating]').forEach((element) => {
+      if (!(element instanceof HTMLElement) || element.dataset.rotatingInitialized === 'true') return;
+      element.dataset.rotatingInitialized = 'true';
+
+      let words = [];
+      let colors = [];
+      try {
+        words = JSON.parse(element.dataset.rotatingWords || '[]');
+        colors = JSON.parse(element.dataset.rotatingColors || '[]');
+      } catch {
+        return;
+      }
+      if (words.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      let index = 0;
+      window.setInterval(() => {
+        element.classList.add('is-changing');
+        window.setTimeout(() => {
+          index = (index + 1) % words.length;
+          const item = words[index];
+          const syllables = typeof item === 'string' ? [item] : item.syllables;
+          element.replaceChildren();
+          syllables.forEach((syllable, syllableIndex) => {
+            const span = document.createElement('span');
+            span.textContent = syllable;
+            span.style.color = colors[(index + syllableIndex) % colors.length] || 'currentColor';
+            element.appendChild(span);
+          });
+          element.classList.remove('is-changing');
+        }, 220);
+      }, 3000);
+    });
+  }
+
+  document.addEventListener('astro:page-load', initHeroNewsSliders);
+  document.addEventListener('astro:page-load', initHeroRotatingText);
+  initHeroNewsSliders();
+  initHeroRotatingText();
+  syncFeaturedProjects();
+  window.setInterval(syncFeaturedProjects, 60_000);
 </script>
+
 <style>
-  .journey-hero { background: #11243a; color: white; padding: 3rem 0 3.5rem; }
-  .journey-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 3rem; align-items: center; }
-  .journey-copy { padding: 1.5rem 0; }
-  .journey-kicker { font-size: .875rem; font-weight: 600; letter-spacing: .13em; color: #ffc08c; margin-bottom: 1.5rem; }
-  .journey-copy h1 { font-size: clamp(2.6rem,4.5vw,4.5rem); font-weight: 800; line-height: 1.08; color: white; }
-  .journey-copy h1 span { color: #ffad6b; }
-  .journey-lead { font-size: 1.125rem; line-height: 1.7; color: #d6e2ed; margin-top: 1.5rem; max-width: 32rem; }
-  .journey-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.75rem 0 1.25rem; }
-  .journey-button { padding: .9rem 1.4rem; border-radius: .8rem; background: #ffad6b; color: #11243a; font-size: 1rem; font-weight: 700; border: 1px solid #ffad6b; }
-  .journey-button:hover { background: #ffc08c; }
-  .journey-button-outline { color: white; background: transparent; border-color: #7f94a9; }
-  .journey-button-outline:hover { color: #11243a; }
-  .journey-help { font-size: .9375rem; text-decoration: underline; text-underline-offset: 4px; }
-  .journey-trust { font-size: .875rem; color: #bbcddd; margin-top: 2rem; }
-  .journey-photo { position: relative; overflow: hidden; border-radius: 1.5rem; margin: 0; aspect-ratio: 1.2; }
-  .journey-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 65%; }
-  .journey-photo figcaption { position: absolute; inset: auto 0 0; padding: 4rem 1.5rem 1.5rem; background: linear-gradient(transparent, #091728ee); display: grid; gap: .5rem; }
-  .journey-photo figcaption span { font-size: 1.25rem; font-weight: 700; }
-  .journey-photo figcaption a { font-size: .875rem; text-decoration: underline; text-underline-offset: 4px; }
-  #opportunities { scroll-margin-top: 6rem; }
-  [hidden] { display: none !important; }
-  .story-rail { scroll-snap-type: x proximity; scroll-padding-left: max(1rem, calc((100vw - 1280px) / 2 + 1rem)); }
-  @media (max-width: 1023px) { .journey-grid { gap: 2rem; } }
-  @media (max-width: 767px) { .journey-grid { grid-template-columns: 1fr; } .journey-hero { padding: 1rem 0 2rem; } .journey-photo { aspect-ratio: 1.35; } .journey-trust { margin-top: 1.5rem; } }
+  .hero-rotating-line {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 220ms ease, transform 220ms ease;
+  }
+  .hero-rotating-line.is-changing {
+    opacity: 0;
+    transform: translateY(0.12em);
+  }
+
+  .hero-news-slide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 700ms ease, visibility 700ms ease;
+  }
+  .hero-news-slide[data-active='true'] {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .hero-news-control {
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    border: 1px solid rgb(255 255 255 / 0.45);
+    border-radius: 9999px;
+    color: white;
+    background: rgb(0 0 0 / 0.35);
+    backdrop-filter: blur(8px);
+  }
+  .hero-news-control:hover,
+  .hero-news-control:focus-visible {
+    border-color: white;
+    background: rgb(0 0 0 / 0.65);
+  }
+  .hero-news-dot {
+    width: 1.75rem;
+    height: 0.2rem;
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.4);
+  }
+  .hero-news-dot[data-active='true'] {
+    background: white;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-news-slide { transition: none; }
+  }
+
+  /* Hikaye şeridi: kaydırma çubuğu gizli, parmakla/trackpad ile akıcı */
+  .story-rail {
+    scroll-snap-type: x proximity;
+    /* Padding olmadan snap, açılışta şeridi sol boşluk kadar kaydırıyor;
+       scroll-padding aynı değeri verince ilk kart hizada kalıyor. */
+    scroll-padding-left: max(1rem, calc((100vw - 1280px) / 2 + 1rem));
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .story-rail::-webkit-scrollbar {
+    display: none;
+  }
 </style>
