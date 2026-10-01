@@ -9,6 +9,7 @@ const p = usePage(lang);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 
+const english = lang === 'en';
 const channels = [
   { title: p.contact.phone, value: '+90 551 197 29 97', href: 'tel:+905511972997' },
   { title: p.contact.email, value: 'bilgi@kozder.com', href: 'mailto:bilgi@kozder.com' },
@@ -32,6 +33,29 @@ const channels = [
   />
 
   <div class="container mx-auto px-4 py-12 sm:py-20">
+    <section class="contact-form-card card p-6 sm:p-10 mb-12" aria-labelledby="write-heading">
+      <div class="mb-7">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">KOZ·DER</p>
+        <h2 id="write-heading" class="font-display font-black text-3xl sm:text-4xl tracking-tightest text-brand-ink mb-3">{english ? 'Write to us.' : 'Bize yazın.'}</h2>
+        <p class="text-ink-soft">{english ? 'Have a question or an idea? Send us a message. We will reply to your email address.' : 'Bir sorunuz veya fikriniz mi var? Mesajınızı iletin; e-posta adresiniz üzerinden size dönüş yapalım.'}</p>
+      </div>
+      <form action="https://formsubmit.co/bilgi@kozder.com" method="POST" class="grid sm:grid-cols-2 gap-5">
+        <input type="hidden" name="_subject" value="KOZ-DER | Web sitesi iletişim formu" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_url" value={english ? 'https://kozder.com/en/contact' : 'https://kozder.com/iletisim'} />
+        <div class="contact-honey" aria-hidden="true"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label></div>
+        <label class="contact-field">{english ? 'Full name' : 'Ad soyad'}<input name="name" type="text" autocomplete="name" required maxlength="120" /></label>
+        <label class="contact-field">{english ? 'Email address' : 'E-posta adresi'}<input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+        <label class="contact-field">{english ? 'Phone (optional)' : 'Telefon (isteğe bağlı)'}<input name="phone" type="tel" autocomplete="tel" maxlength="40" /></label>
+        <label class="contact-field">{english ? 'Subject' : 'Konu'}<input name="subject" type="text" required maxlength="160" /></label>
+        <label class="contact-field sm:col-span-2">{english ? 'Your message' : 'Mesajınız'}<textarea name="message" rows="5" required minlength="10" maxlength="5000"></textarea></label>
+        <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center gap-5">
+          <button type="submit" class="bg-brand-stamp text-white font-bold px-7 py-3 self-start">{english ? 'Send message →' : 'Mesajı gönder →'}</button>
+          <p class="text-sm text-ink-soft">{english ? 'Your message is sent to bilgi@kozder.com through FormSubmit. After the security check, you will see the submission confirmation.' : 'Mesajınız FormSubmit aracılığıyla bilgi@kozder.com adresine iletilir. Güvenlik kontrolünden sonra gönderim onayını göreceksiniz.'}</p>
+        </div>
+        <p class="sm:col-span-2 text-xs text-ink-soft">{english ? 'We use the contact details you provide to respond to your message. Please do not include sensitive personal information.' : 'Paylaştığınız iletişim bilgilerini mesajınıza yanıt vermek için kullanırız. Lütfen hassas kişisel bilgiler eklemeyin.'} <a href={path(lang, 'privacy')} class="underline">{english ? 'Privacy notice' : 'KVKK aydınlatma metni'}</a></p>
+      </form>
+    </section>
     <div class="grid lg:grid-cols-12 gap-10">
       <div class="lg:col-span-7">
         <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tightest text-brand-ink mb-8 leading-none">{p.contact.reachHeading}</h2>
@@ -87,3 +111,12 @@ const channels = [
     </div>
   </div>
 </BaseLayout>
+
+<style>
+.contact-form-card{border-radius:24px}
+.contact-field{display:flex;flex-direction:column;gap:9px;font-size:14px;font-weight:600;color:#334155}
+.contact-field input,.contact-field textarea{width:100%;padding:13px 15px;font:inherit;font-weight:400;color:#202936;border:1px solid #c5d3e5;border-radius:12px;background:#ffffffb8;transition:border-color .2s,box-shadow .2s}
+.contact-field textarea{resize:vertical;min-height:150px}
+.contact-field input:focus,.contact-field textarea:focus{outline:2px solid #bd4029;outline-offset:2px;box-shadow:0 0 0 5px #bd402912}
+.contact-honey{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+</style>
