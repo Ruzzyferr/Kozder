@@ -45,7 +45,7 @@ Our project officially began when the participants arriving from different count
 
 Together with our friend Enes, we travelled to Gaziantep Airport by car, welcomed our participants and took them to their accommodation in Kilis.
 
-The participating countries were **Croatia, Italy, Poland, Romania and Türkiye**.
+The participating countries were **Bulgaria, Italy, Poland, Romania and Türkiye**.
 
 However, it was not only our friends coming from abroad who contributed to the project. Many Turkish volunteers were also actively involved at every stage. Some worked on logistics, some on social media, some in field activities and others stepped in to solve the small crises that appeared when we least expected them.
 
