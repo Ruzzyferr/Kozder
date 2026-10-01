@@ -8,17 +8,16 @@ const currentPath = Astro.url.pathname;
 
 const navItems = [
   { href: path(lang, 'home'), text: t('nav.home') },
-  { href: path(lang, 'about'), text: t('nav.about') },
-  { href: path(lang, 'membership'), text: t('nav.membership') },
   { href: path(lang, 'projects'), text: t('nav.projects') },
   { href: path(lang, 'stories'), text: t('nav.stories') },
   { href: path(lang, 'events'), text: t('nav.events') },
   { href: path(lang, 'news'), text: t('nav.news') },
+  { href: path(lang, 'about'), text: t('nav.about') },
   { href: path(lang, 'posts'), text: t('nav.posts') },
+  { href: path(lang, 'membership'), text: t('nav.membership') },
   { href: path(lang, 'faq'), text: t('nav.faq') },
   { href: path(lang, 'contact'), text: t('nav.contact') },
 ];
-
 const home = path(lang, 'home');
 const contact = path(lang, 'contact');
 const other: Lang = lang === 'tr' ? 'en' : 'tr';
@@ -30,169 +29,35 @@ function isActive(href: string) {
   return currentPath.startsWith(href);
 }
 ---
-
-<header
-  id="main-header"
-  class="glass border-b border-line sticky top-0 z-50 transition-shadow duration-300"
->
-  <div class="container mx-auto px-4">
-    <div class="flex items-center justify-between h-16 md:h-20 gap-4">
-      <a href={home} class="flex items-center gap-3 group flex-shrink-0" aria-label={t('nav.home.aria')}>
-        <img
-          src="/images/logo.png"
-          alt=""
-          width="48"
-          height="48"
-          class="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-        />
-        <div class="leading-none">
-          <div class="font-display font-black text-xl sm:text-2xl md:text-3xl text-brand-ink tracking-tightest -mt-0.5 group-hover:text-brand-stamp transition-colors">
-            KOZ<span class="text-brand-stamp">·</span>DER
-          </div>
-          <!-- Uzun alt başlık + 9 menü maddesi ancak 2xl'de yan yana sığıyor;
-               daha darda taşma yapıp sayfayı yatay kaydırıyordu. -->
-          <div class="hidden 2xl:block text-[11px] uppercase tracking-[0.2em] text-brand-walnut font-semibold mt-1">
-            {t('site.orgName')}
-          </div>
+<div class="koz-glass" id="koz-header" data-lang={lang}>
+  <header class="top" style="display:block;padding:0">
+    <div class="wrap">
+      <div class="topbar">
+        <a href={home} class="brand" aria-label={t('nav.home.aria')}>
+          <img src="/images/logo.png" alt="KOZ-DER" width="86" height="86" />
+          <div><strong>KOZ<span>·</span>DER</strong><small>{t('site.orgName')}</small></div>
+        </a>
+        <div class="header-actions">
+          <button type="button" class="mobile-menu-toggle" aria-label={t('nav.open')} aria-expanded="false" aria-controls="koz-navigation">⋯</button>
+          <a class="lang" href={otherHref} hreflang={other} aria-label={t('nav.langSwitch')}>{other.toUpperCase()}</a>
+          <a class="contact" href={contact}>{t('nav.cta')}</a>
         </div>
-      </a>
-
-      <nav class="hidden lg:flex items-center gap-0.5" aria-label={t('nav.primary')}>
-        {navItems.map(item => {
-          const active = isActive(item.href);
-          return (
-            <a
-              href={item.href}
-              aria-current={active ? 'page' : undefined}
-              class={`relative isolate whitespace-nowrap rounded-full px-2.5 xl:px-3 py-2 font-heading text-[11px] xl:text-xs font-semibold uppercase tracking-[0.07em] transition-colors duration-200
-                ${active ? 'text-brand-ink' : 'text-ink-muted hover:text-brand-ink'}`}
-            >
-              {item.text}
-              {active && (
-                <span class="absolute inset-0 -z-10 rounded-full bg-surface-sunken"></span>
-              )}
-            </a>
-          );
-        })}
-
-        <a
-          href={otherHref}
-          hreflang={other}
-          class="ml-2 hidden lg:inline-flex items-center rounded-full border border-line-strong px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-ink-muted hover:text-brand-ink hover:border-brand-ink transition-colors"
-          aria-label={t('nav.langSwitch')}
-        >
-          {other.toUpperCase()}
-        </a>
-
-        <a
-          href={contact}
-          class="ml-3 hidden xl:inline-flex whitespace-nowrap items-center gap-2 bg-brand-ink hover:bg-brand-stamp text-brand-cream px-4 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.1em] font-heading transition-colors duration-300"
-        >
-          {t('nav.cta')}
-          <span>→</span>
-        </a>
-      </nav>
-
-      <button
-        id="mobile-menu-btn"
-        class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-line-strong bg-brand-cream text-brand-ink hover:bg-brand-ink hover:text-brand-cream hover:border-brand-ink transition-colors"
-        aria-label={t('nav.open')}
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <svg id="icon-menu" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2.5" d="M6 6l12 12M6 18L18 6" />
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <div
-    id="mobile-menu"
-    class="lg:hidden grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out border-t border-line bg-brand-cream"
-  >
-    <div class="overflow-hidden">
-      <nav class="container mx-auto px-4 py-5 flex flex-col" aria-label={t('nav.mobile')}>
-        {navItems.map(item => {
-          const active = isActive(item.href);
-          return (
-            <a
-              href={item.href}
-              aria-current={active ? 'page' : undefined}
-              class={`flex items-center justify-between px-2 py-3.5 font-heading text-sm font-bold uppercase tracking-wider border-b border-brand-ink/15 transition-colors
-                ${active ? 'text-brand-ink' : 'text-ink-muted hover:text-brand-ink'}`}
-            >
-              {item.text}
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M9 5l7 7-7 7"/>
-              </svg>
-            </a>
-          );
-        })}
-        <a
-          href={otherHref}
-          hreflang={other}
-          class="mt-5 inline-flex items-center justify-center rounded-full border border-line-strong px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-muted"
-        >
-          {other === 'en' ? 'ENGLISH' : 'TÜRKÇE'}
-        </a>
-
-        <a
-          href={contact}
-          class="mt-3 inline-flex items-center justify-center gap-2 bg-brand-ink text-brand-cream px-4 py-3.5 rounded-full text-sm font-bold uppercase tracking-[0.15em] font-heading transition-colors hover:bg-brand-stamp"
-        >
-          {t('nav.cta')} <span>→</span>
-        </a>
+      </div>
+      <nav id="koz-navigation" aria-label={t('nav.primary')}>
+        {navItems.map(item => <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.text}</a>)}
       </nav>
     </div>
-  </div>
-</header>
-
+  </header>
+</div>
 <script>
-  const header = document.getElementById('main-header');
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  const iconMenu = document.getElementById('icon-menu');
-  const iconClose = document.getElementById('icon-close');
-
-  let isOpen = false;
-
-  function setOpen(open: boolean) {
-    if (!menu || !btn) return;
-    isOpen = open;
-    btn.setAttribute('aria-expanded', String(open));
-    btn.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
-    menu.style.gridTemplateRows = open ? '1fr' : '0fr';
-    iconMenu?.classList.toggle('hidden', open);
-    iconClose?.classList.toggle('hidden', !open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-
-  btn?.addEventListener('click', () => setOpen(!isOpen));
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && isOpen) {
-      setOpen(false);
-      btn?.focus();
-    }
-  });
-
-  let resizeTimer: number | undefined;
-  window.addEventListener('resize', () => {
-    window.clearTimeout(resizeTimer);
-    resizeTimer = window.setTimeout(() => {
-      if (window.innerWidth >= 1024 && isOpen) setOpen(false);
-    }, 100);
-  });
-
-  let lastScroll = 0;
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (y > 8 && lastScroll <= 8) header?.classList.add('shadow-card');
-    if (y <= 8 && lastScroll > 8) header?.classList.remove('shadow-card');
-    lastScroll = y;
-  }, { passive: true });
+ const root=document.getElementById('koz-header');
+ const toggle=root?.querySelector<HTMLButtonElement>('.mobile-menu-toggle');
+ const menu=root?.querySelector<HTMLElement>('#koz-navigation');
+ const mq=matchMedia('(max-width:760px)');
+ let open=false;
+ function setOpen(value:boolean){open=value;if(!toggle||!menu)return;menu.classList.toggle('is-open',value);menu.inert=mq.matches&&!value;toggle.setAttribute('aria-expanded',String(value));toggle.textContent=value?'×':'⋯';toggle.setAttribute('aria-label',root?.dataset.lang==='en'?(value?'Close menu':'Open menu'):(value?'Menüyü kapat':'Menüyü aç'));}
+ toggle?.addEventListener('click',()=>setOpen(!open));
+ menu?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setOpen(false)));
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&open){setOpen(false);toggle?.focus();}});
+ mq.addEventListener('change',()=>setOpen(false));setOpen(false);
 </script>
