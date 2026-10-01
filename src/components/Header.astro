@@ -29,7 +29,7 @@ function isActive(href: string) {
   return currentPath.startsWith(href);
 }
 ---
-<div class="koz-glass" id="koz-header" data-lang={lang}>
+<div class="koz-glass" id="koz-header" data-lang={lang} style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(18px);box-shadow:0 4px 20px rgba(32,55,81,.08)">
   <header class="top" style="display:block;padding:0">
     <div class="wrap">
       <div class="topbar">
@@ -61,3 +61,7 @@ function isActive(href: string) {
  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&open){setOpen(false);toggle?.focus();}});
  mq.addEventListener('change',()=>setOpen(false));setOpen(false);
 </script>
+
+<style>
+@media(max-width:760px){#koz-navigation.is-open{max-height:calc(100dvh - 130px);overflow-y:auto;overscroll-behavior:contain}}
+</style>
