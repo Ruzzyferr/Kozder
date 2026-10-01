@@ -17,23 +17,23 @@ export default {
     extend: {
       colors: {
         brand: {
-          paper: '#FBFBFA',   // sayfa zemini
+          paper: '#F7F9FC',   // sayfa zemini
           cream: '#FFFFFF',   // kart yüzeyi
-          ink: '#0B0B0C',     // başlık / koyu blok
+          ink: '#11243A',     // başlık / koyu blok
           walnut: '#6B6B75',  // ikincil metin (eski kahve kaldırıldı)
-          stamp: '#CE3A1F',   // aksan — canlı vermilyon
-          postage: '#FF6B4A', // koyu zeminde aksan
+          stamp: '#B7470B',   // aksan — canlı vermilyon
+          postage: '#FFAD6B', // koyu zeminde aksan
           sun: '#F5B841',
           ocean: '#2F6BFF',
           leaf: '#3FA96B',
         },
         surface: {
-          base: '#FBFBFA',
+          base: '#F7F9FC',
           card: '#FFFFFF',
           sunken: '#F3F3F1',
           muted: '#EFEFEC',
           dim: '#E4E4E0',
-          ink: '#0B0B0C',
+          ink: '#11243A',
         },
         ink: {
           DEFAULT: '#16161A',
@@ -48,16 +48,16 @@ export default {
         },
         primary: {
           50: '#FFF3F0', 100: '#FFE2DB', 200: '#FFBFB0', 300: '#FF9781',
-          400: '#F56A4D', 500: '#CE3A1F', 600: '#C2331D', 700: '#9C2717',
+          400: '#F56A4D', 500: '#B7470B', 600: '#C2331D', 700: '#9C2717',
           800: '#761D11', 900: '#4F130B',
         },
         accent: {
           50: '#FFF8EC', 100: '#FDEFD3', 200: '#FADFA6', 300: '#F5B841',
-          400: '#FF8A3D', 500: '#CE3A1F', 600: '#3FA96B', 700: '#2FB8B5',
+          400: '#FF8A3D', 500: '#B7470B', 600: '#3FA96B', 700: '#2FB8B5',
           800: '#8B5CF6', 900: '#2F6BFF',
         },
         dark: { DEFAULT: '#16161A', text: '#4B4B54', muted: '#67676F' },
-        light: { DEFAULT: '#FBFBFA', surface: '#FFFFFF', cream: '#F7F7F5' },
+        light: { DEFAULT: '#F7F9FC', surface: '#FFFFFF', cream: '#F7F7F5' },
       },
 
       fontFamily: {
@@ -108,7 +108,7 @@ export default {
           'radial-gradient(900px 480px at 85% 0%, rgb(225 68 43 / 0.05), transparent 62%)',
         'paper-grain': 'none',
         perforation:
-          'radial-gradient(circle at 4px 50%, transparent 3px, #0B0B0C 3px, #0B0B0C 4px, transparent 4px)',
+          'radial-gradient(circle at 4px 50%, transparent 3px, #11243A 3px, #11243A 4px, transparent 4px)',
       },
 
       keyframes: {
