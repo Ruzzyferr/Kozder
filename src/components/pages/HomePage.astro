@@ -187,7 +187,7 @@ const profileCards = [
 <div class="wrap"><div class="stats glass">{stats.map(s=><div class="stat"><strong>{s.value}</strong><span>{s.label}</span></div>)}</div></div>
 <section class="wrap section"><div class="section-head"><div><p class="eyebrow">{copy('Sıradaki yolculuğun','Your next journey')}</p><h2>{t('home.projects.title')}</h2></div><a class="all" href={path(lang,'projects')}>{t('common.allProjects')}</a></div>
 <div class="opps">{featuredProjects.map(project=><a class="opp glass" href={entryPath(lang,'projects',stripLangPrefix(project.slug))} data-featured-project data-project-static-status={project.data.status} data-project-start-date={project.data.startDate} data-project-deadline={project.data.applicationDeadline}>
-{project.data.coverImage&&<img src={project.data.coverImage} alt={lang==='en'?project.data.title_en:project.data.title_tr} loading="lazy" />}<div class="opp-body"><span class="badge" data-featured-project-status data-open-label={t('common.open')} data-closed-label={t('projects.applicationClosed')}>{isProjectApplicationOpen(project.data)?t('common.open'):t('projects.applicationClosed')}</span><h3>{lang==='en'?project.data.title_en:project.data.title_tr}</h3><p class="meta">{project.data.location}<br />{formatEventDate(project.data.startDate,{lang})}{project.data.endDate&&` – ${formatEventDate(project.data.endDate,{lang})}`}</p><span class="read">{copy('Projeyi incele','Explore the project')}</span></div></a>)}</div></section>
+{project.data.coverImage&&<img src={project.data.coverImage} alt={lang==='en'?project.data.title_en:project.data.title_tr} loading="lazy" />}<div class="opp-body"><div class="project-labels"><span class:list={['project-program',project.data.programType==='ESC'&&'esc']}>{project.data.programType==='ESC'?'ESC':'Erasmus+'}</span><span class="badge" data-featured-project-status data-open-label={t('common.open')} data-closed-label={t('projects.applicationClosed')}>{isProjectApplicationOpen(project.data)?t('common.open'):t('projects.applicationClosed')}</span></div><h3>{lang==='en'?project.data.title_en:project.data.title_tr}</h3><p class="meta">{project.data.location}<br />{formatEventDate(project.data.startDate,{lang})}{project.data.endDate&&` – ${formatEventDate(project.data.endDate,{lang})}`}</p><span class="read">{copy('Projeyi incele','Explore the project')}</span></div></a>)}</div></section>
 <section class="wrap section"><div class="section-head"><div><p class="eyebrow">{copy('Gençlerin gözünden','Through young people’s eyes')}</p><h2>{copy('Sınırları aşan hikâyeler.','Stories beyond borders.')}</h2></div><a class="all" href={path(lang,'stories')}>{t('common.allStories')}</a></div>
 <div class="story-controls"><button type="button" data-story-prev aria-label={copy('Önceki hikâyeler','Previous stories')}>←</button><button type="button" data-story-next aria-label={copy('Sonraki hikâyeler','Next stories')}>→</button><span class="story-counter" aria-live="polite"></span></div><div class="story-viewport"><div class="stories">
 {featuredStories.map(story=><a class="story glass" href={entryPath(lang,'stories',stripLangPrefix(story.slug))}><div class="story-media">{story.data.images[0]&&<><img class="photo-backdrop" src={story.data.images[0]} alt="" aria-hidden="true" loading="lazy"/><img src={story.data.images[0]} alt={story.data.name} loading="lazy" /></>}</div><h3>{story.data.name}</h3><div class="story-details"><span>{story.data.country}</span><span>{storyProgramLabel(story.data.programName)}</span></div><p>{story.data.summary}</p><span class="story-more">{copy('Hikâyeyi oku','Read the story')}</span></a>)}
@@ -265,5 +265,15 @@ if(root){
 @media(hover:hover){#koz-glass .stat:hover{z-index:2;transform:translateY(-9px) scale(1.045);border-color:color-mix(in srgb,var(--stat-color) 48%,white);box-shadow:inset 0 1px 0 white,0 20px 38px #243e6524,0 0 26px color-mix(in srgb,var(--stat-color) 16%,transparent)}}
 @media(max-width:760px){#koz-glass .stats{gap:12px}#koz-glass .stat{padding:20px;min-height:136px}#koz-glass .stat strong{font-size:42px}#koz-glass .stat span{font-size:12px}}
 @media(prefers-reduced-motion:reduce){#koz-glass .stat{transition:none}#koz-glass .stat:hover{transform:none}}
+</style>
+
+
+<style is:global>
+#koz-glass .opp>img{aspect-ratio:6/5;height:auto;object-fit:contain!important}
+#koz-glass .opp-body{padding:18px 20px 20px}
+#koz-glass .project-labels{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+#koz-glass .project-labels .badge{margin:0}
+#koz-glass .project-program{display:inline-flex;align-items:center;padding:6px 11px;border-radius:999px;background:#e6edff;color:#2857a1;border:1px solid #c4d5f4;font-size:11px;line-height:1.25;font-weight:700}
+#koz-glass .project-program.esc{background:#eee8ff;color:#71439f;border-color:#d8c9f1}
 </style>
 
