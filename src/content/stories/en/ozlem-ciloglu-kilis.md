@@ -211,9 +211,9 @@ And once again, we realised that some friendships simply cannot fit into a proje
 
 ## To Everyone Who Supported Me...
 
-I would like to thank our association president, **Mevlüde Özkaraca**, and her husband, **Halil Özkaraca**, for supporting me in every area throughout this project and giving me opportunities to develop myself.
+I would like to thank our association president, **Mevlide Özkaraca**, and her husband, **Halil Özkaraca**, for supporting me in every area throughout this project and giving me opportunities to develop myself.
 
-I would also like to thank our volunteers **Büşra and Saite**, who always supported me in media-related work during the intense project period, **Enes Bozkurt**, who supported us with transportation, and our friend **Muhammed**, who stood by me during the logistics and planning processes.
+I would also like to thank our volunteers **Büşra and Sait**, who always supported me in media-related work during the intense project period, **Enes Bozkurt**, who supported us with transportation, and our friend **Muhammed**, who stood by me during the logistics and planning processes.
 
 With your support and affection, this truly became a wonderful experience for me.
 
