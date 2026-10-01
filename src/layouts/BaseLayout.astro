@@ -116,7 +116,7 @@ const other: Lang = lang === 'tr' ? 'en' : 'tr';
 
     <Header lang={lang} alternate={alternate} />
 
-    <main id="main-content" class="flex-1" tabindex="-1">
+    <main id="main-content" class:list={["flex-1", {"site-content": !["/", "/en", "/en/"].includes(Astro.url.pathname)}]} tabindex="-1">
       <slot />
     </main>
 
@@ -798,4 +798,32 @@ const other: Lang = lang === 'tr' ? 'en' : 'tr';
 @media(max-width:380px){.koz-glass .wrap{padding-left:16px;padding-right:16px}.koz-glass .brand img{width:70px;height:70px}.koz-glass .brand small{max-width:135px}.koz-glass .header-actions{max-width:44px}.koz-glass .brand strong{font-size:25px}}
 @media(prefers-reduced-motion:reduce){.koz-glass .marquee{overflow-x:auto}.koz-glass .marquee__track{animation:none!important}.koz-glass .marquee__track[aria-hidden=true]{display:none}}
 
+</style>
+
+<style is:global>
+:root{--ink:#202936;--body:#505e70;--muted:#65758b;--accent:#bd4029;--line:rgb(53 72 106 / .13)}
+.site-content{background:radial-gradient(ellipse at 92% 8%,#dceaff 0,transparent 32%),radial-gradient(ellipse at 4% 35%,#e8ddfa 0,transparent 32%),radial-gradient(ellipse at 85% 72%,#dff3ed 0,transparent 30%),linear-gradient(130deg,#f3f7fb,#f6f2fa 50%,#edf6f5);color:#202936}
+.site-content>section.bg-brand-paper{background:linear-gradient(120deg,#ffffff80,#ffffff18);border-color:#d7e1ed}
+.site-content .container{max-width:1180px}
+.site-content .card:not(.bg-brand-ink){background:linear-gradient(135deg,#ffffffed,#ffffffb8);border:1px solid #ffffffdb;box-shadow:inset 0 1px 0 #fff,0 14px 36px #35486a12;backdrop-filter:blur(14px)}
+.site-content .card .bg-brand-cream{background:#ffffff80}
+.site-content :is(.bg-brand-ink,.panel-ink){background:linear-gradient(125deg,#172b43,#284963);border-radius:18px}
+.site-content :is(input,select,textarea){border-radius:10px;border-color:#c5d3e5;background-color:#ffffffb8}
+.site-content :is(a,button).bg-brand-stamp,.site-content a.bg-brand-ink,.site-content button.bg-brand-ink{background:linear-gradient(120deg,#bd4029,#d34a2e);color:#fff;border-radius:999px;box-shadow:inset 0 1px 0 #ffffff60,0 7px 20px #bd402926;transition:transform .22s,box-shadow .22s,background .22s}
+.site-content a.rounded-full:not(.bg-brand-stamp):not(.bg-brand-ink){border-radius:999px}
+.site-content [data-share] :is(a,button){border-radius:999px;background:#ffffffb8;border-color:#c4d3e7;transition:transform .22s,background .22s}
+.site-content .mission-card{--mission-accent:#be442e;position:relative;overflow:visible;border-radius:24px;border-top:4px solid var(--mission-accent)!important;background:linear-gradient(135deg,#fff9,#fffdf9dc)!important;transition:transform .24s,box-shadow .24s,background .24s}
+.site-content .mission-card.vision{--mission-accent:#317b9d;background:linear-gradient(135deg,#ffffffed,#e9f5ffab)!important}
+.site-content .mission-card h2{color:var(--mission-accent);line-height:1.12}
+.site-content .value-tile{transition:background .24s,transform .24s}
+#koz-glass .story-media{aspect-ratio:4/5}
+@media(hover:hover){
+.site-content :is(.card-hover,a>.card):hover{transform:translateY(-5px) scale(1.015);border-color:#a9bbd3;box-shadow:0 20px 40px #35486a24}
+.site-content .mission-card:hover{transform:translateY(-8px) scale(1.025);background:linear-gradient(130deg,#fff,#fbe4dba6)!important;box-shadow:inset 0 1px 0 #fff,0 22px 44px #aa503324}
+.site-content .mission-card.vision:hover{background:linear-gradient(130deg,#fff,#dbeaffaa)!important;box-shadow:inset 0 1px 0 #fff,0 22px 44px #386c9a24}
+.site-content .value-tile:hover{background:#e6ecff91;transform:translateY(-3px)}
+.site-content :is(a,button).bg-brand-stamp:hover,.site-content a.bg-brand-ink:hover,.site-content button.bg-brand-ink:hover{transform:translateY(-3px) scale(1.025);box-shadow:0 12px 26px #bd402939}
+.site-content [data-share] :is(a,button):hover{background:#203751;color:white;transform:translateY(-2px)}
+}
+@media(prefers-reduced-motion:reduce){.site-content .mission-card,.site-content .value-tile{transition:none}.site-content :is(.card-hover,a>.card,.mission-card,.value-tile):hover{transform:none}}
 </style>
