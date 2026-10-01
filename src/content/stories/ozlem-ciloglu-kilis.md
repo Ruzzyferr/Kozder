@@ -183,9 +183,9 @@ Ve bazı dostlukların gerçekten birkaç günlük bir projeye sığmayacağın�
 
 ## Bana Destek Olan Herkese...
 
-Bu proje sürecinde beni her alanda destekleyen ve kendimi geliştirmeme fırsat veren dernek başkanımız **Mevlüde Özkaraca'ya** ve eşi **Halil Özkaraca'ya** çok teşekkür ediyorum.
+Bu proje sürecinde beni her alanda destekleyen ve kendimi geliştirmeme fırsat veren dernek başkanımız **Mevlide Özkaraca'ya** ve eşi **Halil Özkaraca'ya** çok teşekkür ediyorum.
 
-Yoğun proje sürecinde medya alanında bana her zaman destek olan gönüllülerimiz **Büşra ve Saite'ye**, ulaşım konusunda destek olan **Enes Bozkurt'a**, lojistik ve planlama süreçlerinde yanımda olan **Muhammed** arkadaşımıza da ayrıca teşekkürlerimi iletiyorum.
+Yoğun proje sürecinde medya alanında bana her zaman destek olan gönüllülerimiz **Büşra ve Sait'e**, ulaşım konusunda destek olan **Enes Bozkurt'a**, lojistik ve planlama süreçlerinde yanımda olan **Muhammed** arkadaşımıza da ayrıca teşekkürlerimi iletiyorum.
 
 Sizlerin desteği ve sevgisiyle benim için gerçekten çok güzel bir süreç oldu.
 
