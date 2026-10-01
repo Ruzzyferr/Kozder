@@ -57,6 +57,8 @@ function isActive(href: string) {
  let open=false;
  function setOpen(value:boolean){open=value;if(!toggle||!menu)return;menu.classList.toggle('is-open',value);menu.inert=(mq.matches||root?.classList.contains('is-compact'))&&!value;toggle.setAttribute('aria-expanded',String(value));toggle.textContent=value?'×':'☰';toggle.setAttribute('aria-label',root?.dataset.lang==='en'?(value?'Close menu':'Open menu'):(value?'Menüyü kapat':'Menüyü aç'));}
  toggle?.addEventListener('click',()=>setOpen(!open));
+ // Fare açılan menüyü terk ettiğinde kapat; dokunmatik kullanımı etkilemez.
+ menu?.addEventListener('pointerleave',event=>{if(event.pointerType==='mouse'&&open)setOpen(false);});
  menu?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setOpen(false)));
  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&open){setOpen(false);toggle?.focus();}});
  mq.addEventListener('change',()=>setOpen(false));
@@ -80,4 +82,5 @@ function isActive(href: string) {
 #koz-header.is-compact #koz-navigation a{padding:14px 12px;border-bottom:1px solid #e5ebf4}
 @media(max-width:760px){#koz-header.is-compact .brand img{width:44px;height:44px}#koz-header.is-compact .brand strong{font-size:23px}#koz-header.is-compact .brand small{font-size:9px}#koz-header.is-compact #koz-navigation.is-open{grid-template-columns:1fr}}
 </style>
+
 
