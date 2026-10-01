@@ -43,7 +43,7 @@ Projemiz, farklı ülkelerden gelen katılımcılarımızın Gaziantep Havaliman
 
 Enes arkadaşımızla birlikte araçlarla Gaziantep Havalimanı'na giderek katılımcılarımızı karşıladık ve Kilis'teki konaklama yerlerine ulaştırdık.
 
-Projeye katılan ülkelerimiz **Hırvatistan, İtalya, Polonya, Romanya ve Türkiye** idi.
+Projeye katılan ülkelerimiz **Bulgaristan, İtalya, Polonya, Romanya ve Türkiye** idi.
 
 Ama bu projede sadece yurt dışından gelen arkadaşlarımız değil, birçok Türk gönüllümüz de projenin her aşamasında aktif olarak görev aldı. Kimi lojistikte, kimi sosyal medyada, kimi saha çalışmalarında, kimi de hiç beklemediğimiz bir anda ortaya çıkan küçük krizleri çözmekte görev aldı.
 
@@ -143,7 +143,7 @@ Projenin sonlarına doğru artık sadece Kilis'i değil, birbirimizi de daha yak
 
 Her ülke kendi tarihini, kültürünü, geleneklerini, danslarını ve yemeklerini tanıttı.
 
-Bir anda aynı salonda Polonya'dan İtalya'ya, Hırvatistan'dan Romanya'ya ve Türkiye'ye kadar uzanan küçük bir dünya oluştu.
+Bir anda aynı salonda Polonya'dan İtalya'ya, Bulgaristan'dan Romanya'ya ve Türkiye'ye kadar uzanan küçük bir dünya oluştu.
 
 Birbirimizin kültürlerinden yeni kelimeler öğrendik, farklı aksanlara alıştık ve tabii ki İngilizcemizi geliştirmeye çalıştık.
 
