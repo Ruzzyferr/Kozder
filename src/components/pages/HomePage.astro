@@ -30,7 +30,7 @@ const featuredProjects = projects
     if (s !== 0) return s;
     return newestProject(a, b);
   })
-  .slice(0, 5);
+  .slice(0, 2);
 
 // Etkinlik bölümü: yaklaşan varsa onlar, yoksa bölüm kaybolmasın diye
 // en son yapılanlar gösterilir.
@@ -190,7 +190,7 @@ const profileCards = [
 {project.data.coverImage&&<img src={project.data.coverImage} alt={lang==='en'?project.data.title_en:project.data.title_tr} loading="lazy" />}<div class="opp-body"><span class="badge" data-featured-project-status data-open-label={t('common.open')} data-closed-label={t('projects.applicationClosed')}>{isProjectApplicationOpen(project.data)?t('common.open'):t('projects.applicationClosed')}</span><h3>{lang==='en'?project.data.title_en:project.data.title_tr}</h3><p class="meta">{project.data.location}<br />{formatEventDate(project.data.startDate,{lang})}{project.data.endDate&&` – ${formatEventDate(project.data.endDate,{lang})}`}</p><span class="read">{copy('Projeyi incele','Explore the project')}</span></div></a>)}</div></section>
 <section class="wrap section"><div class="section-head"><div><p class="eyebrow">{copy('Gençlerin gözünden','Through young people’s eyes')}</p><h2>{copy('Sınırları aşan hikâyeler.','Stories beyond borders.')}</h2></div><a class="all" href={path(lang,'stories')}>{t('common.allStories')}</a></div>
 <div class="story-controls"><button type="button" data-story-prev aria-label={copy('Önceki hikâyeler','Previous stories')}>←</button><button type="button" data-story-next aria-label={copy('Sonraki hikâyeler','Next stories')}>→</button><span class="story-counter" aria-live="polite"></span></div><div class="story-viewport"><div class="stories">
-{featuredStories.map(story=><a class="story glass" href={entryPath(lang,'stories',stripLangPrefix(story.slug))}><div class="story-media">{story.data.images[0]&&<><img class="photo-backdrop" src={story.data.images[0]} alt="" aria-hidden="true" loading="lazy"/><img src={story.data.images[0]} alt={story.data.name} loading="lazy" /></>}</div><h3>{story.data.name}</h3><p>{story.data.summary}</p><span class="story-more">{copy('Hikâyeyi oku','Read the story')}</span></a>)}
+{featuredStories.map(story=><a class="story glass" href={entryPath(lang,'stories',stripLangPrefix(story.slug))}><div class="story-media">{story.data.images[0]&&<><img class="photo-backdrop" src={story.data.images[0]} alt="" aria-hidden="true" loading="lazy"/><img src={story.data.images[0]} alt={story.data.name} loading="lazy" /></>}</div><h3>{story.data.name}</h3><div class="story-details"><span>{story.data.country}</span><span>{storyProgramLabel(story.data.programName)}</span></div><p>{story.data.summary}</p><span class="story-more">{copy('Hikâyeyi oku','Read the story')}</span></a>)}
 </div></div></section>
 <section class="wrap section"><p class="eyebrow">{copy('İlk projen mi?','Your first project?')}</p><h2>{copy('Üç adımda, Avrupa.','Europe in three steps.')}</h2><div class="steps">{steps.map(step=><a class="step glass" href={step.href}><strong>{step.n}</strong><h3>{step.title}</h3><p>{step.text}</p></a>)}</div></section>
 <section class="wrap section dual"><div><p class="eyebrow">{copy('Bir araya gelelim','Let’s come together')}</p><h2>{copy('Etkinlik takvimi.','Event calendar.')}</h2><div class="events-list">
@@ -237,3 +237,13 @@ if(root){
  const update=()=>{if(!track||!cards.length)return;const count=Math.min(visible(),cards.length);index=Math.max(0,Math.min(index,cards.length-count));track.style.transform=`translateX(${-index*(cards[0].getBoundingClientRect().width+24)}px)`;if(prev)prev.disabled=index===0;if(next)next.disabled=index>=cards.length-count;if(counter)counter.textContent=`${index+1}–${index+count} / ${cards.length} ${root.dataset.lang==='en'?'stories':'hikâye'}`;cards.forEach((card,i)=>card.inert=i<index||i>=index+count);};prev?.addEventListener('click',()=>{index--;update();});next?.addEventListener('click',()=>{index++;update();});let start:number|null=null;viewport?.addEventListener('pointerdown',e=>start=e.clientX);viewport?.addEventListener('pointerup',e=>{if(start!==null&&Math.abs(e.clientX-start)>50){index+=e.clientX<start?1:-1;update();}start=null;});viewport?.addEventListener('pointercancel',()=>start=null);if(viewport)new ResizeObserver(update).observe(viewport);update();
 }
 </script>
+
+<style is:global>
+.koz-glass .story-details{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-height:28px;margin:0 22px 12px;color:#253e5b;font-size:12px;font-weight:700;letter-spacing:.03em}
+.koz-glass .story-details span{padding:5px 10px;border-radius:999px;background:#e8eff8;border:1px solid #ccd9eb}
+.koz-glass .story-details span:last-child{background:#edf4e6;color:#415a27;border-color:#d1dfbd}
+.koz-glass .logos{padding:36px 0 22px;background:linear-gradient(120deg,#e2eafb99,#f2f5efaa);border-block:1px solid #d9e2ef}
+.koz-glass .logos>div{margin-bottom:20px}
+.koz-glass .logos .logo-label{display:table;max-width:calc(100% - 40px);margin:0 auto 20px;padding:15px 30px;border:1px solid #ffffff90;border-radius:16px;background:linear-gradient(115deg,#203751df,#3f5b78cc);backdrop-filter:blur(16px);box-shadow:0 8px 24px #20375115;color:white;font-size:20px;line-height:1.4;font-weight:700;letter-spacing:.05em;text-align:center}
+@media(max-width:760px){.koz-glass .logos .logo-label{font-size:17px;padding:13px 20px;letter-spacing:.02em}.koz-glass .story-details{margin-inline:18px;font-size:11px}}
+</style>
