@@ -38,7 +38,7 @@ function isActive(href: string) {
           <div><strong>KOZ<span>·</span>DER</strong><small>{t('site.orgName')}</small></div>
         </a>
         <div class="header-actions">
-          <button type="button" class="mobile-menu-toggle" aria-label={t('nav.open')} aria-expanded="false" aria-controls="koz-navigation">⋯</button>
+          <button type="button" class="mobile-menu-toggle" aria-label={t('nav.open')} aria-expanded="false" aria-controls="koz-navigation">☰</button>
           <a class="lang" href={otherHref} hreflang={other} aria-label={t('nav.langSwitch')}>{other.toUpperCase()}</a>
           <a class="contact" href={contact}>{t('nav.cta')}</a>
         </div>
@@ -55,13 +55,29 @@ function isActive(href: string) {
  const menu=root?.querySelector<HTMLElement>('#koz-navigation');
  const mq=matchMedia('(max-width:760px)');
  let open=false;
- function setOpen(value:boolean){open=value;if(!toggle||!menu)return;menu.classList.toggle('is-open',value);menu.inert=mq.matches&&!value;toggle.setAttribute('aria-expanded',String(value));toggle.textContent=value?'×':'⋯';toggle.setAttribute('aria-label',root?.dataset.lang==='en'?(value?'Close menu':'Open menu'):(value?'Menüyü kapat':'Menüyü aç'));}
+ function setOpen(value:boolean){open=value;if(!toggle||!menu)return;menu.classList.toggle('is-open',value);menu.inert=(mq.matches||root?.classList.contains('is-compact'))&&!value;toggle.setAttribute('aria-expanded',String(value));toggle.textContent=value?'×':'☰';toggle.setAttribute('aria-label',root?.dataset.lang==='en'?(value?'Close menu':'Open menu'):(value?'Menüyü kapat':'Menüyü aç'));}
  toggle?.addEventListener('click',()=>setOpen(!open));
  menu?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setOpen(false)));
  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&open){setOpen(false);toggle?.focus();}});
- mq.addEventListener('change',()=>setOpen(false));setOpen(false);
+ mq.addEventListener('change',()=>setOpen(false));
+ const syncScroll=()=>{if(!root)return;const compact=root.classList.contains('is-compact');const next=compact?window.scrollY>40:window.scrollY>160;if(next!==compact){root.classList.toggle('is-compact',next);setOpen(false);}};
+ window.addEventListener('scroll',syncScroll,{passive:true});syncScroll();setOpen(false);
 </script>
 
 <style>
 @media(max-width:760px){#koz-navigation.is-open{max-height:calc(100dvh - 130px);overflow-y:auto;overscroll-behavior:contain}}
 </style>
+
+<style is:global>
+#koz-header.is-compact .topbar{padding:8px 0;gap:12px}
+#koz-header.is-compact .brand{gap:10px}
+#koz-header.is-compact .brand img{width:50px;height:50px}
+#koz-header.is-compact .brand strong{font-size:25px}
+#koz-header.is-compact .brand small{font-size:10px;margin-top:2px}
+#koz-header.is-compact .mobile-menu-toggle{display:inline-flex;width:40px;height:40px;border:1px solid #bccce0;border-radius:50%;align-items:center;justify-content:center;background:#ffffffdf;font-size:22px;line-height:1}
+#koz-header.is-compact #koz-navigation:not(.is-open){display:none}
+#koz-header.is-compact #koz-navigation.is-open{position:absolute;top:100%;left:0;right:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;max-height:70dvh;overflow-y:auto;overscroll-behavior:contain;padding:12px max(24px,calc((100% - 1120px)/2));background:rgba(255,255,255,.97);backdrop-filter:blur(18px);border-bottom:1px solid #d7e1ed;box-shadow:0 12px 24px #20375120}
+#koz-header.is-compact #koz-navigation a{padding:14px 12px;border-bottom:1px solid #e5ebf4}
+@media(max-width:760px){#koz-header.is-compact .brand img{width:44px;height:44px}#koz-header.is-compact .brand strong{font-size:23px}#koz-header.is-compact .brand small{font-size:9px}#koz-header.is-compact #koz-navigation.is-open{grid-template-columns:1fr}}
+</style>
+
