@@ -1,7 +1,7 @@
 ---
 name: "Rüveyda EKER"
 programName: "Grandchildren for Rent — ESC"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "2026"
 images:
   - "/images/stories/ruveydaeker.jpeg"

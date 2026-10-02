@@ -1,7 +1,7 @@
 ---
 name: "Dilay ARAPOĞLU"
 programName: "Rights Matter, Justice Counts Erasmus+ Training Course"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "13.07.2026"
 images:
   - "/images/stories/dilayerasmus.jpg"

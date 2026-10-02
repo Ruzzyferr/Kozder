@@ -1,7 +1,7 @@
 ---
 name: "Özlem ÇİLOĞLU"
 programName: "LIFE for PRR – Join Life — Erasmus+ Youth Exchange"
-country: "Türkiye"
+country: "Türkiye · Kilis"
 startDate: "03.07.2024"
 images:
   - "/images/stories/ozlemkilis.jpeg"

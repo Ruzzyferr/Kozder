@@ -1,7 +1,7 @@
 ---
 name: "Halil ÖZKARACA"
 programName: "Truth or Trick? Click with Care — Erasmus+"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "13.07.2026"
 images:
   - "/images/stories/halilozkaraca.jpeg"

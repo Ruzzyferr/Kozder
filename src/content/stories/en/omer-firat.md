@@ -1,7 +1,7 @@
 ---
 name: "Ömer Fırat KÜLEKÇİ"
 programName: "Bulgaria Erasmus+ Experience"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "21.07.2025"
 images:
   - "/images/stories/omer-firat.webp"

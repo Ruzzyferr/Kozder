@@ -1,7 +1,7 @@
 ---
 name: "Ali REYHAN"
 programName: "Green World-2 ESC Volunteering"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "03.05.2026"
 images:
   - "/images/stories/alireyhan.jpg"

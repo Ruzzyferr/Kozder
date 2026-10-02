@@ -1,7 +1,7 @@
 ---
 name: "Emine Akpınar"
 programName: "No More Walls, Europe Calls — Erasmus+ Youth Exchange"
-country: "Türkiye"
+country: "Türkiye · Kilis"
 startDate: "27.08.2026"
 images:
   - "/images/stories/emineakpinar.jpg"

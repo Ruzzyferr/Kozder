@@ -1,7 +1,7 @@
 ---
 name: "Şevval GÜNEY"
 programName: "Truth or Trick Erasmus+ Training Course"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "13.07.2026"
 images:
   - "/images/stories/sevval.jpg"

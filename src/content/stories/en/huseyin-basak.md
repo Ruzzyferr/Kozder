@@ -1,7 +1,7 @@
 ---
 name: "Hüseyin BAŞAK"
 programName: "KOZ-DER Bulgaria Volunteering"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "07.04.2025"
 images:
   - "/images/stories/huseyin.webp"

@@ -1,7 +1,7 @@
 ---
 name: "Sedef DİZLEK"
 programName: "Green World-2 ESC Volunteering"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "04.05.2026"
 images:
   - "/images/stories/sedefdizlek.jpeg"

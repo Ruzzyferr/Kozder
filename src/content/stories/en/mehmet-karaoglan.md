@@ -1,7 +1,7 @@
 ---
 name: "Mehmet KARAOĞLAN"
 programName: "Bulgaria Erasmus+ Project"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "13.07.2026"
 images:
   - "/images/stories/mehmetkaraoglan.jpg"

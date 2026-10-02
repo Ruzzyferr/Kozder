@@ -1,7 +1,7 @@
 ---
 name: "Ceylin ERSOY"
 programName: "Bulgaria Erasmus+ Experience"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "13.04.2026"
 images:
   - "/images/stories/ceylin.webp"

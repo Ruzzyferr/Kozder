@@ -1,7 +1,7 @@
 ---
 name: "Sami MAHMUDOĞLU"
 programName: "Bulgaria ESC Volunteering"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "12.04.2026"
 images:
   - "/images/stories/sefa.webp"
