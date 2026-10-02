@@ -1,7 +1,7 @@
 ---
 title_tr: "Gençler Göbeklitepe, Halfeti ve Balıklıgöl’ü Keşfetti"
 title_en: "Young People Explore Göbeklitepe, Halfeti and Balıklıgöl"
-date: "10.12.2025"
+date: "14.12.2025"
 category: "Culture, Nature and Youth"
 location: "Göbeklitepe, Halfeti ve Balıklıgöl"
 coverImage: "/images/news/gobeklitepe.jpeg"
