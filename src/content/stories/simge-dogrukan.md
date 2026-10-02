@@ -1,7 +1,7 @@
 ---
 name: "Simge Aşkın DOĞRUKAN"
 programName: "Bulgaristan ART EVS 26 Gönüllülüğü"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "12.04.2026"
 images:
   - "/images/stories/simge.webp"

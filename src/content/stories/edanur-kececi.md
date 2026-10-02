@@ -1,7 +1,7 @@
 ---
 name: "Eda Nur KEÇECİ"
 programName: "Don’t Just Scroll, Take Control Erasmus+ Projesi"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "12.08.2026"
 images:
   - "/images/stories/edanurkececi.jpeg"

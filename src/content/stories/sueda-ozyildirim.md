@@ -1,7 +1,7 @@
 ---
 name: "Sueda ÖZYILDIRIM"
 programName: "Bulgaristan Erasmus+ Training"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "13.04.2026"
 images:
   - "/images/stories/sueda.webp"

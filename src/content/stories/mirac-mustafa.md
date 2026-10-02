@@ -1,7 +1,7 @@
 ---
 name: "Miraç Mustafa KARABAŞ"
 programName: "No More Walls, Europe Calls — Erasmus+"
-country: "Türkiye"
+country: "Türkiye · Kilis"
 startDate: "2026-08-27"
 images:
   - "/images/stories/miracmustafa.jpg"

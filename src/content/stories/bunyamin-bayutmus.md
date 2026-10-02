@@ -1,7 +1,7 @@
 ---
 name: "Bünyamin BAYUTMUŞ"
 programName: "Bulgaristan Gönüllülük Deneyimi"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "30.06.2025"
 images:
   - "/images/stories/bunyamin.webp"

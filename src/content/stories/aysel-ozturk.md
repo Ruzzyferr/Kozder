@@ -1,7 +1,7 @@
 ---
 name: "Aysel ÖZTÜRK"
 programName: "Bulgaristan ART EVS Gönüllülüğü"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "12.04.2026"
 images:
   - "/images/stories/aysel.jpeg"

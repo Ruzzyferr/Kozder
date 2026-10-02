@@ -1,7 +1,7 @@
 ---
 name: "Ceren ERSOY"
 programName: "Bulgaristan Erasmus+ Deneyimi"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "13.04.2026"
 images:
   - "/images/stories/cerenersoy.webp"

@@ -1,7 +1,7 @@
 ---
 name: "Eylül ÖZDEMİR"
 programName: "Bulgaristan ESC Gönüllülüğü"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "30.06.2025"
 images:
   - "/images/stories/eylul-ozdemir.webp"

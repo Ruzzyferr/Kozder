@@ -1,7 +1,7 @@
 ---
 name: "Rana ALLAHVERDİ"
 programName: "Don’t Just Scroll, Take Control Erasmus+ Eğitim Kursu"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "12.08.2026"
 images:
   - "/images/stories/Ranaallahverdi.jpeg"

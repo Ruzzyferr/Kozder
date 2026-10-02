@@ -1,7 +1,7 @@
 ---
 name: "Ege Şemsettin SÖNMEZ"
 programName: "Avrupa Dayanışma Programı (ESC) Gönüllülük Projesi"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "29.06.2026"
 images:
   - "/images/stories/egesemsettindemir.jpg"

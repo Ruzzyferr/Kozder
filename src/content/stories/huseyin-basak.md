@@ -1,7 +1,7 @@
 ---
 name: "Hüseyin BAŞAK"
 programName: "KOZ-DER Bulgaristan Gönüllülüğü"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "07.04.2025"
 images:
   - "/images/stories/huseyin.webp"
