@@ -53,4 +53,4 @@ Together with the project’s psychosocial support component, disaster awareness
 
 By reaching **160 young people**, the disaster awareness training complemented the project’s educational, social participation and psychosocial support objectives. Combining disaster awareness with digital and cognitive skills strengthened the programme’s multidimensional approach.
 
-KOZ-DER thanks the **Ministry of Youth and Sports of the Republic of Türkiye** for its support, **AFAD** for its cooperation in delivering the training, our team and all participating young people. We continue to work in solidarity to strengthen the knowledge, skills and resilience of disaster-affected young people.
+KOZ-DER thanks the **Ministry of Youth and Sports of the Republic of Türkiye** for its support, **Kilis AFAD and Kilis AFAD Branch Director Ayşe Şahin** for their cooperation in delivering the training, our team and all participating young people. We continue to work in solidarity to strengthen the knowledge, skills and resilience of disaster-affected young people.
