@@ -53,4 +53,4 @@ Projenin psikososyal destek bileşeniyle birlikte ele alındığında afet bilin
 
 **160 gence ulaşan afet bilinci eğitimleri**, projenin eğitim, sosyal katılım ve psikososyal destek hedeflerini tamamladı. Gençlerin dijital ve bilişsel beceriler edinirken afetlere karşı da bilinçlenmesi, programın çok yönlü yapısını güçlendirdi.
 
-KOZ-DER olarak, projeye verdiği destek için **T.C. Gençlik ve Spor Bakanlığına**, eğitimlerin gerçekleştirilmesindeki iş birliği için **AFAD’a**, sürece katkı sunan ekibimize ve tüm katılımcı gençlere teşekkür ederiz. Afetlerden etkilenen gençlerin bilgi, beceri ve dayanıklılıklarını güçlendiren çalışmalarımızı dayanışma içinde sürdürmeye devam ediyoruz.
+KOZ-DER olarak, projeye verdiği destek için **T.C. Gençlik ve Spor Bakanlığına**, eğitimlerin gerçekleştirilmesindeki iş birliği için **Kilis AFAD’a ve Kilis AFAD Şube Müdürü Ayşe Şahin’e**, sürece katkı sunan ekibimize ve tüm katılımcı gençlere teşekkür ederiz. Afetlerden etkilenen gençlerin bilgi, beceri ve dayanıklılıklarını güçlendiren çalışmalarımızı dayanışma içinde sürdürmeye devam ediyoruz.
