@@ -1,7 +1,7 @@
 ---
 name: "Beren TAŞ"
 programName: "Don’t Just Scroll, Take Control Erasmus+ Training Course"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "12.08.2026"
 images:
   - "/images/stories/berentas.jpeg"

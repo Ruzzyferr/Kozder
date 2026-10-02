@@ -1,7 +1,7 @@
 ---
 name: "Anıl AŞCI"
 programName: "KOZ-DER Bulgaria Erasmus+ Project"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "2025"
 images:
   - "/images/stories/anil.webp"

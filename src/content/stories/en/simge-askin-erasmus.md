@@ -1,7 +1,7 @@
 ---
 name: "Simge Aşkın DOĞRUKAN"
 programName: "Truth or Trick Erasmus+ Project"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "13.07.2026"
 images:
   - "/images/stories/simgeerasmus.jpg"

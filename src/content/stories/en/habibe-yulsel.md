@@ -1,7 +1,7 @@
 ---
 name: "Habibe YÜKSEL"
 programName: "Bulgaria ARTEVS ESC Volunteering Project"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "12.04.2026"
 images:
   - "/images/stories/habibe.jpg"

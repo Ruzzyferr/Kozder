@@ -1,7 +1,7 @@
 ---
 name: "Miraç Mustafa KARABAŞ"
 programName: "Grandchildren ESC Volunteering"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "29.06.2026"
 images:
   - "/images/stories/mustafamirac.jpg"

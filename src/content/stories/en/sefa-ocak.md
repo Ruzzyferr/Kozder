@@ -1,7 +1,7 @@
 ---
 name: "Sefa OCAK"
 programName: "Bulgaria ARTEVS Volunteering"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "12.04.2026"
 images:
   - "/images/stories/sami.webp"

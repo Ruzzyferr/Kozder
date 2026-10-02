@@ -1,7 +1,7 @@
 ---
 name: "Bünyamin BAYUTMUŞ"
 programName: "Bulgaria Volunteering Experience"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "30.06.2025"
 images:
   - "/images/stories/bunyamin.webp"

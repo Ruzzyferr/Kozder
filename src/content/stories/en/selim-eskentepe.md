@@ -1,7 +1,7 @@
 ---
 name: "Selim ESKENTEPE"
 programName: "European Solidarity Corps (ESC) Volunteering Project"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "29.06.2026"
 images:
   - "/images/stories/selimeskentepe.jpeg"

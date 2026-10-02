@@ -1,7 +1,7 @@
 ---
 name: "Hatice İLHAN"
 programName: "Bulgaria ESC Volunteering"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "2025-04"
 images:
   - "/images/stories/hatice-ilhan.webp"

@@ -1,7 +1,7 @@
 ---
 name: "Nisa DEMİR"
 programName: "Grandchildren for Rent Short-Term ESC Volunteering"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "2026"
 images:
   - "/images/stories/nisademir.jpeg"

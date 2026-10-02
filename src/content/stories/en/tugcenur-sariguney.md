@@ -1,7 +1,7 @@
 ---
 name: "Tuğçenur SARIGÜNEY"
 programName: "Grandchildren For Rent Short-Term ESC Volunteering"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "29.06.2026"
 images:
   - "/images/stories/tugcenurr.jpeg"

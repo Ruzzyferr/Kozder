@@ -1,7 +1,7 @@
 ---
 name: "Fatma UYTUN"
 programName: "Bulgaria ART EVS Volunteering"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "12.04.2026"
 images:
   - "/images/stories/fatmauytun.jpeg"

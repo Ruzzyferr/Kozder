@@ -1,7 +1,7 @@
 ---
 name: "Eylül ÖZDEMİR"
 programName: "Bulgaria ESC Volunteering"
-country: "Bulgaria"
+country: "Bulgaria · Madan"
 startDate: "30.06.2025"
 images:
   - "/images/stories/eylul-ozdemir.webp"
