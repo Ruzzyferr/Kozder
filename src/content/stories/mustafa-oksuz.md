@@ -1,7 +1,7 @@
 ---
 name: "Tarhan Mustafa ÖKSÜZ"
 programName: "KOZ-DER Yaz Dönemi Projesi"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "30.06.2025"
 images:
   - "/images/stories/mustafa.webp"

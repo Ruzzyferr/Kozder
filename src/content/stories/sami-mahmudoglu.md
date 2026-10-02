@@ -1,7 +1,7 @@
 ---
 name: "Sami MAHMUDOĞLU"
 programName: "Bulgaristan ESC Gönüllülüğü"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "12.04.2026"
 images:
   - "/images/stories/sefa.webp"

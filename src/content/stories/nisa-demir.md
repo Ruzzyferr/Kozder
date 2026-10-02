@@ -1,7 +1,7 @@
 ---
 name: "Nisa DEMİR"
 programName: "Grandchildren for Rent Kısa Dönem ESC Gönüllülüğü"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "29.06.2026"
 images:
   - "/images/stories/nisademir.jpeg"

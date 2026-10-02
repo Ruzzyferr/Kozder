@@ -1,7 +1,7 @@
 ---
 name: "Cuma Çepik"
 programName: "No More Walls, Europe Calls — Erasmus+ Gençlik Değişimi"
-country: "Türkiye"
+country: "Türkiye · Kilis"
 startDate: "27.08.2026"
 images:
   - "/images/stories/cumacepik.jpeg"

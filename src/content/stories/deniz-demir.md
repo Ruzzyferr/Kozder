@@ -1,7 +1,7 @@
 ---
 name: "Deniz DEMİR"
 programName: "Green World-2 ESC Gönüllülük Projesi"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "29.06.2026"
 images:
   - "/images/stories/denizdemir.jpeg"

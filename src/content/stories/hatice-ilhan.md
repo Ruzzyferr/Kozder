@@ -1,7 +1,7 @@
 ---
 name: "Hatice İLHAN"
 programName: "Bulgaristan ESC Gönüllülüğü"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "2025-04"
 images:
   - "/images/stories/hatice-ilhan.webp"

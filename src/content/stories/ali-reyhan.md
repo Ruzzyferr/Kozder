@@ -1,7 +1,7 @@
 ---
 name: "Ali REYHAN"
 programName: "Green World-2 ESC Gönüllülüğü"
-country: "Bulgaristan"
+country: "Bulgaristan · Madan"
 startDate: "03.05.2026"
 images:
   - "/images/stories/alireyhan.jpg"
