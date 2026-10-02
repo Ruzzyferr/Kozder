@@ -3,7 +3,7 @@ title_tr: "Zeka Oyunları, Dijitalleşme ve Afet Bilinci Projesi Tamamlandı"
 title_en: "Mind Games, Digitalisation and Disaster Awareness Project Completed"
 date: "30.12.2025"
 category: "Youth and Disaster Awareness"
-coverImage: "/images/news/gsbproje.jpeg"
+coverImage: "/images/news/gsbproje9.jpeg"
 images:
   - "/images/news/gsbproje.jpeg"
   - "/images/news/gsbproje1.jpeg"
