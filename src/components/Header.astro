@@ -62,7 +62,7 @@ function isActive(href: string) {
  menu?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setOpen(false)));
  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&open){setOpen(false);toggle?.focus();}});
  mq.addEventListener('change',()=>setOpen(false));
- const syncScroll=()=>{if(!root)return;const compact=root.classList.contains('is-compact');const next=compact?window.scrollY>40:window.scrollY>160;if(next!==compact){root.classList.toggle('is-compact',next);setOpen(false);}};
+ const syncScroll=()=>{if(!root)return;const compact=root.classList.contains('is-compact');const next=window.scrollY>0;if(next!==compact){root.classList.toggle('is-compact',next);setOpen(false);}};
  window.addEventListener('scroll',syncScroll,{passive:true});syncScroll();setOpen(false);
 </script>
 
@@ -71,6 +71,8 @@ function isActive(href: string) {
 </style>
 
 <style is:global>
+/* Başlık küçülürken tarayıcının kaydırma konumunu geri çekmesini önler. */
+html:has(#koz-header){overflow-anchor:none}
 #koz-header.is-compact .topbar{padding:8px 0;gap:12px}
 #koz-header.is-compact .brand{gap:10px}
 #koz-header.is-compact .brand img{width:50px;height:50px}
@@ -90,3 +92,4 @@ function isActive(href: string) {
 #koz-header #koz-navigation a[aria-current="page"]{color:#bd4029;background:#bd40290c;border-radius:9px;box-shadow:inset 0 -2px 0 #bd4029}
 @media(min-width:761px){#koz-header.is-compact #koz-navigation.is-open{display:flex!important;flex-wrap:nowrap!important;justify-content:space-between;gap:8px!important;max-height:none!important;padding:10px max(24px,calc((100% - 1120px)/2))!important;overflow-x:auto!important;overflow-y:hidden!important}#koz-header.is-compact #koz-navigation a{white-space:nowrap;flex-shrink:0;padding:12px 9px!important;border-bottom:0!important}}
 </style>
+
