@@ -13,6 +13,7 @@ themes:
 location: "Sărata Monteoru & Buzău, Romanya"
 startDate: "04.12.2026"
 endDate: "13.12.2026"
+applicationDeadline: "2026-10-15"
 coverImage: "/images/projects/white-rainbow.png"
 coverFit: "contain"
 applicationUrl: "https://forms.gle/Y3YQsuZNxPQeufiW7"
@@ -173,6 +174,8 @@ Projenin konaklama, ulaşım, seyahat geri ödemeleri, hazırlık süreci ve kat
 [**White Rainbow Bilgi Paketini Aç**](https://drive.google.com/file/d/10LlnmZeygHf5LZpbJHUSELHKoPo-wiwE/view?usp=sharing)
 
 ## Başvuru
+
+**Son başvuru tarihi: 15.10.2026**
 
 White Rainbow Erasmus+ Eğitim Kursu’na katılmak isteyen adaylar aşağıdaki başvuru formunu doldurabilir:
 
