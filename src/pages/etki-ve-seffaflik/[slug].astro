@@ -26,7 +26,10 @@ const { Content } = await report.render();
       <Content />
       {report.data.signedBy && <p class="mt-10 border-t border-line pt-4 font-bold">{report.data.signedBy}</p>}
     </article>
-    <p class="mx-auto mt-6 max-w-3xl text-sm text-ink-soft">Bu sayfa, derneğin yönetim kurulu raporundan web için hazırlanmıştır; kişisel iletişim bilgileri çıkarılmıştır. Belgenin imzalı aslı için bilgi@kozder.com adresine yazabilirsiniz.</p>
+    {report.data.pdf && (
+      <p class="mx-auto mt-6 max-w-3xl"><a class="inline-flex items-center rounded-xl bg-brand-ink px-5 py-3 font-bold text-white hover:bg-brand-stamp" href={report.data.pdf} target="_blank" rel="noopener noreferrer">Raporun PDF hâlini aç</a></p>
+    )}
+    <p class="mx-auto mt-4 max-w-3xl text-sm text-ink-soft">Bu sayfa, derneğin yönetim kurulu raporundan web için hazırlanmıştır; kişisel iletişim bilgileri çıkarılmıştır.</p>
     <p class="mx-auto mt-4 max-w-3xl"><a class="font-bold text-brand-stamp underline" href={path('tr', 'impact')}>← Etki ve Şeffaflık</a></p>
   </div>
 </BaseLayout>
