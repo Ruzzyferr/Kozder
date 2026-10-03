@@ -24,9 +24,9 @@
       {
         "call": 2023,
         "code": "2023-1-TR01-ESC51-VTJ-000112883",
-        "volunteers": 28,
-        "countries_tr": "Yunanistan 9, Bulgaristan 7, Portekiz 5, Mısır 3, Gürcistan 2, İtalya 1, İspanya 1",
-        "countries_en": "Greece 9, Bulgaria 7, Portugal 5, Egypt 3, Georgia 2, Italy 1, Spain 1",
+        "volunteers": 26,
+        "countries_tr": "Yunanistan 9, Bulgaristan 5, Portekiz 5, Mısır 3, Gürcistan 2, İtalya 1, İspanya 1",
+        "countries_en": "Greece 9, Bulgaria 5, Portugal 5, Egypt 3, Georgia 2, Italy 1, Spain 1",
         "grant": 78479
       },
       {
@@ -40,9 +40,9 @@
       {
         "call": 2025,
         "code": "2025-1-TR01-ESC51-VTJ-000346549",
-        "volunteers": 18,
-        "countries_tr": "İtalya 8, Portekiz 3, Romanya 2, Bulgaristan 2, Fas 2, İzlanda 1",
-        "countries_en": "Italy 8, Portugal 3, Romania 2, Bulgaria 2, Morocco 2, Iceland 1",
+        "volunteers": 17,
+        "countries_tr": "İtalya 7, Portekiz 3, Romanya 2, Bulgaristan 2, Fas 2, İzlanda 1",
+        "countries_en": "Italy 7, Portugal 3, Romania 2, Bulgaria 2, Morocco 2, Iceland 1",
         "grant": 48532
       }
     ]
@@ -95,9 +95,10 @@
       "title_en": "Life for PRR (Protect, Reduce, Reuse) — Erasmus+ KA152 youth exchange",
       "participants": 56,
       "budget": 44000,
-      "detail_tr": "Kilis'te 10 gün süren çevre temalı gençlik değişimi: geri dönüşüm ve kompost atölyeleri, Oylum Höyük çevre temizliği, belediye atık ve su arıtma tesisleri ziyareti.",
-      "detail_en": "Ten-day environmental youth exchange in Kilis: recycling and compost workshops, a clean-up at Oylum Höyük and visits to the municipal waste and water treatment plants.",
-      "source": "yk-2025"
+      "detail_tr": "6 ülkeden 6 ortak kuruluşla Kilis'te 10 gün süren çevre temalı gençlik değişimi: geri dönüşüm ve kompost atölyeleri, Oylum Höyük çevre temizliği, belediye atık ve su arıtma tesisleri ziyareti.",
+      "detail_en": "Ten-day environmental youth exchange in Kilis with 6 partner organisations from 6 countries: recycling and compost workshops, a clean-up at Oylum Höyük and visits to the municipal waste and water treatment plants.",
+      "source": "yk-2025",
+      "countries": 6
     },
     {
       "year": 2026,
@@ -107,7 +108,8 @@
       "budget": 10000,
       "detail_tr": "Eylül 2026'da Kilis'te Azerbaycan, Bulgaristan, Gürcistan ve Türkiye'den gençler; Kilis 7 Aralık Üniversitesi ve gençlik merkezi iş birliğiyle kültürlerarası öğrenme ve sosyal uyum.",
       "detail_en": "Young people from Azerbaijan, Bulgaria, Georgia and Türkiye in Kilis in September 2026, with Kilis 7 Aralık University and the youth centre: intercultural learning and social cohesion.",
-      "source": "yk-2026"
+      "source": "yk-2026",
+      "countries": 4
     }
   ],
   "funding": [
