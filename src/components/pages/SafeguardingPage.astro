@@ -1,0 +1,178 @@
+---
+import { useTranslations, path, alternatePath, type Lang } from '../../i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const c = (tr: string, enText: string) => (en ? enText : tr);
+
+const title = c('Koruma Politikası', 'Safeguarding Policy');
+const intro = c(
+  'Etkinliklerimize, eğitimlerimize ve hareketliliklerimize katılan her gencin güvende olması önceliğimizdir. Bu sayfa nasıl çalıştığımızı ve bir endişeniz olduğunda ne yapabileceğinizi anlatır.',
+  'Every young person taking part in our activities, training and mobilities has the right to be safe. This page explains how we work and what you can do if you have a concern.',
+);
+
+const principles = en ? [
+  ['Zero tolerance', 'We do not tolerate any form of abuse, harassment, bullying, discrimination or exploitation — physical, emotional, sexual, online or financial.'],
+  ['The young person comes first', 'Every concern is taken seriously. The safety and wellbeing of the young person outweigh any other consideration, including the reputation of the association.'],
+  ['Never one-to-one in private', 'Activities with participants under 18 take place in open or visible spaces, with at least two adults responsible for the group.'],
+  ['Parental consent', 'Participants under 18 take part only with written consent from a parent or guardian, including for travel and photographs.'],
+  ['Photos and personal data', 'We share images only with consent and never publish contact details, addresses or school information of young people. Personal data is processed under our privacy notice.'],
+  ['Official channels only', 'Staff, trainers and volunteers communicate with young people through the association’s group channels, not private messages, and never ask for personal photos.'],
+  ['Safe mobilities', 'Before every exchange or volunteering period we brief participants on safety, insurance, emergency contacts and their rights, and stay in contact throughout.'],
+  ['Equal and respectful', 'Everyone is welcome regardless of nationality, language, religion, gender, disability or background. Foreign-national young people get information in a language they understand.'],
+] : [
+  ['Sıfır tolerans', 'Fiziksel, duygusal, cinsel, çevrim içi veya ekonomik her türlü istismara, tacize, zorbalığa, ayrımcılığa ve sömürüye izin vermeyiz.'],
+  ['Önce genç', 'Her endişe ciddiye alınır. Gencin güvenliği ve iyiliği, derneğin itibarı dahil her şeyin önündedir.'],
+  ['Kapalı kapı ardında birebir yok', '18 yaş altı katılımcılarla yapılan faaliyetler açık ya da görünür alanlarda, grubun sorumluluğunu taşıyan en az iki yetişkinle yürütülür.'],
+  ['Veli onayı', '18 yaş altı gençler, seyahat ve fotoğraf dahil, yalnızca veli ya da vasinin yazılı onayıyla katılır.'],
+  ['Fotoğraf ve kişisel veri', 'Görüntüleri yalnızca onayla paylaşırız; gençlerin telefon, adres veya okul bilgilerini asla yayımlamayız. Kişisel veriler KVKK aydınlatma metnimize göre işlenir.'],
+  ['Yalnızca kurumsal kanallar', 'Personel, eğitmen ve gönüllüler gençlerle derneğin grup kanalları üzerinden iletişim kurar; özel mesajlaşmaz ve kişisel fotoğraf istemez.'],
+  ['Güvenli hareketlilik', 'Her gençlik değişimi ve gönüllülük öncesinde katılımcılara güvenlik, sigorta, acil iletişim ve hakları konusunda bilgi verir, süreç boyunca iletişimde kalırız.'],
+  ['Eşit ve saygılı', 'Uyruk, dil, din, cinsiyet, engellilik ya da geçmişi ne olursa olsun herkes eşittir. Yabancı uyruklu gençlere bilgiler anlayacakları bir dilde verilir.'],
+];
+
+const steps = en ? [
+  ['Immediate danger?', 'Call 112 first. You can contact us afterwards.'],
+  ['Tell us', 'Use the confidential form below, email bilgi@kozder.com, or speak to any trainer or team member. You can stay anonymous.'],
+  ['We respond', 'The safeguarding lead contacts you within 2 working days (if you leave contact details), records the concern and agrees the next steps with you.'],
+  ['We protect', 'Information is shared only with people who need to know. Nobody who raises a concern in good faith will face any negative consequences.'],
+] : [
+  ['Acil tehlike mi var?', 'Önce 112’yi arayın. Bize sonra da ulaşabilirsiniz.'],
+  ['Bize anlatın', 'Aşağıdaki gizli formu kullanın, bilgi@kozder.com adresine yazın ya da herhangi bir eğitmen veya ekip üyesiyle konuşun. İsminizi vermek zorunda değilsiniz.'],
+  ['Size dönüyoruz', 'İletişim bilgisi bıraktıysanız koruma sorumlusu en geç 2 iş günü içinde size ulaşır, endişeyi kayıt altına alır ve sonraki adımları sizinle birlikte belirler.'],
+  ['Sizi koruyoruz', 'Bilgiler yalnızca bilmesi gereken kişilerle paylaşılır. İyi niyetle bildirimde bulunan hiç kimse olumsuz bir sonuçla karşılaşmaz.'],
+];
+
+const conduct = en ? [
+  'Treat every young person with respect and dignity.',
+  'Do not be alone with a participant under 18 behind closed doors.',
+  'Do not contact participants through private messages or personal social media.',
+  'Do not take, share or keep photos without consent.',
+  'Do not give alcohol, tobacco or medicine to participants under 18.',
+  'Report any concern to the safeguarding lead the same day.',
+] : [
+  'Her gence saygı ve özenle davran.',
+  '18 yaş altı bir katılımcıyla kapalı kapı ardında yalnız kalma.',
+  'Katılımcılarla özel mesaj veya kişisel sosyal medya hesabından iletişim kurma.',
+  'Onay olmadan fotoğraf çekme, paylaşma veya saklama.',
+  '18 yaş altı katılımcılara alkol, tütün veya ilaç verme.',
+  'Fark ettiğin her endişeyi aynı gün koruma sorumlusuna bildir.',
+];
+---
+
+<BaseLayout lang={lang} title={`${title} — KOZ-DER`} description={intro} alternate={alternatePath(lang, 'safeguarding')}>
+  <Breadcrumb
+    lang={lang}
+    kicker={c('Gençlerin güvenliği', 'Keeping young people safe')}
+    items={[{ label: t('nav.home'), href: path(lang, 'home') }, { label: title, href: path(lang, 'safeguarding') }]}
+    pageTitle={title}
+    intro={intro}
+  />
+
+  <div class="container mx-auto px-4 py-12 sm:py-16 space-y-14">
+    <section class="sg-alert" aria-label={c('Acil durum', 'Emergency')}>
+      <strong>{c('Acil bir tehlike varsa hemen 112’yi arayın.', 'If someone is in immediate danger, call 112 now.')}</strong>
+      <span>{c('Sosyal destek ve danışma için ALO 183.', 'For social support and advice: ALO 183.')}</span>
+      <a href="#bildir">{c('Gizli bildirim formu ↓', 'Confidential report form ↓')}</a>
+    </section>
+
+    <section aria-labelledby="sg-scope">
+      <h2 id="sg-scope" class="sg-h2">{c('Kimleri kapsar?', 'Who does it cover?')}</h2>
+      <p class="sg-p">{c(
+        'Bu politika derneğimizin yerel etkinliklerine, kulüplerine, eğitimlerine, Erasmus+ ve Avrupa Dayanışma Programı (ESC) hareketliliklerine katılan tüm gençleri; bu faaliyetlerde görev alan yönetim kurulu üyelerini, personeli, eğitmenleri, mentorları, gönüllüleri ve ortak kuruluşlarımızı kapsar.',
+        'This policy covers all young people taking part in our local events, clubs, training, Erasmus+ and European Solidarity Corps (ESC) mobilities, and all board members, staff, trainers, mentors, volunteers and partner organisations involved in these activities.')}</p>
+    </section>
+
+    <section aria-labelledby="sg-principles">
+      <h2 id="sg-principles" class="sg-h2">{c('İlkelerimiz', 'Our principles')}</h2>
+      <div class="sg-grid">
+        {principles.map(([h, p]) => (
+          <article class="sg-card" tabindex="0"><h3>{h}</h3><p>{p}</p></article>
+        ))}
+      </div>
+    </section>
+
+    <section aria-labelledby="sg-steps">
+      <h2 id="sg-steps" class="sg-h2">{c('Bir endişen varsa', 'If you have a concern')}</h2>
+      <ol class="sg-steps">
+        {steps.map(([h, p], i) => (
+          <li><span class="sg-num">{i + 1}</span><div><h3>{h}</h3><p>{p}</p></div></li>
+        ))}
+      </ol>
+    </section>
+
+    <section aria-labelledby="sg-conduct" class="sg-box">
+      <h2 id="sg-conduct" class="sg-h2">{c('Ekibimiz için davranış kuralları', 'Code of conduct for our team')}</h2>
+      <p class="sg-p mb-4">{c('Personel, eğitmen, mentor ve gönüllülerimiz bu kuralları görev almadan önce okur ve imzalar.', 'Our staff, trainers, mentors and volunteers read and sign these rules before taking on a role.')}</p>
+      <ul class="sg-list">{conduct.map(x => <li>{x}</li>)}</ul>
+    </section>
+
+    <section aria-labelledby="sg-lead">
+      <h2 id="sg-lead" class="sg-h2">{c('Koruma sorumlusu', 'Safeguarding lead')}</h2>
+      <p class="sg-p">{c(
+        'Derneğimizde koruma konularından yönetim kurulunun görevlendirdiği koruma sorumlusu sorumludur. Koruma sorumlusuna bilgi@kozder.com adresinden veya aşağıdaki form aracılığıyla ulaşabilirsiniz. Bu politika her yıl gözden geçirilir.',
+        'A safeguarding lead appointed by the board is responsible for safeguarding in our association. You can reach the safeguarding lead at bilgi@kozder.com or through the form below. This policy is reviewed every year.')}</p>
+      <p class="mt-2 text-sm text-ink-soft">{c('Son güncelleme: Ekim 2026', 'Last updated: October 2026')}</p>
+    </section>
+
+    <section id="bildir" aria-labelledby="sg-form" class="sg-box">
+      <h2 id="sg-form" class="sg-h2">{c('Gizli bildirim formu', 'Confidential report form')}</h2>
+      <p class="sg-p mb-5">{c('Bu form yalnızca koruma sorumlusuna iletilir. İsim ve iletişim bilgisi vermek isteğe bağlıdır; ancak bilgi bırakmazsanız size dönüş yapamayız.', 'This form goes only to the safeguarding lead. Name and contact details are optional, but without them we cannot get back to you.')}</p>
+      <form action="https://formsubmit.co/bilgi@kozder.com" method="POST" class="grid gap-4 sm:grid-cols-2">
+        <input type="hidden" name="_subject" value="KOZ-DER | GİZLİ KORUMA BİLDİRİMİ" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value={en ? 'https://kozder.com/en/safeguarding#tesekkurler' : 'https://kozder.com/koruma-politikasi#tesekkurler'} />
+        <div class="sg-honey" aria-hidden="true"><label>Leave empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label></div>
+        <label class="sg-field">{c('Kim için bildiriyorsun?', 'Who is this about?')}
+          <select name="kimin_icin" required>
+            <option value="">{c('Seç', 'Choose')}</option>
+            <option>{c('Kendim', 'Myself')}</option>
+            <option>{c('Başka bir genç', 'Another young person')}</option>
+            <option>{c('Genel bir endişe', 'A general concern')}</option>
+          </select>
+        </label>
+        <label class="sg-field">{c('Hangi faaliyette? (isteğe bağlı)', 'Which activity? (optional)')}<input name="faaliyet" type="text" maxlength="160" /></label>
+        <label class="sg-field sm:col-span-2">{c('Ne oldu?', 'What happened?')}<textarea name="aciklama" rows="5" required minlength="10" maxlength="5000"></textarea></label>
+        <label class="sg-field">{c('Adın (isteğe bağlı)', 'Your name (optional)')}<input name="ad" type="text" maxlength="120" autocomplete="off" /></label>
+        <label class="sg-field">{c('E-posta veya telefon (isteğe bağlı)', 'Email or phone (optional)')}<input name="iletisim" type="text" maxlength="160" autocomplete="off" /></label>
+        <div class="sm:col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <button type="submit" class="sg-btn">{c('Gizli olarak gönder', 'Send confidentially')}</button>
+          <a class="text-sm underline text-ink-soft" href={path(lang, 'privacy')}>{c('KVKK aydınlatma metni', 'Privacy notice')}</a>
+        </div>
+      </form>
+      <p id="tesekkurler" class="sg-thanks">{c('Bildiriminiz bize ulaştı. Paylaştığınız için teşekkür ederiz.', 'Your report has reached us. Thank you for speaking up.')}</p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .sg-alert { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.25rem; padding: 1rem 1.25rem; border-radius: 1.25rem; background: #fdecea; border: 1px solid #f3c4bc; color: #7a2416; }
+  .sg-alert a { margin-left: auto; font-weight: 700; text-decoration: underline; }
+  .sg-h2 { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-weight: 800; font-size: clamp(1.5rem, 3vw, 2rem); color: #202936; margin-bottom: .9rem; }
+  .sg-p { max-width: 48rem; line-height: 1.7; color: #3b4e68; }
+  .sg-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+  .sg-card { padding: 1.2rem 1.25rem; border-radius: 1.25rem; background: linear-gradient(150deg, rgba(232,239,251,.85), rgba(255,255,255,.75)); border: 1px solid rgba(255,255,255,.95); box-shadow: 0 16px 36px -26px rgba(40,87,161,.5); transition: transform .3s cubic-bezier(.2,.8,.2,1); outline: none; }
+  .sg-card:hover, .sg-card:focus-visible { transform: translateY(-4px); }
+  .sg-card h3 { font-weight: 800; color: #202936; margin-bottom: .35rem; }
+  .sg-card p { font-size: .92rem; line-height: 1.55; color: #3b4e68; }
+  .sg-steps { display: grid; gap: .8rem; }
+  .sg-steps li { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 1.2rem; border-radius: 1.1rem; background: #fff; border: 1px solid #e3e9f2; }
+  .sg-steps h3 { font-weight: 800; color: #202936; }
+  .sg-steps p { margin-top: .2rem; color: #3b4e68; line-height: 1.55; }
+  .sg-num { flex-shrink: 0; display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: #2857a1; color: #fff; font-weight: 800; }
+  .sg-box { padding: 1.5rem; border-radius: 1.5rem; background: linear-gradient(150deg, #f3f6fc, #fbf6f2); border: 1px solid #e3e9f2; }
+  .sg-list { display: grid; gap: .5rem; padding-left: 1.2rem; list-style: disc; color: #202936; line-height: 1.55; }
+  .sg-field { display: flex; flex-direction: column; gap: .35rem; font-size: .9rem; font-weight: 700; color: #202936; }
+  .sg-field input, .sg-field select, .sg-field textarea { font-weight: 400; padding: .7rem .8rem; border-radius: .7rem; border: 1px solid #cdd6e3; background: #fff; }
+  .sg-field input:focus, .sg-field select:focus, .sg-field textarea:focus { outline: 3px solid #bdd0f0; border-color: #2857a1; }
+  .sg-btn { align-self: flex-start; padding: .8rem 1.5rem; border-radius: .8rem; background: #2857a1; color: #fff; font-weight: 800; }
+  .sg-btn:hover { background: #1f4686; }
+  .sg-honey { position: absolute; left: -9999px; }
+  .sg-thanks { display: none; margin-top: 1rem; padding: .9rem 1.1rem; border-radius: .9rem; background: #e7f6ec; color: #1f6b3a; font-weight: 700; }
+  .sg-thanks:target { display: block; }
+  @media (prefers-reduced-motion: reduce) { .sg-card { transition: none; } .sg-card:hover { transform: none; } }
+</style>

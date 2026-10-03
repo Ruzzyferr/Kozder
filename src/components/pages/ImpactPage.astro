@@ -329,10 +329,10 @@ const intro = c(
       <div>
         <h2 id="voice-heading" class="font-display text-2xl font-black text-brand-ink">{c('Gençlerin Sesi', 'Young people’s voice')}</h2>
         <p class="mt-2 max-w-2xl leading-relaxed text-ink-soft">{c('Bir etkinlik öner, katıldığın faaliyeti değerlendir ya da bir sorunu bize ilet. Görüşlerin gelecek faaliyetlerimizi şekillendiriyor.', 'Suggest an activity, review one you joined or tell us about a problem. Your views shape what we do next.')}</p>
-        <p class="mt-2 text-sm leading-relaxed text-ink-soft">{c('Hassas veya güvenlikle ilgili bir konuysa WhatsApp yerine bilgi@kozder.com adresine yazın.', 'For sensitive or safety-related matters, please write to bilgi@kozder.com instead of WhatsApp.')}</p>
+        <p class="mt-2 text-sm leading-relaxed text-ink-soft">{c('Güvenlikle ilgili bir durumsa ', 'For safety-related matters, please use the ')}<a class="underline font-bold" href={`${path(lang, 'safeguarding')}#bildir`}>{c('gizli koruma bildirim formunu', 'confidential safeguarding form')}</a>{c(' kullanın.', '.')}</p>
       </div>
       <div class="flex shrink-0 flex-col gap-3">
-        <a href="https://wa.me/905511972997" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-xl bg-brand-walnut px-5 py-3 font-bold text-white hover:bg-brand-stamp">{c('WhatsApp’tan yaz', 'Message on WhatsApp')}</a>
+        <a href={path(lang, 'voice')} class="inline-flex items-center justify-center rounded-xl bg-brand-walnut px-5 py-3 font-bold text-white hover:bg-brand-stamp">{c('Gençlerin Sesi formları', 'Youth Voice forms')}</a>
         <a href={path(lang, 'contact')} class="inline-flex items-center justify-center rounded-xl border border-line-strong px-5 py-3 font-bold text-brand-ink hover:border-brand-stamp">{c('İletişim formu', 'Contact form')}</a>
       </div>
     </section>
