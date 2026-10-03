@@ -329,7 +329,10 @@ const intro = c(
         {reports.map(r => (
           <li class="flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:justify-between">
             <span><span class="font-bold text-brand-ink">{r.data.title}</span><span class="block text-sm text-ink-soft">{r.data.summary}</span></span>
-            <a class="shrink-0 font-bold text-brand-stamp underline" href={reportHref(r.slug)}>{c('Raporu oku →', 'Read report →')}</a>
+            <span class="flex shrink-0 gap-4">
+              <a class="font-bold text-brand-stamp underline" href={reportHref(r.slug)}>{c('Raporu oku', 'Read report')}</a>
+              {r.data.pdf && <a class="font-bold text-brand-ink underline" href={r.data.pdf} target="_blank" rel="noopener noreferrer">PDF</a>}
+            </span>
           </li>
         ))}
       </ul>

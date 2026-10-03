@@ -118,6 +118,7 @@ const reportsCollection = defineCollection({
     year: z.number(),
     kind: z.enum(['board', 'audit']).default('board'),
     signedBy: z.string().optional(),
+    pdf: z.string().optional(),
     summary: z.string(),
   }),
 });
