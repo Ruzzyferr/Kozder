@@ -9,7 +9,6 @@ const p = usePage(lang);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import teamData from '../../data/team.json';
-import impactData from '../../data/impact.json';
 
 interface TeamMember {
   name: string;
@@ -21,34 +20,6 @@ interface TeamMember {
 const values = p.about.values;
 const roleLabel = (role: string) => p.about.roles[role] ?? role;
 const bioText = (member: TeamMember) => p.about.bios[member.name] ?? member.bio;
-const aboutMetrics = (impactData.verifiedMetrics as any[]).map(m => ({
-  value: (lang === 'en' ? m.value_en : m.value_tr) ?? m.value,
-  label: lang === 'en' ? m.label_en : m.label_tr,
-  source: lang === 'en' ? m.source_en : m.source_tr,
-}));
-const impactCopy = lang === 'en'
-  ? {
-      kicker: 'Our impact',
-      heading: 'Young people learning, connecting and taking action.',
-      intro: 'A few verified outcomes from recent activities. Each figure is labeled by programme and year.',
-      metrics: aboutMetrics,
-      note: 'The 2025 GSB figures and the 2026 Erasmus+ exchange refer to different activities. Trip attendances are not a count of unique participants.',
-      voiceTitle: 'Young people’s voice',
-      voiceText: 'Share an idea or suggestion with KOZ-DER. Your feedback helps shape future activities.',
-      voiceCta: 'Share an idea on WhatsApp',
-      privacy: 'This is a general feedback channel. Please do not send sensitive personal or safety information here.',
-    }
-  : {
-      kicker: 'Etki göstergelerimiz',
-      heading: 'Gençler öğreniyor, bağ kuruyor ve harekete geçiyor.',
-      intro: 'Yakın dönem çalışmalarımızdan doğrulanmış sonuçlar. Her sayı program ve yılıyla birlikte veriliyor.',
-      metrics: aboutMetrics,
-      note: '2025 GSB sonuçları ile 2026 Erasmus+ gençlik değişimi farklı faaliyetlere aittir. Gezi sayısı tekil katılımcı sayısını değil, toplam katılımı gösterir.',
-      voiceTitle: 'Gençlerin Sesi',
-      voiceText: 'Bir fikir ya da önerini KOZ-DER ile paylaş. Görüşlerin gelecek faaliyetlerimizi şekillendirmemize yardımcı olur.',
-      voiceCta: 'WhatsApp’tan fikir paylaş',
-      privacy: 'Bu kanal genel öneriler içindir. Lütfen hassas kişisel veya güvenlik bilgilerini buradan göndermeyin.',
-    };
 ---
 
 <BaseLayout
@@ -96,30 +67,7 @@ const impactCopy = lang === 'en'
     </section>
 
     
-    <section class="impact-block mb-16 sm:mb-24 rounded-[2rem] border border-white/70 bg-gradient-to-br from-white/90 via-white/70 to-blue-50/80 p-6 shadow-xl backdrop-blur-xl sm:p-10">
-      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{impactCopy.kicker}</p>
-      <h2 class="mb-4 max-w-4xl font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink sm:text-4xl">{impactCopy.heading}</h2>
-      <p class="mb-8 max-w-3xl leading-relaxed text-ink-soft">{impactCopy.intro}</p>
-      <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {impactCopy.metrics.map(metric => (
-          <article class="impact-metric rounded-2xl border border-white/80 bg-white/75 p-5 shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-xl">
-            <strong class="block font-display text-4xl font-black tracking-tightest text-brand-walnut sm:text-5xl">{metric.value}</strong>
-            <p class="mt-3 min-h-12 font-bold leading-snug text-brand-ink">{metric.label}</p>
-            <p class="mt-3 border-t border-line pt-3 text-sm leading-relaxed text-ink-soft">{metric.source}</p>
-          </article>
-        ))}
-      </div>
-      <p class="mt-5 text-sm leading-relaxed text-ink-soft">{impactCopy.note}</p>
-      <a href={path(lang, 'impact')} class="mt-4 inline-block font-bold text-brand-stamp underline">{lang === 'en' ? 'All impact and transparency data →' : 'Tüm etki ve şeffaflık verileri →'}</a>
-      <div class="mt-8 flex flex-col gap-4 rounded-2xl border border-white/75 bg-white/60 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
-        <div>
-          <h3 class="font-display text-2xl font-black text-brand-ink">{impactCopy.voiceTitle}</h3>
-          <p class="mt-2 max-w-2xl leading-relaxed text-ink-soft">{impactCopy.voiceText}</p>
-          <p class="mt-2 text-sm leading-relaxed text-ink-soft">{impactCopy.privacy}</p>
-        </div>
-        <a href="https://wa.me/905511972997" target="_blank" rel="noopener noreferrer" class="inline-flex shrink-0 items-center justify-center rounded-xl bg-brand-walnut px-5 py-3 font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-brand-stamp focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-stamp">{impactCopy.voiceCta}</a>
-      </div>
-    </section>
+
 
 {teamData && teamData.length > 0 && (
       <section>
