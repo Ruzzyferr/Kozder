@@ -71,6 +71,9 @@ const exp25 = (fin.expense2025 as any[]);
 const exp25Total = exp25.reduce((a, r) => a + r.amount, 0);
 
 // Üst bölümdeki büyük sayılar. value sayısal; prefix/suffix biçim içindir.
+// Mali bölüm şimdilik arşivde. Yeniden yayınlamak için true yapın ve
+// src/pages/**/_mali-tablolar.astro dosyalarının başındaki alt çizgiyi kaldırın.
+const SHOW_FINANCE = false;
 const nf0 = new Intl.NumberFormat(en ? 'en-IE' : 'tr-TR');
 const gsbM = (gsb.metrics as any[]);
 const gv = (m: any) => (en ? m.value_en : m.value_tr) ?? m.value;
@@ -148,6 +151,7 @@ const intro = c(
 
   <div class="container mx-auto px-4 py-12 sm:py-20 space-y-16 sm:space-y-24">
 
+    {SHOW_FINANCE && (
     <section aria-labelledby="finance-heading" class="prodes-card">
       <div class="impact-blobs small" aria-hidden="true"><span></span><span></span></div>
       <div class="relative">
@@ -188,6 +192,7 @@ const intro = c(
         </div>
       </div>
     </section>
+    )}
 
 
 
