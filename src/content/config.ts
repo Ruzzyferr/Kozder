@@ -5,7 +5,7 @@ const projectsCollection = defineCollection({
   schema: z.object({
     title_tr: z.string(),
     title_en: z.string(),
-    programType: z.enum(['ESC', 'ERASMUS']),
+    programType: z.enum(['ESC', 'ERASMUS', 'LOCAL']),
     year: z.number(),
     status: z.enum(['Aktif', 'Tamamlandı']),
     themes: z.array(z.string()),
@@ -24,6 +24,16 @@ const projectsCollection = defineCollection({
     summary_tr: z.string(),
     summary_en: z.string(),
     infoPackUrl: z.string().url().optional(),
+    // "Başvurmadan önce" kartı: uzun metni okumadan temel uygunluğu gösterir.
+    // Alanların hepsi isteğe bağlı; yalnızca dolu olanlar kartta görünür.
+    eligibility: z.object({
+      age: z.string().optional(),
+      countries: z.string().optional(),
+      duration: z.string().optional(),
+      language: z.string().optional(),
+      covered: z.string().optional(),
+      upfront: z.string().optional(),
+    }).optional(),
   }),
 });
 

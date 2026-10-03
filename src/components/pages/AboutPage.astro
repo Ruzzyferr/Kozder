@@ -9,6 +9,7 @@ const p = usePage(lang);
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import teamData from '../../data/team.json';
+import impactData from '../../data/impact.json';
 
 interface TeamMember {
   name: string;
@@ -20,17 +21,17 @@ interface TeamMember {
 const values = p.about.values;
 const roleLabel = (role: string) => p.about.roles[role] ?? role;
 const bioText = (member: TeamMember) => p.about.bios[member.name] ?? member.bio;
+const aboutMetrics = (impactData.verifiedMetrics as any[]).map(m => ({
+  value: (lang === 'en' ? m.value_en : m.value_tr) ?? m.value,
+  label: lang === 'en' ? m.label_en : m.label_tr,
+  source: lang === 'en' ? m.source_en : m.source_tr,
+}));
 const impactCopy = lang === 'en'
   ? {
       kicker: 'Our impact',
       heading: 'Young people learning, connecting and taking action.',
       intro: 'A few verified outcomes from recent activities. Each figure is labeled by programme and year.',
-      metrics: [
-        { value: '149', label: 'young people reached through training', source: '2025 · GSB youth resilience project' },
-        { value: '99.2%', label: 'overall satisfaction', source: '2025 · 120 evaluation responses' },
-        { value: '178', label: 'cultural trip attendances', source: '2025 · total attendances, not unique people' },
-        { value: '25', label: 'youth exchange participants', source: '2026 · four countries' },
-      ],
+      metrics: aboutMetrics,
       note: 'The 2025 GSB figures and the 2026 Erasmus+ exchange refer to different activities. Trip attendances are not a count of unique participants.',
       voiceTitle: 'Young people’s voice',
       voiceText: 'Share an idea or suggestion with KOZ-DER. Your feedback helps shape future activities.',
@@ -41,12 +42,7 @@ const impactCopy = lang === 'en'
       kicker: 'Etki göstergelerimiz',
       heading: 'Gençler öğreniyor, bağ kuruyor ve harekete geçiyor.',
       intro: 'Yakın dönem çalışmalarımızdan doğrulanmış sonuçlar. Her sayı program ve yılıyla birlikte veriliyor.',
-      metrics: [
-        { value: '149', label: 'eğitimlere katılan genç', source: '2025 · GSB gençlik projesi' },
-        { value: '%99,2', label: 'genel memnuniyet', source: '2025 · 120 değerlendirme yanıtı' },
-        { value: '178', label: 'kültürel gezi katılımı', source: '2025 · tekil kişi değil, toplam katılım' },
-        { value: '25', label: 'gençlik değişimi katılımcısı', source: '2026 · dört ülkeden' },
-      ],
+      metrics: aboutMetrics,
       note: '2025 GSB sonuçları ile 2026 Erasmus+ gençlik değişimi farklı faaliyetlere aittir. Gezi sayısı tekil katılımcı sayısını değil, toplam katılımı gösterir.',
       voiceTitle: 'Gençlerin Sesi',
       voiceText: 'Bir fikir ya da önerini KOZ-DER ile paylaş. Görüşlerin gelecek faaliyetlerimizi şekillendirmemize yardımcı olur.',
@@ -114,6 +110,7 @@ const impactCopy = lang === 'en'
         ))}
       </div>
       <p class="mt-5 text-sm leading-relaxed text-ink-soft">{impactCopy.note}</p>
+      <a href={path(lang, 'impact')} class="mt-4 inline-block font-bold text-brand-stamp underline">{lang === 'en' ? 'All impact and transparency data →' : 'Tüm etki ve şeffaflık verileri →'}</a>
       <div class="mt-8 flex flex-col gap-4 rounded-2xl border border-white/75 bg-white/60 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
         <div>
           <h3 class="font-display text-2xl font-black text-brand-ink">{impactCopy.voiceTitle}</h3>

@@ -11,6 +11,8 @@ import DetailCover from '../../components/DetailCover.astro';
 import { getCollection } from 'astro:content';
 import ShareBox from '../../components/ShareBox.astro';
 import { isProjectApplicationOpen } from '../../utils/projectApplications';
+import { programLabel } from '../../utils/programLabel';
+import { formatEventDate } from '../../utils/date';
 
 
 
@@ -18,13 +20,34 @@ const { Content } = await project.render();
 const isActive = isProjectApplicationOpen(project.data);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const alternate = alternatePath(lang, 'projects', stripLangPrefix(project.slug));
+const title = lang === 'en' ? project.data.title_en : project.data.title_tr;
+const summary = lang === 'en' ? project.data.summary_en : project.data.summary_tr;
+const program = programLabel(project.data.programType, lang);
+
+// "Başvurmadan önce" kartı: yalnızca dolu alanlar gösterilir.
+const el = project.data.eligibility ?? {};
+const checkLabels = lang === 'en'
+  ? { heading: 'Before you apply', intro: 'The key conditions at a glance. Please still read the full call before applying.', deadline: 'Application deadline', age: 'Age', countries: 'Where', dates: 'Dates', duration: 'Duration', language: 'Language', covered: 'Covered', upfront: 'You pay in advance' }
+  : { heading: 'Başvurmadan önce', intro: 'Temel koşullar tek bakışta. Başvurmadan önce çağrının tamamını okumanızı öneririz.', deadline: 'Son başvuru', age: 'Yaş', countries: 'Yer', dates: 'Tarihler', duration: 'Süre', language: 'Dil', covered: 'Karşılanan', upfront: 'Önceden ödenecek' };
+const dateRange = `${project.data.startDate}${project.data.endDate ? ` → ${project.data.endDate}` : ''}`;
+const checklist = [
+  project.data.applicationDeadline && { label: checkLabels.deadline, value: formatEventDate(project.data.applicationDeadline, { lang }), strong: true },
+  el.age && { label: checkLabels.age, value: el.age },
+  { label: checkLabels.countries, value: el.countries ?? project.data.location },
+  { label: checkLabels.dates, value: dateRange },
+  el.duration && { label: checkLabels.duration, value: el.duration },
+  el.language && { label: checkLabels.language, value: el.language },
+  el.covered && { label: checkLabels.covered, value: el.covered },
+  el.upfront && { label: checkLabels.upfront, value: el.upfront },
+].filter(Boolean) as { label: string; value: string; strong?: boolean }[];
+const showChecklist = Boolean(project.data.eligibility);
 ---
 
 <BaseLayout
   lang={lang}
   alternate={alternate}
-  title={`${project.data.title_tr} — KOZ-DER`}
-  description={project.data.summary_tr}
+  title={`${title} — KOZ-DER`}
+  description={summary}
   image={project.data.coverImage}
 >
   <article class="bg-brand-paper">
@@ -37,17 +60,32 @@ const alternate = alternatePath(lang, 'projects', stripLangPrefix(project.slug))
     <div class="container mx-auto px-4 pb-20">
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
         <div class="lg:col-span-8">
-          <DetailCover src={project.data.coverImage} alt={project.data.title_tr} fit={project.data.coverFit} />
+          <DetailCover src={project.data.coverImage} alt={title} fit={project.data.coverFit} />
 
           <header class="mb-8">
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">{project.data.programType} · {project.data.year}</p>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-3">{program} · {project.data.year}</p>
             <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tightest leading-[0.95] text-brand-ink mb-6">
-              {project.data.title_tr}
+              {title}
             </h1>
             <p class="font-display text-xl sm:text-2xl text-ink-soft leading-snug border-l-2 border-brand-walnut pl-5">
-              {project.data.summary_tr}
+              {summary}
             </p>
           </header>
+
+          {showChecklist && (
+            <section class="apply-check card card-2 bg-white p-6 sm:p-8 mb-8" aria-labelledby="apply-check-heading">
+              <h2 id="apply-check-heading" class="font-display font-black text-2xl sm:text-3xl tracking-tight text-brand-ink mb-2">{checkLabels.heading}</h2>
+              <p class="text-sm text-ink-soft mb-5">{checkLabels.intro}</p>
+              <dl class="grid sm:grid-cols-2 gap-x-6 gap-y-4">
+                {checklist.map(item => (
+                  <div class="border-t border-line pt-3">
+                    <dt class="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-stamp mb-1">{item.label}</dt>
+                    <dd class={item.strong ? 'font-display font-black text-xl text-brand-ink' : 'text-brand-ink leading-snug'}>{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
 
           <div data-project-body class="prose-kozder bg-brand-cream p-6 sm:p-10 card card-2">
             <Content />
@@ -73,7 +111,7 @@ const alternate = alternatePath(lang, 'projects', stripLangPrefix(project.slug))
             <div class="card card-2 bg-brand-cream divide-y divide-line">
               <div class="p-5">
                 <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">{t('common.program')}</p>
-                <p class="font-display font-bold text-xl text-brand-ink">{project.data.programType}</p>
+                <p class="font-display font-bold text-xl text-brand-ink">{program}</p>
               </div>
               <div class="p-5">
                 <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-stamp mb-1">{t('common.year')}</p>
@@ -128,7 +166,7 @@ const alternate = alternatePath(lang, 'projects', stripLangPrefix(project.slug))
               </p>
             </div>
 
-            <ShareBox title={lang === 'en' ? project.data.title_en : project.data.title_tr} url={url} lang={lang} />
+            <ShareBox title={title} url={url} lang={lang} />
           </div>
         </aside>
       </div>

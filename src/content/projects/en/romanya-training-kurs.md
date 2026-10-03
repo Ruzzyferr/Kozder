@@ -20,6 +20,12 @@ applicationUrl: "https://forms.gle/Y3YQsuZNxPQeufiW7"
 applicationLabel: "Application Form"
 infoPackUrl: "https://drive.google.com/file/d/10LlnmZeygHf5LZpbJHUSELHKoPo-wiwE/view?usp=sharing"
 featured: true
+eligibility:
+  age: "20+; youth workers, youth leaders or project coordinators"
+  countries: "Sărata Monteoru & Buzău, Romania"
+  duration: "10 days, including arrival and departure days"
+  covered: "Accommodation, 3 meals and 2 coffee breaks a day; travel reimbursed after the project up to €211–395 depending on distance (€285–535 for green travel)"
+  upfront: "You buy your plane, bus or train tickets yourself; they are reimbursed after the project against invoices and boarding passes. Extra baggage and taxis are not covered"
 summary_tr: "White Rainbow, gençlik çalışanlarının gençlerin iyi oluşunu desteklemek için kullanabilecekleri pratik araçlar, yaygın eğitim yöntemleri ve kapsayıcı gençlik çalışması yaklaşımlarına odaklanan uluslararası bir Erasmus+ eğitim kursudur."
 summary_en: "White Rainbow is an international Erasmus+ training course focused on practical tools, non-formal education methods and inclusive youth work approaches that youth workers can use to promote young people's well-being."
 ---

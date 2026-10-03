@@ -12,6 +12,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import { byNewest } from '../../utils/contentSort';
 import { isProjectApplicationOpen } from '../../utils/projectApplications';
+import { programLabel } from '../../utils/programLabel';
 
 const allProjects = (await getCollection('projects', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(p => !p.data.draft);
 
@@ -65,7 +66,7 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
           <label for="filter-program">{t('common.program')}</label>
           <select id="filter-program">
             <option value="">{t('common.all')}</option>
-            {allPrograms.map(program => <option value={program}>{program}</option>)}
+            {allPrograms.map(program => <option value={program}>{programLabel(program, lang)}</option>)}
           </select>
         </div>
         <div class="filter-field">
@@ -132,6 +133,7 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
 
 <script>
   import { isProjectApplicationOpen } from '../../utils/projectApplications';
+import { programLabel } from '../../utils/programLabel';
   const ids = ['filter-program', 'filter-year', 'filter-status', 'filter-theme'];
   const selects = ids.map(id => document.getElementById(id) as HTMLSelectElement | null);
   const reset = document.getElementById('reset-filters');
