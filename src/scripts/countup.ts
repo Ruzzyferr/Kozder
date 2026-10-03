@@ -85,16 +85,16 @@ export function initSequence(rootSelector: string, numberSelector = '.stat-value
     if (root.classList.contains('seq')) seqs.unshift(root);
     const prepared = seqs.map(el => {
       el.classList.add('seq-wait');
-      const num = el.matches(numberSelector) ? el : el.querySelector(numberSelector);
-      return { el, it: num ? prepare(num) : null };
+      const nums = el.matches(numberSelector) ? [el] : Array.from(el.querySelectorAll(numberSelector));
+      return { el, its: nums.map(n => prepare(n)).filter((x): x is Item => !!x) };
     });
     const io = new IntersectionObserver(entries => {
       if (!entries.some(e => e.isIntersecting)) return;
       io.disconnect();
-      prepared.forEach(({ el, it }, i) => {
+      prepared.forEach(({ el, its }, i) => {
         window.setTimeout(() => {
           el.classList.add('is-in');
-          if (it) run(it, duration);
+          its.forEach(it => run(it, duration));
         }, i * step);
       });
     }, { threshold: 0.15 });
