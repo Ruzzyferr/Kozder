@@ -1,14 +1,14 @@
 ---
 title_tr: "KOZ-DER Speaking Club"
 title_en: "KOZ-DER Speaking Club"
-date: "2026-09-30"
+date: "2026-10-02"
 time: "20:00"
 location: "KOZ-DER Dernek Merkezi, Kilis"
 coverImage: "/images/events/speakingclub.png"
 coverFit: "contain"
 registrationUrl: "https://chat.whatsapp.com/L5sDZNQRGD94mnwk1iFJCT?s=cl&p=i&mlu=4&ilr=4"
 recurring: "weekly"
-weekday: "wednesday"
+weekday: "friday"
 ---
 
 KOZ-DER olarak İngilizce konuşma pratiği yapmak isteyen gençleri **Speaking Club** etkinliğimizde bir araya getiriyoruz. Her Cuma düzenli olarak gerçekleştireceğimiz buluşmalarda katılımcılar İngilizce konuşma pratiği yapabilecek, yeni insanlarla tanışabilecek ve kendilerini İngilizce ifade etme konusunda daha fazla özgüven kazanabilecekler.
