@@ -21,8 +21,12 @@ const metrics = (impact.verifiedMetrics as Metric[]).map(m => ({
   source: en ? m.source_en : m.source_tr,
 }));
 
-type Report = { year: number; title_tr: string; title_en: string; url: string; kind: 'activity' | 'financial' };
-const reports = (impact.reports as Report[]).slice().sort((a, b) => b.year - a.year);
+const reports = (await getCollection('reports')).sort((a, b) => b.data.year - a.data.year);
+const eur = (n: number) => new Intl.NumberFormat(en ? 'en-IE' : 'tr-TR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
+const escRows = impact.escLead.rows as any[];
+const escTotalGrant = escRows.reduce((a, r) => a + r.grant, 0);
+const escTotalVol = escRows.reduce((a, r) => a + r.volunteers, 0);
+const reportHref = (slug: string) => `/etki-ve-seffaflik/${slug}`;
 
 // --- Sitede yayınlanmış çalışmalar: içerik koleksiyonlarından otomatik sayılır ---
 const langFilter = (e: { slug: string }) => (en ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'));
@@ -48,6 +52,37 @@ const latestStories = stories
 const supporters = affiliations.partners.items.map((i: any) => (en ? i.name_en ?? i.name : i.name));
 const networks = affiliations.networks.items.map((i: any) => (en ? i.name_en ?? i.name : i.name));
 
+const sendingTotal = (impact.sending.rows as any[]).reduce((a, r) => a + r.count, 0);
+const prodes = impact.prodes as any;
+const tl = (n: number) => new Intl.NumberFormat(en ? 'en-IE' : 'tr-TR', { maximumFractionDigits: 0 }).format(n) + ' TL';
+const spendColors = ['#2857a1', '#bd4029', '#e0a32e', '#3f8f6b', '#7a5aa6'];
+const prodesSpend = (prodes.spend as any[]).map((r, i) => ({ label: en ? r.en : r.tr, amount: r.amount, pct: (r.amount / prodes.spent) * 100, color: spendColors[i % spendColors.length] }));
+
+const fin = impact.finances as any;
+const finRows = fin.rows as any[];
+const finMax = Math.max(...finRows.flatMap(r => [r.income, r.expense]));
+const finIncome = finRows.reduce((a, r) => a + r.income, 0);
+const finExpense = finRows.reduce((a, r) => a + r.expense, 0);
+const finPublic = finRows.reduce((a, r) => a + r.public, 0);
+const tlShort = (n: number) => {
+  const f = new Intl.NumberFormat(en ? 'en-IE' : 'tr-TR', { maximumFractionDigits: 1 });
+  if (n >= 1e6) return `${f.format(n / 1e6)} ${en ? 'm' : 'milyon'} TL`;
+  if (n >= 1e3) return `${f.format(n / 1e3)} ${en ? 'k' : 'bin'} TL`;
+  return `${f.format(n)} TL`;
+};
+const exp25 = (fin.expense2025 as any[]);
+const exp25Total = exp25.reduce((a, r) => a + r.amount, 0);
+
+// Üst bölümdeki büyük sayılar. value sayısal; prefix/suffix biçim içindir.
+const headline = [
+  { value: escTotalVol, suffix: '', label: c('ESC gönüllüsü için hibe aldık', 'ESC volunteer places funded'), source: c('5 ESC projesi · 2021–2025 hibe sözleşmeleri', '5 ESC projects · 2021–2025 grant agreements'), tone: 'blue' },
+  { value: escTotalGrant, suffix: ' €', label: c('ESC hibesi', 'in ESC grants'), source: c('Azami hibe toplamı', 'Sum of maximum grants'), tone: 'red' },
+  { value: sendingTotal, suffix: '', label: c('gönüllüyü ortak projelere gönderdik', 'volunteers sent to partner projects'), source: c('Gönderici kuruluş · 2025–2026 YK raporları', 'Sending organisation · 2025–2026 board reports'), tone: 'amber' },
+  { value: 75, suffix: '', label: c('genci Kilis’te ağırladık', 'young people hosted in Kilis'), source: c('Life for PRR (~50) + No More Walls (25)', 'Life for PRR (~50) + No More Walls (25)'), tone: 'green' },
+  { value: prodes.participants, suffix: '', label: c('genç PRODES eğitimlerini tamamladı', 'young people completed PRODES training'), source: c(`%${prodes.satisfaction} memnuniyet · ön test–son test`, `${prodes.satisfaction}% satisfied · pre/post test`), tone: 'violet' },
+  { value: stories.length, suffix: '', label: c('gönüllü hikâyesi yayımladık', 'volunteer stories published'), source: c(`${storyCountries} ülkeden · yararlanıcı sayısı değildir`, `from ${storyCountries} countries · not a beneficiary count`), tone: 'blue' },
+];
+
 const title = c('Etki ve Şeffaflık', 'Impact and Transparency');
 const intro = c(
   'Kaç kişiye ulaştığımızı, bu sayıları nereden aldığımızı ve gençlerin hayatında neyin değiştiğini tek sayfada topluyoruz.',
@@ -69,6 +104,23 @@ const intro = c(
     intro={intro}
   />
 
+  <section class="impact-hero" aria-labelledby="impact-hero-heading">
+    <div class="impact-blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="container mx-auto px-4 relative">
+      <h2 id="impact-hero-heading" class="impact-hero-title">{c('Rakamlarla KOZ-DER', 'KOZ-DER in numbers')}</h2>
+      <p class="impact-hero-lead">{c('Her sayının kaynağı kartın altında yazıyor. Farklı faaliyetlerin sayılarını birbirine eklemiyoruz.', 'Every figure names its source. We never add up numbers from different activities.')}</p>
+      <div class="stat-grid" data-countup-root>
+        {headline.map(h => (
+          <article class:list={['stat-glass', `tone-${h.tone}`]} tabindex="0">
+            <strong class:list={['stat-value', h.value >= 10000 && 'long']}><span data-countup={h.value} data-lang={lang}>{new Intl.NumberFormat(en ? 'en-IE' : 'tr-TR').format(h.value)}</span>{h.suffix}</strong>
+            <p class="stat-label">{h.label}</p>
+            <p class="stat-source">{h.source}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <div class="container mx-auto px-4 py-12 sm:py-20 space-y-16 sm:space-y-24">
 
     <section aria-labelledby="verified-heading">
@@ -77,10 +129,10 @@ const intro = c(
       <p class="mb-8 max-w-3xl leading-relaxed text-ink-soft">{c('Her sayının altında program, yıl ve sayım türü yazıyor. Farklı faaliyetlerin sayılarını birbirine eklemiyoruz.', 'Each figure shows its programme, year and type of count. We do not add up figures from different activities.')}</p>
       <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {metrics.map(m => (
-          <article class="rounded-2xl border border-line bg-white p-5 shadow-md">
-            <strong class="block font-display text-4xl font-black tracking-tightest text-brand-walnut sm:text-5xl">{m.value}</strong>
-            <p class="mt-3 min-h-12 font-bold leading-snug text-brand-ink">{m.label}</p>
-            <p class="mt-3 border-t border-line pt-3 text-sm leading-relaxed text-ink-soft">{m.source}</p>
+          <article class="stat-glass tone-red" tabindex="0">
+            <strong class="stat-value">{m.value}</strong>
+            <p class="stat-label">{m.label}</p>
+            <p class="stat-source">{m.source}</p>
           </article>
         ))}
       </div>
@@ -93,10 +145,10 @@ const intro = c(
       <p class="mb-8 max-w-3xl leading-relaxed text-ink-soft">{c('Bu sayılar sitedeki sayfalardan otomatik hesaplanır. Derneğin tüm geçmişini değil, burada yayımlanan çalışmaları gösterir. Hikâye sayısı, yararlanıcı sayısı değildir.', 'These numbers are counted automatically from the pages on this site. They show published work, not the association’s full history. The number of stories is not a number of beneficiaries.')}</p>
       <div class="grid gap-4 sm:grid-cols-3">
         {published.map(m => (
-          <article class="rounded-2xl border border-line bg-brand-cream p-5">
-            <strong class="block font-display text-4xl font-black tracking-tightest text-brand-ink">{m.value}</strong>
-            <p class="mt-2 font-bold text-brand-ink">{m.label}</p>
-            <p class="mt-1 text-sm text-ink-soft">{m.source}</p>
+          <article class="stat-glass tone-blue" tabindex="0">
+            <strong class="stat-value">{m.value}</strong>
+            <p class="stat-label">{m.label}</p>
+            <p class="stat-source">{m.source}</p>
           </article>
         ))}
       </div>
@@ -124,21 +176,166 @@ const intro = c(
       </section>
     )}
 
-    <section aria-labelledby="reports-heading" class="rounded-[2rem] border border-line bg-white p-6 sm:p-10">
-      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{c('Belgeler', 'Documents')}</p>
-      <h2 id="reports-heading" class="mb-4 font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink">{c('Faaliyet raporları ve mali özetler', 'Activity reports and financial summaries')}</h2>
-      {reports.length > 0 ? (
-        <ul class="divide-y divide-line">
-          {reports.map(r => (
-            <li class="flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:justify-between">
-              <span class="font-bold text-brand-ink">{r.year} · {en ? r.title_en : r.title_tr}</span>
-              <a class="font-bold text-brand-stamp underline" href={r.url} target="_blank" rel="noopener noreferrer">{c('PDF’yi aç', 'Open PDF')}</a>
+    <section aria-labelledby="esc-heading">
+      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{c('Avrupa Dayanışma Programı', 'European Solidarity Corps')}</p>
+      <h2 id="esc-heading" class="mb-4 font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink sm:text-4xl">{c('Yürüttüğümüz ESC gönüllülük projeleri', 'ESC volunteering projects we run')}</h2>
+      <p class="mb-6 max-w-3xl leading-relaxed text-ink-soft">{en ? impact.escLead.note_en : impact.escLead.note_tr}</p>
+      <div class="overflow-x-auto rounded-2xl border border-line bg-white">
+        <table class="w-full min-w-[720px] text-left text-sm">
+          <thead class="bg-brand-cream text-xs uppercase tracking-[0.12em] text-brand-stamp">
+            <tr><th class="p-3">{c('Çağrı', 'Call')}</th><th class="p-3">{c('Planlanan gönüllü', 'Planned volunteers')}</th><th class="p-3">{c('Ülkeler', 'Countries')}</th><th class="p-3 text-right">{c('Azami hibe', 'Max. grant')}</th><th class="p-3">{c('Gerçekleşen', 'Realised')}</th></tr>
+          </thead>
+          <tbody class="divide-y divide-line">
+            {escRows.map(r => (
+              <tr>
+                <td class="p-3 font-bold text-brand-ink">{r.call}<span class="block text-[11px] font-normal text-ink-soft">{r.code}</span></td>
+                <td class="p-3 text-brand-ink">{r.volunteers}</td>
+                <td class="p-3 text-ink-soft">{en ? r.countries_en : r.countries_tr}</td>
+                <td class="p-3 text-right font-bold text-brand-ink">{eur(r.grant)}{r.final && <span class="block text-[11px] font-normal text-ink-soft">{c('nihai', 'final')}: {eur(r.final)}</span>}</td>
+                <td class="p-3 text-ink-soft">{(en ? r.realised_en : r.realised_tr) ?? c('Nihai rapor verisi henüz eklenmedi', 'Final report figures not added yet')}</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot class="bg-brand-cream font-bold text-brand-ink">
+            <tr><td class="p-3">{c('Toplam', 'Total')}</td><td class="p-3">{escTotalVol}</td><td class="p-3"></td><td class="p-3 text-right">{eur(escTotalGrant)}</td><td class="p-3"></td></tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="sending-heading" class="grid gap-8 lg:grid-cols-2">
+      <div>
+        <h2 id="sending-heading" class="mb-3 font-display text-2xl font-black text-brand-ink">{c('Gönderici kuruluş olarak', 'As sending organisation')}</h2>
+        <p class="mb-4 text-sm leading-relaxed text-ink-soft">{en ? impact.sending.note_en : impact.sending.note_tr}</p>
+        <ul class="space-y-3">
+          {(impact.sending.rows as any[]).map(r => (
+            <li class="rounded-2xl border border-line bg-white p-4">
+              <p class="font-display text-3xl font-black text-brand-walnut">{r.count} <span class="text-base font-bold text-brand-ink">{c('gönüllü', 'volunteers')} · {r.year} · {r.programme}</span></p>
+              <p class="mt-1 text-sm text-ink-soft">{en ? r.where_en : r.where_tr}</p>
+              <a class="mt-2 inline-block text-xs font-bold text-brand-stamp underline" href={reportHref(r.source)}>{c('Kaynak: YK raporu', 'Source: board report')} {r.year}</a>
             </li>
           ))}
         </ul>
-      ) : (
-        <p class="max-w-3xl leading-relaxed text-ink-soft">{c('Son üç yılın faaliyet raporları ve proje bütçe özetleri, kişisel veriler çıkarıldıktan sonra burada yayımlanacak. O zamana kadar talep için bilgi@kozder.com adresine yazabilirsiniz.', 'Activity reports and project budget summaries for the last three years will be published here once personal data has been removed. Until then, you can request them at bilgi@kozder.com.')}</p>
-      )}
+      </div>
+      <div>
+        <h2 class="mb-3 font-display text-2xl font-black text-brand-ink">{c('Kilis’te ev sahipliği', 'Hosting in Kilis')}</h2>
+        <p class="mb-4 text-sm leading-relaxed text-ink-soft">{c('Kilis’te ağırladığımız uluslararası gençlik değişimleri.', 'International youth exchanges we hosted in Kilis.')}</p>
+        <ul class="space-y-3">
+          {(impact.hosting as any[]).map(r => (
+            <li class="rounded-2xl border border-line bg-white p-4">
+              <p class="font-bold text-brand-ink">{r.year} · {r.title}</p>
+              <p class="mt-1 text-sm text-ink-soft">{en ? r.count_en : r.count_tr}{(en ? r.budget_en : r.budget_tr) && ` · ${en ? r.budget_en : r.budget_tr}`}</p>
+              <a class="mt-2 inline-block text-xs font-bold text-brand-stamp underline" href={reportHref(r.source)}>{c('Kaynak: YK raporu', 'Source: board report')} {r.year}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="prodes-heading" class="prodes-card">
+      <div class="impact-blobs small" aria-hidden="true"><span></span><span></span></div>
+      <div class="relative grid gap-8 lg:grid-cols-5">
+        <div class="lg:col-span-2">
+          <p class="text-sm font-bold text-brand-stamp">{en ? prodes.funder_en : prodes.funder_tr} · {prodes.period}</p>
+          <h2 id="prodes-heading" class="mt-2 font-display text-3xl font-black leading-tight text-brand-ink">{en ? prodes.title_en : prodes.title_tr}</h2>
+          <p class="mt-3 leading-relaxed text-ink-soft">{c('Kilis’te gençler için zekâ oyunları ve robotik kodlama eğitimleri ile beş atölye istasyonlu bir festival. Sonuçlar katılımcıların ön test ve son test yanıtlarından geliyor.', 'Mind games and robotic coding training for young people in Kilis, closing with a festival of five workshop stations. Results come from participants’ pre- and post-tests.')}</p>
+          <div class="mt-6 grid grid-cols-2 gap-3">
+            <div class="stat-glass mini tone-violet" tabindex="0"><strong class="stat-value">{prodes.participants}</strong><p class="stat-label">{c('katılımcı', 'participants')}</p></div>
+            <div class="stat-glass mini tone-green" tabindex="0"><strong class="stat-value">%{prodes.satisfaction}</strong><p class="stat-label">{c('memnuniyet', 'satisfied')}</p></div>
+            <div class="stat-glass mini tone-amber" tabindex="0"><strong class="stat-value">%{prodes.recommend}</strong><p class="stat-label">{c('başkasına tavsiye eder', 'would recommend')}</p></div>
+            <div class="stat-glass mini tone-blue" tabindex="0"><strong class="stat-value">{new Intl.NumberFormat(en ? 'en-IE' : 'tr-TR', { minimumFractionDigits: 2 }).format(prodes.trainerScore)}<small>/5</small></strong><p class="stat-label">{c('eğitmen puanı', 'trainer rating')}</p></div>
+          </div>
+        </div>
+        <div class="lg:col-span-3">
+          <div class="flex flex-wrap items-end justify-between gap-2">
+            <h3 class="font-display text-xl font-black text-brand-ink">{c('Bütçe nereye harcandı?', 'Where did the budget go?')}</h3>
+            <p class="text-sm text-ink-soft">{tl(prodes.spent)} / {tl(prodes.budget)} {c('kullanıldı', 'used')} (%{Math.round((prodes.spent / prodes.budget) * 100)})</p>
+          </div>
+          <div class="spend-bar mt-4" role="img" aria-label={prodesSpend.map(r => `${r.label}: ${Math.round(r.pct)}%`).join(', ')}>
+            {prodesSpend.map(r => <span style={`width:${r.pct}%;background:${r.color}`} title={`${r.label}: ${tl(r.amount)}`}></span>)}
+          </div>
+          <ul class="mt-5 space-y-2">
+            {prodesSpend.map(r => (
+              <li class="spend-row">
+                <span class="spend-dot" style={`background:${r.color}`}></span>
+                <span class="flex-1 text-brand-ink">{r.label}</span>
+                <span class="font-bold text-brand-ink">{tl(r.amount)}</span>
+                <span class="w-12 text-right text-sm text-ink-soft">%{Math.round(r.pct)}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-4 text-xs text-ink-soft">{c('Kaynak:', 'Source:')} {en ? prodes.source_en : prodes.source_tr}</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="finance-heading" class="prodes-card">
+      <div class="impact-blobs small" aria-hidden="true"><span></span><span></span></div>
+      <div class="relative">
+        <h2 id="finance-heading" class="font-display text-3xl font-black leading-tight text-brand-ink">{c('Yıllara göre gelir ve gider', 'Income and spending by year')}</h2>
+        <p class="mt-3 max-w-3xl leading-relaxed text-ink-soft">{en ? fin.note_en : fin.note_tr}</p>
+        <div class="mt-6 grid gap-3 sm:grid-cols-3">
+          <div class="stat-glass mini tone-green" tabindex="0"><strong class="stat-value">{tlShort(finIncome)}</strong><p class="stat-label">{c('toplam gelir', 'total income')} · {finRows[0].year}–{finRows[finRows.length - 1].year}</p></div>
+          <div class="stat-glass mini tone-red" tabindex="0"><strong class="stat-value">{tlShort(finExpense)}</strong><p class="stat-label">{c('toplam gider', 'total spending')}</p></div>
+          <div class="stat-glass mini tone-blue" tabindex="0"><strong class="stat-value">%{Math.round((finPublic / finIncome) * 100)}</strong><p class="stat-label">{c('gelirin kamu ve Ulusal Ajans desteklerinden geldi', 'of income came from public and National Agency grants')}</p></div>
+        </div>
+        <div class="fin-legend mt-8"><span><i style="background:#2f7d58"></i>{c('Gelir', 'Income')}</span><span><i style="background:#bd4029"></i>{c('Gider', 'Spending')}</span></div>
+        <ul class="fin-chart mt-3">
+          {finRows.map(r => (
+            <li class="fin-row" tabindex="0">
+              <span class="fin-year">{r.year}</span>
+              <div class="fin-bars">
+                <div class="fin-bar"><span class="fin-fill inc" style={`width:${Math.max(1, (r.income / finMax) * 78)}%`}></span><b>{tlShort(r.income)}</b></div>
+                <div class="fin-bar"><span class="fin-fill exp" style={`width:${Math.max(1, (r.expense / finMax) * 78)}%`}></span><b>{tlShort(r.expense)}</b></div>
+              </div>
+              <span class="fin-balance">{c('Yıl sonu', 'Year end')}<br /><b>{tlShort(r.balance)}</b></span>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-8">
+          <h3 class="font-display text-xl font-black text-brand-ink">{c('2025 giderleri nereye gitti?', 'Where did 2025 spending go?')}</h3>
+          <div class="spend-bar mt-3" role="img" aria-label={exp25.map(r => `${en ? r.en : r.tr}: ${Math.round((r.amount / exp25Total) * 100)}%`).join(', ')}>
+            {exp25.map((r, i) => <span style={`width:${(r.amount / exp25Total) * 100}%;background:${spendColors[i]}`}></span>)}
+          </div>
+          <ul class="mt-4 space-y-2">
+            {exp25.map((r, i) => (
+              <li class="spend-row"><span class="spend-dot" style={`background:${spendColors[i]}`}></span><span class="flex-1 text-brand-ink">{en ? r.en : r.tr}</span><span class="font-bold text-brand-ink">{tl(r.amount)}</span><span class="w-12 text-right text-sm text-ink-soft">%{Math.round((r.amount / exp25Total) * 100)}</span></li>
+            ))}
+          </ul>
+        </div>
+        <p class="mt-5 text-xs text-ink-soft">{c('Beyannamelerin kendisi kimlik ve banka bilgileri içerdiği için yayımlanmaz; özet tutarlar burada gösterilir. Talep için bilgi@kozder.com.', 'The declarations themselves contain ID and bank details, so only the totals are published here. Requests: bilgi@kozder.com.')}</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="funding-heading">
+      <h2 id="funding-heading" class="mb-3 font-display text-2xl font-black text-brand-ink">{c('Ulusal destekler', 'National funding')}</h2>
+      <div class="overflow-x-auto rounded-2xl border border-line bg-white">
+        <table class="w-full min-w-[560px] text-left text-sm">
+          <thead class="bg-brand-cream text-xs uppercase tracking-[0.12em] text-brand-stamp"><tr><th class="p-3">{c('Yıl', 'Year')}</th><th class="p-3">{c('Destekleyen', 'Funder')}</th><th class="p-3">{c('Çalışma', 'Project')}</th><th class="p-3 text-right">{c('Bütçe', 'Budget')}</th></tr></thead>
+          <tbody class="divide-y divide-line">
+            {(impact.funding as any[]).map(r => (
+              <tr><td class="p-3 font-bold text-brand-ink">{r.year}</td><td class="p-3 text-ink-soft">{en ? r.funder_en : r.funder_tr}</td><td class="p-3 text-brand-ink">{en ? r.title_en : r.title_tr}</td><td class="p-3 text-right font-bold text-brand-ink">{r.amount}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="reports-heading" class="rounded-[2rem] border border-line bg-white p-6 sm:p-10">
+      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{c('Belgeler', 'Documents')}</p>
+      <h2 id="reports-heading" class="mb-4 font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink">{c('Yönetim kurulu raporları', 'Board reports')}</h2>
+      {en && <p class="mb-4 text-sm text-ink-soft">The reports are published in Turkish.</p>}
+      <ul class="divide-y divide-line">
+        {reports.map(r => (
+          <li class="flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:justify-between">
+            <span><span class="font-bold text-brand-ink">{r.data.title}</span><span class="block text-sm text-ink-soft">{r.data.summary}</span></span>
+            <span class="flex shrink-0 gap-4">
+              <a class="font-bold text-brand-stamp underline" href={reportHref(r.slug)}>{c('Raporu oku', 'Read report')}</a>
+              {r.data.pdf && <a class="font-bold text-brand-ink underline" href={r.data.pdf} target="_blank" rel="noopener noreferrer">PDF</a>}
+            </span>
+          </li>
+        ))}
+      </ul>
     </section>
 
     <section aria-labelledby="support-heading" class="grid gap-6 lg:grid-cols-2">
@@ -165,3 +362,101 @@ const intro = c(
     </section>
   </div>
 </BaseLayout>
+
+<style>
+  .impact-hero { position: relative; overflow: hidden; padding: 3.5rem 0 4rem; background: linear-gradient(160deg, #eef3fb 0%, #f7f9fd 55%, #fdf3ef 100%); }
+  .impact-blobs { position: absolute; inset: 0; pointer-events: none; }
+  .impact-blobs span { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; }
+  .impact-blobs span:nth-child(1) { width: 420px; height: 420px; background: #8fb3ef; top: -120px; left: -80px; }
+  .impact-blobs span:nth-child(2) { width: 360px; height: 360px; background: #f2a58f; bottom: -140px; right: 8%; }
+  .impact-blobs span:nth-child(3) { width: 280px; height: 280px; background: #f6d27a; top: 30%; left: 45%; opacity: .35; }
+  .impact-blobs.small span:nth-child(1) { width: 300px; height: 300px; top: -100px; left: -60px; }
+  .impact-blobs.small span:nth-child(2) { width: 260px; height: 260px; bottom: -120px; right: -40px; }
+  .impact-hero-title { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -0.03em; line-height: 1; color: #202936; }
+  .impact-hero-lead { margin-top: .9rem; max-width: 46rem; color: #4a586b; line-height: 1.6; }
+  .stat-grid { margin-top: 2.25rem; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .stat-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+
+  .stat-glass { position: relative; border-radius: 1.5rem; padding: 1.4rem 1.4rem 1.2rem; background: linear-gradient(140deg, rgba(255,255,255,.72), rgba(255,255,255,.38)); border: 1px solid rgba(255,255,255,.85); box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 18px 40px -18px rgba(32,41,54,.28); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease; outline: none; }
+  .stat-glass::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(circle at 15% 0%, rgba(255,255,255,.55), transparent 50%); pointer-events: none; }
+  .stat-glass > * { position: relative; }
+  .stat-glass:hover, .stat-glass:focus-visible { transform: translateY(-6px) scale(1.04); box-shadow: inset 0 1px 0 #fff, 0 28px 60px -20px rgba(32,41,54,.38); z-index: 2; }
+  .stat-glass:focus-visible { box-shadow: 0 0 0 3px #bd4029, 0 28px 60px -20px rgba(32,41,54,.38); }
+  .stat-value { display: block; font-family: 'Bricolage Grotesque', Arial, sans-serif; font-weight: 800; font-size: clamp(2.6rem, 5.2vw, 3.8rem); line-height: .95; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--tone, #202936); transition: transform .35s cubic-bezier(.2,.8,.2,1); transform-origin: left bottom; }
+  .stat-value.long { font-size: clamp(2.2rem, 4vw, 3rem); }
+  .stat-value small { font-size: .45em; letter-spacing: 0; color: #4a586b; }
+  .stat-glass:hover .stat-value, .stat-glass:focus-visible .stat-value { transform: scale(1.08); }
+  .stat-label { margin-top: .7rem; font-weight: 700; line-height: 1.3; color: #202936; }
+  .stat-source { margin-top: .7rem; padding-top: .6rem; border-top: 1px solid rgba(32,41,54,.12); font-size: .82rem; line-height: 1.45; color: #4a586b; }
+  .stat-glass.mini { padding: 1rem; border-radius: 1.1rem; }
+  .stat-glass.mini .stat-value { font-size: 2.1rem; }
+  .stat-glass.mini .stat-label { margin-top: .35rem; font-size: .88rem; }
+  .tone-blue { --tone: #2857a1; } .tone-red { --tone: #bd4029; } .tone-amber { --tone: #b07a12; } .tone-green { --tone: #2f7d58; } .tone-violet { --tone: #6c4c9c; }
+
+  .prodes-card { position: relative; overflow: hidden; border-radius: 2rem; padding: 2rem; background: linear-gradient(150deg, #f3f6fc, #fbf6f2); border: 1px solid #e3e9f2; }
+  @media (min-width: 640px) { .prodes-card { padding: 2.75rem; } }
+  .spend-bar { display: flex; height: 22px; border-radius: 999px; overflow: hidden; background: rgba(32,41,54,.08); box-shadow: inset 0 1px 2px rgba(32,41,54,.15); }
+  .spend-bar span { height: 100%; transition: filter .2s ease; }
+  .spend-bar span:hover { filter: brightness(1.15); }
+  .spend-row { display: flex; align-items: center; gap: .75rem; padding: .55rem .75rem; border-radius: .9rem; background: rgba(255,255,255,.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .spend-dot { width: .8rem; height: .8rem; border-radius: 50%; flex-shrink: 0; }
+
+  .fin-legend { display: flex; gap: 1.25rem; font-size: .85rem; color: #4a586b; }
+  .fin-legend i { display: inline-block; width: .75rem; height: .75rem; border-radius: 50%; margin-right: .4rem; vertical-align: -1px; }
+  .fin-chart { display: grid; gap: .6rem; }
+  .fin-row { display: grid; grid-template-columns: 3.2rem 1fr auto; align-items: center; gap: .9rem; padding: .7rem .9rem; border-radius: 1rem; background: rgba(255,255,255,.55); border: 1px solid rgba(255,255,255,.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease; outline: none; }
+  .fin-row:hover, .fin-row:focus-visible { transform: scale(1.02); box-shadow: 0 18px 40px -20px rgba(32,41,54,.35); }
+  .fin-row:focus-visible { box-shadow: 0 0 0 3px #bd4029; }
+  .fin-year { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-weight: 800; font-size: 1.35rem; color: #202936; }
+  .fin-bars { display: grid; gap: .35rem; min-width: 0; }
+  .fin-bar { display: flex; align-items: center; gap: .5rem; min-width: 0; }
+  .fin-fill { height: 14px; border-radius: 999px; flex-shrink: 0; transition: filter .2s ease; }
+  .fin-fill.inc { background: linear-gradient(90deg, #2f7d58, #4fae80); }
+  .fin-fill.exp { background: linear-gradient(90deg, #bd4029, #e07a5f); }
+  .fin-row:hover .fin-fill { filter: brightness(1.1); }
+  .fin-bar b { font-size: .8rem; font-weight: 700; color: #202936; white-space: nowrap; }
+  .fin-balance { font-size: .72rem; line-height: 1.3; color: #4a586b; text-align: right; }
+  .fin-balance b { font-size: .85rem; color: #202936; }
+  @media (max-width: 520px) { .fin-row { grid-template-columns: 2.6rem 1fr; } .fin-balance { grid-column: 2; text-align: left; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fin-row { transition: none; } .fin-row:hover, .fin-row:focus-visible { transform: none; }
+    .stat-glass, .stat-value { transition: none; }
+    .stat-glass:hover, .stat-glass:focus-visible { transform: none; }
+    .stat-glass:hover .stat-value, .stat-glass:focus-visible .stat-value { transform: none; }
+  }
+</style>
+
+<script>
+  // Sayılar görünür olduğunda bir kez sıfırdan hedefe sayar. Sunucu çıktısı zaten
+  // son değeri içerir; JS yoksa veya hareket azaltılmışsa sayılar olduğu gibi kalır.
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.querySelector('[data-countup-root]');
+  if (root && !reduce && 'IntersectionObserver' in window) {
+    const fmt = (el: HTMLElement, n: number) =>
+      new Intl.NumberFormat(el.dataset.lang === 'en' ? 'en-IE' : 'tr-TR').format(Math.round(n));
+    const run = (el: HTMLElement) => {
+      const target = Number(el.dataset.countup);
+      const start = performance.now();
+      const dur = 1400;
+      const tick = (now: number) => {
+        const p = Math.min(1, (now - start) / dur);
+        el.textContent = fmt(el, target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        run(e.target as HTMLElement);
+      });
+    }, { threshold: 0.6 });
+    root.querySelectorAll<HTMLElement>('[data-countup]').forEach(el => {
+      el.textContent = fmt(el, 0);
+      io.observe(el);
+    });
+  }
+</script>
