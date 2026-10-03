@@ -248,25 +248,36 @@ const intro = c(
       <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{c('Avrupa Dayanışma Programı', 'European Solidarity Corps')}</p>
       <h2 id="esc-heading" class="mb-4 font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink sm:text-4xl">{c('Yürüttüğümüz ESC gönüllülük projeleri', 'ESC volunteering projects we run')}</h2>
       <p class="mb-6 max-w-3xl leading-relaxed text-ink-soft">{en ? impact.escLead.note_en : impact.escLead.note_tr}</p>
-      <div class="overflow-x-auto rounded-2xl border border-line bg-white">
-        <table class="w-full min-w-[640px] text-left text-sm">
-          <thead class="bg-brand-cream text-xs uppercase tracking-[0.12em] text-brand-stamp">
-            <tr><th class="p-3">{c('Çağrı', 'Call')}</th><th class="p-3">{c('Gönüllü', 'Volunteers')}</th><th class="p-3">{c('Ülkeler', 'Countries')}</th><th class="p-3 text-right">{c('Hibe', 'Grant')}</th></tr>
-          </thead>
-          <tbody class="divide-y divide-line">
-            {escRows.map(r => (
-              <tr>
-                <td class="p-3 font-bold text-brand-ink">{r.call}<span class="block text-[11px] font-normal text-ink-soft">{r.code}</span></td>
-                <td class="p-3 text-brand-ink">{r.volunteers}</td>
-                <td class="p-3 text-ink-soft">{en ? r.countries_en : r.countries_tr}</td>
-                <td class="p-3 text-right font-bold text-brand-ink">{eur(r.grant)}</td>
-              </tr>
-            ))}
-          </tbody>
-          <tfoot class="bg-brand-cream font-bold text-brand-ink">
-            <tr><td class="p-3">{c('Toplam', 'Total')}</td><td class="p-3">{escTotalVol}</td><td class="p-3"></td><td class="p-3 text-right">{eur(escTotalGrant)}</td></tr>
-          </tfoot>
-        </table>
+      <div class="esc-cards" data-seq-esc>
+        {escRows.map(r => {
+          const list = (en ? r.countries_en : r.countries_tr).split(',').map((x: string) => x.trim()).map((x: string) => { const m = x.match(/^(.*)\s(\d+)$/); return { name: m ? m[1] : x, n: m ? Number(m[2]) : 0 }; });
+          const max = Math.max(...list.map((x: any) => x.n), 1);
+          return (
+            <article class="esc-card seq" tabindex="0">
+              <div class="esc-top">
+                <span class="esc-year">{r.call}</span>
+                <span class="esc-code">{r.code}</span>
+              </div>
+              <div class="esc-figs">
+                <div><strong class="stat-value">{r.volunteers}</strong><span>{c('gönüllü', 'volunteers')}</span></div>
+                <div class="text-right"><strong class="esc-grant">{eur(r.grant)}</strong><span>{c('hibe', 'grant')}</span></div>
+              </div>
+              <ul class="esc-countries">
+                {list.map((x: any) => (
+                  <li><span class="esc-cname">{x.name}</span><span class="esc-bar"><i style={`--w:${(x.n / max) * 100}%`}></i></span><b>{x.n}</b></li>
+                ))}
+              </ul>
+            </article>
+          );
+        })}
+        <article class="esc-card esc-total seq" tabindex="0">
+          <span class="esc-year">{c('Toplam', 'Total')}</span>
+          <div class="esc-figs">
+            <div><strong class="stat-value">{escTotalVol}</strong><span>{c('gönüllü · 5 proje', 'volunteers · 5 projects')}</span></div>
+            <div class="text-right"><strong class="esc-grant">{eur(escTotalGrant)}</strong><span>{c('toplam hibe', 'total grants')}</span></div>
+          </div>
+          <p class="esc-note">{c('10 ülke: Yunanistan, İtalya, Portekiz, Bulgaristan, İspanya, Romanya, Mısır, İzlanda, Gürcistan, Fas', '10 countries: Greece, Italy, Portugal, Bulgaria, Spain, Romania, Egypt, Iceland, Georgia, Morocco')}</p>
+        </article>
       </div>
     </section>
 
@@ -425,6 +436,30 @@ const intro = c(
   .seq-wait { opacity: 0; transform: translateY(14px) scale(.97); }
   .seq-wait.is-in { opacity: 1; transform: none; transition: opacity .45s ease, transform .55s cubic-bezier(.2,.8,.2,1); }
   .seq-wait.is-in:hover, .seq-wait.is-in:focus-visible { transform: translateY(-6px) scale(1.04); }
+  .esc-cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .esc-cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .esc-cards { grid-template-columns: repeat(3, 1fr); } }
+  .esc-card { position: relative; display: flex; flex-direction: column; gap: .9rem; padding: 1.25rem; border-radius: 1.5rem; background: linear-gradient(150deg, rgba(232,239,251,.9), rgba(255,255,255,.75)); border: 1px solid rgba(255,255,255,.95); box-shadow: inset 0 1px 0 #fff, 0 20px 40px -26px rgba(40,87,161,.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); outline: none; }
+  .esc-card.is-in:hover, .esc-card.is-in:focus-visible { transform: translateY(-6px) scale(1.03); box-shadow: inset 0 1px 0 #fff, 0 28px 50px -24px rgba(40,87,161,.55); }
+  .esc-top { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; }
+  .esc-year { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-weight: 800; font-size: 1.6rem; color: #202936; }
+  .esc-code { font-size: .68rem; color: #6a7a8e; text-align: right; }
+  .esc-figs { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; }
+  .esc-figs span { display: block; font-size: .78rem; font-weight: 700; color: #4a586b; }
+  .esc-figs .stat-value { font-size: 3rem; color: #2857a1; }
+  .esc-grant { display: block; font-family: 'Bricolage Grotesque', Arial, sans-serif; font-weight: 800; font-size: 1.35rem; color: #bd4029; font-variant-numeric: tabular-nums; }
+  .esc-countries { display: grid; gap: .35rem; }
+  .esc-countries li { display: grid; grid-template-columns: 6.2rem 1fr 1.6rem; align-items: center; gap: .5rem; font-size: .82rem; color: #202936; }
+  .esc-cname { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .esc-bar { height: 8px; border-radius: 999px; background: rgba(40,87,161,.1); overflow: hidden; }
+  .esc-bar i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #2857a1, #5b8fd8); transition: width .9s cubic-bezier(.2,.8,.2,1) .15s; }
+  .esc-card.is-in .esc-bar i, .esc-card:not(.seq-wait) .esc-bar i { width: var(--w); }
+  .esc-countries b { text-align: right; font-weight: 800; color: #2857a1; }
+  .esc-total { background: linear-gradient(150deg, #2857a1, #3f6fc0); border-color: transparent; color: #fff; justify-content: space-between; }
+  .esc-total .esc-year, .esc-total .esc-figs span, .esc-total .esc-note { color: #fff; }
+  .esc-total .stat-value { color: #fff; }
+  .esc-total .esc-grant { color: #ffd9cc; }
+  .esc-note { font-size: .8rem; line-height: 1.45; opacity: .9; }
   .prog-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
   @media (min-width: 1024px) { .prog-grid { grid-template-columns: repeat(2, 1fr); } }
   .prog-panel { position: relative; display: flex; flex-direction: column; gap: 1.1rem; padding: 1.5rem; border-radius: 1.75rem; background: linear-gradient(150deg, color-mix(in srgb, var(--tone) 9%, #fff), #fbfcfe); border: 1px solid color-mix(in srgb, var(--tone) 22%, #fff); }
@@ -470,6 +505,7 @@ const intro = c(
   .story-read { margin-top: .2rem; font-size: .8rem; font-weight: 700; color: #fff; }
 
   @media (prefers-reduced-motion: reduce) {
+    .esc-bar i { transition: none; width: var(--w); }
     .seq-wait, .seq-wait.is-in { opacity: 1; transform: none; transition: none; }
     .host-item { transition: none; } .host-item:hover { transform: none; }
     .story-glass.is-on { animation: none; } .story-glass:hover { transform: none; }
@@ -487,6 +523,7 @@ const intro = c(
   // Rakamlarla KOZ-DER: önce toplam, sonra programlar sırayla.
   initSequence('.lead-total');
   initSequence('[data-seq-root]');
+  initSequence('[data-seq-esc]', '.stat-value, .esc-grant, .esc-countries b', 180, 1100);
   // Sayfadaki diğer tüm sayılar görünür olduklarında 0'dan sayar.
   initCountUp('.stat-value, .send-total strong, .send-count, .host-top strong, .host-top b, .fin-bar b, .fin-balance b, .spend-row .font-bold, [data-countup-extra]');
 
