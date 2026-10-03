@@ -87,7 +87,9 @@ const headline = [
   { value: escTotalGrant, suffix: ' €', label: c('ESC hibesi', 'in ESC grants'), source: c('Azami hibe toplamı', 'Sum of maximum grants'), tone: 'red' },
   { value: sendingTotal, suffix: '', label: c('genci ortak projelere gönderdik', 'young people sent to partner projects'), source: c(`Gönderici kuruluş · ${sendEsc} ESC + ${sendErasmus} Erasmus+`, `Sending organisation · ${sendEsc} ESC + ${sendErasmus} Erasmus+`), tone: 'amber' },
   { value: hostTotal, suffix: '', label: c('genci Erasmus+ değişimlerinde Kilis’te ağırladık', 'young people hosted in Kilis on Erasmus+ exchanges'), source: c('Life for PRR 2025 (56) · No More Walls 2026 (25)', 'Life for PRR 2025 (56) · No More Walls 2026 (25)'), tone: 'green' },
-  { value: prodes.participants, suffix: '', label: c('genç zekâ oyunları ve robotik kodlama eğitimini tamamladı', 'young people completed mind games and robotic coding training'), source: c(`%${prodes.satisfaction} memnuniyet · ön test–son test`, `${prodes.satisfaction}% satisfied · pre/post test`), tone: 'violet' },
+  { value: 149, suffix: '', label: c('genç zekâ oyunları, robotik kodlama, afet bilinci eğitimi ve psikososyal destek aldı', 'young people received mind games, robotic coding, disaster awareness training and psychosocial support'), source: c('Gençlik ve Spor Bakanlığı projesi · 2025', 'Ministry of Youth and Sports project · 2025'), tone: 'amber' },
+  { value: 178, suffix: '', label: c('genç Göbeklitepe ve Halfeti kültür gezilerine katıldı', 'young people joined the Göbeklitepe and Halfeti culture trips'), source: c('Gençlik ve Spor Bakanlığı projesi · 2025', 'Ministry of Youth and Sports project · 2025'), tone: 'green' },
+  { value: prodes.participants, suffix: '', label: c('genç zekâ oyunları ve robotik kodlama eğitimini tamamladı', 'young people completed mind games and robotic coding training'), source: c(`İçişleri Bakanlığı projesi · %${prodes.satisfaction} memnuniyet`, `Ministry of Interior project · ${prodes.satisfaction}% satisfied`), tone: 'violet' },
 ];
 
 const title = c('Etki ve Şeffaflık', 'Impact and Transparency');
@@ -418,6 +420,7 @@ const intro = c(
   .stat-grid { margin-top: 2.25rem; display: grid; gap: 1rem; grid-template-columns: 1fr; }
   @media (min-width: 640px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 1024px) { .stat-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+  @media (min-width: 1200px) { .stat-grid { grid-template-columns: repeat(4, 1fr); } }
 
   .stat-glass { position: relative; border-radius: 1.5rem; padding: 1.4rem 1.4rem 1.2rem; background: linear-gradient(140deg, rgba(255,255,255,.72), rgba(255,255,255,.38)); border: 1px solid rgba(255,255,255,.85); box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 18px 40px -18px rgba(32,41,54,.28); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease; outline: none; }
   .stat-glass::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(circle at 15% 0%, rgba(255,255,255,.55), transparent 50%); pointer-events: none; }
