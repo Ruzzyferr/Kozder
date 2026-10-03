@@ -180,3 +180,8 @@ const intro = c(
   }
   @media (prefers-reduced-motion: reduce) { .fy-stat, .year-nav a { transition: none; } .fy-stat:hover, .fy-stat:focus-visible { transform: none; } }
 </style>
+
+<script>
+  import { initCountUp } from '../../scripts/countup';
+  initCountUp('.fy-stat strong, .fy-list b, .fy-box b, .fy-box .font-display', 1100);
+</script>
