@@ -48,22 +48,29 @@
     ]
   },
   "sending": {
-    "note_tr": "Başka ülkelerdeki kuruluşların projelerine KOZ-DER'in gönderici (sending) kuruluş olarak yönlendirdiği gençler. Sayılar dernek gönüllü dosyalarından ve gönderim listelerinden sayılmıştır; bütçe ev sahibi kuruluşa aittir.",
-    "note_en": "Young people KOZ-DER sent as the sending organisation to projects run by organisations abroad. Counted from the association's volunteer files and sending lists; the budget belongs to the host organisation.",
+    "note_tr": "Başka ülkelerdeki kuruluşların projelerine KOZ-DER'in gönderici (sending) kuruluş olarak yönlendirdiği gençler. Sayılar derneğin gönderim listesinden alınmıştır; bütçe ev sahibi kuruluşa aittir.",
+    "note_en": "Young people KOZ-DER sent as the sending organisation to projects run by organisations abroad. Figures come from the association's sending list; the budget belongs to the host organisation.",
     "rows": [
       {
+        "year": 2020,
+        "esc": 0,
+        "erasmus": 2,
+        "where_tr": "Erasmus+: İsveç 2",
+        "where_en": "Erasmus+: Sweden 2"
+      },
+      {
         "year": 2022,
-        "esc": 5,
-        "erasmus": 0,
-        "where_tr": "ESC: Bulgaristan 5",
-        "where_en": "ESC: Bulgaria 5"
+        "esc": 7,
+        "erasmus": 6,
+        "where_tr": "ESC: Bulgaristan 7 · Erasmus+: İtalya 6",
+        "where_en": "ESC: Bulgaria 7 · Erasmus+: Italy 6"
       },
       {
         "year": 2023,
-        "esc": 33,
-        "erasmus": 0,
-        "where_tr": "ESC: Bulgaristan 26, Romanya 7",
-        "where_en": "ESC: Bulgaria 26, Romania 7"
+        "esc": 28,
+        "erasmus": 8,
+        "where_tr": "ESC: Bulgaristan 27, Romanya 1 · Erasmus+: Romanya 8",
+        "where_en": "ESC: Bulgaria 27, Romania 1 · Erasmus+: Romania 8"
       },
       {
         "year": 2024,
@@ -74,17 +81,17 @@
       },
       {
         "year": 2025,
-        "esc": 21,
-        "erasmus": 29,
-        "where_tr": "ESC: Bulgaristan 19, Romanya 2 · Erasmus+: Bulgaristan 29",
-        "where_en": "ESC: Bulgaria 19, Romania 2 · Erasmus+: Bulgaria 29"
+        "esc": 20,
+        "erasmus": 31,
+        "where_tr": "ESC: Bulgaristan 20 · Erasmus+: Bulgaristan 29, Romanya 2",
+        "where_en": "ESC: Bulgaria 20 · Erasmus+: Bulgaria 29, Romania 2"
       },
       {
         "year": 2026,
-        "esc": 26,
-        "erasmus": 17,
-        "where_tr": "ESC: Bulgaristan 16, Almanya 2, Haziran dönemi projeleri 8 · Erasmus+: Bulgaristan 8, Temmuz dönemi 3, Ekim 2026 Pazardzhik/Bulgaristan 6",
-        "where_en": "ESC: Bulgaria 16, Germany 2, June-term projects 8 · Erasmus+: Bulgaria 8, July term 3, October 2026 Pazardzhik/Bulgaria 6"
+        "esc": 27,
+        "erasmus": 24,
+        "where_tr": "ESC: Bulgaristan 24, Almanya 2, Letonya 1 · Erasmus+: Bulgaristan 21, Polonya 3",
+        "where_en": "ESC: Bulgaria 24, Germany 2, Latvia 1 · Erasmus+: Bulgaria 21, Poland 3"
       }
     ]
   },
