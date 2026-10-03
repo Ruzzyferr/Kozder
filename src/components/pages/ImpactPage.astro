@@ -22,19 +22,9 @@ const reportHref = (slug: string) => `/etki-ve-seffaflik/${slug}`;
 
 // --- Sitede yayınlanmış çalışmalar: içerik koleksiyonlarından otomatik sayılır ---
 const langFilter = (e: { slug: string }) => (en ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'));
-const projects = (await getCollection('projects', langFilter)).filter(p => !p.data.draft);
 const stories = (await getCollection('stories', langFilter)).filter(s => !s.data.draft);
 
-const esc = projects.filter(p => p.data.programType === 'ESC').length;
-const erasmus = projects.filter(p => p.data.programType === 'ERASMUS').length;
-const local = projects.filter(p => p.data.programType === 'LOCAL').length;
-const storyCountries = new Set(stories.map(s => s.data.country.split('·')[0].trim())).size;
 
-const published = [
-  { value: String(esc + erasmus), label: c('yurt dışı proje sayfası', 'international project pages'), source: c(`${erasmus} Erasmus+ · ${esc} ESC`, `${erasmus} Erasmus+ · ${esc} ESC`) },
-  { value: String(stories.length), label: c('gönüllü ve katılımcı hikâyesi', 'volunteer and participant stories'), source: c(`${storyCountries} ülkeden deneyim`, `experiences from ${storyCountries} countries`) },
-  local > 0 && { value: String(local), label: c('yerel gönüllülük çağrısı', 'local volunteering calls'), source: c('Kilis ve çevrim içi', 'Kilis and online') },
-].filter(Boolean) as { value: string; label: string; source: string }[];
 
 const latestStories = stories
   .slice()
@@ -201,24 +191,7 @@ const intro = c(
 
 
 
-    <section aria-labelledby="published-heading">
-      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{c('Bu sitede', 'On this site')}</p>
-      <h2 id="published-heading" class="mb-4 font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink sm:text-4xl">{c('Yayınlanmış projeler ve hikâyeler.', 'Published projects and stories.')}</h2>
-      <p class="mb-8 max-w-3xl leading-relaxed text-ink-soft">{c('Bu sayılar sitedeki sayfalardan otomatik hesaplanır. Derneğin tüm geçmişini değil, burada yayımlanan çalışmaları gösterir. Hikâye sayısı, yararlanıcı sayısı değildir.', 'These numbers are counted automatically from the pages on this site. They show published work, not the association’s full history. The number of stories is not a number of beneficiaries.')}</p>
-      <div class="grid gap-4 sm:grid-cols-3">
-        {published.map(m => (
-          <article class="stat-glass tone-blue" tabindex="0">
-            <strong class="stat-value">{m.value}</strong>
-            <p class="stat-label">{m.label}</p>
-            <p class="stat-source">{m.source}</p>
-          </article>
-        ))}
-      </div>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a class="rounded-xl bg-brand-ink px-5 py-3 font-bold text-white hover:bg-brand-stamp" href={path(lang, 'projects')}>{c('Tüm projeler →', 'All projects →')}</a>
-        <a class="rounded-xl border border-line-strong px-5 py-3 font-bold text-brand-ink hover:border-brand-stamp" href={path(lang, 'stories')}>{c('Tüm hikâyeler →', 'All stories →')}</a>
-      </div>
-    </section>
+
 
     {latestStories.length > 0 && (
       <section aria-labelledby="change-heading">
