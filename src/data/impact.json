@@ -35,77 +35,93 @@
   "metricsNote_en": "The 2025 GSB figures and the 2026 Erasmus+ exchange refer to different activities. Trip attendances are not a count of unique participants.",
   "reports": [],
   "escLead": {
-    "note_tr": "KOZ-DER'in Türkiye Ulusal Ajansı'na başvurup yürüttüğü ESC gönüllülük projeleri. Gönüllü sayısı ve hibe, imzalanan hibe sözleşmesindeki planlanan değerlerdir; nihai rapor sonrası değişebilir.",
-    "note_en": "European Solidarity Corps volunteering projects that KOZ-DER applied for and runs with the Turkish National Agency. Volunteer numbers and grants are the planned values in the signed grant agreement and may change after the final report.",
+    "note_tr": "KOZ-DER'in Türkiye Ulusal Ajansı'na başvurup yürüttüğü ESC gönüllülük projeleri. Gönüllü sayıları proje dosyalarındaki gönüllü kayıtlarından sayılmıştır; hibe, imzalanan hibe sözleşmesindeki azami tutardır.",
+    "note_en": "European Solidarity Corps volunteering projects that KOZ-DER applied for and runs with the Turkish National Agency. Volunteer numbers are counted from the project volunteer files; the grant is the maximum amount in the signed grant agreement.",
     "rows": [
       {
         "call": 2021,
         "code": "2021-1-TR01-ESC51-VTJ-000037147",
         "volunteers": 3,
-        "realised_tr": "3 gönüllü tamamladı (nihai rapor)",
-        "realised_en": "3 volunteers completed (final report)",
-        "countries_tr": "Portekiz",
-        "countries_en": "Portugal",
-        "grant": 15081,
-        "final": 13828.65
+        "countries_tr": "Portekiz 3",
+        "countries_en": "Portugal 3",
+        "grant": 15081
       },
       {
         "call": 2022,
         "code": "2022-1-TR01-ESC51-VTJ-000080642",
-        "volunteers": 17,
-        "countries_tr": "İspanya, İtalya, Bulgaristan, Portekiz",
-        "countries_en": "Spain, Italy, Bulgaria, Portugal",
+        "volunteers": 19,
+        "countries_tr": "İspanya 6, Bulgaristan 5, Portekiz 5, İtalya 3",
+        "countries_en": "Spain 6, Bulgaria 5, Portugal 5, Italy 3",
         "grant": 47144
       },
       {
         "call": 2023,
         "code": "2023-1-TR01-ESC51-VTJ-000112883",
-        "volunteers": 20,
-        "realised_tr": "Ekim 2024 ara raporunda 11 gönüllü, 30.960 €",
-        "realised_en": "11 volunteers and €30,960 at the October 2024 interim report",
-        "countries_tr": "Yunanistan, Portekiz, İtalya, Gürcistan, Mısır, İspanya, Bulgaristan",
-        "countries_en": "Greece, Portugal, Italy, Georgia, Egypt, Spain, Bulgaria",
+        "volunteers": 28,
+        "countries_tr": "Yunanistan 9, Bulgaristan 7, Portekiz 5, Mısır 3, Gürcistan 2, İtalya 1, İspanya 1",
+        "countries_en": "Greece 9, Bulgaria 7, Portugal 5, Egypt 3, Georgia 2, Italy 1, Spain 1",
         "grant": 78479
       },
       {
         "call": 2024,
         "code": "2024-1-TR01-ESC51-VTJ-000220924",
-        "volunteers": 7,
-        "countries_tr": "İzlanda, Portekiz, Romanya, Yunanistan",
-        "countries_en": "Iceland, Portugal, Romania, Greece",
+        "volunteers": 14,
+        "countries_tr": "Yunanistan 6, Portekiz 4, İzlanda 2, Romanya 2",
+        "countries_en": "Greece 6, Portugal 4, Iceland 2, Romania 2",
         "grant": 39198
       },
       {
         "call": 2025,
         "code": "2025-1-TR01-ESC51-VTJ-000346549",
-        "volunteers": 13,
-        "countries_tr": "Bulgaristan, Romanya, İzlanda, Fas, Portekiz, İtalya",
-        "countries_en": "Bulgaria, Romania, Iceland, Morocco, Portugal, Italy",
+        "volunteers": 18,
+        "countries_tr": "İtalya 8, Portekiz 3, Romanya 2, Bulgaristan 2, Fas 2, İzlanda 1",
+        "countries_en": "Italy 8, Portugal 3, Romania 2, Bulgaria 2, Morocco 2, Iceland 1",
         "grant": 48532
       }
     ]
   },
   "sending": {
-    "note_tr": "Başka ülkelerdeki ev sahibi kuruluşların projelerine KOZ-DER'in gönderici (sending) kuruluş olarak gönüllü yönlendirdiği faaliyetler. Bütçe ev sahibi kuruluşa aittir.",
-    "note_en": "Activities where KOZ-DER acts as the sending organisation for projects run by host organisations abroad. The budget belongs to the host organisation.",
+    "note_tr": "Başka ülkelerdeki kuruluşların projelerine KOZ-DER'in gönderici (sending) kuruluş olarak yönlendirdiği gençler. Sayılar dernek gönüllü dosyalarından ve gönderim listelerinden sayılmıştır; bütçe ev sahibi kuruluşa aittir.",
+    "note_en": "Young people KOZ-DER sent as the sending organisation to projects run by organisations abroad. Counted from the association's volunteer files and sending lists; the budget belongs to the host organisation.",
     "rows": [
       {
+        "year": 2022,
+        "esc": 5,
+        "erasmus": 0,
+        "where_tr": "ESC: Bulgaristan 5",
+        "where_en": "ESC: Bulgaria 5"
+      },
+      {
+        "year": 2023,
+        "esc": 26,
+        "erasmus": 0,
+        "where_tr": "ESC: Bulgaristan 26",
+        "where_en": "ESC: Bulgaria 26"
+      },
+      {
+        "year": 2024,
+        "esc": 27,
+        "erasmus": 0,
+        "where_tr": "ESC: Bulgaristan 27",
+        "where_en": "ESC: Bulgaria 27"
+      },
+      {
         "year": 2025,
-        "count": 17,
-        "programme": "ESC",
-        "where_tr": "Bulgaristan, Madan (Life is Beautiful) — iki kohort: 7 + 10",
-        "where_en": "Madan, Bulgaria (Life is Beautiful) — two cohorts: 7 + 10",
-        "source": "yk-2025"
+        "esc": 19,
+        "erasmus": 29,
+        "where_tr": "ESC: Bulgaristan 19 · Erasmus+: Bulgaristan 29",
+        "where_en": "ESC: Bulgaria 19 · Erasmus+: Bulgaria 29"
       },
       {
         "year": 2026,
-        "count": 20,
-        "programme": "ESC",
-        "where_tr": "Bulgaristan, Madan — kısa ve uzun dönem; ayrıca İrlanda, İsveç, İzlanda, Romanya hareketlilikleri",
-        "where_en": "Madan, Bulgaria — short and long term; plus mobilities to Ireland, Sweden, Iceland and Romania",
-        "source": "yk-2026"
+        "esc": 26,
+        "erasmus": 11,
+        "where_tr": "ESC: Bulgaristan 16, Almanya 2, Haziran dönemi projeleri 8 · Erasmus+: Bulgaristan 8, Temmuz dönemi 3",
+        "where_en": "ESC: Bulgaria 16, Germany 2, June-term projects 8 · Erasmus+: Bulgaria 8, July term 3"
       }
-    ]
+    ],
+    "upcoming_tr": "Ekim 2026'da Erasmus+ gençlik değişimi için 6 genç daha yola çıkacak; bu sayı toplama dahil değildir.",
+    "upcoming_en": "Six more young people will travel to an Erasmus+ youth exchange in October 2026; they are not included in the totals."
   },
   "hosting": [
     {
