@@ -517,36 +517,10 @@ const intro = c(
 </style>
 
 <script>
-  // Sayılar görünür olduğunda bir kez sıfırdan hedefe sayar. Sunucu çıktısı zaten
-  // son değeri içerir; JS yoksa veya hareket azaltılmışsa sayılar olduğu gibi kalır.
+  import { initCountUp } from '../../scripts/countup';
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const root = document.querySelector('[data-countup-root]');
-  if (root && !reduce && 'IntersectionObserver' in window) {
-    const fmt = (el: HTMLElement, n: number) =>
-      new Intl.NumberFormat(el.dataset.lang === 'en' ? 'en-IE' : 'tr-TR').format(Math.round(n));
-    const run = (el: HTMLElement) => {
-      const target = Number(el.dataset.countup);
-      const start = performance.now();
-      const dur = 1400;
-      const tick = (now: number) => {
-        const p = Math.min(1, (now - start) / dur);
-        el.textContent = fmt(el, target * (1 - Math.pow(1 - p, 3)));
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    };
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        io.unobserve(e.target);
-        run(e.target as HTMLElement);
-      });
-    }, { threshold: 0.6 });
-    root.querySelectorAll<HTMLElement>('[data-countup]').forEach(el => {
-      el.textContent = fmt(el, 0);
-      io.observe(el);
-    });
-  }
+  // Sayfadaki tüm sayılar görünür olduklarında 0'dan sayar.
+  initCountUp('.stat-value, .send-total strong, .send-count, .host-top strong, .host-top b, .fin-bar b, .fin-balance b, .spend-row .font-bold, [data-countup-extra]');
 
   // Gönüllü hikâyeleri: 3'erli gruplar halinde belirli aralıkla döner, üzerine gelince durur.
   const rot = document.querySelector<HTMLElement>('[data-story-rotator]');
