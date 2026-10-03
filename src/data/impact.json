@@ -188,6 +188,22 @@
     "note_en": "Figures come from the annual association declarations KOZ-DER files with the Kilis Governorate (cash basis, nominal TRY). Income excludes the balance carried over from the previous year.",
     "rows": [
       {
+        "year": 2019,
+        "income": 1150.0,
+        "expense": 698.09,
+        "balance": 451.91,
+        "public": 0,
+        "abroad": 0
+      },
+      {
+        "year": 2020,
+        "income": 0.0,
+        "expense": 451.91,
+        "balance": 0.0,
+        "public": 0,
+        "abroad": 0
+      },
+      {
         "year": 2021,
         "income": 3572.0,
         "expense": 2817.9,
