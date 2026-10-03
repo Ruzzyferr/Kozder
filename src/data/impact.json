@@ -60,10 +60,10 @@
       },
       {
         "year": 2023,
-        "esc": 26,
+        "esc": 28,
         "erasmus": 0,
-        "where_tr": "ESC: Bulgaristan 26",
-        "where_en": "ESC: Bulgaria 26"
+        "where_tr": "ESC: Bulgaristan 26, Romanya 2",
+        "where_en": "ESC: Bulgaria 26, Romania 2"
       },
       {
         "year": 2024,
@@ -74,10 +74,10 @@
       },
       {
         "year": 2025,
-        "esc": 19,
+        "esc": 21,
         "erasmus": 29,
-        "where_tr": "ESC: Bulgaristan 19 · Erasmus+: Bulgaristan 29",
-        "where_en": "ESC: Bulgaria 19 · Erasmus+: Bulgaria 29"
+        "where_tr": "ESC: Bulgaristan 19, Romanya 2 · Erasmus+: Bulgaristan 29",
+        "where_en": "ESC: Bulgaria 19, Romania 2 · Erasmus+: Bulgaria 29"
       },
       {
         "year": 2026,
