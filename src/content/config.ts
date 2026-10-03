@@ -110,10 +110,24 @@ const storiesCollection = defineCollection({
   }),
 });
 
+const reportsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    period: z.string(),
+    year: z.number(),
+    kind: z.enum(['board', 'audit']).default('board'),
+    signedBy: z.string().optional(),
+    pdf: z.string().optional(),
+    summary: z.string(),
+  }),
+});
+
 export const collections = {
   'projects': projectsCollection,
   'events': eventsCollection,
   'posts': postsCollection,
   'news': newsCollection,
   'stories': storiesCollection,
+  'reports': reportsCollection,
 };

@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { path } from '../../i18n';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('reports');
+  return entries.map(e => ({ params: { slug: e.slug }, props: { report: e } }));
+}
+
+const { report } = Astro.props;
+const { Content } = await report.render();
+---
+
+<BaseLayout lang="tr" title={`${report.data.title} — KOZ-DER`} description={report.data.summary} alternate="/en/impact-and-transparency">
+  <Breadcrumb
+    lang="tr"
+    kicker="Yönetim kurulu raporu"
+    items={[{ label: 'Ana Sayfa', href: path('tr', 'home') }, { label: 'Etki ve Şeffaflık', href: path('tr', 'impact') }, { label: report.data.period, href: `/etki-ve-seffaflik/${report.slug}` }]}
+    pageTitle={report.data.title}
+    intro={report.data.summary}
+  />
+  <div class="container mx-auto px-4 py-12 sm:py-16">
+    <article class="prose-kozder mx-auto max-w-3xl rounded-2xl border border-line bg-white p-6 sm:p-10">
+      <Content />
+      {report.data.signedBy && <p class="mt-10 border-t border-line pt-4 font-bold">{report.data.signedBy}</p>}
+    </article>
+    {report.data.pdf && (
+      <p class="mx-auto mt-6 max-w-3xl"><a class="inline-flex items-center rounded-xl bg-brand-ink px-5 py-3 font-bold text-white hover:bg-brand-stamp" href={report.data.pdf} target="_blank" rel="noopener noreferrer">Raporun PDF hâlini aç</a></p>
+    )}
+    <p class="mx-auto mt-4 max-w-3xl text-sm text-ink-soft">Bu sayfa, derneğin yönetim kurulu raporundan web için hazırlanmıştır; kişisel iletişim bilgileri çıkarılmıştır.</p>
+    <p class="mx-auto mt-4 max-w-3xl"><a class="font-bold text-brand-stamp underline" href={path('tr', 'impact')}>← Etki ve Şeffaflık</a></p>
+  </div>
+</BaseLayout>
