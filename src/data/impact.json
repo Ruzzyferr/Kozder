@@ -1,38 +1,5 @@
 {
   "_note": "Etki ve Şeffaflık sayfasının verisi. Yalnızca kaynağı gösterilebilen sayıları ekleyin. Her metrikte 'source' alanı program, yıl ve sayım türünü (tekil kişi / toplam katılım) belirtmelidir.",
-  "verifiedMetrics": [
-    {
-      "value": "149",
-      "label_tr": "eğitimlere katılan genç",
-      "label_en": "young people reached through training",
-      "source_tr": "2025 · GSB gençlik projesi",
-      "source_en": "2025 · GSB youth resilience project"
-    },
-    {
-      "value_tr": "%99,2",
-      "value_en": "99.2%",
-      "label_tr": "genel memnuniyet",
-      "label_en": "overall satisfaction",
-      "source_tr": "2025 · 120 değerlendirme yanıtı",
-      "source_en": "2025 · 120 evaluation responses"
-    },
-    {
-      "value": "178",
-      "label_tr": "kültürel gezi katılımı",
-      "label_en": "cultural trip attendances",
-      "source_tr": "2025 · tekil kişi değil, toplam katılım",
-      "source_en": "2025 · total attendances, not unique people"
-    },
-    {
-      "value": "25",
-      "label_tr": "gençlik değişimi katılımcısı",
-      "label_en": "youth exchange participants",
-      "source_tr": "2026 · dört ülkeden",
-      "source_en": "2026 · four countries"
-    }
-  ],
-  "metricsNote_tr": "2025 GSB sonuçları ile 2026 Erasmus+ gençlik değişimi farklı faaliyetlere aittir. Gezi sayısı tekil katılımcı sayısını değil, toplam katılımı gösterir.",
-  "metricsNote_en": "The 2025 GSB figures and the 2026 Erasmus+ exchange refer to different activities. Trip attendances are not a count of unique participants.",
   "reports": [],
   "escLead": {
     "note_tr": "KOZ-DER'in Türkiye Ulusal Ajansı'na başvurup yürüttüğü ESC gönüllülük projeleri. Gönüllü sayıları proje dosyalarındaki gönüllü kayıtlarından sayılmıştır; hibe, imzalanan hibe sözleşmesindeki azami tutardır.",
@@ -126,18 +93,22 @@
   "hosting": [
     {
       "year": 2025,
-      "title": "Life for PRR — Erasmus+ KA152",
-      "count_tr": "yaklaşık 50 genç (35 yurt dışı, 15 Türkiye)",
-      "count_en": "about 50 young people (35 from abroad, 15 from Türkiye)",
-      "budget_tr": "44.000 € hibe",
-      "budget_en": "€44,000 grant",
+      "title": "Life for PRR (Protect, Reduce, Reuse) — Erasmus+ KA152 gençlik değişimi",
+      "title_en": "Life for PRR (Protect, Reduce, Reuse) — Erasmus+ KA152 youth exchange",
+      "participants": 56,
+      "budget": 44000,
+      "detail_tr": "Kilis'te 10 gün süren çevre temalı gençlik değişimi: geri dönüşüm ve kompost atölyeleri, Oylum Höyük çevre temizliği, belediye atık ve su arıtma tesisleri ziyareti.",
+      "detail_en": "Ten-day environmental youth exchange in Kilis: recycling and compost workshops, a clean-up at Oylum Höyük and visits to the municipal waste and water treatment plants.",
       "source": "yk-2025"
     },
     {
       "year": 2026,
-      "title": "No More Walls, Europe Calls — Erasmus+",
-      "count_tr": "4 ülkeden 25 genç",
-      "count_en": "25 young people from 4 countries",
+      "title": "No More Walls, Europe Calls — Erasmus+ gençlik değişimi",
+      "title_en": "No More Walls, Europe Calls — Erasmus+ youth exchange",
+      "participants": 25,
+      "budget": 10000,
+      "detail_tr": "Eylül 2026'da Kilis'te Azerbaycan, Bulgaristan, Gürcistan ve Türkiye'den gençler; Kilis 7 Aralık Üniversitesi ve gençlik merkezi iş birliğiyle kültürlerarası öğrenme ve sosyal uyum.",
+      "detail_en": "Young people from Azerbaijan, Bulgaria, Georgia and Türkiye in Kilis in September 2026, with Kilis 7 Aralık University and the youth centre: intercultural learning and social cohesion.",
       "source": "yk-2026"
     }
   ],
@@ -276,5 +247,35 @@
         "amount": 225450.01
       }
     ]
+  },
+  "gsb": {
+    "title_tr": "Zekâ Oyunları, Dijitalleşme ve Afet Bilinci: Gençler İçin Geleceğe Bir Yolculuk",
+    "title_en": "Mind Games, Digitalisation and Disaster Awareness: A Journey to the Future for Young People",
+    "year": "2025",
+    "budget": "910.000 TL",
+    "metrics": [
+      {
+        "value": "149",
+        "tr": "genç zekâ oyunları, robotik kodlama, afet bilinci ve psikososyal destek eğitimlerine katıldı",
+        "en": "young people took part in mind games, robotic coding, disaster awareness and psychosocial support training"
+      },
+      {
+        "value": "178",
+        "tr": "katılım: Göbeklitepe ve Halfeti kültür ve saha gezileri",
+        "en": "participations in the Göbeklitepe and Halfeti culture and field trips"
+      },
+      {
+        "value": "60",
+        "tr": "genç kapanış etkinliğine katıldı",
+        "en": "young people attended the closing event"
+      },
+      {
+        "value_tr": "%99,2",
+        "value_en": "99.2%",
+        "tr": "genel memnuniyet (120 değerlendirme yanıtı)",
+        "en": "overall satisfaction (120 evaluation responses)"
+      }
+    ],
+    "source": "yk-2026"
   }
 }
