@@ -1,0 +1,189 @@
+{
+  "years": [
+    {
+      "year": 2025,
+      "carry": 4069503.52,
+      "income": {
+        "dues": 1750,
+        "abroad": 223263.48,
+        "public": 2698159.04,
+        "donations": 0,
+        "financial": 502459.12,
+        "other": 1031734.84
+      },
+      "expense": {
+        "general": 1286918.04,
+        "staff": 225450.01,
+        "mission": 3933627.24,
+        "other": 0
+      },
+      "balance": 3080874.71,
+      "members": 24,
+      "publicItems": [
+        {
+          "tr": "Türkiye Ulusal Ajansı — ESC gönüllülük projeleri",
+          "en": "Turkish National Agency — ESC volunteering projects",
+          "amount": 1879159.04
+        },
+        {
+          "tr": "Gençlik ve Spor Bakanlığı — Afetten Etkilenen Gençlerin Güçlendirilmesi",
+          "en": "Ministry of Youth and Sports — Empowering Disaster-Affected Youth",
+          "amount": 819000.0
+        }
+      ],
+      "expenseNote": {
+        "tr": "Amaç ve hizmet giderleri: uluslararası faaliyetler",
+        "en": "Mission spending: international activities"
+      },
+      "abroadOutTotal": 782974.24,
+      "abroadOutCount": 9
+    },
+    {
+      "year": 2024,
+      "carry": 693259.67,
+      "income": {
+        "dues": 3250,
+        "abroad": 275017.39,
+        "public": 5082034.19,
+        "donations": 21050,
+        "financial": 0,
+        "other": 412687.23
+      },
+      "expense": {
+        "general": 26839.57,
+        "staff": 0,
+        "mission": 2034804.91,
+        "other": 356150.48
+      },
+      "balance": 4069503.52,
+      "members": 46,
+      "publicItems": [
+        {
+          "tr": "Türkiye Ulusal Ajansı — ESC gönüllülük projeleri (2021, 2023, 2024 çağrıları)",
+          "en": "Turkish National Agency — ESC volunteering projects (2021, 2023, 2024 calls)",
+          "amount": 3437165.630000001
+        },
+        {
+          "tr": "Türkiye Ulusal Ajansı — Erasmus+ KA152 gençlik değişimi (Life for PRR)",
+          "en": "Turkish National Agency — Erasmus+ KA152 youth exchange (Life for PRR)",
+          "amount": 1282868.56
+        },
+        {
+          "tr": "İçişleri Bakanlığı — Kilis Zekâ Oyunları ve Robotik Kodlama Festivali",
+          "en": "Ministry of Interior — Kilis Mind Games and Robotic Coding Festival",
+          "amount": 362000.0
+        }
+      ],
+      "expenseNote": {
+        "tr": "Amaç ve hizmet giderleri: kültür, sanat, spor",
+        "en": "Mission spending: culture, arts, sport"
+      },
+      "abroadOutTotal": 1352652.4,
+      "abroadOutCount": 10
+    },
+    {
+      "year": 2023,
+      "carry": 745847.66,
+      "income": {
+        "dues": 0,
+        "abroad": 97929.74,
+        "public": 0,
+        "donations": 0,
+        "financial": 127706.39,
+        "other": 0
+      },
+      "expense": {
+        "general": 7928.56,
+        "staff": 0,
+        "mission": 270295.56,
+        "other": 0
+      },
+      "balance": 693259.67,
+      "members": 33,
+      "publicItems": [],
+      "expenseNote": {
+        "tr": "Amaç ve hizmet giderleri: kültür, sanat, spor",
+        "en": "Mission spending: culture, arts, sport"
+      },
+      "abroadOutTotal": 201847.68,
+      "abroadOutCount": 3
+    },
+    {
+      "year": 2022,
+      "carry": 754.1,
+      "income": {
+        "dues": 60,
+        "abroad": 77728.07,
+        "public": 964865.77,
+        "donations": 0,
+        "financial": 0,
+        "other": 0
+      },
+      "expense": {
+        "general": 489.43,
+        "staff": 0,
+        "mission": 0,
+        "other": 297070.85
+      },
+      "balance": 745847.66,
+      "members": 34,
+      "publicItems": [],
+      "expenseNote": null,
+      "abroadOutTotal": 185150.16,
+      "abroadOutCount": 1
+    },
+    {
+      "year": 2021,
+      "carry": 0.0,
+      "income": {
+        "dues": 0,
+        "abroad": 2202.0,
+        "public": 0,
+        "donations": 1370.0,
+        "financial": 0,
+        "other": 0
+      },
+      "expense": {
+        "general": 615.9,
+        "staff": 0,
+        "mission": 2202.0,
+        "other": 0
+      },
+      "balance": 754.1,
+      "members": 31,
+      "publicItems": [],
+      "expenseNote": {
+        "tr": "Amaç ve hizmet giderleri: eğitim ve araştırma",
+        "en": "Mission spending: education and research"
+      },
+      "abroadOutTotal": 0,
+      "abroadOutCount": 0
+    },
+    {
+      "year": 2020,
+      "carry": 451.91,
+      "income": {
+        "dues": 0,
+        "abroad": 0,
+        "public": 0,
+        "donations": 0,
+        "financial": 0,
+        "other": 0
+      },
+      "expense": {
+        "general": 451.91,
+        "staff": 0,
+        "mission": 0,
+        "other": 0
+      },
+      "balance": 0.0,
+      "members": 31,
+      "publicItems": [],
+      "expenseNote": null,
+      "abroadOutTotal": 0,
+      "abroadOutCount": 0
+    }
+  ],
+  "note_tr": "Tüm tutarlar derneğin her yıl Kilis Valiliği'ne verdiği dernek beyannamesinin Mali Bilgiler bölümünden alınmıştır. Defterler işletme hesabı esasına göre tutulur; tutarlar nominal Türk lirasıdır ve enflasyona göre düzeltilmemiştir.",
+  "note_en": "All figures come from the Financial Information section of the association declaration KOZ-DER files every year with the Kilis Governorate. Books are kept on a cash basis; amounts are nominal Turkish lira, not adjusted for inflation."
+}
