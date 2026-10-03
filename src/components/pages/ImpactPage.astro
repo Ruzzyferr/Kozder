@@ -13,14 +13,6 @@ const t = useTranslations(lang);
 const en = lang === 'en';
 const c = (tr: string, enText: string) => (en ? enText : tr);
 
-// --- Doğrulanmış sonuçlar (src/data/impact.json) ---
-type Metric = { value?: string; value_tr?: string; value_en?: string; label_tr: string; label_en: string; source_tr: string; source_en: string };
-const metrics = (impact.verifiedMetrics as Metric[]).map(m => ({
-  value: (en ? m.value_en : m.value_tr) ?? m.value ?? '',
-  label: en ? m.label_en : m.label_tr,
-  source: en ? m.source_en : m.source_tr,
-}));
-
 const reports = (await getCollection('reports')).sort((a, b) => b.data.year - a.data.year);
 const eur = (n: number) => new Intl.NumberFormat(en ? 'en-IE' : 'tr-TR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
 const escRows = impact.escLead.rows as any[];
@@ -59,6 +51,10 @@ const storyCard = (s: (typeof latestStories)[number]) => ({
 const supporters = affiliations.partners.items.map((i: any) => (en ? i.name_en ?? i.name : i.name));
 const networks = affiliations.networks.items.map((i: any) => (en ? i.name_en ?? i.name : i.name));
 
+const hosting = impact.hosting as any[];
+const hostTotal = hosting.reduce((a, r) => a + r.participants, 0);
+const hostBudget = hosting.reduce((a, r) => a + r.budget, 0);
+const gsb = impact.gsb as any;
 const sendRows = impact.sending.rows as any[];
 const sendEsc = sendRows.reduce((a, r) => a + r.esc, 0);
 const sendErasmus = sendRows.reduce((a, r) => a + r.erasmus, 0);
@@ -90,7 +86,7 @@ const headline = [
   { value: escTotalVol, suffix: '', label: c('gönüllü kendi ESC projelerimizle gitti', 'volunteers went through our own ESC projects'), source: c('5 ESC projesi · 2021–2025 çağrıları', '5 ESC projects · 2021–2025 calls'), tone: 'red' },
   { value: escTotalGrant, suffix: ' €', label: c('ESC hibesi', 'in ESC grants'), source: c('Azami hibe toplamı', 'Sum of maximum grants'), tone: 'red' },
   { value: sendingTotal, suffix: '', label: c('genci ortak projelere gönderdik', 'young people sent to partner projects'), source: c(`Gönderici kuruluş · ${sendEsc} ESC + ${sendErasmus} Erasmus+`, `Sending organisation · ${sendEsc} ESC + ${sendErasmus} Erasmus+`), tone: 'amber' },
-  { value: 75, suffix: '', label: c('genci Kilis’te ağırladık', 'young people hosted in Kilis'), source: c('Life for PRR (~50) + No More Walls (25)', 'Life for PRR (~50) + No More Walls (25)'), tone: 'green' },
+  { value: hostTotal, suffix: '', label: c('genci Erasmus+ değişimlerinde Kilis’te ağırladık', 'young people hosted in Kilis on Erasmus+ exchanges'), source: c('Life for PRR 2025 (56) · No More Walls 2026 (25)', 'Life for PRR 2025 (56) · No More Walls 2026 (25)'), tone: 'green' },
   { value: prodes.participants, suffix: '', label: c('genç zekâ oyunları ve robotik kodlama eğitimini tamamladı', 'young people completed mind games and robotic coding training'), source: c(`%${prodes.satisfaction} memnuniyet · ön test–son test`, `${prodes.satisfaction}% satisfied · pre/post test`), tone: 'violet' },
 ];
 
@@ -134,20 +130,59 @@ const intro = c(
 
   <div class="container mx-auto px-4 py-12 sm:py-20 space-y-16 sm:space-y-24">
 
-    <section aria-labelledby="verified-heading">
-      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{c('Doğrulanmış sonuçlar', 'Verified outcomes')}</p>
-      <h2 id="verified-heading" class="mb-4 max-w-4xl font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink sm:text-4xl">{c('Kaynağıyla birlikte verilen sayılar.', 'Figures shown with their source.')}</h2>
-      <p class="mb-8 max-w-3xl leading-relaxed text-ink-soft">{c('Her sayının altında program, yıl ve sayım türü yazıyor. Farklı faaliyetlerin sayılarını birbirine eklemiyoruz.', 'Each figure shows its programme, year and type of count. We do not add up figures from different activities.')}</p>
-      <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {metrics.map(m => (
-          <article class="stat-glass tone-red" tabindex="0">
-            <strong class="stat-value">{m.value}</strong>
-            <p class="stat-label">{m.label}</p>
-            <p class="stat-source">{m.source}</p>
-          </article>
-        ))}
+    <section aria-labelledby="programs-heading">
+      <h2 id="programs-heading" class="mb-3 max-w-4xl font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink sm:text-4xl">{c('Programlara göre sonuçlar', 'Results by programme')}</h2>
+      <p class="mb-8 max-w-3xl leading-relaxed text-ink-soft">{c('Her destek programının sayıları ayrı tutulur ve birbirine eklenmez. Sayının neyi saydığı kartın altında yazıyor.', 'Each funding programme is reported separately and figures are never added across programmes. Each card says exactly what is counted.')}</p>
+
+      <div class="prog-grid">
+        <article class="prog-panel tone-blue">
+          <header><span class="prog-tag">ESC</span><h3>{c('Avrupa Dayanışma Programı', 'European Solidarity Corps')}</h3><p>{c('Yurt dışında 2–12 ay süren gönüllülük faaliyetleri', 'Volunteering abroad lasting 2–12 months')}</p></header>
+          <div class="prog-stats two">
+            <div class="stat-glass mini" tabindex="0"><strong class="stat-value">{escTotalVol}</strong><p class="stat-label">{c('gönüllü kendi yürüttüğümüz 5 ESC projesiyle gitti (2021–2025 çağrıları)', 'volunteers went through the 5 ESC projects we run (2021–2025 calls)')}</p></div>
+            <div class="stat-glass mini" tabindex="0"><strong class="stat-value">{sendEsc}</strong><p class="stat-label">{c('gönüllüyü başka kuruluşların ESC projelerine gönderici kuruluş olarak yönlendirdik (2022–2026)', 'volunteers sent as sending organisation to other organisations’ ESC projects (2022–2026)')}</p></div>
+            <div class="stat-glass mini span-2" tabindex="0"><strong class="stat-value long">{eur(escTotalGrant)}</strong><p class="stat-label">{c('kendi ESC projelerimiz için Türkiye Ulusal Ajansı hibesi', 'Turkish National Agency grants for our own ESC projects')}</p></div>
+          </div>
+          <a class="prog-link" href="#esc-heading">{c('Proje proje ESC tablosu', 'ESC table by project')}</a>
+        </article>
+
+        <article class="prog-panel tone-green">
+          <header><span class="prog-tag">Erasmus+</span><h3>{c('Erasmus+ Gençlik', 'Erasmus+ Youth')}</h3><p>{c('Kilis’te ev sahipliği yaptığımız gençlik değişimleri ve ortak projelere gönderdiğimiz gençler', 'Youth exchanges we hosted in Kilis and young people we sent to partner projects')}</p></header>
+          <div class="host-list">
+            {hosting.map(h => (
+              <div class="host-item" tabindex="0">
+                <div class="host-top"><span class="host-year">{h.year}</span><strong>{h.participants} {c('katılımcı', 'participants')}</strong><b>{eur(h.budget)}</b></div>
+                <p class="host-title">{en ? h.title_en : h.title}</p>
+                <p class="host-detail">{en ? h.detail_en : h.detail_tr}</p>
+              </div>
+            ))}
+          </div>
+          <div class="prog-stats two">
+            <div class="stat-glass mini" tabindex="0"><strong class="stat-value">{sendErasmus}</strong><p class="stat-label">{c('genci ortak kuruluşların Erasmus+ projelerine gönderdik (2025–2026)', 'young people sent to partners’ Erasmus+ projects (2025–2026)')}</p></div>
+            <div class="stat-glass mini" tabindex="0"><strong class="stat-value long">{eur(hostBudget)}</strong><p class="stat-label">{c('Kilis’teki iki gençlik değişiminin toplam Erasmus+ hibesi', 'total Erasmus+ grant for the two exchanges in Kilis')}</p></div>
+          </div>
+        </article>
+
+        <article class="prog-panel tone-amber">
+          <header><span class="prog-tag">GSB</span><h3>{c('Gençlik ve Spor Bakanlığı', 'Ministry of Youth and Sports')}</h3><p>{en ? gsb.title_en : gsb.title_tr} · {gsb.year} · {gsb.budget}</p></header>
+          <div class="prog-stats two">
+            {(gsb.metrics as any[]).map(m => (
+              <div class="stat-glass mini" tabindex="0"><strong class="stat-value">{(en ? m.value_en : m.value_tr) ?? m.value}</strong><p class="stat-label">{en ? m.en : m.tr}</p></div>
+            ))}
+          </div>
+          <a class="prog-link" href={reportHref(gsb.source)}>{c('Kaynak: 2026 YK raporu', 'Source: 2026 board report')}</a>
+        </article>
+
+        <article class="prog-panel tone-violet">
+          <header><span class="prog-tag">{c('İçişleri', 'Interior')}</span><h3>{c('İçişleri Bakanlığı', 'Ministry of Interior')}</h3><p>{en ? prodes.title_en : prodes.title_tr} · {prodes.period} · {tl(prodes.budget)}</p></header>
+          <div class="prog-stats two">
+            <div class="stat-glass mini" tabindex="0"><strong class="stat-value">{prodes.participants}</strong><p class="stat-label">{c('öğrenci eğitimleri tamamladı ve ön test–son test yaptı', 'students completed the training with pre- and post-tests')}</p></div>
+            <div class="stat-glass mini" tabindex="0"><strong class="stat-value">%{prodes.satisfaction}</strong><p class="stat-label">{c('eğitimden memnun kaldı ve tekrar katılmak istiyor', 'were satisfied and would take part again')}</p></div>
+            <div class="stat-glass mini" tabindex="0"><strong class="stat-value">{new Intl.NumberFormat(en ? 'en-IE' : 'tr-TR', { minimumFractionDigits: 2 }).format(prodes.trainerScore)}<small>/5</small></strong><p class="stat-label">{c('eğitmenlere verilen ortalama puan', 'average rating for the trainers')}</p></div>
+            <div class="stat-glass mini" tabindex="0"><strong class="stat-value">{prodes.stations}</strong><p class="stat-label">{c('atölye istasyonlu festival: VR, 3D kalem, maket, boyama, serbest tasarım', 'workshop-station festival: VR, 3D pens, model making, painting, free design')}</p></div>
+          </div>
+          <a class="prog-link" href="#prodes-heading">{c('Bütçenin nereye harcandığını gör', 'See where the budget went')}</a>
+        </article>
       </div>
-      <p class="mt-5 text-sm leading-relaxed text-ink-soft">{en ? impact.metricsNote_en : impact.metricsNote_tr}</p>
     </section>
 
     <section aria-labelledby="published-heading">
@@ -220,7 +255,7 @@ const intro = c(
       </div>
     </section>
 
-    <section aria-labelledby="sending-heading" class="grid gap-8 lg:grid-cols-2">
+    <section aria-labelledby="sending-heading" class="max-w-3xl">
       <div>
         <h2 id="sending-heading" class="mb-3 font-display text-2xl font-black text-brand-ink">{c('Gönderici kuruluş olarak', 'As sending organisation')}</h2>
         <p class="mb-4 text-sm leading-relaxed text-ink-soft">{en ? impact.sending.note_en : impact.sending.note_tr}</p>
@@ -239,19 +274,6 @@ const intro = c(
         </ul>
         <p class="mt-3 text-xs text-ink-soft">{en ? impact.sending.upcoming_en : impact.sending.upcoming_tr}</p>
       </div>
-      <div>
-        <h2 class="mb-3 font-display text-2xl font-black text-brand-ink">{c('Kilis’te ev sahipliği', 'Hosting in Kilis')}</h2>
-        <p class="mb-4 text-sm leading-relaxed text-ink-soft">{c('Kilis’te ağırladığımız uluslararası gençlik değişimleri.', 'International youth exchanges we hosted in Kilis.')}</p>
-        <ul class="space-y-3">
-          {(impact.hosting as any[]).map(r => (
-            <li class="rounded-2xl border border-line bg-white p-4">
-              <p class="font-bold text-brand-ink">{r.year} · {r.title}</p>
-              <p class="mt-1 text-sm text-ink-soft">{en ? r.count_en : r.count_tr}{(en ? r.budget_en : r.budget_tr) && ` · ${en ? r.budget_en : r.budget_tr}`}</p>
-              <a class="mt-2 inline-block text-xs font-bold text-brand-stamp underline" href={reportHref(r.source)}>{c('Kaynak: YK raporu', 'Source: board report')} {r.year}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
     </section>
 
     <section aria-labelledby="prodes-heading" class="prodes-card">
@@ -261,12 +283,6 @@ const intro = c(
           <p class="text-sm font-bold text-brand-stamp">{c('İçişleri Bakanlığı', 'Ministry of Interior')} · {prodes.period}</p>
           <h2 id="prodes-heading" class="mt-2 font-display text-3xl font-black leading-tight text-brand-ink">{en ? prodes.title_en : prodes.title_tr}</h2>
           <p class="mt-3 leading-relaxed text-ink-soft">{c('Kilis’te gençler için zekâ oyunları ve robotik kodlama eğitimleri ile beş atölye istasyonlu bir festival. Sonuçlar katılımcıların ön test ve son test yanıtlarından geliyor.', 'Mind games and robotic coding training for young people in Kilis, closing with a festival of five workshop stations. Results come from participants’ pre- and post-tests.')}</p>
-          <div class="mt-6 grid grid-cols-2 gap-3">
-            <div class="stat-glass mini tone-violet" tabindex="0"><strong class="stat-value">{prodes.participants}</strong><p class="stat-label">{c('katılımcı', 'participants')}</p></div>
-            <div class="stat-glass mini tone-green" tabindex="0"><strong class="stat-value">%{prodes.satisfaction}</strong><p class="stat-label">{c('memnuniyet', 'satisfied')}</p></div>
-            <div class="stat-glass mini tone-amber" tabindex="0"><strong class="stat-value">%{prodes.recommend}</strong><p class="stat-label">{c('başkasına tavsiye eder', 'would recommend')}</p></div>
-            <div class="stat-glass mini tone-blue" tabindex="0"><strong class="stat-value">{new Intl.NumberFormat(en ? 'en-IE' : 'tr-TR', { minimumFractionDigits: 2 }).format(prodes.trainerScore)}<small>/5</small></strong><p class="stat-label">{c('eğitmen puanı', 'trainer rating')}</p></div>
-          </div>
         </div>
         <div class="lg:col-span-3">
           <div class="flex flex-wrap items-end justify-between gap-2">
@@ -445,6 +461,27 @@ const intro = c(
   .fin-balance b { font-size: .85rem; color: #202936; }
   @media (max-width: 520px) { .fin-row { grid-template-columns: 2.6rem 1fr; } .fin-balance { grid-column: 2; text-align: left; } }
 
+  .prog-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+  @media (min-width: 1024px) { .prog-grid { grid-template-columns: repeat(2, 1fr); } }
+  .prog-panel { position: relative; display: flex; flex-direction: column; gap: 1.1rem; padding: 1.5rem; border-radius: 1.75rem; background: linear-gradient(150deg, color-mix(in srgb, var(--tone) 9%, #fff), #fbfcfe); border: 1px solid color-mix(in srgb, var(--tone) 22%, #fff); }
+  .prog-panel header h3 { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-weight: 800; font-size: 1.5rem; color: #202936; margin-top: .5rem; }
+  .prog-panel header p { margin-top: .3rem; font-size: .9rem; line-height: 1.45; color: #4a586b; }
+  .prog-tag { display: inline-block; padding: .25rem .7rem; border-radius: 999px; font-size: .78rem; font-weight: 800; color: #fff; background: var(--tone); }
+  .prog-stats { display: grid; gap: .75rem; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .prog-stats { grid-template-columns: repeat(3, 1fr); } .prog-stats.two { grid-template-columns: repeat(2, 1fr); } }
+  .prog-stats .stat-value { color: var(--tone); }
+  @media (min-width: 640px) { .prog-stats .span-2 { grid-column: span 2; } }
+  .prog-stats .stat-label { font-size: .85rem; font-weight: 600; }
+  .prog-link { align-self: flex-start; font-size: .85rem; font-weight: 700; color: var(--tone); text-decoration: underline; }
+  .host-list { display: grid; gap: .75rem; }
+  .host-item { padding: 1rem 1.1rem; border-radius: 1.1rem; background: rgba(255,255,255,.7); border: 1px solid rgba(255,255,255,.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 14px 30px -22px rgba(32,41,54,.35); transition: transform .3s cubic-bezier(.2,.8,.2,1); outline: none; }
+  .host-item:hover, .host-item:focus-visible { transform: scale(1.02); }
+  .host-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1rem; }
+  .host-year { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-weight: 800; color: #202936; }
+  .host-top strong { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--tone); }
+  .host-top b { margin-left: auto; font-weight: 800; color: #202936; }
+  .host-title { margin-top: .35rem; font-weight: 700; color: #202936; }
+  .host-detail { margin-top: .25rem; font-size: .85rem; line-height: 1.45; color: #4a586b; }
   .send-total { display: flex; align-items: baseline; gap: .75rem; padding: 1rem 1.25rem; border-radius: 1.25rem; background: linear-gradient(140deg, rgba(255,255,255,.75), rgba(255,255,255,.4)); border: 1px solid rgba(255,255,255,.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 18px 40px -22px rgba(32,41,54,.35); transition: transform .3s cubic-bezier(.2,.8,.2,1); outline: none; }
   .send-total:hover, .send-total:focus-visible { transform: scale(1.03); }
   .send-total strong { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-weight: 800; font-size: 3rem; line-height: 1; letter-spacing: -0.04em; color: #b07a12; }
@@ -469,6 +506,7 @@ const intro = c(
   .story-read { margin-top: .4rem; font-weight: 700; color: #fff; }
 
   @media (prefers-reduced-motion: reduce) {
+    .host-item { transition: none; } .host-item:hover { transform: none; }
     .story-glass.is-on { animation: none; } .story-glass:hover { transform: none; }
     .send-total, .send-row { transition: none; }
     .fin-row { transition: none; } .fin-row:hover, .fin-row:focus-visible { transform: none; }
