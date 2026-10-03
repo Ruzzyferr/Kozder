@@ -8,7 +8,7 @@ interface Props {
   summary: string;
   coverImage?: string;
   coverFit?: 'cover' | 'contain';
-  programType: 'ESC' | 'ERASMUS';
+  programType: 'ESC' | 'ERASMUS' | 'LOCAL';
   year: number;
   status: 'Aktif' | 'Tamamlandı';
   startDate: string;
@@ -21,13 +21,14 @@ const { title, summary, coverImage, coverFit = 'cover', programType, year, statu
 const lang: Lang = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const isActive = isProjectApplicationOpen({ status, startDate, applicationDeadline });
+import { programLabel } from '../utils/programLabel';
 ---
 
 <a href={entryPath(lang, 'projects', stripLangPrefix(slug))} class="group block h-full">
   <article data-project-card class="card card-hover h-full bg-brand-cream flex flex-col">
     <CardMedia src={coverImage} alt={title} fit={coverFit} ratio="aspect-square">
       <span class="absolute top-3 left-3 bg-brand-ink/90 backdrop-blur-sm text-brand-cream text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1.5">
-        {programType}
+        {programLabel(programType, lang)}
       </span>
       {status === 'Aktif' && (
         <span data-project-open-badge class={`absolute top-3 right-3 flex items-center gap-1.5 bg-brand-stamp text-brand-cream text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1.5 ${isActive ? '' : 'hidden'}`}>

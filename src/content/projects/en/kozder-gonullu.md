@@ -1,7 +1,7 @@
 ---
 title_tr: "KOZ-DER is Looking for Volunteers"
 title_en: "KOZ-DER is Looking for Volunteers"
-programType: "ERASMUS"
+programType: "LOCAL"
 year: 2026
 status: "Aktif"
 themes:
@@ -22,7 +22,12 @@ applicationLabel: "Application Form"
 featured: true
 summary_tr: "KOZ-DER is looking for volunteers in social media, project writing, project management, event organization, stakeholder communication, design, technology and innovation."
 summary_en: "KOZ-DER is looking for volunteers in social media, project writing, project management, event organization, stakeholder communication, design, technology and innovation."
-infoPackUrl: "https://forms.gle/UHrDcqzVg6sTuAY5A"
+eligibility:
+  countries: "In person in Kilis, or online from anywhere in Türkiye"
+  duration: "Depends on the role; most tasks take 2–4 hours a week"
+  language: "Turkish (English is a plus for translation and international roles)"
+  covered: "Volunteering is free; materials needed for tasks are provided by the association"
+  upfront: "None"
 ---
 
 ## About the Call
@@ -44,30 +49,27 @@ As a KOZ-DER volunteer you do not simply support a piece of work: you gain real 
 - Producing design work: posters, social media visuals and digital content
 - Contributing in technology, web, digital solutions and innovation
 
-## Areas of Volunteering
+## Volunteer Roles
 
-We would like to work with volunteers in the following areas:
+You can choose up to two roles in the application form. Hours are estimates; we adjust them together around exams and holidays.
 
-- **Social Media**
-  Content creation, publishing schedules, monitoring and digital visibility
+- **Social media and content** · 2–3 hours a week · online  
+  Collecting event photos, writing short texts and videos, keeping to the posting calendar.
 
-- **Project Writing**
-  Developing project ideas, drafting applications, writing and reporting
+- **Event support** · 3–4 hours per event · Kilis  
+  Welcome, set-up and attendance lists at the Speaking Club, mind games and coding workshops.
 
-- **Project Management**
-  Planning, delivery, coordination and progress tracking
+- **Training and workshops** · 2 hours a week · Kilis or online  
+  Sharing something you know (games, coding, a language, design) with small groups of young people.
 
-- **Event Organisation**
-  Generating event ideas, preparation, delivery and participant processes
+- **Translation and international communication** · 1–2 hours a week · online  
+  Correspondence with partner organisations, English versions of announcements, summarising info packs.
 
-- **Partners and Communication**
-  Communicating with organisations, developing cooperation and building networks
+- **Project development and writing** · 3–4 hours a week · online  
+  Supporting needs analyses, activity plans and budget tables for Erasmus+ and ESC applications.
 
-- **Design and Visual Communication**
-  Graphic design, posters, presentations, announcements and social media visuals
-
-- **Technology and Innovation**
-  Web and digital solutions, software, app ideas and technical support
+- **Design and technology** · project-based · online  
+  Posters, presentations and social media visuals; technical help with the website and digital tools.
 
 ## Who Can Apply
 
@@ -77,11 +79,14 @@ Applicants should be willing to volunteer, open in communication, keen to create
 
 We especially welcome applications from candidates with interest or experience in social media, project writing, project management, design, technology, event organisation and communication.
 
-## How Volunteering Works
+## First Steps
 
-Applications are reviewed and suitable candidates are contacted. Roles are assigned according to each volunteer's interests, experience and the areas they want to contribute to.
+1. **Fill in the form.** Tell us which roles interest you and how many hours a week you can give.
+2. **Introductory call.** After reviewing applications we contact you for a short conversation.
+3. **First task.** You start with a small task alongside an experienced volunteer in your role.
+4. **Check-in.** At the end of your first month we talk about how it went and settle your role.
 
-Volunteering can be done both in person and online. Volunteers based in Kilis can take an active role in local events, while volunteers in other cities can support online in social media, project writing, design, communication and technology.
+Volunteers in Kilis can take part in local events; volunteers in other cities can take on online roles.
 
 ## Expected Outcomes
 
@@ -96,7 +101,7 @@ Volunteering can be done both in person and online. Volunteers based in Kilis ca
 
 - Applications open: **19.06.2026**
 - Application deadline: **15.10.2026**
-- Programme type: **Erasmus+ / Youth Work**
+- Programme type: **Local volunteering (KOZ-DER)** — this call is not an Erasmus+ or ESC mobility
 - Location: **Kilis / Online**
 - Volunteering can be done in person or online
 - Volunteers in Kilis can take part in local events

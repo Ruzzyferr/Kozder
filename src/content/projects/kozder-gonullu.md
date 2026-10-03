@@ -1,7 +1,7 @@
 ---
 title_tr: "KOZ-DER Gönüllülerini Arıyor"
 title_en: "KOZ-DER is Looking for Volunteers"
-programType: "ERASMUS"
+programType: "LOCAL"
 year: 2026
 status: "Aktif"
 themes:
@@ -22,7 +22,12 @@ applicationLabel: "Başvuru Formu"
 featured: true
 summary_tr: "KOZ-DER; sosyal medya, proje yazımı, proje yönetimi, etkinlik organizasyonu, paydaş iletişimi, tasarım, teknoloji ve inovasyon alanlarında gönüllülerini arıyor."
 summary_en: "KOZ-DER is looking for volunteers in social media, project writing, project management, event organization, stakeholder communication, design, technology and innovation."
-infoPackUrl: "https://forms.gle/UHrDcqzVg6sTuAY5A"
+eligibility:
+  countries: "Kilis'te yüz yüze veya Türkiye'nin her yerinden çevrim içi"
+  duration: "Rol bazında; çoğu görev haftada 2–4 saat"
+  language: "Türkçe (İngilizce, çeviri ve uluslararası iletişim rollerinde artı)"
+  covered: "Gönüllülük ücretsizdir; görevler için gereken malzeme dernek tarafından sağlanır"
+  upfront: "Yok"
 ---
 
 ## Gönüllü Çağrısı Hakkında
@@ -44,30 +49,27 @@ KOZ-DER gönüllüsü olarak yalnızca bir çalışmaya destek olmakla kalmaz; a
 - Tasarım, afiş, sosyal medya görseli ve dijital içerik hazırlanması
 - Teknoloji, web, dijital çözümler ve inovasyon alanlarında katkı sunulması
 
-## Gönüllülük Alanları
+## Gönüllülük Rolleri
 
-KOZ-DER bünyesinde aşağıdaki alanlarda gönüllülerle birlikte çalışmak istiyoruz:
+Başvuru formunda en fazla iki rol seçebilirsin. Süreler tahminidir; dönemine göre (sınav haftası, tatil) birlikte esnetiriz.
 
-- **Sosyal Medya**  
-  İçerik üretimi, paylaşım planlama, sosyal medya takibi ve dijital görünürlük çalışmaları
+- **Sosyal medya ve içerik** · haftada 2–3 saat · çevrim içi  
+  Etkinlik fotoğraflarını derlemek, kısa metin ve video hazırlamak, paylaşım takvimine uymak.
 
-- **Proje Yazımı**  
-  Proje fikri geliştirme, başvuru metni hazırlama, yazım ve raporlama süreçlerine destek
+- **Etkinlik desteği** · etkinlik başına 3–4 saat · Kilis  
+  Speaking Club, zekâ oyunları ve kodlama atölyelerinde karşılama, düzen ve katılımcı listesi.
 
-- **Proje Yönetimi**  
-  Planlama, uygulama, koordinasyon ve süreç takibi çalışmalarına katkı
+- **Eğitim ve atölye** · haftada 2 saat · Kilis veya çevrim içi  
+  Bildiğin bir konuyu (oyun, kodlama, dil, tasarım) gençlere küçük gruplarla anlatmak.
 
-- **Etkinlik Organizasyonu**  
-  Etkinlik fikirleri üretme, hazırlık, uygulama ve katılımcı süreçlerinde görev alma
+- **Çeviri ve uluslararası iletişim** · haftada 1–2 saat · çevrim içi  
+  Ortak kurumlarla yazışmalar, duyuruların İngilizce versiyonları, bilgi paketlerinin özetlenmesi.
 
-- **Paydaş ve İletişim**  
-  Kurumlarla iletişim, iş birlikleri geliştirme ve ağ oluşturma süreçlerine destek
+- **Proje geliştirme ve yazım** · haftada 3–4 saat · çevrim içi  
+  Erasmus+ ve ESC başvurularında ihtiyaç analizi, faaliyet planı ve bütçe tablolarına destek.
 
-- **Tasarım ve Görsel İletişim**  
-  Grafik tasarım, afiş, sunum, duyuru ve sosyal medya görselleri hazırlama
-
-- **Teknoloji ve İnovasyon**  
-  Web/dijital çözümler, yazılım, uygulama fikirleri ve teknolojik destek çalışmaları
+- **Tasarım ve teknoloji** · proje bazında · çevrim içi  
+  Afiş, sunum ve sosyal medya görselleri; web sitesi ve dijital araçlarda teknik destek.
 
 ## Katılımcı Profili
 
@@ -77,11 +79,14 @@ Başvuru yapacak kişilerin gönüllülük yapmaya istekli, iletişime açık, �
 
 Özellikle sosyal medya, proje yazımı, proje yönetimi, tasarım, teknoloji, etkinlik organizasyonu ve iletişim alanlarında ilgisi ya da deneyimi olan adayların başvuruları değerlendirilecektir.
 
-## Gönüllülük Süreci
+## İlk Adımlar
 
-Başvurular değerlendirildikten sonra uygun adaylarla iletişime geçilecektir. Gönüllülerin ilgi alanları, deneyimleri ve katkı sunmak istedikleri alanlar dikkate alınarak görev dağılımı yapılacaktır.
+1. **Formu doldur.** İlgilendiğin rolleri ve haftada ayırabileceğin süreyi yaz.
+2. **Tanışma görüşmesi.** Başvurular değerlendirildikten sonra kısa bir görüşme için seninle iletişime geçiyoruz.
+3. **İlk görev.** Seçtiğin rolde deneyimli bir gönüllüyle birlikte küçük bir görevle başlıyorsun.
+4. **Değerlendirme.** İlk ayın sonunda nasıl gittiğini birlikte konuşup rolünü netleştiriyoruz.
 
-Gönüllülük süreci hem yüz yüze hem de çevrim içi çalışmalarla yürütülebilir. Kilis’te bulunan gönüllüler yerel etkinliklerde aktif görev alabilirken, farklı şehirlerde bulunan gönüllüler sosyal medya, proje yazımı, tasarım, iletişim ve teknoloji alanlarında çevrim içi destek sunabilir.
+Kilis'teki gönüllüler yerel etkinliklerde, farklı şehirlerdeki gönüllüler çevrim içi rollerde görev alabilir.
 
 ## Beklenen Çıktılar
 
@@ -96,7 +101,7 @@ Gönüllülük süreci hem yüz yüze hem de çevrim içi çalışmalarla yürü
 
 - Başvuru başlangıç tarihi: **19.06.2026**
 - Son başvuru tarihi: **15.10.2026**
-- Program türü: **Erasmus+ / Gençlik Çalışmaları**
+- Program türü: **Yerel gönüllülük (KOZ-DER)** — bu çağrı bir Erasmus+ veya ESC hareketliliği değildir
 - Yer: **Kilis / Online**
 - Gönüllülük süreci yüz yüze ve çevrim içi olarak yürütülebilir
 - Kilis’te bulunan gönüllüler yerel etkinliklerde görev alabilir
