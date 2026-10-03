@@ -83,7 +83,7 @@ const groups = [
     ] },
   { key: 'erasmus', tag: 'Erasmus+', tone: 'green', title: c('Erasmus+ Gençlik', 'Erasmus+ Youth'), sub: c('Kilis’te ağırladığımız gençlik değişimleri ve ortak projeler', 'Youth exchanges we hosted in Kilis and partner projects'),
     cards: [
-      ...hosting.map(h => ({ value: nf0.format(h.participants), label: c(`katılımcı · ${h.year === 2025 ? 'Life for PRR' : 'No More Walls, Europe Calls'}`, `participants · ${h.year === 2025 ? 'Life for PRR' : 'No More Walls, Europe Calls'}`), info: `${h.year} · Kilis · ${eur(h.budget)}${h.year === 2026 ? c(' · 4 ülke', ' · 4 countries') : ''}` })),
+      ...hosting.map(h => ({ value: nf0.format(h.participants), label: c(`katılımcı · ${h.year === 2025 ? 'Life for PRR' : 'No More Walls, Europe Calls'}`, `participants · ${h.year === 2025 ? 'Life for PRR' : 'No More Walls, Europe Calls'}`), info: `${h.year} · Kilis · ${eur(h.budget)} · ${h.countries} ${c('ülke', 'countries')}` })),
       { value: nf0.format(sendErasmus), label: c('genci ortak kuruluşların Erasmus+ projelerine gönderdik', 'young people sent to partners’ Erasmus+ projects'), info: c('2025–2026 · Ekim 2026 grubu dahil', '2025–2026 · incl. the October 2026 group') },
     ] },
   { key: 'gsb', tag: 'GSB', tone: 'amber', title: c('Gençlik ve Spor Bakanlığı', 'Ministry of Youth and Sports'), sub: `${en ? gsb.title_en : gsb.title_tr} · ${gsb.year} · ${gsb.budget}`,
