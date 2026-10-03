@@ -82,13 +82,11 @@
       {
         "year": 2026,
         "esc": 26,
-        "erasmus": 11,
-        "where_tr": "ESC: Bulgaristan 16, Almanya 2, Haziran dönemi projeleri 8 · Erasmus+: Bulgaristan 8, Temmuz dönemi 3",
-        "where_en": "ESC: Bulgaria 16, Germany 2, June-term projects 8 · Erasmus+: Bulgaria 8, July term 3"
+        "erasmus": 17,
+        "where_tr": "ESC: Bulgaristan 16, Almanya 2, Haziran dönemi projeleri 8 · Erasmus+: Bulgaristan 8, Temmuz dönemi 3, Ekim 2026 Pazardzhik/Bulgaristan 6",
+        "where_en": "ESC: Bulgaria 16, Germany 2, June-term projects 8 · Erasmus+: Bulgaria 8, July term 3, October 2026 Pazardzhik/Bulgaria 6"
       }
-    ],
-    "upcoming_tr": "Ekim 2026'da Erasmus+ gençlik değişimi için 6 genç daha yola çıkacak; bu sayı toplama dahil değildir.",
-    "upcoming_en": "Six more young people will travel to an Erasmus+ youth exchange in October 2026; they are not included in the totals."
+    ]
   },
   "hosting": [
     {
@@ -255,7 +253,7 @@
     "budget": "910.000 TL",
     "metrics": [
       {
-        "value": "149",
+        "value": "148",
         "tr": "genç zekâ oyunları, robotik kodlama, afet bilinci ve psikososyal destek eğitimlerine katıldı",
         "en": "young people took part in mind games, robotic coding, disaster awareness and psychosocial support training"
       },
