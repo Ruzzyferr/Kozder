@@ -36,6 +36,8 @@ const ROUTES = {
   privacy: { tr: '/kvkk', en: '/en/privacy' },
   membership: { tr: '/uyelik-ve-istifa', en: '/en/membership-and-resignation' },
   impact: { tr: '/etki-ve-seffaflik', en: '/en/impact-and-transparency' },
+  safeguarding: { tr: '/koruma-politikasi', en: '/en/safeguarding' },
+  voice: { tr: '/genclerin-sesi', en: '/en/youth-voice' },
 } as const;
 
 export type RouteKey = keyof typeof ROUTES;

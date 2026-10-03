@@ -1,0 +1,140 @@
+---
+import { useTranslations, path, alternatePath, type Lang } from '../../i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const c = (tr: string, enText: string) => (en ? enText : tr);
+const CHANNEL = 'https://whatsapp.com/channel/0029Va6oBxc4NVis1wo8hl2N';
+const back = (hash: string) => (en ? `https://kozder.com/en/youth-voice#${hash}` : `https://kozder.com/genclerin-sesi#${hash}`);
+
+const title = c('Gençlerin Sesi', 'Youth Voice');
+const intro = c(
+  'Derneğin ne yapacağına gençler de karar verir. Bir etkinlik öner, katıldığın faaliyeti değerlendir ya da aklındaki bir sorunu bize ilet.',
+  'Young people help decide what we do. Suggest an activity, review one you joined or tell us about something that is not working.',
+);
+---
+
+<BaseLayout lang={lang} title={`${title} — KOZ-DER`} description={intro} alternate={alternatePath(lang, 'voice')}>
+  <Breadcrumb
+    lang={lang}
+    kicker={c('Katılım', 'Participation')}
+    items={[{ label: t('nav.home'), href: path(lang, 'home') }, { label: title, href: path(lang, 'voice') }]}
+    pageTitle={title}
+    intro={intro}
+  />
+
+  <div class="container mx-auto px-4 py-12 sm:py-16 space-y-12">
+    <nav class="yv-tabs" aria-label={c('Formlar', 'Forms')}>
+      <a href="#oner"><b>💡</b>{c('Etkinlik öner', 'Suggest an activity')}</a>
+      <a href="#degerlendir"><b>⭐</b>{c('Faaliyeti değerlendir', 'Review an activity')}</a>
+      <a href="#bildir"><b>✉️</b>{c('Sorun veya öneri bildir', 'Report a problem or idea')}</a>
+      <a href={CHANNEL} target="_blank" rel="noopener noreferrer" class="yv-wa"><b>📣</b>{c('WhatsApp kanalına katıl', 'Join our WhatsApp channel')}</a>
+    </nav>
+
+    <section id="oner" class="yv-card" aria-labelledby="yv-oner">
+      <h2 id="yv-oner" class="yv-h2">{c('Bir etkinlik öner', 'Suggest an activity')}</h2>
+      <p class="yv-p">{c('Kilis’te ya da çevrim içi görmek istediğin atölye, kulüp, turnuva veya gezi fikrini yaz. Her öneri okunur ve ekip toplantısında konuşulur.', 'Tell us about a workshop, club, tournament or trip you would like to see in Kilis or online. Every idea is read and discussed at our team meeting.')}</p>
+      <form action="https://formsubmit.co/bilgi@kozder.com" method="POST" class="yv-form">
+        <input type="hidden" name="_subject" value="KOZ-DER | Gençlerin Sesi: etkinlik önerisi" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value={back('tesekkurler')} />
+        <div class="yv-honey" aria-hidden="true"><label>Leave empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label></div>
+        <label class="yv-field">{c('Önerin ne?', 'What is your idea?')}<input name="oneri" type="text" required maxlength="160" placeholder={c('Örn. haftalık satranç kulübü', 'e.g. a weekly chess club')} /></label>
+        <label class="yv-field">{c('Kimler için?', 'Who is it for?')}
+          <select name="yas_grubu"><option>{c('Herkes', 'Everyone')}</option><option>14–17</option><option>18–24</option><option>25–30</option></select>
+        </label>
+        <label class="yv-field yv-wide">{c('Biraz anlat', 'Tell us more')}<textarea name="aciklama" rows="4" maxlength="3000"></textarea></label>
+        <label class="yv-field">{c('Adın (isteğe bağlı)', 'Your name (optional)')}<input name="ad" type="text" maxlength="120" /></label>
+        <label class="yv-field">{c('Sana nasıl ulaşalım? (isteğe bağlı)', 'How can we reach you? (optional)')}<input name="iletisim" type="text" maxlength="160" /></label>
+        <button type="submit" class="yv-btn">{c('Öneriyi gönder', 'Send idea')}</button>
+      </form>
+    </section>
+
+    <section id="degerlendir" class="yv-card" aria-labelledby="yv-deg">
+      <h2 id="yv-deg" class="yv-h2">{c('Katıldığın faaliyeti değerlendir', 'Review an activity you joined')}</h2>
+      <p class="yv-p">{c('İki dakikanı alır. Değerlendirmeler bir sonraki faaliyeti daha iyi planlamamızı sağlar.', 'It takes two minutes. Reviews help us plan the next activity better.')}</p>
+      <form action="https://formsubmit.co/bilgi@kozder.com" method="POST" class="yv-form">
+        <input type="hidden" name="_subject" value="KOZ-DER | Gençlerin Sesi: faaliyet değerlendirmesi" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value={back('tesekkurler')} />
+        <div class="yv-honey" aria-hidden="true"><label>Leave empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label></div>
+        <label class="yv-field yv-wide">{c('Hangi faaliyet?', 'Which activity?')}<input name="faaliyet" type="text" required maxlength="160" placeholder={c('Örn. Speaking Club, No More Walls', 'e.g. Speaking Club, No More Walls')} /></label>
+        <fieldset class="yv-field yv-wide">
+          <legend>{c('Genel olarak ne kadar memnun kaldın?', 'Overall, how satisfied were you?')}</legend>
+          <div class="yv-stars">
+            {[5, 4, 3, 2, 1].map(n => (
+              <><input type="radio" id={`puan${n}`} name="puan" value={String(n)} required /><label for={`puan${n}`} title={`${n}/5`}>★</label></>
+            ))}
+          </div>
+        </fieldset>
+        <label class="yv-field">{c('En çok neyi sevdin?', 'What did you like most?')}<textarea name="iyi" rows="3" maxlength="2000"></textarea></label>
+        <label class="yv-field">{c('Neyi değiştirelim?', 'What should we change?')}<textarea name="degisim" rows="3" maxlength="2000"></textarea></label>
+        <button type="submit" class="yv-btn">{c('Değerlendirmeyi gönder', 'Send review')}</button>
+      </form>
+    </section>
+
+    <section id="bildir" class="yv-card" aria-labelledby="yv-bil">
+      <h2 id="yv-bil" class="yv-h2">{c('Sorun veya öneri bildir', 'Report a problem or idea')}</h2>
+      <p class="yv-p">{c('Web sitesi, duyurular, başvuru süreci ya da derneğin işleyişiyle ilgili aklına takılan her şey.', 'Anything about the website, announcements, applications or how the association works.')}</p>
+      <p class="yv-safe">{c('Kendinin ya da başka bir gencin güvenliğiyle ilgili bir durum varsa lütfen ', 'If it is about your own or another young person’s safety, please use the ')}<a href={`${path(lang, 'safeguarding')}#bildir`}>{c('gizli koruma bildirim formunu', 'confidential safeguarding form')}</a>{c(' kullan.', '.')}</p>
+      <form action="https://formsubmit.co/bilgi@kozder.com" method="POST" class="yv-form">
+        <input type="hidden" name="_subject" value="KOZ-DER | Gençlerin Sesi: sorun veya öneri" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value={back('tesekkurler')} />
+        <div class="yv-honey" aria-hidden="true"><label>Leave empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label></div>
+        <label class="yv-field yv-wide">{c('Ne söylemek istersin?', 'What would you like to tell us?')}<textarea name="mesaj" rows="4" required minlength="5" maxlength="3000"></textarea></label>
+        <label class="yv-field">{c('Adın (isteğe bağlı)', 'Your name (optional)')}<input name="ad" type="text" maxlength="120" /></label>
+        <label class="yv-field">{c('Sana nasıl ulaşalım? (isteğe bağlı)', 'How can we reach you? (optional)')}<input name="iletisim" type="text" maxlength="160" /></label>
+        <button type="submit" class="yv-btn">{c('Gönder', 'Send')}</button>
+      </form>
+    </section>
+
+    <p id="tesekkurler" class="yv-thanks">{c('Mesajın bize ulaştı, teşekkürler! Gençlerin Sesi ekip toplantılarımızda konuşuluyor.', 'Your message reached us, thank you! Youth Voice messages are discussed at our team meetings.')}</p>
+
+    <section class="yv-channel">
+      <div>
+        <h2 class="yv-h2">{c('Fırsatları kaçırma', 'Never miss an opportunity')}</h2>
+        <p class="yv-p">{c('Yeni projeler, son başvuru tarihleri ve etkinlikler önce WhatsApp kanalımızda duyurulur.', 'New projects, deadlines and events are announced first on our WhatsApp channel.')}</p>
+      </div>
+      <a href={CHANNEL} target="_blank" rel="noopener noreferrer" class="yv-btn yv-btn-wa">{c('WhatsApp kanalına katıl', 'Join the WhatsApp channel')}</a>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .yv-tabs { display: grid; gap: .75rem; grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 900px) { .yv-tabs { grid-template-columns: repeat(4, 1fr); } }
+  .yv-tabs a { display: flex; align-items: center; gap: .6rem; padding: 1rem 1.1rem; border-radius: 1.2rem; font-weight: 800; color: #202936; background: linear-gradient(150deg, rgba(255,255,255,.85), rgba(232,239,251,.7)); border: 1px solid rgba(255,255,255,.95); box-shadow: 0 16px 34px -24px rgba(40,87,161,.5); transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+  .yv-tabs a:hover, .yv-tabs a:focus-visible { transform: translateY(-4px) scale(1.02); }
+  .yv-tabs b { font-size: 1.4rem; }
+  .yv-tabs .yv-wa { background: linear-gradient(150deg, #e7f6ec, #d4f0dd); }
+  .yv-card { scroll-margin-top: 7rem; padding: 1.5rem; border-radius: 1.5rem; background: linear-gradient(150deg, #f3f6fc, #fbf6f2); border: 1px solid #e3e9f2; }
+  @media (min-width: 640px) { .yv-card { padding: 2rem; } }
+  .yv-h2 { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-weight: 800; font-size: clamp(1.4rem, 3vw, 1.9rem); color: #202936; margin-bottom: .5rem; }
+  .yv-p { max-width: 46rem; line-height: 1.65; color: #3b4e68; }
+  .yv-safe { margin-top: .75rem; padding: .75rem 1rem; border-radius: .9rem; background: #fdecea; color: #7a2416; font-size: .92rem; }
+  .yv-safe a { font-weight: 800; text-decoration: underline; }
+  .yv-form { margin-top: 1.25rem; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .yv-form { grid-template-columns: 1fr 1fr; } .yv-wide { grid-column: span 2; } }
+  .yv-field { display: flex; flex-direction: column; gap: .35rem; font-size: .9rem; font-weight: 700; color: #202936; border: 0; padding: 0; margin: 0; }
+  .yv-field input, .yv-field select, .yv-field textarea { font-weight: 400; padding: .7rem .8rem; border-radius: .7rem; border: 1px solid #cdd6e3; background: #fff; }
+  .yv-field input:focus, .yv-field select:focus, .yv-field textarea:focus { outline: 3px solid #bdd0f0; border-color: #2857a1; }
+  .yv-stars { display: inline-flex; flex-direction: row-reverse; justify-content: flex-end; gap: .25rem; }
+  .yv-stars input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .yv-stars label { font-size: 2rem; line-height: 1; color: #cdd6e3; cursor: pointer; transition: transform .15s ease, color .15s ease; }
+  .yv-stars label:hover, .yv-stars label:hover ~ label, .yv-stars input:checked ~ label { color: #e0a32e; }
+  .yv-stars label:hover { transform: scale(1.15); }
+  .yv-stars input:focus-visible + label { outline: 3px solid #bdd0f0; border-radius: .3rem; }
+  .yv-btn { justify-self: start; display: inline-flex; align-items: center; padding: .8rem 1.5rem; border-radius: .8rem; background: #2857a1; color: #fff; font-weight: 800; }
+  .yv-btn:hover { background: #1f4686; }
+  .yv-btn-wa { background: #1f8f4e; } .yv-btn-wa:hover { background: #16733e; }
+  .yv-honey { position: absolute; left: -9999px; }
+  .yv-thanks { display: none; padding: 1rem 1.2rem; border-radius: 1rem; background: #e7f6ec; color: #1f6b3a; font-weight: 700; }
+  .yv-thanks:target { display: block; }
+  .yv-channel { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.5rem; border-radius: 1.5rem; background: linear-gradient(150deg, #e7f6ec, #f4fbf6); border: 1px solid #c3e6cf; }
+  @media (prefers-reduced-motion: reduce) { .yv-tabs a, .yv-stars label { transition: none; } .yv-tabs a:hover { transform: none; } }
+</style>
