@@ -21,8 +21,12 @@ const metrics = (impact.verifiedMetrics as Metric[]).map(m => ({
   source: en ? m.source_en : m.source_tr,
 }));
 
-type Report = { year: number; title_tr: string; title_en: string; url: string; kind: 'activity' | 'financial' };
-const reports = (impact.reports as Report[]).slice().sort((a, b) => b.year - a.year);
+const reports = (await getCollection('reports')).sort((a, b) => b.data.year - a.data.year);
+const eur = (n: number) => new Intl.NumberFormat(en ? 'en-IE' : 'tr-TR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
+const escRows = impact.escLead.rows as any[];
+const escTotalGrant = escRows.reduce((a, r) => a + r.grant, 0);
+const escTotalVol = escRows.reduce((a, r) => a + r.volunteers, 0);
+const reportHref = (slug: string) => `/etki-ve-seffaflik/${slug}`;
 
 // --- Sitede yayınlanmış çalışmalar: içerik koleksiyonlarından otomatik sayılır ---
 const langFilter = (e: { slug: string }) => (en ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'));
@@ -124,21 +128,88 @@ const intro = c(
       </section>
     )}
 
-    <section aria-labelledby="reports-heading" class="rounded-[2rem] border border-line bg-white p-6 sm:p-10">
-      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{c('Belgeler', 'Documents')}</p>
-      <h2 id="reports-heading" class="mb-4 font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink">{c('Faaliyet raporları ve mali özetler', 'Activity reports and financial summaries')}</h2>
-      {reports.length > 0 ? (
-        <ul class="divide-y divide-line">
-          {reports.map(r => (
-            <li class="flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:justify-between">
-              <span class="font-bold text-brand-ink">{r.year} · {en ? r.title_en : r.title_tr}</span>
-              <a class="font-bold text-brand-stamp underline" href={r.url} target="_blank" rel="noopener noreferrer">{c('PDF’yi aç', 'Open PDF')}</a>
+    <section aria-labelledby="esc-heading">
+      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{c('Avrupa Dayanışma Programı', 'European Solidarity Corps')}</p>
+      <h2 id="esc-heading" class="mb-4 font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink sm:text-4xl">{c('Yürüttüğümüz ESC gönüllülük projeleri', 'ESC volunteering projects we run')}</h2>
+      <p class="mb-6 max-w-3xl leading-relaxed text-ink-soft">{en ? impact.escLead.note_en : impact.escLead.note_tr}</p>
+      <div class="overflow-x-auto rounded-2xl border border-line bg-white">
+        <table class="w-full min-w-[720px] text-left text-sm">
+          <thead class="bg-brand-cream text-xs uppercase tracking-[0.12em] text-brand-stamp">
+            <tr><th class="p-3">{c('Çağrı', 'Call')}</th><th class="p-3">{c('Planlanan gönüllü', 'Planned volunteers')}</th><th class="p-3">{c('Ülkeler', 'Countries')}</th><th class="p-3 text-right">{c('Azami hibe', 'Max. grant')}</th><th class="p-3">{c('Gerçekleşen', 'Realised')}</th></tr>
+          </thead>
+          <tbody class="divide-y divide-line">
+            {escRows.map(r => (
+              <tr>
+                <td class="p-3 font-bold text-brand-ink">{r.call}<span class="block text-[11px] font-normal text-ink-soft">{r.code}</span></td>
+                <td class="p-3 text-brand-ink">{r.volunteers}</td>
+                <td class="p-3 text-ink-soft">{en ? r.countries_en : r.countries_tr}</td>
+                <td class="p-3 text-right font-bold text-brand-ink">{eur(r.grant)}{r.final && <span class="block text-[11px] font-normal text-ink-soft">{c('nihai', 'final')}: {eur(r.final)}</span>}</td>
+                <td class="p-3 text-ink-soft">{(en ? r.realised_en : r.realised_tr) ?? c('Nihai rapor verisi henüz eklenmedi', 'Final report figures not added yet')}</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot class="bg-brand-cream font-bold text-brand-ink">
+            <tr><td class="p-3">{c('Toplam', 'Total')}</td><td class="p-3">{escTotalVol}</td><td class="p-3"></td><td class="p-3 text-right">{eur(escTotalGrant)}</td><td class="p-3"></td></tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="sending-heading" class="grid gap-8 lg:grid-cols-2">
+      <div>
+        <h2 id="sending-heading" class="mb-3 font-display text-2xl font-black text-brand-ink">{c('Gönderici kuruluş olarak', 'As sending organisation')}</h2>
+        <p class="mb-4 text-sm leading-relaxed text-ink-soft">{en ? impact.sending.note_en : impact.sending.note_tr}</p>
+        <ul class="space-y-3">
+          {(impact.sending.rows as any[]).map(r => (
+            <li class="rounded-2xl border border-line bg-white p-4">
+              <p class="font-display text-3xl font-black text-brand-walnut">{r.count} <span class="text-base font-bold text-brand-ink">{c('gönüllü', 'volunteers')} · {r.year} · {r.programme}</span></p>
+              <p class="mt-1 text-sm text-ink-soft">{en ? r.where_en : r.where_tr}</p>
+              <a class="mt-2 inline-block text-xs font-bold text-brand-stamp underline" href={reportHref(r.source)}>{c('Kaynak: YK raporu', 'Source: board report')} {r.year}</a>
             </li>
           ))}
         </ul>
-      ) : (
-        <p class="max-w-3xl leading-relaxed text-ink-soft">{c('Son üç yılın faaliyet raporları ve proje bütçe özetleri, kişisel veriler çıkarıldıktan sonra burada yayımlanacak. O zamana kadar talep için bilgi@kozder.com adresine yazabilirsiniz.', 'Activity reports and project budget summaries for the last three years will be published here once personal data has been removed. Until then, you can request them at bilgi@kozder.com.')}</p>
-      )}
+      </div>
+      <div>
+        <h2 class="mb-3 font-display text-2xl font-black text-brand-ink">{c('Kilis’te ev sahipliği', 'Hosting in Kilis')}</h2>
+        <p class="mb-4 text-sm leading-relaxed text-ink-soft">{c('Kilis’te ağırladığımız uluslararası gençlik değişimleri.', 'International youth exchanges we hosted in Kilis.')}</p>
+        <ul class="space-y-3">
+          {(impact.hosting as any[]).map(r => (
+            <li class="rounded-2xl border border-line bg-white p-4">
+              <p class="font-bold text-brand-ink">{r.year} · {r.title}</p>
+              <p class="mt-1 text-sm text-ink-soft">{en ? r.count_en : r.count_tr}{(en ? r.budget_en : r.budget_tr) && ` · ${en ? r.budget_en : r.budget_tr}`}</p>
+              <a class="mt-2 inline-block text-xs font-bold text-brand-stamp underline" href={reportHref(r.source)}>{c('Kaynak: YK raporu', 'Source: board report')} {r.year}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="funding-heading">
+      <h2 id="funding-heading" class="mb-3 font-display text-2xl font-black text-brand-ink">{c('Ulusal destekler', 'National funding')}</h2>
+      <div class="overflow-x-auto rounded-2xl border border-line bg-white">
+        <table class="w-full min-w-[560px] text-left text-sm">
+          <thead class="bg-brand-cream text-xs uppercase tracking-[0.12em] text-brand-stamp"><tr><th class="p-3">{c('Yıl', 'Year')}</th><th class="p-3">{c('Destekleyen', 'Funder')}</th><th class="p-3">{c('Çalışma', 'Project')}</th><th class="p-3 text-right">{c('Bütçe', 'Budget')}</th></tr></thead>
+          <tbody class="divide-y divide-line">
+            {(impact.funding as any[]).map(r => (
+              <tr><td class="p-3 font-bold text-brand-ink">{r.year}</td><td class="p-3 text-ink-soft">{en ? r.funder_en : r.funder_tr}</td><td class="p-3 text-brand-ink">{en ? r.title_en : r.title_tr}</td><td class="p-3 text-right font-bold text-brand-ink">{r.amount}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="reports-heading" class="rounded-[2rem] border border-line bg-white p-6 sm:p-10">
+      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{c('Belgeler', 'Documents')}</p>
+      <h2 id="reports-heading" class="mb-4 font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink">{c('Yönetim kurulu raporları', 'Board reports')}</h2>
+      {en && <p class="mb-4 text-sm text-ink-soft">The reports are published in Turkish.</p>}
+      <ul class="divide-y divide-line">
+        {reports.map(r => (
+          <li class="flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:justify-between">
+            <span><span class="font-bold text-brand-ink">{r.data.title}</span><span class="block text-sm text-ink-soft">{r.data.summary}</span></span>
+            <a class="shrink-0 font-bold text-brand-stamp underline" href={reportHref(r.slug)}>{c('Raporu oku →', 'Read report →')}</a>
+          </li>
+        ))}
+      </ul>
     </section>
 
     <section aria-labelledby="support-heading" class="grid gap-6 lg:grid-cols-2">
