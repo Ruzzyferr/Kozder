@@ -153,5 +153,49 @@
       "amount": "212.034 TL",
       "source": "yk-2026"
     }
-  ]
+  ],
+  "prodes": {
+    "title_tr": "Kilis Zekâ Oyunları ve Robotik Kodlama Eğitimleri ve Festivali",
+    "title_en": "Kilis Mind Games and Robotic Coding Training and Festival",
+    "funder_tr": "İçişleri Bakanlığı · PRODES",
+    "funder_en": "Ministry of Interior · PRODES",
+    "period": "2024–2025",
+    "budget": 362000,
+    "spent": 355163,
+    "participants": 50,
+    "satisfaction": 100,
+    "recommend": 100,
+    "returnRate": 100,
+    "trainerScore": 4.57,
+    "stations": 5,
+    "spend": [
+      {
+        "tr": "Eğitim ekipmanı (robotik set, drone, VR, bilgisayar, zekâ oyunları)",
+        "en": "Training equipment (robotics kits, drone, VR, computers, mind games)",
+        "amount": 172467
+      },
+      {
+        "tr": "Dernek merkezi altyapısı",
+        "en": "Youth centre infrastructure",
+        "amount": 87798
+      },
+      {
+        "tr": "Eğitmen ücretleri ve vergiler",
+        "en": "Trainer fees and taxes",
+        "amount": 52222
+      },
+      {
+        "tr": "Festival ve ikram",
+        "en": "Festival and catering",
+        "amount": 28508
+      },
+      {
+        "tr": "Görünürlük ve kırtasiye",
+        "en": "Visibility and stationery",
+        "amount": 14168
+      }
+    ],
+    "source_tr": "Proje raporu (ön test–son test) ve proje bütçe tablosu",
+    "source_en": "Project report (pre/post test) and project budget sheet"
+  }
 }
