@@ -1,0 +1,37 @@
+{
+  "_note": "Etki ve Şeffaflık sayfasının verisi. Yalnızca kaynağı gösterilebilen sayıları ekleyin. Her metrikte 'source' alanı program, yıl ve sayım türünü (tekil kişi / toplam katılım) belirtmelidir.",
+  "verifiedMetrics": [
+    {
+      "value": "149",
+      "label_tr": "eğitimlere katılan genç",
+      "label_en": "young people reached through training",
+      "source_tr": "2025 · GSB gençlik projesi",
+      "source_en": "2025 · GSB youth resilience project"
+    },
+    {
+      "value_tr": "%99,2",
+      "value_en": "99.2%",
+      "label_tr": "genel memnuniyet",
+      "label_en": "overall satisfaction",
+      "source_tr": "2025 · 120 değerlendirme yanıtı",
+      "source_en": "2025 · 120 evaluation responses"
+    },
+    {
+      "value": "178",
+      "label_tr": "kültürel gezi katılımı",
+      "label_en": "cultural trip attendances",
+      "source_tr": "2025 · tekil kişi değil, toplam katılım",
+      "source_en": "2025 · total attendances, not unique people"
+    },
+    {
+      "value": "25",
+      "label_tr": "gençlik değişimi katılımcısı",
+      "label_en": "youth exchange participants",
+      "source_tr": "2026 · dört ülkeden",
+      "source_en": "2026 · four countries"
+    }
+  ],
+  "metricsNote_tr": "2025 GSB sonuçları ile 2026 Erasmus+ gençlik değişimi farklı faaliyetlere aittir. Gezi sayısı tekil katılımcı sayısını değil, toplam katılımı gösterir.",
+  "metricsNote_en": "The 2025 GSB figures and the 2026 Erasmus+ exchange refer to different activities. Trip attendances are not a count of unique participants.",
+  "reports": []
+}

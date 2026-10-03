@@ -1,0 +1,167 @@
+---
+import { useTranslations, path, alternatePath, entryPath, stripLangPrefix, type Lang } from '../../i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+import { getEventDateSortKey } from '../../utils/date';
+import impact from '../../data/impact.json';
+import affiliations from '../../data/affiliations.json';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const c = (tr: string, enText: string) => (en ? enText : tr);
+
+// --- Doğrulanmış sonuçlar (src/data/impact.json) ---
+type Metric = { value?: string; value_tr?: string; value_en?: string; label_tr: string; label_en: string; source_tr: string; source_en: string };
+const metrics = (impact.verifiedMetrics as Metric[]).map(m => ({
+  value: (en ? m.value_en : m.value_tr) ?? m.value ?? '',
+  label: en ? m.label_en : m.label_tr,
+  source: en ? m.source_en : m.source_tr,
+}));
+
+type Report = { year: number; title_tr: string; title_en: string; url: string; kind: 'activity' | 'financial' };
+const reports = (impact.reports as Report[]).slice().sort((a, b) => b.year - a.year);
+
+// --- Sitede yayınlanmış çalışmalar: içerik koleksiyonlarından otomatik sayılır ---
+const langFilter = (e: { slug: string }) => (en ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'));
+const projects = (await getCollection('projects', langFilter)).filter(p => !p.data.draft);
+const stories = (await getCollection('stories', langFilter)).filter(s => !s.data.draft);
+
+const esc = projects.filter(p => p.data.programType === 'ESC').length;
+const erasmus = projects.filter(p => p.data.programType === 'ERASMUS').length;
+const local = projects.filter(p => p.data.programType === 'LOCAL').length;
+const storyCountries = new Set(stories.map(s => s.data.country.split('·')[0].trim())).size;
+
+const published = [
+  { value: String(esc + erasmus), label: c('yurt dışı proje sayfası', 'international project pages'), source: c(`${erasmus} Erasmus+ · ${esc} ESC`, `${erasmus} Erasmus+ · ${esc} ESC`) },
+  { value: String(stories.length), label: c('gönüllü ve katılımcı hikâyesi', 'volunteer and participant stories'), source: c(`${storyCountries} ülkeden deneyim`, `experiences from ${storyCountries} countries`) },
+  local > 0 && { value: String(local), label: c('yerel gönüllülük çağrısı', 'local volunteering calls'), source: c('Kilis ve çevrim içi', 'Kilis and online') },
+].filter(Boolean) as { value: string; label: string; source: string }[];
+
+const latestStories = stories
+  .slice()
+  .sort((a, b) => getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate))
+  .slice(0, 3);
+
+const supporters = affiliations.partners.items.map((i: any) => (en ? i.name_en ?? i.name : i.name));
+const networks = affiliations.networks.items.map((i: any) => (en ? i.name_en ?? i.name : i.name));
+
+const title = c('Etki ve Şeffaflık', 'Impact and Transparency');
+const intro = c(
+  'Kaç kişiye ulaştığımızı, bu sayıları nereden aldığımızı ve gençlerin hayatında neyin değiştiğini tek sayfada topluyoruz.',
+  'How many people we reach, where those numbers come from and what changes for young people, in one place.',
+);
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${title} — KOZ-DER`}
+  description={intro}
+  alternate={alternatePath(lang, 'impact')}
+>
+  <Breadcrumb
+    lang={lang}
+    kicker={c('Hesap verebilirlik', 'Accountability')}
+    items={[{ label: t('nav.home'), href: path(lang, 'home') }, { label: title, href: path(lang, 'impact') }]}
+    pageTitle={title}
+    intro={intro}
+  />
+
+  <div class="container mx-auto px-4 py-12 sm:py-20 space-y-16 sm:space-y-24">
+
+    <section aria-labelledby="verified-heading">
+      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{c('Doğrulanmış sonuçlar', 'Verified outcomes')}</p>
+      <h2 id="verified-heading" class="mb-4 max-w-4xl font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink sm:text-4xl">{c('Kaynağıyla birlikte verilen sayılar.', 'Figures shown with their source.')}</h2>
+      <p class="mb-8 max-w-3xl leading-relaxed text-ink-soft">{c('Her sayının altında program, yıl ve sayım türü yazıyor. Farklı faaliyetlerin sayılarını birbirine eklemiyoruz.', 'Each figure shows its programme, year and type of count. We do not add up figures from different activities.')}</p>
+      <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        {metrics.map(m => (
+          <article class="rounded-2xl border border-line bg-white p-5 shadow-md">
+            <strong class="block font-display text-4xl font-black tracking-tightest text-brand-walnut sm:text-5xl">{m.value}</strong>
+            <p class="mt-3 min-h-12 font-bold leading-snug text-brand-ink">{m.label}</p>
+            <p class="mt-3 border-t border-line pt-3 text-sm leading-relaxed text-ink-soft">{m.source}</p>
+          </article>
+        ))}
+      </div>
+      <p class="mt-5 text-sm leading-relaxed text-ink-soft">{en ? impact.metricsNote_en : impact.metricsNote_tr}</p>
+    </section>
+
+    <section aria-labelledby="published-heading">
+      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{c('Bu sitede', 'On this site')}</p>
+      <h2 id="published-heading" class="mb-4 font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink sm:text-4xl">{c('Yayınlanmış projeler ve hikâyeler.', 'Published projects and stories.')}</h2>
+      <p class="mb-8 max-w-3xl leading-relaxed text-ink-soft">{c('Bu sayılar sitedeki sayfalardan otomatik hesaplanır. Derneğin tüm geçmişini değil, burada yayımlanan çalışmaları gösterir. Hikâye sayısı, yararlanıcı sayısı değildir.', 'These numbers are counted automatically from the pages on this site. They show published work, not the association’s full history. The number of stories is not a number of beneficiaries.')}</p>
+      <div class="grid gap-4 sm:grid-cols-3">
+        {published.map(m => (
+          <article class="rounded-2xl border border-line bg-brand-cream p-5">
+            <strong class="block font-display text-4xl font-black tracking-tightest text-brand-ink">{m.value}</strong>
+            <p class="mt-2 font-bold text-brand-ink">{m.label}</p>
+            <p class="mt-1 text-sm text-ink-soft">{m.source}</p>
+          </article>
+        ))}
+      </div>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a class="rounded-xl bg-brand-ink px-5 py-3 font-bold text-white hover:bg-brand-stamp" href={path(lang, 'projects')}>{c('Tüm projeler →', 'All projects →')}</a>
+        <a class="rounded-xl border border-line-strong px-5 py-3 font-bold text-brand-ink hover:border-brand-stamp" href={path(lang, 'stories')}>{c('Tüm hikâyeler →', 'All stories →')}</a>
+      </div>
+    </section>
+
+    {latestStories.length > 0 && (
+      <section aria-labelledby="change-heading">
+        <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{c('Gençlerin anlatımıyla', 'In their own words')}</p>
+        <h2 id="change-heading" class="mb-8 font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink sm:text-4xl">{c('Gençlerin hayatında ne değişti?', 'What changed for young people?')}</h2>
+        <div class="grid gap-5 md:grid-cols-3">
+          {latestStories.map(s => (
+            <a href={entryPath(lang, 'stories', stripLangPrefix(s.slug))} class="group block rounded-2xl border border-line bg-white p-6 transition hover:-translate-y-1 hover:shadow-xl">
+              <p class="text-xs font-bold uppercase tracking-[0.16em] text-brand-stamp">{s.data.country}</p>
+              <h3 class="mt-2 font-display text-xl font-black text-brand-ink">{s.data.name}</h3>
+              <p class="mt-1 text-sm text-ink-soft">{s.data.programName}</p>
+              <p class="mt-4 leading-relaxed text-ink-soft line-clamp-4">{s.data.summary}</p>
+              <span class="mt-4 inline-block font-bold text-brand-stamp">{t('common.readStory')} →</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section aria-labelledby="reports-heading" class="rounded-[2rem] border border-line bg-white p-6 sm:p-10">
+      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{c('Belgeler', 'Documents')}</p>
+      <h2 id="reports-heading" class="mb-4 font-display text-3xl font-black leading-tight tracking-tightest text-brand-ink">{c('Faaliyet raporları ve mali özetler', 'Activity reports and financial summaries')}</h2>
+      {reports.length > 0 ? (
+        <ul class="divide-y divide-line">
+          {reports.map(r => (
+            <li class="flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:justify-between">
+              <span class="font-bold text-brand-ink">{r.year} · {en ? r.title_en : r.title_tr}</span>
+              <a class="font-bold text-brand-stamp underline" href={r.url} target="_blank" rel="noopener noreferrer">{c('PDF’yi aç', 'Open PDF')}</a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="max-w-3xl leading-relaxed text-ink-soft">{c('Son üç yılın faaliyet raporları ve proje bütçe özetleri, kişisel veriler çıkarıldıktan sonra burada yayımlanacak. O zamana kadar talep için bilgi@kozder.com adresine yazabilirsiniz.', 'Activity reports and project budget summaries for the last three years will be published here once personal data has been removed. Until then, you can request them at bilgi@kozder.com.')}</p>
+      )}
+    </section>
+
+    <section aria-labelledby="support-heading" class="grid gap-6 lg:grid-cols-2">
+      <div>
+        <h2 id="support-heading" class="mb-4 font-display text-2xl font-black text-brand-ink">{en ? affiliations.partners.label_en : affiliations.partners.label}</h2>
+        <ul class="flex flex-wrap gap-2">{supporters.map(n => <li class="rounded-full border border-line-strong px-3 py-1.5 text-sm text-brand-ink">{n}</li>)}</ul>
+      </div>
+      <div>
+        <h2 class="mb-4 font-display text-2xl font-black text-brand-ink">{en ? affiliations.networks.label_en : affiliations.networks.label}</h2>
+        <ul class="flex flex-wrap gap-2">{networks.map(n => <li class="rounded-full border border-line-strong px-3 py-1.5 text-sm text-brand-ink">{n}</li>)}</ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="voice-heading" class="flex flex-col gap-4 rounded-2xl border border-line bg-brand-cream p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+      <div>
+        <h2 id="voice-heading" class="font-display text-2xl font-black text-brand-ink">{c('Gençlerin Sesi', 'Young people’s voice')}</h2>
+        <p class="mt-2 max-w-2xl leading-relaxed text-ink-soft">{c('Bir etkinlik öner, katıldığın faaliyeti değerlendir ya da bir sorunu bize ilet. Görüşlerin gelecek faaliyetlerimizi şekillendiriyor.', 'Suggest an activity, review one you joined or tell us about a problem. Your views shape what we do next.')}</p>
+        <p class="mt-2 text-sm leading-relaxed text-ink-soft">{c('Hassas veya güvenlikle ilgili bir konuysa WhatsApp yerine bilgi@kozder.com adresine yazın.', 'For sensitive or safety-related matters, please write to bilgi@kozder.com instead of WhatsApp.')}</p>
+      </div>
+      <div class="flex shrink-0 flex-col gap-3">
+        <a href="https://wa.me/905511972997" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-xl bg-brand-walnut px-5 py-3 font-bold text-white hover:bg-brand-stamp">{c('WhatsApp’tan yaz', 'Message on WhatsApp')}</a>
+        <a href={path(lang, 'contact')} class="inline-flex items-center justify-center rounded-xl border border-line-strong px-5 py-3 font-bold text-brand-ink hover:border-brand-stamp">{c('İletişim formu', 'Contact form')}</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
