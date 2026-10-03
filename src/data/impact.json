@@ -113,8 +113,8 @@
       "title": "Life for PRR — Erasmus+ KA152",
       "count_tr": "yaklaşık 50 genç (35 yurt dışı, 15 Türkiye)",
       "count_en": "about 50 young people (35 from abroad, 15 from Türkiye)",
-      "budget_tr": "yaklaşık 33.000 €",
-      "budget_en": "about €33,000",
+      "budget_tr": "44.000 € hibe",
+      "budget_en": "€44,000 grant",
       "source": "yk-2025"
     },
     {
@@ -197,5 +197,68 @@
     ],
     "source_tr": "Proje raporu (ön test–son test) ve proje bütçe tablosu",
     "source_en": "Project report (pre/post test) and project budget sheet"
+  },
+  "finances": {
+    "note_tr": "Tutarlar, derneğin Kilis Valiliği'ne her yıl verdiği dernek beyannamelerinden alınmıştır (işletme hesabı esası, nominal TL). Gelir, önceki yıldan devreden bakiye hariç yıl içinde gelen tutardır.",
+    "note_en": "Figures come from the annual association declarations KOZ-DER files with the Kilis Governorate (cash basis, nominal TRY). Income excludes the balance carried over from the previous year.",
+    "rows": [
+      {
+        "year": 2021,
+        "income": 3572.0,
+        "expense": 2817.9,
+        "balance": 754.1,
+        "public": 0,
+        "abroad": 2202.0
+      },
+      {
+        "year": 2022,
+        "income": 1042653.84,
+        "expense": 297560.28,
+        "balance": 745847.66,
+        "public": 964865.77,
+        "abroad": 77728.07
+      },
+      {
+        "year": 2023,
+        "income": 225636.13,
+        "expense": 278224.12,
+        "balance": 693259.67,
+        "public": 0,
+        "abroad": 97929.74
+      },
+      {
+        "year": 2024,
+        "income": 5794038.81,
+        "expense": 2417794.96,
+        "balance": 4069503.52,
+        "public": 5082034.19,
+        "abroad": 275017.39
+      },
+      {
+        "year": 2025,
+        "income": 4457366.48,
+        "expense": 5445995.29,
+        "balance": 3080874.71,
+        "public": 2698159.04,
+        "abroad": 223263.48
+      }
+    ],
+    "expense2025": [
+      {
+        "tr": "Uluslararası faaliyetler (gönüllü ve katılımcı giderleri)",
+        "en": "International activities (volunteer and participant costs)",
+        "amount": 3933627.24
+      },
+      {
+        "tr": "Genel giderler",
+        "en": "General costs",
+        "amount": 1286918.04
+      },
+      {
+        "tr": "Proje eğitmenleri ve personel",
+        "en": "Project trainers and staff",
+        "amount": 225450.01
+      }
+    ]
   }
 }
