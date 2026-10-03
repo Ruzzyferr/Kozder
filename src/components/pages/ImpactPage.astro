@@ -303,7 +303,10 @@ const intro = c(
             ))}
           </ul>
         </div>
-        <p class="mt-5 text-xs text-ink-soft">{c('Beyannamelerin kendisi kimlik ve banka bilgileri içerdiği için yayımlanmaz; özet tutarlar burada gösterilir. Talep için bilgi@kozder.com.', 'The declarations themselves contain ID and bank details, so only the totals are published here. Requests: bilgi@kozder.com.')}</p>
+        <div class="mt-8 flex flex-col gap-3 rounded-2xl border border-white/80 bg-white/60 p-5 sm:flex-row sm:items-center sm:justify-between">
+          <p class="max-w-xl text-ink-soft">{c('Her yıl gelirin nereden geldiğini ve hangi kategorilerde harcandığını ayrı ayrı görmek için mali tablolara bakın.', 'See where each year’s income came from and how it was spent, category by category.')}</p>
+          <a class="inline-flex shrink-0 items-center justify-center rounded-xl bg-brand-ink px-5 py-3 font-bold text-white hover:bg-brand-stamp" href={en ? '/en/impact-and-transparency/financial-statements' : '/etki-ve-seffaflik/mali-tablolar'}>{c('Yıllara göre mali tablolar', 'Financial statements by year')}</a>
+        </div>
       </div>
     </section>
 
