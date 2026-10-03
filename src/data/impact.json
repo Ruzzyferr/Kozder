@@ -33,5 +33,125 @@
   ],
   "metricsNote_tr": "2025 GSB sonuçları ile 2026 Erasmus+ gençlik değişimi farklı faaliyetlere aittir. Gezi sayısı tekil katılımcı sayısını değil, toplam katılımı gösterir.",
   "metricsNote_en": "The 2025 GSB figures and the 2026 Erasmus+ exchange refer to different activities. Trip attendances are not a count of unique participants.",
-  "reports": []
+  "reports": [],
+  "escLead": {
+    "note_tr": "KOZ-DER'in Türkiye Ulusal Ajansı'na başvurup yürüttüğü ESC gönüllülük projeleri. Gönüllü sayısı ve hibe, imzalanan hibe sözleşmesindeki planlanan değerlerdir; nihai rapor sonrası değişebilir.",
+    "note_en": "European Solidarity Corps volunteering projects that KOZ-DER applied for and runs with the Turkish National Agency. Volunteer numbers and grants are the planned values in the signed grant agreement and may change after the final report.",
+    "rows": [
+      {
+        "call": 2021,
+        "code": "2021-1-TR01-ESC51-VTJ-000037147",
+        "volunteers": 3,
+        "realised_tr": "3 gönüllü tamamladı (nihai rapor)",
+        "realised_en": "3 volunteers completed (final report)",
+        "countries_tr": "Portekiz",
+        "countries_en": "Portugal",
+        "grant": 15081,
+        "final": 13828.65
+      },
+      {
+        "call": 2022,
+        "code": "2022-1-TR01-ESC51-VTJ-000080642",
+        "volunteers": 17,
+        "countries_tr": "İspanya, İtalya, Bulgaristan, Portekiz",
+        "countries_en": "Spain, Italy, Bulgaria, Portugal",
+        "grant": 47144
+      },
+      {
+        "call": 2023,
+        "code": "2023-1-TR01-ESC51-VTJ-000112883",
+        "volunteers": 20,
+        "realised_tr": "Ekim 2024 ara raporunda 11 gönüllü, 30.960 €",
+        "realised_en": "11 volunteers and €30,960 at the October 2024 interim report",
+        "countries_tr": "Yunanistan, Portekiz, İtalya, Gürcistan, Mısır, İspanya, Bulgaristan",
+        "countries_en": "Greece, Portugal, Italy, Georgia, Egypt, Spain, Bulgaria",
+        "grant": 78479
+      },
+      {
+        "call": 2024,
+        "code": "2024-1-TR01-ESC51-VTJ-000220924",
+        "volunteers": 7,
+        "countries_tr": "İzlanda, Portekiz, Romanya, Yunanistan",
+        "countries_en": "Iceland, Portugal, Romania, Greece",
+        "grant": 39198
+      },
+      {
+        "call": 2025,
+        "code": "2025-1-TR01-ESC51-VTJ-000346549",
+        "volunteers": 13,
+        "countries_tr": "Bulgaristan, Romanya, İzlanda, Fas, Portekiz, İtalya",
+        "countries_en": "Bulgaria, Romania, Iceland, Morocco, Portugal, Italy",
+        "grant": 48532
+      }
+    ]
+  },
+  "sending": {
+    "note_tr": "Başka ülkelerdeki ev sahibi kuruluşların projelerine KOZ-DER'in gönderici (sending) kuruluş olarak gönüllü yönlendirdiği faaliyetler. Bütçe ev sahibi kuruluşa aittir.",
+    "note_en": "Activities where KOZ-DER acts as the sending organisation for projects run by host organisations abroad. The budget belongs to the host organisation.",
+    "rows": [
+      {
+        "year": 2025,
+        "count": 17,
+        "programme": "ESC",
+        "where_tr": "Bulgaristan, Madan (Life is Beautiful) — iki kohort: 7 + 10",
+        "where_en": "Madan, Bulgaria (Life is Beautiful) — two cohorts: 7 + 10",
+        "source": "yk-2025"
+      },
+      {
+        "year": 2026,
+        "count": 20,
+        "programme": "ESC",
+        "where_tr": "Bulgaristan, Madan — kısa ve uzun dönem; ayrıca İrlanda, İsveç, İzlanda, Romanya hareketlilikleri",
+        "where_en": "Madan, Bulgaria — short and long term; plus mobilities to Ireland, Sweden, Iceland and Romania",
+        "source": "yk-2026"
+      }
+    ]
+  },
+  "hosting": [
+    {
+      "year": 2025,
+      "title": "Life for PRR — Erasmus+ KA152",
+      "count_tr": "yaklaşık 50 genç (35 yurt dışı, 15 Türkiye)",
+      "count_en": "about 50 young people (35 from abroad, 15 from Türkiye)",
+      "budget_tr": "yaklaşık 33.000 €",
+      "budget_en": "about €33,000",
+      "source": "yk-2025"
+    },
+    {
+      "year": 2026,
+      "title": "No More Walls, Europe Calls — Erasmus+",
+      "count_tr": "4 ülkeden 25 genç",
+      "count_en": "25 young people from 4 countries",
+      "source": "yk-2026"
+    }
+  ],
+  "funding": [
+    {
+      "year": 2025,
+      "funder_tr": "Gençlik ve Spor Bakanlığı",
+      "funder_en": "Ministry of Youth and Sports",
+      "title_tr": "Zekâ Oyunları, Dijitalleşme ve Afet Bilinci",
+      "title_en": "Mind Games, Digitalisation and Disaster Awareness",
+      "amount": "910.000 TL",
+      "source": "yk-2025"
+    },
+    {
+      "year": 2025,
+      "funder_tr": "İçişleri Bakanlığı",
+      "funder_en": "Ministry of Interior",
+      "title_tr": "Kilis Zekâ Oyunları ve Robotik Kodlama Festivali",
+      "title_en": "Kilis Mind Games and Robotic Coding Festival",
+      "amount": "362.000 TL",
+      "source": "yk-2025"
+    },
+    {
+      "year": 2026,
+      "funder_tr": "Sivil Düşün",
+      "funder_en": "Sivil Düşün (EU-funded)",
+      "title_tr": "Yeşil Beceri Köprüsü: Atık, Emek ve Hak",
+      "title_en": "Green Skills Bridge: Waste, Labour and Rights",
+      "amount": "212.034 TL",
+      "source": "yk-2026"
+    }
+  ]
 }
