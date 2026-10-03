@@ -182,6 +182,30 @@
       "expenseNote": null,
       "abroadOutTotal": 0,
       "abroadOutCount": 0
+    },
+    {
+      "year": 2019,
+      "carry": 0.0,
+      "income": {
+        "dues": 600.0,
+        "abroad": 0,
+        "public": 0,
+        "donations": 550.0,
+        "financial": 0,
+        "other": 0
+      },
+      "expense": {
+        "general": 698.09,
+        "staff": 0,
+        "mission": 0,
+        "other": 0
+      },
+      "balance": 451.91,
+      "members": 32,
+      "publicItems": [],
+      "expenseNote": null,
+      "abroadOutTotal": 0,
+      "abroadOutCount": 0
     }
   ],
   "note_tr": "Tüm tutarlar derneğin her yıl Kilis Valiliği'ne verdiği dernek beyannamesinin Mali Bilgiler bölümünden alınmıştır. Defterler işletme hesabı esasına göre tutulur; tutarlar nominal Türk lirasıdır ve enflasyona göre düzeltilmemiştir.",
