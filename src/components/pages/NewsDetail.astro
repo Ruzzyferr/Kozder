@@ -1,4 +1,5 @@
 ---
+import { srcsetFor, smallFor } from '../../utils/responsive';
 import { useTranslations, path, entryPath, stripLangPrefix, alternatePath, type Lang } from '../../i18n';
 
 interface Props { item: any; lang: Lang }
@@ -91,6 +92,8 @@ const galleryImages = item.data.images.filter(src => src !== item.data.coverImag
                     <div class="relative aspect-square bg-surface-muted overflow-hidden card">
                       <img
                         src={src}
+                        srcset={srcsetFor(src)}
+                        sizes="(max-width: 640px) 50vw, 33vw"
                         alt={localizedTitle}
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"

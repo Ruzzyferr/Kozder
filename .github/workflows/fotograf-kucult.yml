@@ -1,0 +1,51 @@
+# GitHub'a yüklenen büyük fotoğrafları otomatik küçültür.
+# 600 KB'ı veya 1600 pikseli aşan her fotoğraf, aynı dosya adıyla
+# 1600 piksel ve kalite 80 olarak yeniden kaydedilir ve geri yüklenir.
+name: Fotoğrafları otomatik küçült
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'public/**/*.jpg'
+      - 'public/**/*.jpeg'
+      - 'public/**/*.JPG'
+      - 'public/**/*.JPEG'
+      - 'public/**/*.png'
+      - 'public/**/*.webp'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fotograf-kucult
+  cancel-in-progress: false
+
+jobs:
+  kucult:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: sharp kur
+        run: npm install --no-save --no-audit --no-fund sharp
+
+      - name: Büyük fotoğrafları küçült
+        run: node scripts/optimize-images.mjs
+
+      - name: Değişiklik varsa geri yükle
+        run: |
+          if [ -n "$(git status --porcelain public)" ]; then
+            git config user.name "kozder-bot"
+            git config user.email "kozder2018@gmail.com"
+            git add public
+            git commit -m "Fotoğraflar otomatik küçültüldü"
+            git push
+          else
+            echo "Küçültülecek fotoğraf yok."
+          fi

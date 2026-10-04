@@ -1,4 +1,5 @@
 ---
+import { smallFor } from '../../utils/responsive';
 import { useTranslations, path, alternatePath, entryPath, stripLangPrefix, type Lang } from '../../i18n';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
@@ -31,7 +32,7 @@ const latestStories = stories
   .sort((a, b) => getEventDateSortKey(b.data.startDate) - getEventDateSortKey(a.data.startDate));
 const storyCard = (s: (typeof latestStories)[number]) => ({
   href: entryPath(lang, 'stories', stripLangPrefix(s.slug)),
-  img: s.data.images?.[0] ?? s.data.socialImage ?? '',
+  img: smallFor(s.data.images?.[0] ?? s.data.socialImage ?? '', 960) ?? '',
   country: s.data.country,
   name: s.data.name,
   program: s.data.programName,

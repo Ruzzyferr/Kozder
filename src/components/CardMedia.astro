@@ -1,4 +1,5 @@
 ---
+import { srcsetFor, smallFor } from '../utils/responsive';
 // Kart kapağı. İki tür içeriği ayırır:
 //   cover   — fotoğraflar; slotu tamamen doldurur, kenarlarından kırpılır
 //   contain — afiş/grafik kapaklar; tonlu panelde kırpılmadan, tam okunur
@@ -26,6 +27,8 @@ const { src, alt, fit = 'cover', ratio = 'aspect-[3/2]', eager = false } = Astro
   >
     <img
       src={src}
+      srcset={srcsetFor(src)}
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       alt={alt}
       loading={eager ? 'eager' : 'lazy'}
       decoding="async"

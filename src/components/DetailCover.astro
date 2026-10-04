@@ -1,4 +1,5 @@
 ---
+import { srcsetFor, smallFor } from '../utils/responsive';
 // Detay sayfası kapağı. Afiş kapaklar (dik Canva görselleri) `w-full h-auto`
 // ile ekranı boydan boya kaplıyordu; yüksekliği sınırlayıp tonlu panelde
 // ortalıyoruz. Fotoğraflar eskisi gibi tam genişlikte kalıyor.
@@ -16,6 +17,8 @@ const { src, alt, fit = 'cover' } = Astro.props;
     <figure class="card card-2 bg-surface-sunken mb-10 m-0 flex items-center justify-center p-6 sm:p-10">
       <img
         src={src}
+        srcset={srcsetFor(src)}
+        sizes="(max-width: 1024px) 100vw, 60vw"
         alt={alt}
         class="block w-auto max-w-full max-h-[min(60vh,520px)] object-contain"
         loading="eager"
@@ -26,6 +29,8 @@ const { src, alt, fit = 'cover' } = Astro.props;
     <figure class="card card-2 bg-brand-cream overflow-hidden mb-10 m-0">
       <img
         src={src}
+        srcset={srcsetFor(src)}
+        sizes="(max-width: 1024px) 100vw, 60vw"
         alt={alt}
         class="block w-full h-auto"
         loading="eager"
