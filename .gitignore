@@ -28,3 +28,6 @@ pnpm-debug.log*
 *.swo
 
 .vercel
+
+# yayın sırasında üretilen mobil görsel kopyaları
+public/_r/

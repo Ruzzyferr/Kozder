@@ -1,4 +1,5 @@
 ---
+import { srcsetFor, smallFor } from '../../utils/responsive';
 import { useTranslations, path, entryPath, stripLangPrefix, alternatePath, type Lang } from '../../i18n';
 
 interface Props { story: any; lang: Lang }
@@ -92,6 +93,8 @@ const alternate = alternatePath(lang, 'stories', stripLangPrefix(story.slug));
                     >
                       <img
                         src={img}
+                        srcset={srcsetFor(img)}
+                        sizes="(max-width: 640px) 50vw, 33vw"
                         alt={`${story.data.name} — ${t('stories.photoAltSuffix')} ${idx + 1}`}
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         loading="lazy"
