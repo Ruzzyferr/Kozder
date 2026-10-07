@@ -3,7 +3,7 @@ title_tr: "Online Speaking Club"
 title_en: "Online Speaking Club"
 date: "2026-10-14"
 time: "21:00"
-location: "Online"
+location: "Online · Google Meet"
 coverImage: "/images/events/online-speaking-club-2026.webp"
 coverFit: "contain"
 registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLScUinJuiO4lJMbda2OJYMwlwaOSCo7NT96jk3lGdCpQkS4wrQ/viewform"
@@ -25,7 +25,7 @@ The goal is not perfect English. It is to **speak, practise, explore new perspec
 - Starts: Wednesday 14 October 2026
 - Day: Every Wednesday (ongoing)
 - Time: 21:00 (Türkiye time)
-- Place: Online
+- Place: Online, via Google Meet
 - Participation: Completely free
 - Places: Limited
 
@@ -36,5 +36,7 @@ If you would like to join, first fill in the **level assessment form**. Your ans
 [Click here](https://docs.google.com/forms/d/e/1FAIpQLScUinJuiO4lJMbda2OJYMwlwaOSCo7NT96jk3lGdCpQkS4wrQ/viewform) for the level assessment and application form.
 
 You can also join our in-person [KOZ-DER Speaking Club](/en/events/speakingclub-2026) every Friday in Kilis.
+
+Sessions take place on **Google Meet**. The meeting link is shared with participants who fill in the form.
 
 **Speak, share, practise and improve your English!**
