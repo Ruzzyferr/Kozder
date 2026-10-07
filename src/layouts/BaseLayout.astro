@@ -494,7 +494,10 @@ const other: Lang = lang === 'tr' ? 'en' : 'tr';
       const time = element.dataset.time || '00:00';
       const timezone = element.dataset.timezone || 'Europe/Istanbul';
       const lang = element.dataset.lang === 'en' ? 'en' : 'tr';
-      const effectiveDate = getNextWeeklyEventDate(weekday, time, timezone);
+      const nextDate = getNextWeeklyEventDate(weekday, time, timezone);
+      const startDate = element.dataset.startDate || '';
+      // Henüz başlamamış haftalık etkinlikte ilk oturum başlangıç tarihidir.
+      const effectiveDate = /^\d{4}-\d{2}-\d{2}$/.test(startDate) && startDate > nextDate ? startDate : nextDate;
       const includeWeekday = element.dataset.showWeekday === 'true';
       const formattedDate = formatEventDate(effectiveDate, { weekday: includeWeekday, lang });
 

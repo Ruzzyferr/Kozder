@@ -1,7 +1,7 @@
 ---
 title_tr: "Online Speaking Club"
 title_en: "Online Speaking Club"
-date: "2026-10-07"
+date: "2026-10-14"
 time: "21:00"
 location: "Online"
 coverImage: "/images/events/online-speaking-club-2026.webp"
@@ -22,7 +22,8 @@ The goal is not perfect English. It is to **speak, practise, explore new perspec
 
 ## Details
 
-- Day: Every Wednesday
+- Starts: Wednesday 14 October 2026
+- Day: Every Wednesday (ongoing)
 - Time: 21:00 (Türkiye time)
 - Place: Online
 - Participation: Completely free

@@ -45,6 +45,7 @@ const ics = startDate
       url,
       allDay,
       timeZone: event.data.timezone,
+      weekly: event.data.recurring === 'weekly',
     })
   : null;
 const icsDataUri = ics ? `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}` : null;
@@ -60,6 +61,7 @@ const gcalUrl = startDate
       url,
       allDay,
       timeZone: event.data.timezone,
+      weekly: event.data.recurring === 'weekly',
     })
   : null;
 
@@ -89,6 +91,7 @@ const ld = startDate
   <article
     class="bg-brand-paper"
     data-recurring-event={event.data.recurring}
+    data-start-date={event.data.date}
     data-weekday={event.data.weekday}
     data-time={event.data.time}
     data-timezone={event.data.timezone}

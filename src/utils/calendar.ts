@@ -50,6 +50,8 @@ export interface IcsEvent {
   url?: string;
   allDay?: boolean;
   timeZone?: string;
+  /** Haftalık tekrar eden etkinlikler için. */
+  weekly?: boolean;
 }
 
 export function buildIcsString(ev: IcsEvent): string {
@@ -74,6 +76,7 @@ export function buildIcsString(ev: IcsEvent): string {
     `DESCRIPTION:${escapeICS(ev.description)}`,
     `LOCATION:${escapeICS(ev.location)}`,
     ev.url ? `URL:${ev.url}` : '',
+    ev.weekly ? 'RRULE:FREQ=WEEKLY' : '',
     'END:VEVENT',
     'END:VCALENDAR',
   ].filter(Boolean);
@@ -94,6 +97,7 @@ export function googleCalendarUrl(ev: IcsEvent): string {
   });
   if (ev.timeZone && !allDay) params.set('ctz', ev.timeZone);
   if (ev.url) params.set('sprop', `website:${ev.url}`);
+  if (ev.weekly) params.set('recur', 'RRULE:FREQ=WEEKLY');
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
