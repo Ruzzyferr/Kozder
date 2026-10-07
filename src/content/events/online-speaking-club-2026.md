@@ -1,7 +1,7 @@
 ---
 title_tr: "Online Speaking Club"
 title_en: "Online Speaking Club"
-date: "2026-10-07"
+date: "2026-10-14"
 time: "21:00"
 location: "Online"
 coverImage: "/images/events/online-speaking-club-2026.webp"
@@ -22,7 +22,8 @@ Buradaki amaç kusursuz İngilizce konuşmak değil; **konuşmak, pratik yapmak,
 
 ## Etkinlik Bilgileri
 
-- Gün: Her Çarşamba
+- Başlangıç: 14 Ekim 2026 Çarşamba
+- Gün: Her Çarşamba (devamlı)
 - Saat: 21:00
 - Yer: Online
 - Katılım: Tamamen ücretsiz

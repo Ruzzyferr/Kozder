@@ -85,12 +85,15 @@ export function getNextWeeklyEventDate(
 
 export function getEffectiveEventDate(dateStr: string, opts: RecurringEventDateOptions = {}): string {
   if (opts.recurring === 'weekly' && opts.weekday) {
-    return getNextWeeklyEventDate(
+    const next = getNextWeeklyEventDate(
       opts.weekday,
       opts.time,
       opts.timezone ?? 'Europe/Istanbul',
       opts.now,
     );
+    // Haftalık etkinlik henüz başlamadıysa ilk oturum başlangıç tarihidir.
+    // Tarihler YYYY-MM-DD biçiminde olduğu için metin karşılaştırması yeterli.
+    return /^\d{4}-\d{2}-\d{2}$/.test(dateStr) && dateStr > next ? dateStr : next;
   }
   return dateStr;
 }
