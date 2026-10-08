@@ -28,8 +28,8 @@ LIFE for PRR bana yeni bir şeyler öğretmenin ötesinde; **birlikte üretmenin
 
 ## Teşekkürler
 
-Bu güzel deneyimin bir parçası olmamı sağlayan KOZ-DER’e ve süreç boyunca emeğini, desteğini ve rehberliğini esirgemeyen Halil Hocam’a ve Mevlide Hocam’a çok teşekkür ederim.
+Bu güzel deneyimin bir parçası olmamı sağlayan **KOZ-DER’e** ve süreç boyunca emeğini, desteğini ve rehberliğini esirgemeyen **Halil Hocam’a ve Mevlide Hocam’a** çok teşekkür ederim.
 
-Ayrıca bu yolculuğu benim için çok daha özel hâle getiren herkese teşekkür ederken Özlem’e, Sait’e, Sıla’ya, Hüseyin’e, Muhammet İkbal’e ve Arek’e ayrı ayrı teşekkür etmek istiyorum. Birlikte geçirdiğimiz zamanlar, paylaştığımız deneyimler ve oluşturduğumuz güzel anılar benim için bu projenin en kıymetli kazanımlarından biri oldu.
+Ayrıca bu yolculuğu benim için çok daha özel hâle getiren herkese teşekkür ederken **Özlem’e, Sait’e, Sıla’ya, Hüseyin’e, Muhammet İkbal’e ve Arek’e** ayrı ayrı teşekkür etmek istiyorum. Birlikte geçirdiğimiz zamanlar, paylaştığımız deneyimler ve oluşturduğumuz güzel anılar benim için bu projenin en kıymetli kazanımlarından biri oldu.
 
 **LIFE for PRR benim için sona eren bir proje değil, hayatımda iz bırakan bir deneyim oldu.** Bana kattığınız her şey için teşekkür ederim. İyi ki bu hikâyenin bir parçası olmuşum. 💚
