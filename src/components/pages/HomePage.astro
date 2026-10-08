@@ -29,6 +29,9 @@ const featuredProjects = projects
   .sort((a, b) => {
     const s = projectStatusRank(a) - projectStatusRank(b);
     if (s !== 0) return s;
+    // Başvurusu açık projelerde son tarihi en yakın olan (en acil) önce gelir.
+    const da = a.data.applicationDeadline, db = b.data.applicationDeadline;
+    if (projectStatusRank(a) === 0 && da && db && da !== db) return da < db ? -1 : 1;
     return newestProject(a, b);
   })
   .slice(0, 2);

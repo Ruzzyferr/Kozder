@@ -216,3 +216,10 @@ const showChecklist = Boolean(project.data.eligibility);
   syncProjectApplication();
   window.setInterval(syncProjectApplication, 60_000);
 </script>
+
+<style is:global>
+  /* Cam tasarımındaki .card arka planı, renkli durum ve başvuru kartlarını ezmesin. */
+  .card.bg-brand-stamp { background: #bd4029 !important; color: #fff !important; }
+  .card.bg-brand-ink { background: #202936 !important; color: #fff !important; }
+  .card.bg-brand-ink:hover { background: #bd4029 !important; }
+</style>
