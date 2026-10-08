@@ -85,3 +85,4 @@ Bilgi paketini okuduktan sonra başvuru formunu doldurun. Son başvuru tarihi **
 
 - Bilgi paketi için [tıklayınız](https://kozder.com/documents/rewrite-your-typing-infopack.pdf).
 - Başvuru formu için [tıklayınız](https://forms.gle/9HMB4tvqKzc3B8Vd6).
+- Katılımcı Bilgi Formu (PIF) için [tıklayınız](https://drive.google.com/file/d/1WjdTfoN_gXSloh-3Z4UtPfkvAirgDiAG/view?usp=sharing). Formu doldurup başvurunuzla birlikte gönderiniz.

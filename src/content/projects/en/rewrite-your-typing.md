@@ -84,3 +84,4 @@ Read the info pack, then fill in the application form. Deadline **10 October 202
 
 - [Click here](https://kozder.com/documents/rewrite-your-typing-infopack.pdf) for the info pack.
 - [Click here](https://forms.gle/9HMB4tvqKzc3B8Vd6) for the application form.
+- [Click here](https://drive.google.com/file/d/1WjdTfoN_gXSloh-3Z4UtPfkvAirgDiAG/view?usp=sharing) for the Participant Information Form (PIF). Fill it in and send it with your application.
