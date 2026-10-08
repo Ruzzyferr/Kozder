@@ -2,7 +2,7 @@
 name: "Özlem ÇİLOĞLU"
 programName: "LIFE for PRR – Yaşama Kat — Erasmus+ Gençlik Değişimi"
 country: "Türkiye · Kilis"
-startDate: "03.07.2024"
+startDate: "03.07.2025"
 images:
   - "/images/stories/ozlemkilis.jpeg"
   - "/images/stories/ozlemkilis1.jpeg"
@@ -21,7 +21,7 @@ Merhaba sevgili KOZ-DER okurları, ben **Özlem ÇİLOĞLU**. 🌿
 
 Yine muhteşem bir projeden bahsetmek istiyorum sizlere. Ama bu kez rotamız yurt dışı değil; Türkiye'nin güneydoğusunda, Gaziantep'ten ayrılarak kendi başına şehir olan, küçük ama hikâyeleri oldukça büyük olan güzel Kilis!
 
-Bugün sizlere **3–11 Temmuz 2024** tarihleri arasında Kilis'te gerçekleştirdiğimiz **“LIFE for PRR – Yaşama Kat”** Youth Exchange projesini, sadece bir katılımcının değil, projenin hazırlık sürecinden son gününe kadar gönüllü olarak içinde bulunan biri olarak anlatmak istiyorum.
+Bugün sizlere **3–11 Temmuz 2025** tarihleri arasında Kilis'te gerçekleştirdiğimiz **“LIFE for PRR – Yaşama Kat”** Youth Exchange projesini, sadece bir katılımcının değil, projenin hazırlık sürecinden son gününe kadar gönüllü olarak içinde bulunan biri olarak anlatmak istiyorum.
 
 Çünkü bazı projeler vardır, sadece birkaç gün sürer. Ama sizde bıraktığı iz çok daha uzun sürer. Bizimki de biraz öyle oldu. :)
 
