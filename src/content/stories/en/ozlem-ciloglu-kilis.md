@@ -2,7 +2,7 @@
 name: "Özlem ÇİLOĞLU"
 programName: "LIFE for PRR – Join Life — Erasmus+ Youth Exchange"
 country: "Türkiye · Kilis"
-startDate: "03.07.2024"
+startDate: "03.07.2025"
 images:
   - "/images/stories/ozlemkilis.jpeg"
   - "/images/stories/ozlemkilis1.jpeg"
@@ -21,7 +21,7 @@ Hello dear KOZ-DER readers, I am **Özlem ÇİLOĞLU**. 🌿
 
 Once again, I would like to tell you about an amazing project. But this time, our destination is not abroad. It is beautiful Kilis, a small city in southeastern Türkiye that became a province after separating from Gaziantep — small in size, but full of big stories!
 
-Today, I would like to tell you about the **“LIFE for PRR – Join Life”** Youth Exchange project that we carried out in Kilis between **3–11 July 2024**, not only from the perspective of a participant, but also as someone who was involved as a volunteer from the preparation process until the very last day of the project.
+Today, I would like to tell you about the **“LIFE for PRR – Join Life”** Youth Exchange project that we carried out in Kilis between **3–11 July 2025**, not only from the perspective of a participant, but also as someone who was involved as a volunteer from the preparation process until the very last day of the project.
 
 Because some projects last only a few days, but the traces they leave within you last much longer.
 
