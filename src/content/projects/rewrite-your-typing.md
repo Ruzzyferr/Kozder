@@ -18,7 +18,7 @@ coverImage: "/images/projects/rewrite-your-typing.webp"
 coverFit: "contain"
 applicationUrl: "https://forms.gle/9HMB4tvqKzc3B8Vd6"
 applicationLabel: "Başvuru Formu"
-infoPackUrl: "https://kozder.com/documents/rewrite-your-typing-infopack.pdf"
+infoPackUrl: "(https://drive.google.com/file/d/1aCKm8DLE532U3Geb5eDfyRZDXbnNUGFG/view?usp=sharing)"
 featured: true
 summary_tr: "Polonya'nın Baltık kıyısındaki Puck'ta 16–23 Ekim 2026 tarihlerinde yapılacak Erasmus+ gençlik değişimi için acil katılımcı arıyoruz: 18–30 yaş arası 4 genç ve 1 grup lideri. Süre kısa olduğu için yeşil pasaport sahibi adaylar aranmaktadır. Son başvuru 10 Ekim."
 summary_en: "We urgently need participants for an Erasmus+ youth exchange in Puck, on Poland's Baltic coast, on 16–23 October 2026: 4 young people aged 18–30 and 1 group leader. Because time is short, we are looking for holders of Turkish green (special) passports. Deadline 10 October."
@@ -83,7 +83,7 @@ Proje süresince geçerli seyahat sağlık sigortası zorunludur. Avrupa Sağlı
 
 Bilgi paketini okuduktan sonra başvuru formunu doldurun. Son başvuru tarihi **10 Ekim 2026**.
 
-- Bilgi paketi için [tıklayınız](https://kozder.com/documents/rewrite-your-typing-infopack.pdf).
+- Bilgi paketi için [tıklayınız](https://drive.google.com/file/d/1aCKm8DLE532U3Geb5eDfyRZDXbnNUGFG/view?usp=sharing).
 - Başvuru formu için [tıklayınız](https://forms.gle/9HMB4tvqKzc3B8Vd6).
 
 Başvurular yalnızca başvuru formu üzerinden alınır.
