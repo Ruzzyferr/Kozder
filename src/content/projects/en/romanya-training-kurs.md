@@ -13,7 +13,7 @@ themes:
 location: "Sărata Monteoru & Buzău, Romania"
 startDate: "04.12.2026"
 endDate: "13.12.2026"
-applicationDeadline: "2026-10-15"
+applicationDeadline: "2026-10-10"
 coverImage: "/images/projects/white-rainbow.png"
 coverFit: "contain"
 applicationUrl: "https://forms.gle/Y3YQsuZNxPQeufiW7"
@@ -179,7 +179,7 @@ The official project information pack includes detailed information about accomm
 
 ## Application
 
-**Application deadline: 15 October 2026**
+**Application deadline: 10 October 2026**
 
 Candidates who would like to participate in the White Rainbow Erasmus+ Training Course can apply using the form below:
 
