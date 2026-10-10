@@ -188,3 +188,5 @@ White Rainbow Erasmus+ Eğitim Kursu’na katılmak isteyen adaylar aşağıdaki
 [**Başvuru Formuna Git**](https://forms.gle/Y3YQsuZNxPQeufiW7)
 
 Başvuru yapmadan önce **bilgi paketini**, proje tarihlerini, ulaşım koşullarını, katılım yükümlülüklerini ve seyahat belgelerine ilişkin kuralları dikkatle incelemenizi öneriyoruz.
+
+> **Not:** Başvurular yeterli sayıya ulaştığında başvuru formu son başvuru tarihinden önce kapatılabilir. Erken başvurmanızı öneririz.

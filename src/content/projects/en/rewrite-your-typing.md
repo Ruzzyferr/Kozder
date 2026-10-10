@@ -86,3 +86,5 @@ Read the info pack, then fill in the application form. Deadline **9 October 2026
 - [Click here](https://forms.gle/9HMB4tvqKzc3B8Vd6) for the application form.
 
 Applications are accepted only through the application form.
+
+> **Note:** The application form may close before the deadline once enough applications have been received. We recommend applying early.

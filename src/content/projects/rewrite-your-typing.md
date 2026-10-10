@@ -87,3 +87,5 @@ Bilgi paketini okuduktan sonra başvuru formunu doldurun. Son başvuru tarihi **
 - Başvuru formu için [tıklayınız](https://forms.gle/9HMB4tvqKzc3B8Vd6).
 
 Başvurular yalnızca başvuru formu üzerinden alınır.
+
+> **Not:** Başvurular yeterli sayıya ulaştığında başvuru formu son başvuru tarihinden önce kapatılabilir. Erken başvurmanızı öneririz.

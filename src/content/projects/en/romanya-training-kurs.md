@@ -186,3 +186,5 @@ Candidates who would like to participate in the White Rainbow Erasmus+ Training 
 [**Go to Application Form**](https://forms.gle/Y3YQsuZNxPQeufiW7)
 
 Before applying, please carefully review the **information pack**, project dates, travel arrangements, participation requirements and rules concerning travel documents.
+
+> **Note:** The application form may close before the deadline once enough applications have been received. We recommend applying early.
