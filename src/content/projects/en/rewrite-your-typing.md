@@ -13,15 +13,15 @@ themes:
 location: "Puck, Polonya"
 startDate: "16.10.2026"
 endDate: "23.10.2026"
-applicationDeadline: "2026-10-10"
+applicationDeadline: "2026-10-09"
 coverImage: "/images/projects/rewrite-your-typing.webp"
 coverFit: "contain"
 applicationUrl: "https://forms.gle/9HMB4tvqKzc3B8Vd6"
 applicationLabel: "Application Form"
 infoPackUrl: "https://drive.google.com/file/d/1aCKm8DLE532U3Geb5eDfyRZDXbnNUGFG/view?usp=sharing"
 featured: true
-summary_tr: "Polonya'nın Baltık kıyısındaki Puck'ta 16–23 Ekim 2026 tarihlerinde yapılacak Erasmus+ gençlik değişimi için acil katılımcı arıyoruz: 18–30 yaş arası 4 genç ve 1 grup lideri. Süre kısa olduğu için yeşil pasaport sahibi adaylar aranmaktadır. Son başvuru 10 Ekim."
-summary_en: "We urgently need participants for an Erasmus+ youth exchange in Puck, on Poland's Baltic coast, on 16–23 October 2026: 4 young people aged 18–30 and 1 group leader. Because time is short, we are looking for holders of Turkish green (special) passports. Deadline 10 October."
+summary_tr: "Polonya'nın Baltık kıyısındaki Puck'ta 16–23 Ekim 2026 tarihlerinde yapılacak Erasmus+ gençlik değişimi için acil katılımcı arıyoruz: 18–30 yaş arası 4 genç ve 1 grup lideri. Süre kısa olduğu için yeşil pasaport sahibi adaylar aranmaktadır. Son başvuru 9 Ekim."
+summary_en: "We urgently need participants for an Erasmus+ youth exchange in Puck, on Poland's Baltic coast, on 16–23 October 2026: 4 young people aged 18–30 and 1 group leader. Because time is short, we are looking for holders of Turkish green (special) passports. Deadline 9 October."
 eligibility:
   age: "4 participants aged 18–30 + 1 group leader (no age limit)"
   countries: "Puck, Poland (Baltic Sea coast)"
@@ -36,7 +36,7 @@ We are looking for **4 young people aged 18–30** and **1 group leader** for th
 
 **Green passport required:** The project starts very soon, so there is no time for a visa process. We are therefore looking for applicants with a **Turkish green (special) passport**, who can travel to the Schengen area without a visa.
 
-**Application deadline: 10 October 2026**
+**Application deadline: 9 October 2026**
 
 ## About the project
 
@@ -80,7 +80,7 @@ Valid travel health insurance is mandatory: a European Health Insurance Card (EH
 
 ## Apply
 
-Read the info pack, then fill in the application form. Deadline **10 October 2026**.
+Read the info pack, then fill in the application form. Deadline **9 October 2026**.
 
 - [Click here](https://drive.google.com/file/d/1aCKm8DLE532U3Geb5eDfyRZDXbnNUGFG/view?usp=sharing) for the info pack.
 - [Click here](https://forms.gle/9HMB4tvqKzc3B8Vd6) for the application form.
