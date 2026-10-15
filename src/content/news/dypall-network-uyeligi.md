@@ -4,42 +4,47 @@ title_en: "KOZ-DER Joins the DYPALL Network"
 date: "2026-10-15"
 location: "Kilis"
 coverImage: "/images/news/dypall-uyelik.jpeg"
-coverFit: "contain"
+coverFit: "cover"
 images:
   - "/images/news/dypall-uyelik.jpeg"
-summary_tr: "KOZ-DER, gençlerin yerel düzeyde karar alma süreçlerine katılımı üzerine çalışan ve 30’dan fazla ülkeden 80’i aşkın kuruluşu bir araya getiren Avrupa ağı DYPALL Network’ün üyesi oldu."
-summary_en: "KOZ-DER has joined DYPALL Network, a European platform of more than 80 organisations and local authorities from over 30 countries working on youth participation in local decision-making."
+summary_tr: "KOZ-DER, gençlerin yerel düzeyde karar alma süreçlerine katılımını güçlendirmek için çalışan Avrupa ağı DYPALL Network’ün üyesi oldu."
+summary_en: "KOZ-DER is now a proud member of DYPALL Network, a European network promoting youth participation in decision-making at the local level."
 featured: true
 draft: false
 ---
 
 # KOZ-DER, DYPALL Network’e Üye Oldu
 
-🌍🤝 **Gençlik Zekâ Oyunları ve Kodlama Derneği (KOZ-DER) olarak, Avrupa’nın önde gelen gençlik katılımı ağlarından DYPALL Network’e üye olduğumuzu duyurmaktan mutluluk duyuyoruz!**
+🌍🤝 **Gençlik Zekâ Oyunları ve Kodlama Derneği (KOZ-DER) olarak DYPALL Network’e üye olduğumuzu duyurmaktan mutluluk duyuyoruz. Artık gururla söyleyebiliriz: KOZ-DER, DYPALL Network üyesidir!**
 
-## DYPALL Network Nedir?
+Böylece gençlerin yerel düzeyde karar alma süreçlerine katılımını güçlendirmek için çalışan Avrupa çapındaki bir topluluğun parçası olduk.
 
-**DYPALL Network (Developing Youth Participation at Local Level – Yerel Düzeyde Gençlik Katılımını Geliştirme)**, gençlerin yerel düzeydeki karar alma süreçlerine katılımı üzerine çalışan sivil toplum kuruluşlarını, yerel yönetimleri ve araştırma kurumlarını bir araya getiren bir **Avrupa platformudur**. Ağda 30’dan fazla ülkeden 80’i aşkın sivil toplum kuruluşu ve yerel yönetim yer alıyor. Merkezi Portekiz’in Portimão kentinde bulunan ağ, gençlerin yerel demokrasilere yerel yönetimlerle iş birliği içinde etkin ve anlamlı biçimde katılımını savunuyor.
+## DYPALL Network Hakkında
 
-## Ağın Öncelikleri
+**DYPALL Network (Developing Youth Participation at Local Level – Yerel Düzeyde Gençlik Katılımını Geliştirme)**, yerel düzeyde gençlerin karar alma süreçlerine katılımına odaklanan sivil toplum kuruluşları, yerel yönetimler ve araştırma kurumlarından oluşan bir Avrupa platformudur. Ağ; iş birliğini teşvik ederek, kapasite geliştirerek ve katılımcı yönetişimi savunarak gençlerin karar alma süreçlerinde etkin ortaklar olarak tanındığı daha güçlü yerel demokrasilere katkı sunar.
 
-- Yerel düzeyde gençlerin karar alma süreçlerine katılımı için **yapılar ve mekanizmalar geliştirmek**
-- Gençlik politikalarını **yerel ve bölgesel düzeyde** yaygınlaştırmak
-- **Yerel gençlik meclisleri** gibi katılım alanlarını güçlendirmek ve bu yapılarda yer alan gençlerin kapasitesini artırmak
-- Üyeler arasında **iyi uygulama paylaşımı, eğitim ve kapasite geliştirme** imkânları sunmak
-- Yerel deneyimleri ve üyelerin sesini **Avrupa düzeyindeki gençlik politikası tartışmalarına** taşımak
+Kısaca: **DYPALL Network, belediyeleri, kurumları ve gençlik kuruluşlarını gençlerin yerel karar alma süreçlerini şekillendirebileceği kapsayıcı katılım mekanizmaları geliştirmeleri için güçlendiren bir Avrupa ağıdır.**
 
-DYPALL Network bünyesindeki **YP Lab**, yerel gençlik katılımı alanında araştırma ve kapasite geliştirme odaklı bir kaynak ve hareketlilik merkezi olarak çalışıyor. Ağ ayrıca Avrupa Konseyi Gençlik Dairesi iş birliğiyle eğitim ve çalışma oturumları düzenliyor; yerel gençlik katılımına dair yayınlar, rehberler ve araçlar hazırlıyor.
+### Misyon ve vizyon
+
+- **Misyon:** Yerel yönetimlerle birlikte, stratejiler geliştirerek ve aktörler arasında güvene dayalı yapılar ve ilişkiler kurarak gençlerin karar alma süreçlerine etkili ve sürdürülebilir katılımını sağlamak.
+- **Vizyon:** Yerel demokrasilerin gençler ve karar vericiler tarafından kapsayıcı, katılımcı ve anlamlı bir şekilde birlikte inşa edildiği bir toplum.
+
+### Değerler
+
+Demokratik değerler · Çeşitliliğe saygı · Kamu ve özel sektör arasında tamamlayıcılık · Ortak kararlar · Fırsat eşitliği · Sürdürülebilirlik
 
 ## Bu Üyelik KOZ-DER İçin Ne Anlama Geliyor?
 
-Kilis’te gençlerle yürüttüğümüz zekâ oyunları, kodlama, Speaking Club, çevre ve afet bilinci çalışmaları ile Erasmus+ ve Avrupa Dayanışma Programı deneyimimizi bu ağla buluşturuyoruz. Üyeliğimizle birlikte:
+Kilis’te gençlerle yürüttüğümüz zekâ oyunları, kodlama, Speaking Club, çevre ve afet bilinci çalışmalarımızı ve Erasmus+ ile Avrupa Dayanışma Programı deneyimimizi bu ağdaki kuruluşlarla buluşturuyoruz. Üyeliğimizle birlikte:
 
-- Avrupa’nın farklı ülkelerindeki kuruluş ve yerel yönetimlerle **yeni ortaklıklar** kurmayı,
-- Gençlerimizin **eğitim, çalışma oturumu ve hareketlilik** fırsatlarına erişimini artırmayı,
+- Avrupa’nın farklı ülkelerindeki üye kuruluşlarla **deneyim paylaşmayı ve yeni ortaklıklar kurmayı**,
+- Gençlerimizin **eğitim ve hareketlilik** fırsatlarına erişimini artırmayı,
 - Kilis’teki gençlerin **yerel karar alma süreçlerine daha fazla katılımı** için iyi uygulamaları şehrimize taşımayı,
-- Yerel deneyimlerimizi Avrupa düzeyindeki tartışmalarda **paylaşmayı** hedefliyoruz.
+- Kendi çalışmalarımızı ağın diğer üyeleriyle **paylaşmayı** hedefliyoruz.
 
 Gençlerin sesinin yerelde duyulduğu, kararların gençlerle birlikte alındığı bir gelecek için çalışmaya devam ediyoruz. 💙
 
-🔗 Ağ hakkında daha fazla bilgi: [dypall.com](https://dypall.com/)
+🔗 DYPALL Network hakkında daha fazla bilgi: [dypall.com](https://dypall.com/)
+
+*KOZ-DER’in faaliyetleri kendi sorumluluğundadır; DYPALL Network üyeliği bu faaliyetlerin ağ tarafından düzenlendiği ya da desteklendiği anlamına gelmez.*
