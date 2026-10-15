@@ -4,7 +4,7 @@ title_en: "KOZ-DER Joins the DYPALL Network"
 date: "2026-10-15"
 location: "Kilis"
 coverImage: "/images/news/dypall-uyelik.jpeg"
-coverFit: "cover"
+coverFit: "contain"
 images:
   - "/images/news/dypall-uyelik.jpeg"
 summary_tr: "KOZ-DER, gençlerin yerel düzeyde karar alma süreçlerine katılımını güçlendirmek için çalışan Avrupa ağı DYPALL Network’ün üyesi oldu."
