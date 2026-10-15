@@ -4,42 +4,47 @@ title_en: "KOZ-DER Joins the DYPALL Network"
 date: "2026-10-15"
 location: "Kilis"
 coverImage: "/images/news/dypall-uyelik.jpeg"
-coverFit: "contain"
+coverFit: "cover"
 images:
   - "/images/news/dypall-uyelik.jpeg"
-summary_tr: "KOZ-DER, gençlerin yerel düzeyde karar alma süreçlerine katılımı üzerine çalışan ve 30’dan fazla ülkeden 80’i aşkın kuruluşu bir araya getiren Avrupa ağı DYPALL Network’ün üyesi oldu."
-summary_en: "KOZ-DER has joined DYPALL Network, a European platform of more than 80 organisations and local authorities from over 30 countries working on youth participation in local decision-making."
+summary_tr: "KOZ-DER, gençlerin yerel düzeyde karar alma süreçlerine katılımını güçlendirmek için çalışan Avrupa ağı DYPALL Network’ün üyesi oldu."
+summary_en: "KOZ-DER is now a proud member of DYPALL Network, a European network promoting youth participation in decision-making at the local level."
 featured: true
 draft: false
 ---
 
 # KOZ-DER Joins the DYPALL Network
 
-🌍🤝 **We are happy to announce that KOZ-DER (Youth Mind Games and Coding Association) has become a member of DYPALL Network, one of Europe's leading youth participation networks!**
+🌍🤝 **We are happy to announce that KOZ-DER (Youth Mind Games and Coding Association) has become a member of DYPALL Network. We can now proudly say: KOZ-DER is a proud member of DYPALL Network!**
 
-## What Is DYPALL Network?
+We are now part of DYPALL Network, a European network promoting youth participation in decision-making at the local level.
 
-**DYPALL Network (Developing Youth Participation at Local Level)** is a **European platform** of civil society organisations, local authorities and research institutions focusing on youth participation in decision-making at the local level. It brings together more than 80 civil society organisations and local authorities from over 30 countries. Based in Portimão, Portugal, the network stands for the active and meaningful involvement of young people in local democracy through cooperation with local authorities.
+## About DYPALL Network
 
-## The Network's Priorities
+**DYPALL Network (Developing Youth Participation at Local Level)** is a European platform of civil society organisations, local authorities and research institutions focusing on youth participation in decision-making processes at the local level. By fostering cooperation, building capacities and advocating for participatory governance, the network contributes to stronger local democracies where young people are recognised as active partners in decision-making.
 
-- Developing **structures and mechanisms** for youth participation in local decision-making
-- Mainstreaming youth policies at **local and regional level**
-- Strengthening spaces such as **local youth councils** and building the capacity of the young people in them
-- Offering members **exchange of good practice, training and capacity building**
-- Bringing local experience and members' voices into **European youth policy discussions**
+In short: **DYPALL Network is a European network that empowers municipalities, institutions and youth organisations to develop inclusive participation mechanisms that enable young people to shape local decision-making.**
 
-**YP Lab**, part of DYPALL Network, is a resource and mobility centre focused on research and capacity building in local youth participation. The network also runs training and study sessions in cooperation with the Council of Europe Youth Department, and produces publications, guides and tools on local youth participation.
+### Mission and vision
+
+- **Mission:** DYPALL Network stands for the creation of effective and sustainable involvement of youth in decision-making with local authorities through the development of strategies and building structures and relations of trust between actors.
+- **Vision:** We strive for a society in which local democracies are built jointly by young people and decision-makers in an inclusive, participatory and meaningful way.
+
+### Values
+
+Democratic values · Respect for diversity · Complementarity between public and private sector · Shared decisions · Equal opportunities · Sustainability
 
 ## What This Membership Means for KOZ-DER
 
-We bring our work with young people in Kilis, including mind games, coding, Speaking Club, environmental and disaster awareness activities, and our Erasmus+ and European Solidarity Corps experience, into this network. Through our membership we aim to:
+We bring our work with young people in Kilis, including mind games, coding, Speaking Club, environmental and disaster awareness activities, and our Erasmus+ and European Solidarity Corps experience, to the organisations in this network. Through our membership we aim to:
 
-- build **new partnerships** with organisations and local authorities across Europe,
-- widen our young people's access to **training, study sessions and mobility** opportunities,
+- **share experience and build new partnerships** with member organisations across Europe,
+- widen our young people's access to **training and mobility** opportunities,
 - bring good practice to Kilis so that young people take a **greater part in local decision-making**,
-- **share** our local experience in European-level discussions.
+- **share** our own work with the other members of the network.
 
 We will keep working for a future where young people's voices are heard locally and decisions are made together with them. 💙
 
-🔗 More about the network: [dypall.com](https://dypall.com/)
+🔗 More about DYPALL Network: [dypall.com](https://dypall.com/)
+
+*KOZ-DER's activities are its own responsibility; membership of DYPALL Network does not mean that the network organises or endorses them.*

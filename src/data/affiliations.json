@@ -5,10 +5,10 @@
     "items": [
       {
         "name": "DYPALL Network",
-        "logo": "/images/networks/dypall.png",
+        "logo": "/images/networks/dypall-member-badge.png",
         "url": "https://dypall.com/",
-        "w": 480,
-        "h": 174,
+        "w": 718,
+        "h": 346,
         "name_en": "DYPALL Network"
       },
       {
