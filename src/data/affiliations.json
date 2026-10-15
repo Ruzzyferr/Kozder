@@ -4,6 +4,14 @@
     "label_en": "Networks We Belong To",
     "items": [
       {
+        "name": "DYPALL Network",
+        "logo": "/images/networks/dypall.png",
+        "url": "https://dypall.com/",
+        "w": 480,
+        "h": 174,
+        "name_en": "DYPALL Network"
+      },
+      {
         "name": "EntreComp Europe",
         "logo": "/images/networks/entrecomp-europe.png",
         "url": "https://entrecompeurope.eu/",
