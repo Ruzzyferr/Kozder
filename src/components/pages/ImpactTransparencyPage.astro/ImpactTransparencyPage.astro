@@ -1,0 +1,120 @@
+---
+import { type Lang, path } from '../../i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../Breadcrumb.astro';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const english = lang === 'en';
+const title = english ? 'Impact & Transparency — KOZ-DER' : 'Etki ve Şeffaflık — KOZ-DER';
+const description = english
+  ? 'KOZ-DER activities, verified participation figures, completed projects and board reports.'
+  : 'KOZ-DER’in faaliyetleri, doğrulanmış katılım sayıları, projeleri ve yönetim kurulu raporları.';
+const heading = english ? 'Our impact, in the open.' : 'Etkimiz, açık ve anlaşılır.';
+const intro = english
+  ? 'A public overview of our youth work. Figures are tied to a year and activity; targets, attendances and unique people are kept distinct.'
+  : 'Gençlik çalışmalarımızın açık özeti. Sayılar yıl ve faaliyetle birlikte verilir; hedef, toplam katılım ve tekil kişi birbirine karıştırılmaz.';
+const metrics = english ? [
+  { number: '25', label: 'young people hosted', context: '2026 · No More Walls, Europe Calls · 4 countries' },
+  { number: '19+', label: 'short-term ESC sending placements', context: '2025 · at least 17 in Bulgaria and 2 in Greece, as listed in the board report' },
+  { number: '178', label: 'cultural trip attendances', context: '2025 · Göbeklitepe, Balıklıgöl and Halfeti activities; attendances, not unique people' },
+  { number: '8 months', label: 'youth resilience programme', context: '2025 · GSB-supported project in Kilis' },
+] : [
+  { number: '25', label: 'ağırlanan genç', context: '2026 · No More Walls, Europe Calls · 4 ülkeden' },
+  { number: '19+', label: 'kısa dönem ESC gönderimi', context: '2025 · yönetim raporunda Bulgaristan için en az 17, Yunanistan için 2 kişi listeleniyor' },
+  { number: '178', label: 'kültürel gezi katılımı', context: '2025 · Göbeklitepe, Balıklıgöl ve Halfeti faaliyetleri; tekil kişi sayısı değildir' },
+  { number: '8 ay', label: 'gençlik dayanıklılığı programı', context: '2025 · Kilis’te GSB destekli proje' },
+];
+const projects = english ? [
+  { year: '2026', title: 'No More Walls, Europe Calls', text: 'Erasmus+ youth exchange hosted in Kilis with young people from Azerbaijan, Bulgaria, Georgia and Türkiye (25 participants).', tag: 'Erasmus+' },
+  { year: '2026', title: 'ESC volunteer sending', text: 'Preparing, matching and supporting young people for European Solidarity Corps volunteering placements.', tag: 'ESC' },
+  { year: '2026', title: 'Speaking Club & Book Club', text: 'Free, regular spaces for English speaking practice, reading, discussion and critical thinking.', tag: 'Local youth work' },
+  { year: '2026', title: 'Sivil Düşün support', text: 'A civil society support activity; public output and participation totals will be added after the final records are confirmed.', tag: 'Sivil Düşün' },
+  { year: '2025', title: 'Zeka Oyunları, Dijitalleşme ve Afet Bilinci', text: 'Eight-month programme combining disaster awareness, psychosocial support, intelligence games, robotics and cultural visits for young people affected by the earthquakes.', tag: 'GSB' },
+  { year: '2025', title: 'Life for PRR (Protect, Reduce, Reuse)', text: 'Erasmus+ youth exchange hosted in Kilis around sustainability, reuse, community action and intercultural learning.', tag: 'Erasmus+' },
+  { year: '2025', title: 'Kilis Intelligence Games & Robotics Festival', text: 'A local festival with robotics, VR, intelligence games and tournament activities.', tag: 'Ministry of Interior' },
+  { year: '2023', title: 'ESC and Erasmus+ activities', text: 'Volunteer placements, the 3RE project in Italy, Game ON online activities, tournaments and youth information sessions documented in the activity report.', tag: 'ESC · Erasmus+' },
+] : [
+  { year: '2026', title: 'No More Walls, Europe Calls', text: 'Azerbaycan, Bulgaristan, Gürcistan ve Türkiye’den 25 gencin katıldığı Erasmus+ gençlik değişimine Kilis’te ev sahipliği yapıldı.', tag: 'Erasmus+' },
+  { year: '2026', title: 'ESC gönüllü gönderimleri', text: 'Gençlerin Avrupa Dayanışma Programı gönüllülüklerine hazırlanması, eşleştirilmesi ve hareketlilik boyunca desteklenmesi.', tag: 'ESC' },
+  { year: '2026', title: 'Speaking Club ve Kitap Okuma Kulübü', text: 'İngilizce konuşma pratiği, okuma, tartışma ve eleştirel düşünme için düzenli ve ücretsiz alanlar.', tag: 'Yerel gençlik çalışması' },
+  { year: '2026', title: 'Sivil Düşün desteği', text: 'Sivil toplum desteği kapsamındaki çıktı ve katılım sayıları, sonuç kayıtları doğrulandıktan sonra eklenecek.', tag: 'Sivil Düşün' },
+  { year: '2025', title: 'Zekâ Oyunları, Dijitalleşme ve Afet Bilinci', text: 'Depremden etkilenen gençler için afet bilinci, psikososyal destek, zekâ oyunları, robotik ve kültürel gezileri buluşturan sekiz aylık program.', tag: 'GSB' },
+  { year: '2025', title: 'Life for PRR (Protect, Reduce, Reuse)', text: 'Sürdürülebilirlik, yeniden kullanım, toplumsal katılım ve kültürlerarası öğrenme temalı Erasmus+ gençlik değişimi.', tag: 'Erasmus+' },
+  { year: '2025', title: 'Kilis Zekâ Oyunları ve Robotik Festivali', text: 'Robotik, VR, zekâ oyunları ve turnuva faaliyetlerini buluşturan yerel festival.', tag: 'İçişleri Bakanlığı' },
+  { year: '2023', title: 'ESC ve Erasmus+ çalışmaları', text: 'Faaliyet raporunda yer alan gönüllü gönderimleri, İtalya’daki 3RE projesi, Game ON çevrimiçi faaliyetleri, turnuvalar ve gençlik bilgilendirme buluşmaları.', tag: 'ESC · Erasmus+' },
+];
+const reports = english ? [
+  { title: '2025 Board Activity Report', description: 'Annual report covering organizational work, projects, ESC sending and local youth activities.', href: 'https://drive.google.com/file/d/17oSxwJsT3V1YQecMkP9K0gU_-TUZRi4N/view?usp=drivesdk', format: 'PDF' },
+  { title: 'Board report (period report)', description: 'The document is titled 2022 in Drive; its text describes the board period beginning in 2022 and activities through 2023.', href: 'https://docs.google.com/document/d/13Ivkfz0h5igOzDY8-XT7c00glwuWSRmb/edit', format: 'DOCX' },
+] : [
+  { title: '2025 Yönetim Kurulu Faaliyet Raporu', description: 'Kurumsal çalışmalar, projeler, ESC gönderimleri ve yerel gençlik faaliyetlerinin yıllık özeti.', href: 'https://drive.google.com/file/d/17oSxwJsT3V1YQecMkP9K0gU_-TUZRi4N/view?usp=drivesdk', format: 'PDF' },
+  { title: 'Yönetim kurulu dönem raporu', description: 'Drive’da dosya adı 2022; metin 2022’de başlayan yönetim dönemini ve 2023’e uzanan faaliyetleri anlatıyor.', href: 'https://docs.google.com/document/d/13Ivkfz0h5igOzDY8-XT7c00glwuWSRmb/edit', format: 'DOCX' },
+];
+---
+
+<BaseLayout lang={lang} title={title} description={description} alternate={english ? '/etki-ve-seffaflik' : '/en/impact-transparency'}>
+  <Breadcrumb
+    lang={lang}
+    kicker={english ? 'Accountability' : 'Hesap verebilirlik'}
+    items={[{ label: english ? 'Home' : 'Ana Sayfa', href: path(lang, 'home') }]}
+    pageTitle={heading}
+    intro={intro}
+  />
+
+  <div class="container mx-auto px-4 py-12 sm:py-20">
+    <section aria-label={english ? 'Impact figures' : 'Etki göstergeleri'} class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      {metrics.map((metric, index) => (
+        <article class:list={['card card-hover p-6 sm:p-8', index === 0 ? 'bg-brand-walnut text-brand-cream' : 'bg-brand-cream']}>
+          <p class:list={['font-display text-5xl sm:text-6xl font-black leading-none tracking-tightest', index === 0 ? 'text-brand-cream' : 'text-brand-stamp']}>{metric.number}</p>
+          <h2 class:list={['mt-5 font-display text-xl font-bold leading-tight', index === 0 ? 'text-brand-cream' : 'text-brand-ink']}>{metric.label}</h2>
+          <p class:list={['mt-3 text-sm leading-relaxed', index === 0 ? 'text-brand-cream/80' : 'text-ink-soft']}>{metric.context}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="mt-16 sm:mt-24">
+      <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="mb-2 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{english ? 'What we do' : 'Neler yapıyoruz?'}</p>
+          <h2 class="font-display text-3xl font-black tracking-tightest text-brand-ink sm:text-5xl">{english ? 'Projects & programmes' : 'Projeler ve programlar'}</h2>
+        </div>
+        <a href={path(lang, 'projects')} class="rounded-lg border-2 border-brand-ink px-4 py-2 font-bold text-brand-ink transition hover:bg-brand-ink hover:text-white">{english ? 'All projects' : 'Tüm projeler'} ↗</a>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2">
+        {projects.map(project => (
+          <article class="card card-hover bg-white/80 p-6 sm:p-7">
+            <div class="mb-4 flex items-center justify-between gap-3">
+              <span class="font-display text-2xl font-black text-brand-stamp">{project.year}</span>
+              <span class="rounded-full border border-brand-walnut/30 bg-brand-walnut/5 px-3 py-1 text-xs font-bold text-brand-walnut">{project.tag}</span>
+            </div>
+            <h3 class="font-display text-xl font-bold leading-tight text-brand-ink">{project.title}</h3>
+            <p class="mt-3 leading-relaxed text-ink-soft">{project.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-16 rounded-3xl border border-white/70 bg-gradient-to-br from-white/90 via-white/70 to-orange-50/80 p-6 shadow-xl backdrop-blur-xl sm:mt-24 sm:p-10">
+      <p class="mb-2 text-sm font-bold uppercase tracking-[0.16em] text-brand-stamp">{english ? 'Public records' : 'Kamuya açık kayıtlar'}</p>
+      <h2 class="font-display text-3xl font-black tracking-tightest text-brand-ink sm:text-5xl">{english ? 'Board reports' : 'Yönetim kurulu raporları'}</h2>
+      <p class="mt-4 max-w-3xl leading-relaxed text-ink-soft">{english ? 'Reports are linked to the organization’s Drive. Google may require an authorized account to open them; public access has not been enabled on the source files.' : 'Raporlar derneğin Drive dosyalarına bağlanır. Açmak için yetkili Google hesabı gerekebilir; kaynak dosyalarda herkese açık erişim bulunmuyor.'}</p>
+      <div class="mt-7 grid gap-4 lg:grid-cols-2">
+        {reports.map(report => (
+          <article class="card bg-white/80 p-6">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold text-brand-ink">{report.title}</h3>
+                <p class="mt-2 leading-relaxed text-ink-soft">{report.description}</p>
+              </div>
+              <span class="rounded bg-brand-cream px-3 py-1 text-xs font-black text-brand-walnut">{report.format}</span>
+            </div>
+            <a href={report.href} target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex font-bold text-brand-stamp underline decoration-2 underline-offset-4">{english ? 'Open report' : 'Raporu aç'} ↗</a>
+          </article>
+        ))}
+      </div>
+      <p class="mt-6 rounded-xl border-l-4 border-brand-stamp bg-white/65 p-4 text-sm leading-relaxed text-ink-soft">{english ? 'The 2026 activity report is still a draft. Unverified totals and targets are not presented as achieved results. Personal participant data and detailed financial records are not published here.' : '2026 faaliyet raporu taslak aşamasında. Doğrulanmayan toplamlar ve hedefler gerçekleşmiş sonuç gibi gösterilmez. Katılımcıların kişisel bilgileri ve ayrıntılı mali kayıtlar bu sayfada yayımlanmaz.'}</p>
+    </section>
+  </div>
+</BaseLayout>
+  
