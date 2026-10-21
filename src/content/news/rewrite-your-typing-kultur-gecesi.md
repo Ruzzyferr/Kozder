@@ -1,13 +1,13 @@
 ---
-title_tr: "(RE)WRITE YOUR TYPING Kültür Gecesinde Türkiye’yi Tanıttık"
-title_en: "We Introduced Türkiye at the (RE)WRITE YOUR TYPING Intercultural Evening"
+title_tr: "Puck’ta Bir Türkiye Gecesi: Gönüllülerimiz Kültürümüzü Kına Geleneğiyle Tanıttı"
+title_en: "A Turkish Evening in Puck: Our Volunteers Shared Türkiye’s Culture with a Henna Night"
 date: "2026-10-19"
 location: "Puck, Polonya"
-coverImage: "/images/news/rewritekulturgecesi.jpeg"
-coverFit: "contain"
+coverImage: "/images/news/rewritekulturgecesi1.jpeg"
+coverFit: "cover"
 images:
-  - "/images/news/rewritekulturgecesi.jpeg"
   - "/images/news/rewritekulturgecesi1.jpeg"
+  - "/images/news/rewritekulturgecesi.jpeg"
   - "/images/news/rewritekulturgecesi2.jpeg"
   - "/images/news/rewritekulturgecesi3.jpeg"
   - "/images/news/rewritekulturgecesi4.jpeg"
@@ -18,7 +18,7 @@ featured: false
 draft: false
 ---
 
-# (RE)WRITE YOUR TYPING Kültür Gecesinde Türkiye’yi Tanıttık
+# Puck’ta Bir Türkiye Gecesi: Gönüllülerimiz Kültürümüzü Kına Geleneğiyle Tanıttı
 
 🇹🇷✨ **Polonya’da Türkiye’yi anlattık, kültürümüzü paylaştık!**
 
@@ -39,6 +39,13 @@ Gecenin en çok ilgi gören bölümü, gönüllülerimizin canlandırdığı **t
 Farklı ülkelerden gençlerin merakla dinlediği ve sorularıyla katkı sunduğu bu güzel gecede, Türkiye’nin zengin kültürel çeşitliliğini paylaşmanın gururunu yaşadık. 🇹🇷🤝🇵🇱
 
 Erasmus+’ın en güzel yanlarından biri de tam olarak bu: **kendi kültürünü paylaşırken başka kültürleri de yakından tanımak.** Gönüllülerimize bu özenli hazırlıkları için teşekkür ediyor, projenin geri kalanında da güzel deneyimler biriktirmelerini diliyoruz.
+
+## Geceden Videolar
+
+🎬 Kültür gecesinden kısa videoları Instagram hesabımızda izleyebilirsiniz:
+
+- [Kültür gecesinden video 1](https://www.instagram.com/reel/Detba-QNdYz/?utm_source=ig_web_button_share_sheet&vrfl=MzRlODBiNWFlZA==)
+- [Kültür gecesinden video 2](https://www.instagram.com/reel/DeuNnoUBVUR/?utm_source=ig_web_button_share_sheet&vrfl=MzRlODBiNWFlZA==)
 
 Proje hakkında ayrıntılı bilgi için: [(RE)WRITE YOUR TYPING proje sayfası](/projeler/rewrite-your-typing)
 

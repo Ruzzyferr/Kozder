@@ -1,13 +1,13 @@
 ---
-title_tr: "(RE)WRITE YOUR TYPING Kültür Gecesinde Türkiye’yi Tanıttık"
-title_en: "We Introduced Türkiye at the (RE)WRITE YOUR TYPING Intercultural Evening"
+title_tr: "Puck’ta Bir Türkiye Gecesi: Gönüllülerimiz Kültürümüzü Kına Geleneğiyle Tanıttı"
+title_en: "A Turkish Evening in Puck: Our Volunteers Shared Türkiye’s Culture with a Henna Night"
 date: "2026-10-19"
 location: "Puck, Polonya"
-coverImage: "/images/news/rewritekulturgecesi.jpeg"
-coverFit: "contain"
+coverImage: "/images/news/rewritekulturgecesi1.jpeg"
+coverFit: "cover"
 images:
-  - "/images/news/rewritekulturgecesi.jpeg"
   - "/images/news/rewritekulturgecesi1.jpeg"
+  - "/images/news/rewritekulturgecesi.jpeg"
   - "/images/news/rewritekulturgecesi2.jpeg"
   - "/images/news/rewritekulturgecesi3.jpeg"
   - "/images/news/rewritekulturgecesi4.jpeg"
@@ -18,7 +18,7 @@ featured: false
 draft: false
 ---
 
-# We Introduced Türkiye at the (RE)WRITE YOUR TYPING Intercultural Evening
+# A Turkish Evening in Puck: Our Volunteers Shared Türkiye’s Culture with a Henna Night
 
 🇹🇷✨ **We told the story of Türkiye in Poland and shared our culture!**
 
@@ -39,6 +39,13 @@ The highlight of the evening was a **symbolic henna night (kına gecesi)** stage
 On this lovely evening, as young people from different countries listened with curiosity and joined in with their questions, we were proud to share Türkiye's rich cultural diversity. 🇹🇷🤝🇵🇱
 
 This is one of the best things about Erasmus+: **getting to know other cultures closely while sharing your own.** We thank our volunteers for their careful preparation and wish them many more great experiences for the rest of the project.
+
+## Videos from the Evening
+
+🎬 Watch short videos from the intercultural evening on our Instagram:
+
+- [Video from the evening 1](https://www.instagram.com/reel/Detba-QNdYz/?utm_source=ig_web_button_share_sheet&vrfl=MzRlODBiNWFlZA==)
+- [Video from the evening 2](https://www.instagram.com/reel/DeuNnoUBVUR/?utm_source=ig_web_button_share_sheet&vrfl=MzRlODBiNWFlZA==)
 
 More about the project: [(RE)WRITE YOUR TYPING project page](/en/projects/rewrite-your-typing)
 
