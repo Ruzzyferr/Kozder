@@ -7,6 +7,7 @@ coverImage: "/images/news/rewriteyouthpass.jpeg"
 coverFit: "cover"
 images:
   - "/images/news/rewriteyouthpass.jpeg"
+  - "/images/news/rewriteyouthpass6.jpeg"
   - "/images/news/rewriteyouthpass1.jpeg"
   - "/images/news/rewriteyouthpass2.jpeg"
   - "/images/news/rewriteyouthpass3.jpeg"
