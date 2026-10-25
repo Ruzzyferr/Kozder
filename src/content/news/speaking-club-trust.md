@@ -3,7 +3,7 @@ title_tr: "KOZ-DER Speaking Club’ta Bu Haftanın Konusu: Trust / Güven"
 title_en: "This Week at KOZ-DER Speaking Club: Trust"
 date: "2026-10-23"
 location: "Kilis"
-coverImage: "/images/news/speakingclubtrust2026.jpeg"
+coverImage: "/images/news/speakingclubtrust2026-yatay.jpeg"
 coverFit: "cover"
 images:
   - "/images/news/speakingclubtrust2026.jpeg"
