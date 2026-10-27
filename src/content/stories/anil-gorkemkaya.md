@@ -17,7 +17,7 @@ featured: true
 
 Merhaba, ben **Anıl Görkem KAYA**.
 
-KOZ-DER aracılığıyla, **Veraldarvinir / Worldwide Friends Iceland** ev sahipliğinde İzlanda’da gerçekleştirilen **Environmental Protection (Çevre Koruma)** adlı Avrupa Dayanışma Programı projesine katılma fırsatı buldum. Projemiz **02 Temmuz 2026 – 15 Ağustos 2026** tarihleri arasında **Reykjavík ve Brú, İzlanda** bölgesinde gerçekleştirildi.
+**KOZ-DER** aracılığıyla, **Veraldarvinir / Worldwide Friends Iceland** ev sahipliğinde İzlanda’da gerçekleştirilen **Environmental Protection (Çevre Koruma)** adlı Avrupa Dayanışma Programı projesine katılma fırsatı buldum. Projemiz **02 Temmuz 2026 – 15 Ağustos 2026** tarihleri arasında **Reykjavík ve Brú, İzlanda** bölgesinde gerçekleştirildi.
 
 ## Yola Çıkış ve İlk Adım
 

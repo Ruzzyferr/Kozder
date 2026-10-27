@@ -41,7 +41,7 @@ featured: true
 
 ## Oyunla Öğrenme, Birlikte Güçlenme
 
-KOZ-DER tarafından **T.C. Gençlik ve Spor Bakanlığı desteğiyle** yürütülen **“Zeka Oyunları, Dijitalleşme ve Afet Bilinci: Gençler İçin Geleceğe Bir Yolculuk”** projesi kapsamında, gençlere yönelik zeka oyunları eğitimleri ve turnuvalar gerçekleştirildi. Eğitimler, oyunların kurallarını öğrenme ve uygulama fırsatını, gençlerin birlikte vakit geçirebildiği sosyal bir ortamla birleştirdi.
+**KOZ-DER** tarafından **T.C. Gençlik ve Spor Bakanlığı desteğiyle** yürütülen **“Zeka Oyunları, Dijitalleşme ve Afet Bilinci: Gençler İçin Geleceğe Bir Yolculuk”** projesi kapsamında, gençlere yönelik zeka oyunları eğitimleri ve turnuvalar gerçekleştirildi. Eğitimler, oyunların kurallarını öğrenme ve uygulama fırsatını, gençlerin birlikte vakit geçirebildiği sosyal bir ortamla birleştirdi.
 
 6 Şubat depremlerinden etkilenen Kilis’teki gençlerin güçlendirilmesini amaçlayan proje, **910.000 TL hibe desteğiyle** ve yaklaşık **sekiz aylık bir uygulama takvimiyle** planlandı. **14–29 yaş aralığındaki gençlere** yönelik programda zeka oyunları; robotik kodlama, dijital beceriler, afet farkındalığı, psikososyal destek ve kültürel-sosyal faaliyetlerle birlikte ele alındı.
 
@@ -69,6 +69,6 @@ Afetlerden etkilenen gençlere yönelik bu çalışmada öğrenme, sosyalleşme 
 
 ## Teşekkür
 
-KOZ-DER olarak, projenin hayata geçirilmesine verdiği destek için **T.C. Gençlik ve Spor Bakanlığına**, zeka oyunları eğitimlerine emek ve katkı sunan **eğitmenlerimiz Mevlide Özkaraca ve Özlem Çiloğlu’na**, organizasyon sürecinde görev alan ekibimize ve eğitimlerle turnuvalara katılan tüm gençlere teşekkür ederiz.
+**KOZ-DER** olarak, projenin hayata geçirilmesine verdiği destek için **T.C. Gençlik ve Spor Bakanlığına**, zeka oyunları eğitimlerine emek ve katkı sunan **eğitmenlerimiz Mevlide Özkaraca ve Özlem Çiloğlu’na**, organizasyon sürecinde görev alan ekibimize ve eğitimlerle turnuvalara katılan tüm gençlere teşekkür ederiz.
 
 Gençlerin öğrenebildiği, birlikte üretebildiği ve dayanışma içinde güçlenebildiği alanlar oluşturmaya devam ediyoruz.

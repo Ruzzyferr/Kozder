@@ -17,7 +17,7 @@ featured: true
 
 # LIFE for PRR Through the Eyes of a Volunteer: A Story Reaching from Kilis to the World
 
-Hello dear KOZ-DER readers, I am **Özlem ÇİLOĞLU**. 🌿
+Hello dear **KOZ-DER** readers, I am **Özlem ÇİLOĞLU**. 🌿
 
 Once again, I would like to tell you about an amazing project. But this time, our destination is not abroad. It is beautiful Kilis, a small city in southeastern Türkiye that became a province after separating from Gaziantep — small in size, but full of big stories!
 
@@ -29,7 +29,7 @@ Ours was a little like that. :)
 
 ## Before Everything Began...
 
-Since I was already in Kilis before the project started, I had the opportunity to support the KOZ-DER team voluntarily with the logistical and preparation processes of the project.
+Since I was already in Kilis before the project started, I had the opportunity to support the **KOZ-DER** team voluntarily with the logistical and preparation processes of the project.
 
 Canva designs, roll-up designs, participant cards, meetings with participants, travel arrangements, protocol visits and many other small details — which were actually extremely important for making the project happen — were among the things we worked on.
 

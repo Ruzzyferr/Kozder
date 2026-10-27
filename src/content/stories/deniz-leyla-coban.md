@@ -15,7 +15,7 @@ featured: true
 
 Merhaba,
 
-Ben **Deniz Leyla ÇOBAN**. KOZ-DER aracılığıyla Fas’ın **Agdz** şehrinde gerçekleştirilen Avrupa Dayanışma Programı **(ESC)** kapsamında **14 Nisan - 6 Haziran** tarihleri arasında gönüllü olarak görev alma fırsatı buldum.
+Ben **Deniz Leyla ÇOBAN**. **KOZ-DER** aracılığıyla Fas’ın **Agdz** şehrinde gerçekleştirilen Avrupa Dayanışma Programı **(ESC)** kapsamında **14 Nisan - 6 Haziran** tarihleri arasında gönüllü olarak görev alma fırsatı buldum.
 
 Bu projeye katılırken amacım yeni bir kültür tanımak, uluslararası bir ortamda deneyim kazanmak ve farklı insanlarla birlikte çalışmaktı. Ancak Fas’ta geçirdiğim yaklaşık iki ay boyunca edindiğim deneyimler, beklentilerimin çok ötesine geçti.
 

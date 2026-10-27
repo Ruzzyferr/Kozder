@@ -16,7 +16,7 @@ featured: true
 
 Hello, I am **Ege Şemsettin SÖNMEZ**.
 
-Through KOZ-DER, I had the opportunity to take part as a volunteer in a **European Solidarity Corps (ESC)** project carried out in Madan, Bulgaria. I started this journey with the aim of discovering new cultures, meeting different people and creating social benefit. However, this experience gave me much more than I had expected; it became a deep and transformative life experience for me.
+Through **KOZ-DER**, I had the opportunity to take part as a volunteer in a **European Solidarity Corps (ESC)** project carried out in Madan, Bulgaria. I started this journey with the aim of discovering new cultures, meeting different people and creating social benefit. However, this experience gave me much more than I had expected; it became a deep and transformative life experience for me.
 
 ## Our Field Work and Solidarity
 

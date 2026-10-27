@@ -14,7 +14,7 @@ featured: true
 
 Hello everyone,
 
-I am **Hatice Gül**. The volunteering project I did through KOZ-DER in **Orta Nova**, Italy between **10 April and 3 June** was one of the most instructive and enjoyable periods of my life.
+I am **Hatice Gül**. The volunteering project I did through **KOZ-DER** in **Orta Nova**, Italy between **10 April and 3 June** was one of the most instructive and enjoyable periods of my life.
 
 Orta Nova is a small settlement with real character, far from the noise of big cities. When I first arrived I was met by the sincerity and hospitality of local people. They were so warm and helpful that I felt I belonged there very quickly.
 

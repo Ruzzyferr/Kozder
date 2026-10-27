@@ -36,4 +36,4 @@ Bu ziyaret, gençlerin girişimcilik, dijital dönüşüm ve sosyal etki alanlar
 
 Proje ekibi olarak, misafirperverlikleri ve paylaştıkları değerli bilgiler için **İstasyon Gaziantep yetkililerine** teşekkür ederiz.
 
-KOZ-DER olarak gençlerin yeni fikirler geliştirmesini, farklı kurumları tanımasını, yerel ve uluslararası düzeyde daha aktif bireyler haline gelmesini destekleyen çalışmalarımıza devam ediyoruz.
+**KOZ-DER** olarak gençlerin yeni fikirler geliştirmesini, farklı kurumları tanımasını, yerel ve uluslararası düzeyde daha aktif bireyler haline gelmesini destekleyen çalışmalarımıza devam ediyoruz.

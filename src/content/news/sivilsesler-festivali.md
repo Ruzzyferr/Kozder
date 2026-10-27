@@ -14,13 +14,13 @@ summary_tr: "KOZ-DER olarak Ankara’da düzenlenen Sivil Sesler Festivali’ne 
 summary_en: "As KOZ-DER, we participated in the Civil Voices Festival in Ankara, met with our volunteers, introduced our projects, shared experiences and connected with new volunteer candidates."
 ---
 
-KOZ-DER olarak Ankara’da düzenlenen **Sivil Sesler Festivali**ne katılarak gönüllülerimizle, gençlerle ve sivil toplum alanına ilgi duyan katılımcılarla bir araya geldik. Festival alanında açtığımız standımızda KOZ-DER’in yürüttüğü uluslararası projeleri, gönüllülük fırsatlarını, ESC ve Erasmus+ süreçlerini tanıttık.
+**KOZ-DER** olarak Ankara’da düzenlenen **Sivil Sesler Festivali**ne katılarak gönüllülerimizle, gençlerle ve sivil toplum alanına ilgi duyan katılımcılarla bir araya geldik. Festival alanında açtığımız standımızda **KOZ-DER**’in yürüttüğü uluslararası projeleri, gönüllülük fırsatlarını, ESC ve Erasmus+ süreçlerini tanıttık.
 
 Etkinlik boyunca daha önce projelerimize katılmış gönüllülerimizle buluşma fırsatı yakaladık. Gönüllülerimiz kendi deneyimlerini paylaşırken, yeni gönüllü adayları da başvuru süreçleri, proje içerikleri ve Avrupa fırsatları hakkında merak ettikleri soruları doğrudan sorma imkânı buldu.
 
 ## Festivalde Neler Yaptık?
 
-- KOZ-DER’in yürüttüğü uluslararası projeleri tanıttık
+- **KOZ-DER**’in yürüttüğü uluslararası projeleri tanıttık
 - ESC ve Erasmus+ fırsatları hakkında bilgilendirme yaptık
 - Gönüllülük süreçleri ve başvuru adımlarını anlattık
 - Daha önce projelere katılmış gönüllülerimizle bir araya geldik
@@ -36,7 +36,7 @@ Bu buluşma sayesinde hem eski gönüllülerimizle bağımızı güçlendirdik h
 
 ## Sivil Sesler Festivali’nde KOZ-DER
 
-Festival boyunca KOZ-DER olarak gençlik çalışmaları, gönüllülük, kültürlerarası öğrenme ve uluslararası hareketlilik alanındaki çalışmalarımızı daha geniş bir kitleye tanıtma fırsatı bulduk. Standımızı ziyaret eden katılımcılarla ESC, Erasmus+ ve gençlik projeleri hakkında bilgi paylaşımında bulunduk.
+Festival boyunca **KOZ-DER** olarak gençlik çalışmaları, gönüllülük, kültürlerarası öğrenme ve uluslararası hareketlilik alanındaki çalışmalarımızı daha geniş bir kitleye tanıtma fırsatı bulduk. Standımızı ziyaret eden katılımcılarla ESC, Erasmus+ ve gençlik projeleri hakkında bilgi paylaşımında bulunduk.
 
 Ankara’da gerçekleşen bu buluşma, gönüllülük kültürünü yaygınlaştırmak ve gençlerin uluslararası fırsatlara erişimini artırmak adına bizim için oldukça değerliydi.
 

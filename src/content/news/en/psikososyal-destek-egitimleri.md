@@ -22,7 +22,7 @@ featured: true
 
 ## Psychosocial Support for Disaster-Affected Young People
 
-As part of **“Mind Games, Digitalisation and Disaster Awareness: A Journey towards the Future for Young People”**, KOZ-DER organised **psychosocial support training and group activities** for earthquake-affected young people with the support of the **Ministry of Youth and Sports of the Republic of Türkiye**.
+As part of **“Mind Games, Digitalisation and Disaster Awareness: A Journey towards the Future for Young People”**, **KOZ-DER** organised **psychosocial support training and group activities** for earthquake-affected young people with the support of the **Ministry of Youth and Sports of the Republic of Türkiye**.
 
 Delivered by **Specialist Psychological Counsellor Cevher Çetin**, the training addressed the effects of the earthquake on young people. The activities helped support participants in making sense of their experiences and strengthening their psychological resilience, complementing the project’s learning and social participation activities.
 
@@ -46,6 +46,6 @@ Psychosocial support training formed an important part of the programme’s appr
 
 ## Thank You
 
-KOZ-DER thanks the **Ministry of Youth and Sports of the Republic of Türkiye** for its support, **Specialist Psychological Counsellor Cevher Çetin** for delivering the psychosocial support training and activities, our organising team and all young people who took part.
+**KOZ-DER** thanks the **Ministry of Youth and Sports of the Republic of Türkiye** for its support, **Specialist Psychological Counsellor Cevher Çetin** for delivering the psychosocial support training and activities, our organising team and all young people who took part.
 
 We continue to work in solidarity to support young people after disasters, strengthen their social connections and build resilience.

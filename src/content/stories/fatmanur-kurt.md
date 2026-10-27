@@ -13,7 +13,7 @@ featured: true
 
 Herkese merhaba!
 
-Ben **Fatma Nur KURT**. KOZ-DER aracılığıyla Bulgaristan’ın **Madan** şehrinde gerçekleştirilen uluslararası gönüllülük projesine katılma fırsatı buldum. Bu projeye katılma amacım farklı kültürleri tanımak, yabancı dilimi geliştirmek ve dünyanın farklı yerlerinden insanlarla tanışmaktı. Ancak proje bana bunlardan çok daha fazlasını kazandırdı.
+Ben **Fatma Nur KURT**. **KOZ-DER** aracılığıyla Bulgaristan’ın **Madan** şehrinde gerçekleştirilen uluslararası gönüllülük projesine katılma fırsatı buldum. Bu projeye katılma amacım farklı kültürleri tanımak, yabancı dilimi geliştirmek ve dünyanın farklı yerlerinden insanlarla tanışmaktı. Ancak proje bana bunlardan çok daha fazlasını kazandırdı.
 
 ## Proje Sürecim
 

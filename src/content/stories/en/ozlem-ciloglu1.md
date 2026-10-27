@@ -23,9 +23,9 @@ Yes, yes, you...
 
 The young person who gets lost in projects, always wants to learn something new and sometimes wonders, “Could I take part in a project like this too?”
 
-If you are on the KOZ-DER website right now, you are in the right place. And if you have found your way to the Volunteer Stories section, I have some good news for you.
+If you are on the **KOZ-DER** website right now, you are in the right place. And if you have found your way to the Volunteer Stories section, I have some good news for you.
 
-Many young people just like you have taken part in different projects through KOZ-DER, met people from different countries, discovered new cultures and built wonderful friendships.
+Many young people just like you have taken part in different projects through **KOZ-DER**, met people from different countries, discovered new cultures and built wonderful friendships.
 
 In this story, I want to share some moments from the **“No More Walls” Youth Exchange** that we organised in Kilis in 2026, from the preparation period all the way to the final day, through the eyes of a volunteer.
 

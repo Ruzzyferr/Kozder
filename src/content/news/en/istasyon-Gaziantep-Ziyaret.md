@@ -36,4 +36,4 @@ This visit helped young people better understand entrepreneurship, digital trans
 
 As the project team, we would like to thank **İstasyon Gaziantep officials** for their hospitality and for sharing valuable information with our participants.
 
-As KOZ-DER, we continue to support activities that help young people develop new ideas, get to know different institutions and become more active individuals at local and international levels.
+As **KOZ-DER**, we continue to support activities that help young people develop new ideas, get to know different institutions and become more active individuals at local and international levels.

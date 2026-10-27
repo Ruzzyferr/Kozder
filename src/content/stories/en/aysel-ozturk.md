@@ -16,7 +16,7 @@ Sometimes you go somewhere and, even without staying long, you feel as though yo
 
 I am **Aysel Öztürk**.
 
-Last year I went to Madan on the **Green World** project through KOZ-DER. During my time there I had wonderful experiences and discovered sides of myself I had not noticed before. So when the chance came to return to Madan this year with the **ART EVS** project, again through KOZ-DER, I did not hesitate for a moment.
+Last year I went to Madan on the **Green World** project through **KOZ-DER**. During my time there I had wonderful experiences and discovered sides of myself I had not noticed before. So when the chance came to return to Madan this year with the **ART EVS** project, again through **KOZ-DER**, I did not hesitate for a moment.
 
 ## The Project
 

@@ -17,7 +17,7 @@ featured: true
 
 Hello, I am Emine Akpınar.
 
-I joined the **“No More Walls, Europe Calls”** Erasmus+ youth exchange hosted by KOZ-DER in my hometown, Kilis — the place where I was born and raised, and whose streets I know like the back of my hand. While many young people travel far away to have such an experience, for me the door to an international world opened right at home, in Kilis.
+I joined the **“No More Walls, Europe Calls”** Erasmus+ youth exchange hosted by **KOZ-DER** in my hometown, Kilis — the place where I was born and raised, and whose streets I know like the back of my hand. While many young people travel far away to have such an experience, for me the door to an international world opened right at home, in Kilis.
 
 This 10-day journey not only gave me brand new perspectives and a wider vision, but also allowed me to look at this ancient city, where I walk every day, with completely different eyes.
 

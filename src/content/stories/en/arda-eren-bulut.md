@@ -15,7 +15,7 @@ featured: true
 
 Hello everyone,
 
-I am **Arda Eren Bulut**. Through KOZ-DER I had the chance to join an international volunteering project in **Viana do Castelo**, Portugal. I joined to get to know other cultures, improve my language skills and meet people from around the world. The project gave me far more than that.
+I am **Arda Eren Bulut**. Through **KOZ-DER** I had the chance to join an international volunteering project in **Viana do Castelo**, Portugal. I joined to get to know other cultures, improve my language skills and meet people from around the world. The project gave me far more than that.
 
 ## How the Project Went
 

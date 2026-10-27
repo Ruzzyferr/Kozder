@@ -35,4 +35,4 @@ Each stop created an important space for participants to gain new knowledge and 
 
 The **No More Walls, Europe Calls** project aims to bring young people together with peers from different cultures, strengthen mutual understanding and create shared learning experiences. In line with this aim, the Kilis cultural trip contributed to helping participants discover Türkiye’s local culture and build a stronger connection with the city.
 
-As KOZ-DER, we are pleased to bring the historical and cultural values of Kilis together with international young people. We would like to thank all stakeholders and participants who contributed to the trip.
+As **KOZ-DER**, we are pleased to bring the historical and cultural values of Kilis together with international young people. We would like to thank all stakeholders and participants who contributed to the trip.

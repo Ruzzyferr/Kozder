@@ -21,7 +21,7 @@ featured: true
 
 ## Afetten Etkilenen Gençler İçin Bilgi, Hazırlık ve Dayanıklılık
 
-KOZ-DER tarafından **T.C. Gençlik ve Spor Bakanlığı desteğiyle**, **Afetten Etkilenen Gençlerin Güçlendirilmesi Destek Programı** kapsamında yürütülen **“Zeka Oyunları, Dijitalleşme ve Afet Bilinci: Gençler İçin Geleceğe Bir Yolculuk”** projesinde afet bilinci eğitimleri gerçekleştirildi. **AFAD iş birliğiyle düzenlenen eğitimlerden toplam 160 genç yararlandı.**
+**KOZ-DER** tarafından **T.C. Gençlik ve Spor Bakanlığı desteğiyle**, **Afetten Etkilenen Gençlerin Güçlendirilmesi Destek Programı** kapsamında yürütülen **“Zeka Oyunları, Dijitalleşme ve Afet Bilinci: Gençler İçin Geleceğe Bir Yolculuk”** projesinde afet bilinci eğitimleri gerçekleştirildi. **AFAD iş birliğiyle düzenlenen eğitimlerden toplam 160 genç yararlandı.**
 
 Kilis’te, 6 Şubat depremlerinden etkilenen gençlerin güçlendirilmesini amaçlayan proje, **910.000 TL hibe desteğiyle** ve yaklaşık **sekiz aylık bir uygulama takvimiyle** planlandı. **14–29 yaş aralığındaki gençlere** yönelik program; zeka oyunları, robotik kodlama, dijital beceriler, afet farkındalığı, psikososyal destek ve kültürel-sosyal faaliyetleri bir araya getirdi. Afet eğitimleri, bu çok yönlü programın gençlerin güvenliğini ve toplumsal dayanıklılığını destekleyen önemli bileşenlerinden biri oldu.
 
@@ -53,4 +53,4 @@ Projenin psikososyal destek bileşeniyle birlikte ele alındığında afet bilin
 
 **160 gence ulaşan afet bilinci eğitimleri**, projenin eğitim, sosyal katılım ve psikososyal destek hedeflerini tamamladı. Gençlerin dijital ve bilişsel beceriler edinirken afetlere karşı da bilinçlenmesi, programın çok yönlü yapısını güçlendirdi.
 
-KOZ-DER olarak, projeye verdiği destek için **T.C. Gençlik ve Spor Bakanlığına**, eğitimlerin gerçekleştirilmesindeki iş birliği için **Kilis AFAD’a ve Kilis AFAD Şube Müdürü Ayşe Şahin’e**, sürece katkı sunan ekibimize ve tüm katılımcı gençlere teşekkür ederiz. Afetlerden etkilenen gençlerin bilgi, beceri ve dayanıklılıklarını güçlendiren çalışmalarımızı dayanışma içinde sürdürmeye devam ediyoruz.
+**KOZ-DER** olarak, projeye verdiği destek için **T.C. Gençlik ve Spor Bakanlığına**, eğitimlerin gerçekleştirilmesindeki iş birliği için **Kilis AFAD’a ve Kilis AFAD Şube Müdürü Ayşe Şahin’e**, sürece katkı sunan ekibimize ve tüm katılımcı gençlere teşekkür ederiz. Afetlerden etkilenen gençlerin bilgi, beceri ve dayanıklılıklarını güçlendiren çalışmalarımızı dayanışma içinde sürdürmeye devam ediyoruz.

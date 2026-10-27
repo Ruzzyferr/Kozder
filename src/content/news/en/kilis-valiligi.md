@@ -19,12 +19,12 @@ The visit was attended by **KOZ-DER President Mevlide ÖZKARACA** and members of
 
 ## Association Activities and Projects Were Discussed
 
-During the meeting, KOZ-DER’s local youth activities, technology and coding-based work, mind games activities and international youth projects were discussed. Information was shared about the association’s efforts to support children and young people in developing **analytical thinking, problem-solving, creativity, digital skills and active participation**.
+During the meeting, **KOZ-DER**’s local youth activities, technology and coding-based work, mind games activities and international youth projects were discussed. Information was shared about the association’s efforts to support children and young people in developing **analytical thinking, problem-solving, creativity, digital skills and active participation**.
 
-Kilis Governor **Ömer KALAYLI** expressed his satisfaction with the visit and underlined the importance of projects that improve children’s and young people’s analytical thinking and technology competencies. Governor Kalaylı wished success to **Mevlide ÖZKARACA**, President of KOZ-DER, and the board members in their future work.
+Kilis Governor **Ömer KALAYLI** expressed his satisfaction with the visit and underlined the importance of projects that improve children’s and young people’s analytical thinking and technology competencies. Governor Kalaylı wished success to **Mevlide ÖZKARACA**, President of **KOZ-DER**, and the board members in their future work.
 
 ## Emphasis on Cooperation for Young People
 
-As KOZ-DER, we continue to work to strengthen young people’s access to education, technology, volunteering and international opportunities in Kilis. In this context, we believe that cooperation with local institutions makes an important contribution to helping young people become more skilled, productive and active individuals.
+As **KOZ-DER**, we continue to work to strengthen young people’s access to education, technology, volunteering and international opportunities in Kilis. In this context, we believe that cooperation with local institutions makes an important contribution to helping young people become more skilled, productive and active individuals.
 
 We would like to thank Kilis Governor **Ömer KALAYLI** for his kind reception, his support for youth work and his encouraging approach.

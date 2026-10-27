@@ -33,7 +33,7 @@ Through discussions, group work and practical sessions, the project went beyond 
 
 One of the most valuable aspects of the project was the opportunity to build new connections with participants and organisation representatives from different countries. We strengthened existing relationships and met potential new partners.
 
-From the perspective of international youth work, projects like this support more than individual learning. They also create a strong foundation for future partnerships and new forms of cooperation. In this respect, the project was also highly valuable for KOZ-DER.
+From the perspective of international youth work, projects like this support more than individual learning. They also create a strong foundation for future partnerships and new forms of cooperation. In this respect, the project was also highly valuable for **KOZ-DER**.
 
 ## Fun, Travel and Wonderful Memories
 

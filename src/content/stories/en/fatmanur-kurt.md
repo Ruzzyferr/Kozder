@@ -13,7 +13,7 @@ featured: true
 
 Hello everyone!
 
-I am **Fatma Nur Kurt**. Through KOZ-DER I had the chance to join an international volunteering project in **Madan**, Bulgaria. I joined to get to know other cultures, improve my language skills and meet people from around the world. The project gave me far more than that.
+I am **Fatma Nur Kurt**. Through **KOZ-DER** I had the chance to join an international volunteering project in **Madan**, Bulgaria. I joined to get to know other cultures, improve my language skills and meet people from around the world. The project gave me far more than that.
 
 ## My Project
 

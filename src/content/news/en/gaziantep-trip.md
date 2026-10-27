@@ -41,4 +41,4 @@ During the visits to Antep Bazaar, Coppersmiths’ Bazaar and Elmacı Bazaar, pa
 
 The Gaziantep cultural trip became one of the important activities contributing to these aims. Participants discovered the historical and cultural texture of the region while sharing a common learning and exploration experience with their peers from different countries.
 
-As KOZ-DER, we would like to thank **Children with Special Needs**, the stakeholders who supported the hosting process and all young participants who took part in the cultural trip.
+As **KOZ-DER**, we would like to thank **Children with Special Needs**, the stakeholders who supported the hosting process and all young participants who took part in the cultural trip.

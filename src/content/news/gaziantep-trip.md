@@ -41,4 +41,4 @@ Antep Çarşısı, Bakırcılar Çarşısı ve Elmacı Pazarı ziyaretleri sıra
 
 Gaziantep kültür gezisi de bu hedeflere katkı sağlayan önemli faaliyetlerden biri oldu. Katılımcılar hem bölgenin tarihî ve kültürel dokusunu tanıdı hem de farklı ülkelerden gelen akranlarıyla birlikte ortak bir keşif ve öğrenme deneyimi yaşadı.
 
-KOZ-DER olarak, projenin uygulanmasına katkı sunan **Children with Special Needs** kurumuna, ev sahipliği sürecinde destek veren paydaşlara ve kültür gezisine katılan tüm gençlere teşekkür ederiz.
+**KOZ-DER** olarak, projenin uygulanmasına katkı sunan **Children with Special Needs** kurumuna, ev sahipliği sürecinde destek veren paydaşlara ve kültür gezisine katılan tüm gençlere teşekkür ederiz.

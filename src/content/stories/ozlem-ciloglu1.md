@@ -23,9 +23,9 @@ Evet, evet, sen...
 
 Hani şu projelerin içinde kaybolan, sürekli yeni şeyler öğrenmek isteyen ve “Acaba ben de böyle bir projeye katılabilir miyim?” diye düşünen genç arkadaşım.
 
-Eğer şu anda KOZ-DER'in sitesindeysen doğru yerdesin. Hele bir de Gönüllü Hikâyeleri bölümündeysen, sana güzel bir haberim var.
+Eğer şu anda **KOZ-DER**'in sitesindeysen doğru yerdesin. Hele bir de Gönüllü Hikâyeleri bölümündeysen, sana güzel bir haberim var.
 
-Çünkü senin gibi birçok genç arkadaşımız KOZ-DER sayesinde farklı projelerin içerisinde yer aldı, farklı ülkelerden insanlarla tanıştı, yeni kültürler öğrendi ve birbirinden güzel dostluklar kurdu.
+Çünkü senin gibi birçok genç arkadaşımız **KOZ-DER** sayesinde farklı projelerin içerisinde yer aldı, farklı ülkelerden insanlarla tanıştı, yeni kültürler öğrendi ve birbirinden güzel dostluklar kurdu.
 
 Bu yazıda ise sizlere 2026 yılında Kilis'te gerçekleştirdiğimiz **“No More Walls” Youth Exchange** projesinin öncesinden son gününe kadar yaşadığımız sürecin, bir gönüllünün gözünden bazı kesitlerini anlatacağım.
 

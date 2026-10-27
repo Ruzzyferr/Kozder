@@ -35,7 +35,7 @@ Speaking Club’ın amacı kusursuz İngilizce konuşmak değil; **konuşmaya ce
 
 Speaking Club **herkese açık ve ücretsiz**. Önceden kayıt yaptırmadan da gelebilirsin.
 
-- 📅 **Yüz yüze:** Her Cuma 20.00, KOZ-DER Dernek Merkezi, Kilis — [etkinlik sayfası](/etkinlikler/speakingclub-2026)
+- 📅 **Yüz yüze:** Her Cuma 20.00, **KOZ-DER** Dernek Merkezi, Kilis — [etkinlik sayfası](/etkinlikler/speakingclub-2026)
 - 💻 **Online:** Her Çarşamba 21.00, Google Meet — [Online Speaking Club](/etkinlikler/online-speaking-club-2026)
 
 **Gelecek Cuma görüşmek üzere!**

@@ -12,7 +12,7 @@ featured: true
 
 Hello everyone,
 
-I am **Anıl Aşcı**. Today I want to tell you about a journey that looks like just one week in the calendar but held a lifetime of experience for me. Through KOZ-DER I joined an Erasmus+ project in **Madan**, a charming mining town in the Rhodope Mountains of Bulgaria. It was my first project, and honestly I never imagined so much could change in a single week.
+I am **Anıl Aşcı**. Today I want to tell you about a journey that looks like just one week in the calendar but held a lifetime of experience for me. Through **KOZ-DER** I joined an Erasmus+ project in **Madan**, a charming mining town in the Rhodope Mountains of Bulgaria. It was my first project, and honestly I never imagined so much could change in a single week.
 
 ## Meeting People, Taking First Steps
 

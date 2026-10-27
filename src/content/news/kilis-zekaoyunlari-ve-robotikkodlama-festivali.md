@@ -112,6 +112,6 @@ Proje sayesinde ilkokul, ortaokul ve lise düzeyindeki öğrenciler farklı öğ
 
 ## Teşekkür
 
-KOZ-DER olarak, **İçişleri Bakanlığına** PRODES kapsamında sağladığı destek için teşekkür ederiz. Proje sürecinde eğitimlere ve festivale katılım sağlayan tüm öğrencilerimize, ailelerimize, eğitmenlerimize, gönüllülerimize ve sürece katkı sunan tüm paydaşlarımıza teşekkür ederiz.
+**KOZ-DER** olarak, **İçişleri Bakanlığına** PRODES kapsamında sağladığı destek için teşekkür ederiz. Proje sürecinde eğitimlere ve festivale katılım sağlayan tüm öğrencilerimize, ailelerimize, eğitmenlerimize, gönüllülerimize ve sürece katkı sunan tüm paydaşlarımıza teşekkür ederiz.
 
 Gençlerin dijital becerilerini, problem çözme kapasitelerini, teknolojiye olan ilgilerini ve sosyal katılımlarını desteklemeye yönelik çalışmalarımıza aynı heyecanla devam edeceğiz.

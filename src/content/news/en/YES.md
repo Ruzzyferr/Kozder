@@ -17,13 +17,13 @@ The YES network is an important platform bringing together organisations and you
 
 ## Carrying Young Voices to Europe
 
-Since the day we were founded, KOZ-DER has worked to support young people's social, cultural, digital and personal development. Through Erasmus+, the European Solidarity Corps **(ESC)**, youth exchanges, training courses, volunteering activities, intelligence games, robotics and coding and local youth work, we aim to open up new opportunities for young people.
+Since the day we were founded, **KOZ-DER** has worked to support young people's social, cultural, digital and personal development. Through Erasmus+, the European Solidarity Corps **(ESC)**, youth exchanges, training courses, volunteering activities, intelligence games, robotics and coding and local youth work, we aim to open up new opportunities for young people.
 
 Joining the Young European Shapers network is an important step towards continuing this work on a stronger footing of European cooperation.
 
 ## New Partnerships and Shared Opportunities
 
-Through this network, KOZ-DER aims to:
+Through this network, **KOZ-DER** aims to:
 
 - Build stronger partnerships with youth organisations across Europe
 - Increase young people's access to international projects
@@ -33,12 +33,12 @@ Through this network, KOZ-DER aims to:
 
 ## From the Local to Europe
 
-As a Kilis-based youth association, we continue to strengthen our local work through international networks. KOZ-DER's membership of the Young European Shapers network opens new doors for young people to have a say not only locally but at European level.
+As a Kilis-based youth association, we continue to strengthen our local work through international networks. **KOZ-DER**'s membership of the Young European Shapers network opens new doors for young people to have a say not only locally but at European level.
 
 This membership is an important part of our aim of turning young people's ideas into projects, and projects into social impact.
 
 ## Thank You
 
-KOZ-DER will keep developing its national and international partnerships in order to deliver more inclusive, more participatory and more effective work in the youth field.
+**KOZ-DER** will keep developing its national and international partnerships in order to deliver more inclusive, more participatory and more effective work in the youth field.
 
 We are glad to be part of the Young European Shapers network, and we believe this will create new opportunities, new partnerships and new stories for our young people.

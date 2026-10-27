@@ -35,6 +35,6 @@ We hope that this invitation will become an important starting point for new par
 
 ## Friendships Beyond Borders
 
-As KOZ-DER, we would like to thank Kilis Mayor **Hakan BİLECEN** for his kind reception, his support for youth work and his positive approach to international cooperation.
+As **KOZ-DER**, we would like to thank Kilis Mayor **Hakan BİLECEN** for his kind reception, his support for youth work and his positive approach to international cooperation.
 
 We believe that friendships beyond borders bring cities and young people closer together, and we hope that this cooperation process extending from Kilis to Madan will turn into stronger partnerships in the future.

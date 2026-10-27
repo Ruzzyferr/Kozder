@@ -29,7 +29,7 @@ featured: true
 
 ## Eğitimlerden Kültürel Keşfe
 
-KOZ-DER tarafından **T.C. Gençlik ve Spor Bakanlığı desteğiyle** yürütülen **“Zeka Oyunları, Dijitalleşme ve Afet Bilinci: Gençler İçin Geleceğe Bir Yolculuk”** projesi kapsamında, eğitim faaliyetlerinin ardından **Göbeklitepe, Halfeti ve Balıklıgöl ziyaretleri** gerçekleştirildi. Gençler, bölgenin tarihî, doğal ve kültürel değerlerini yerinde tanırken birlikte yeni deneyimler yaşama fırsatı buldu.
+**KOZ-DER** tarafından **T.C. Gençlik ve Spor Bakanlığı desteğiyle** yürütülen **“Zeka Oyunları, Dijitalleşme ve Afet Bilinci: Gençler İçin Geleceğe Bir Yolculuk”** projesi kapsamında, eğitim faaliyetlerinin ardından **Göbeklitepe, Halfeti ve Balıklıgöl ziyaretleri** gerçekleştirildi. Gençler, bölgenin tarihî, doğal ve kültürel değerlerini yerinde tanırken birlikte yeni deneyimler yaşama fırsatı buldu.
 
 Projenin kültürel ve sosyal faaliyetleri, gençlerin eğitimlerde bir araya gelmesiyle başlayan etkileşimi farklı ortamlara taşıdı. Gezilerle kültürel keşif, birlikte öğrenme ve sosyal katılımın aynı deneyim içinde buluşması amaçlandı.
 
@@ -61,6 +61,6 @@ Bu kapsamda geziler, gençlerin kişisel gelişimi ve sosyal katılımını dest
 
 ## Teşekkür
 
-KOZ-DER olarak, projenin hayata geçirilmesine verdiği destek için **T.C. Gençlik ve Spor Bakanlığına**, gezilerin organizasyonunda emek veren ekibimize ve faaliyetlere katılan tüm gençlere teşekkür ederiz.
+**KOZ-DER** olarak, projenin hayata geçirilmesine verdiği destek için **T.C. Gençlik ve Spor Bakanlığına**, gezilerin organizasyonunda emek veren ekibimize ve faaliyetlere katılan tüm gençlere teşekkür ederiz.
 
 Gençlerin öğrenebildiği, keşfedebildiği ve birlikte güçlenebildiği deneyimler oluşturmaya devam ediyoruz.

@@ -12,7 +12,7 @@ summary_tr: "İstanbul'da gönüllülerimiz, eski katılımcılarımız ve yeni 
 summary_en: "In Istanbul we came together with our volunteers, alumni and young people interested in new projects — a lovely evening of sharing ESC and Erasmus+ experiences."
 ---
 
-KOZ-DER olarak İstanbul'da düzenlediğimiz gönüllü buluşmasında, daha önce projelerimize katılmış gönüllülerimiz ve uluslararası fırsatlara ilgi duyan gençlerle bir araya geldik. Espresso Lab Mecidiyeköy'deki samimi ortamda hem tanıştık hem de deneyimlerimizi paylaştık.
+**KOZ-DER** olarak İstanbul'da düzenlediğimiz gönüllü buluşmasında, daha önce projelerimize katılmış gönüllülerimiz ve uluslararası fırsatlara ilgi duyan gençlerle bir araya geldik. Espresso Lab Mecidiyeköy'deki samimi ortamda hem tanıştık hem de deneyimlerimizi paylaştık.
 
 ## Akşamdan Notlar
 

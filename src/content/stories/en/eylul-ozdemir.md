@@ -12,7 +12,7 @@ featured: true
 
 Hello everyone :) I am **Eylül**. I hope you get the chance to join projects like this too.
 
-Between **30.06.2025 and 26.08.2025** I took part in short-term ESC volunteering in **Madan**, Bulgaria through KOZ-DER. As a child I dreamed of going abroad, but for a long time it stayed just a wish. After starting university and spending more time with myself, I began applying to projects like this — and that is how my path crossed with KOZ-DER.
+Between **30.06.2025 and 26.08.2025** I took part in short-term ESC volunteering in **Madan**, Bulgaria through **KOZ-DER**. As a child I dreamed of going abroad, but for a long time it stayed just a wish. After starting university and spending more time with myself, I began applying to projects like this — and that is how my path crossed with **KOZ-DER**.
 
 ## What I Did
 

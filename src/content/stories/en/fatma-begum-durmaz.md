@@ -18,7 +18,7 @@ featured: true
 
 Hello, I am **Fatma Begüm DURMAZ**.
 
-Between **1 August and 15 September 2026**, I took part in the *Go to Romania 2* **European Solidarity Corps (ESC)** project in Craiova, Romania, through KOZ-DER and hosted by Tinerii 3D. During this experience, I had one of the most beautiful summers of my life.
+Between **1 August and 15 September 2026**, I took part in the *Go to Romania 2* **European Solidarity Corps (ESC)** project in Craiova, Romania, through **KOZ-DER** and hosted by **Tinerii 3D**. During this experience, I had one of the most beautiful summers of my life.
 
 ## Two Different Centres, Two Different Worlds
 

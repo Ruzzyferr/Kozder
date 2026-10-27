@@ -37,4 +37,4 @@ This volunteering journey showed me how strong solidarity, understanding and hum
 
 Finally, my sincere thanks to **KOZ-DER** for helping me take the first step on this meaningful journey.
 
-The experience I gained over those two months in Bulgaria, the friendships I built and the lessons I learned mean a great deal to me. I will always remember KOZ-DER's support with gratitude.
+The experience I gained over those two months in Bulgaria, the friendships I built and the lessons I learned mean a great deal to me. I will always remember **KOZ-DER**'s support with gratitude.

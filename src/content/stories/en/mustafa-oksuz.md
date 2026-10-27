@@ -12,9 +12,9 @@ featured: true
 
 Hello everyone.
 
-I am **Tarhan Mustafa Öksüz**. Between **30 June and 15 July 2025** I had the chance to join a summer project through KOZ-DER. It was not only a short experience abroad but a very special journey that brought me closer to one of my childhood dreams.
+I am **Tarhan Mustafa Öksüz**. Between **30 June and 15 July 2025** I had the chance to join a summer project through **KOZ-DER**. It was not only a short experience abroad but a very special journey that brought me closer to one of my childhood dreams.
 
-Since I was a child, one of my biggest dreams has been to travel the world, see new places and get to know other cultures. Through this project I had the happiness of realising a good part of that dream. Thanks to the opportunities KOZ-DER offers, I have so far had the chance to see close to **25 countries** and countless cities. Having experienced so many different places while still very young is a real source of happiness and pride for me.
+Since I was a child, one of my biggest dreams has been to travel the world, see new places and get to know other cultures. Through this project I had the happiness of realising a good part of that dream. Thanks to the opportunities **KOZ-DER** offers, I have so far had the chance to see close to **25 countries** and countless cities. Having experienced so many different places while still very young is a real source of happiness and pride for me.
 
 ## What This Gave Me
 
@@ -30,6 +30,6 @@ So to anyone with goals of their own, who wants to grow and is open to new exper
 
 ## Thank You
 
-Having had opportunities like these through KOZ-DER means a great deal to me. Thank you to everyone who supported me on the way to my dreams and made these experiences possible.
+Having had opportunities like these through **KOZ-DER** means a great deal to me. Thank you to everyone who supported me on the way to my dreams and made these experiences possible.
 
 For me this will always be a story I remember with a smile.

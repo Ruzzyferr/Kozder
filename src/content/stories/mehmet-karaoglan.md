@@ -29,7 +29,7 @@ Kültürlerimiz, dillerimiz ve alışkanlıklarımız farklı olsa da ortak değ
 
 Bu süreçte hem ev sahibi kuruluşun hem de gönderici kuruluşumuz **KOZ-DER’in** katkısını özellikle belirtmek isterim.
 
-Proje öncesinden başlayarak bilgilendirme, hazırlık ve yönlendirme konusunda KOZ-DER’in gösterdiği ilgi, sürece çok daha bilinçli ve hazırlıklı katılmamızı sağladı.
+Proje öncesinden başlayarak bilgilendirme, hazırlık ve yönlendirme konusunda **KOZ-DER**’in gösterdiği ilgi, sürece çok daha bilinçli ve hazırlıklı katılmamızı sağladı.
 
 Madan’da ise ev sahibi kuruluşun sıcak yaklaşımı, planlı çalışması ve katılımcılarla yakından ilgilenmesi, kendimizi kısa sürede projenin bir parçası gibi hissetmemize yardımcı oldu.
 

@@ -21,7 +21,7 @@ featured: true
 
 ## Knowledge, Preparedness and Resilience for Disaster-Affected Young People
 
-KOZ-DER delivered disaster awareness training as part of **“Mind Games, Digitalisation and Disaster Awareness: A Journey to the Future for Young People”**, supported by the **Ministry of Youth and Sports of the Republic of Türkiye** under the **Support Programme for Empowering Disaster-Affected Young People**. **A total of 160 young people benefited from the training organised in cooperation with AFAD**, Türkiye’s Disaster and Emergency Management Presidency.
+**KOZ-DER** delivered disaster awareness training as part of **“Mind Games, Digitalisation and Disaster Awareness: A Journey to the Future for Young People”**, supported by the **Ministry of Youth and Sports of the Republic of Türkiye** under the **Support Programme for Empowering Disaster-Affected Young People**. **A total of 160 young people benefited from the training organised in cooperation with AFAD**, Türkiye’s Disaster and Emergency Management Presidency.
 
 The project aimed to empower young people affected by the 6 February earthquakes in Kilis. It was designed with a **TRY 910,000 grant** and an implementation schedule of approximately **eight months**. Targeting young people aged **14–29**, the programme brought together mind games, robotics and coding, digital skills, disaster awareness, psychosocial support and cultural and social activities. Disaster training formed an important part of this broader approach to young people’s safety and community resilience.
 
@@ -53,4 +53,4 @@ Together with the project’s psychosocial support component, disaster awareness
 
 By reaching **160 young people**, the disaster awareness training complemented the project’s educational, social participation and psychosocial support objectives. Combining disaster awareness with digital and cognitive skills strengthened the programme’s multidimensional approach.
 
-KOZ-DER thanks the **Ministry of Youth and Sports of the Republic of Türkiye** for its support, **Kilis AFAD and Kilis AFAD Branch Director Ayşe Şahin** for their cooperation in delivering the training, our team and all participating young people. We continue to work in solidarity to strengthen the knowledge, skills and resilience of disaster-affected young people.
+**KOZ-DER** thanks the **Ministry of Youth and Sports of the Republic of Türkiye** for its support, **Kilis AFAD and Kilis AFAD Branch Director Ayşe Şahin** for their cooperation in delivering the training, our team and all participating young people. We continue to work in solidarity to strengthen the knowledge, skills and resilience of disaster-affected young people.

@@ -35,7 +35,7 @@ The aim of Speaking Club is not perfect English; it is **finding the courage to 
 
 Speaking Club is **open to everyone and free**. You can come along without registering in advance.
 
-- 📅 **In person:** Every Friday at 20:00, KOZ-DER centre, Kilis — [event page](/en/events/speakingclub-2026)
+- 📅 **In person:** Every Friday at 20:00, **KOZ-DER** centre, Kilis — [event page](/en/events/speakingclub-2026)
 - 💻 **Online:** Every Wednesday at 21:00 on Google Meet — [Online Speaking Club](/en/events/online-speaking-club-2026)
 
 **See you next Friday!**

@@ -15,7 +15,7 @@ featured: true
 
 # Inviting the World to Kilis: 10 Unforgettable Days with LIFE for PRR
 
-Hello, dear KOZ-DER family. I am **Fatma Begüm DURMAZ**.
+Hello, dear **KOZ-DER** family. I am **Fatma Begüm DURMAZ**.
 
 Today, I want to tell you about one of the most transformative and colourful experiences of my life: my journey to Kilis, which taught me that borders are crossed through the bonds we build, not just with passports.
 

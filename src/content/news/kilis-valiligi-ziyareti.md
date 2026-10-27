@@ -19,12 +19,12 @@ Ziyarette **KOZ-DER Başkanı Mevlide ÖZKARACA** ve yönetim kurulu üyeleri ye
 
 ## Dernek Faaliyetleri ve Projeler Ele Alındı
 
-Görüşmede KOZ-DER’in yerel düzeyde yürüttüğü gençlik faaliyetleri, teknoloji ve kodlama odaklı çalışmaları, zeka oyunları etkinlikleri ve uluslararası gençlik projeleri ele alındı. Derneğimizin çocukların ve gençlerin **analitik düşünme, problem çözme, yaratıcılık, dijital beceriler ve aktif katılım** alanlarında gelişimlerini desteklemeye yönelik çalışmaları hakkında bilgi paylaşıldı.
+Görüşmede **KOZ-DER**’in yerel düzeyde yürüttüğü gençlik faaliyetleri, teknoloji ve kodlama odaklı çalışmaları, zeka oyunları etkinlikleri ve uluslararası gençlik projeleri ele alındı. Derneğimizin çocukların ve gençlerin **analitik düşünme, problem çözme, yaratıcılık, dijital beceriler ve aktif katılım** alanlarında gelişimlerini desteklemeye yönelik çalışmaları hakkında bilgi paylaşıldı.
 
-Kilis Valisi **Ömer KALAYLI**, ziyaretten duyduğu memnuniyeti ifade ederek çocukların ve gençlerin analitik düşünme ve teknoloji yetkinliklerini geliştiren bu tür projelerin önemine dikkat çekti. Vali Kalaylı, KOZ-DER Başkanı **Mevlide ÖZKARACA** ve yönetim kurulu üyelerine çalışmalarında başarılar diledi.
+Kilis Valisi **Ömer KALAYLI**, ziyaretten duyduğu memnuniyeti ifade ederek çocukların ve gençlerin analitik düşünme ve teknoloji yetkinliklerini geliştiren bu tür projelerin önemine dikkat çekti. Vali Kalaylı, **KOZ-DER** Başkanı **Mevlide ÖZKARACA** ve yönetim kurulu üyelerine çalışmalarında başarılar diledi.
 
 ## Gençler İçin Ortak Çalışma Vurgusu
 
-KOZ-DER olarak, Kilis’te gençlerin eğitime, teknolojiye, gönüllülüğe ve uluslararası fırsatlara erişimini güçlendirmek için çalışmalarımıza devam ediyoruz. Bu kapsamda yerel kurumlarla kurulan iş birliklerinin, gençlerin daha donanımlı, üretken ve aktif bireyler olarak yetişmesine önemli katkılar sunduğuna inanıyoruz.
+**KOZ-DER** olarak, Kilis’te gençlerin eğitime, teknolojiye, gönüllülüğe ve uluslararası fırsatlara erişimini güçlendirmek için çalışmalarımıza devam ediyoruz. Bu kapsamda yerel kurumlarla kurulan iş birliklerinin, gençlerin daha donanımlı, üretken ve aktif bireyler olarak yetişmesine önemli katkılar sunduğuna inanıyoruz.
 
 Nazik kabulleri, gençlik çalışmalarına verdikleri değer ve destekleyici yaklaşımları için Kilis Valisi Sayın **Ömer KALAYLI’ya** teşekkür ederiz.

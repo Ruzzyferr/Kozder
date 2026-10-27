@@ -16,7 +16,7 @@ Bazen bir yere gidersiniz ve orada çok uzun kalmasanız bile sanki hep oraya ai
 
 Ben **Aysel ÖZTÜRK**.
 
-Geçen yıl KOZ-DER aracılığıyla katıldığım **Green World** projesi kapsamında Madan’a gitmiştim. Orada geçirdiğim zaman boyunca hem çok güzel deneyimler yaşadım hem de kendimde daha önce fark etmediğim yönler keşfettim. Bu nedenle, bu yıl yine KOZ-DER aracılığıyla **ART EVS** projesiyle Madan’a dönme fırsatı bulduğumda hiç tereddüt etmedim.
+Geçen yıl **KOZ-DER** aracılığıyla katıldığım **Green World** projesi kapsamında Madan’a gitmiştim. Orada geçirdiğim zaman boyunca hem çok güzel deneyimler yaşadım hem de kendimde daha önce fark etmediğim yönler keşfettim. Bu nedenle, bu yıl yine **KOZ-DER** aracılığıyla **ART EVS** projesiyle Madan’a dönme fırsatı bulduğumda hiç tereddüt etmedim.
 
 ## Proje Süreci
 

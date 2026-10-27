@@ -12,7 +12,7 @@ featured: true
 
 Öncelikle herkese merhaba :) Ben **Eylül**. Umarım bu tarz güzel projelere katılmak size de nasip olur.
 
-Ben **30.06.2025 - 26.08.2025** tarihleri arasında KOZ-DER aracılığıyla Bulgaristan’ın **Madan** şehrinde kısa dönem ESC gönüllülüğüne katılma fırsatı buldum. Çocukken yurt dışına çıkma hayallerim vardı ama bunlar uzun süre sadece istemekle kalmıştı. Üniversiteyi kazandıktan ve kendimle daha fazla baş başa kaldıktan sonra bu tarz projelere başvurmaya başladım. Böylece KOZ-DER ile yollarımız kesişti.
+Ben **30.06.2025 - 26.08.2025** tarihleri arasında **KOZ-DER** aracılığıyla Bulgaristan’ın **Madan** şehrinde kısa dönem ESC gönüllülüğüne katılma fırsatı buldum. Çocukken yurt dışına çıkma hayallerim vardı ama bunlar uzun süre sadece istemekle kalmıştı. Üniversiteyi kazandıktan ve kendimle daha fazla baş başa kaldıktan sonra bu tarz projelere başvurmaya başladım. Böylece **KOZ-DER** ile yollarımız kesişti.
 
 ## Projede Neler Yaptım?
 

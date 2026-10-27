@@ -17,7 +17,7 @@ featured: true
 
 # Bir Gönüllünün Gözünden LIFE for PRR: Kilis’ten Dünyaya Uzanan Bir Hikâye
 
-Merhaba sevgili KOZ-DER okurları, ben **Özlem ÇİLOĞLU**. 🌿
+Merhaba sevgili **KOZ-DER** okurları, ben **Özlem ÇİLOĞLU**. 🌿
 
 Yine muhteşem bir projeden bahsetmek istiyorum sizlere. Ama bu kez rotamız yurt dışı değil; Türkiye'nin güneydoğusunda, Gaziantep'ten ayrılarak kendi başına şehir olan, küçük ama hikâyeleri oldukça büyük olan güzel Kilis!
 
@@ -27,7 +27,7 @@ Bugün sizlere **3–11 Temmuz 2025** tarihleri arasında Kilis'te gerçekleşti
 
 ## Her Şey Başlamadan Önce...
 
-Proje başlamadan önce Kilis'te olduğum için KOZ-DER ekibine projenin lojistik ve hazırlık süreçlerinde gönüllü olarak destek olma fırsatım oldu.
+Proje başlamadan önce Kilis'te olduğum için **KOZ-DER** ekibine projenin lojistik ve hazırlık süreçlerinde gönüllü olarak destek olma fırsatım oldu.
 
 Canva tasarımları, roll-up tasarımları, katılımcı kartları, katılımcılarla yapılacak toplantılar, seyahat süreçleri, protokol ziyaretleri ve daha birçok küçük ama aslında projenin gerçekleşmesi için oldukça önemli detayla ilgilendik.
 

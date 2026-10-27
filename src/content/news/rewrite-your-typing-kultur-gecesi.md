@@ -22,7 +22,7 @@ draft: false
 
 🇹🇷✨ **Polonya’da Türkiye’yi anlattık, kültürümüzü paylaştık!**
 
-KOZ-DER’in gönderici kuruluş olarak katıldığı **(RE)WRITE YOUR TYPING** Erasmus+ gençlik değişimi, 16–23 Ekim 2026 tarihlerinde Polonya’nın Baltık kıyısındaki **Puck** kasabasında devam ediyor. Fundacja Autokreacja’nın ev sahipliğinde düzenlenen projede farklı ülkelerden gençler; yazarlık, fotoğraf, drama ve yapay zekâ gibi araçlarla dijital çağda kendini **bilinçli ve yaratıcı biçimde ifade etmeyi** keşfediyor.
+**KOZ-DER**’in gönderici kuruluş olarak katıldığı **(RE)WRITE YOUR TYPING** Erasmus+ gençlik değişimi, 16–23 Ekim 2026 tarihlerinde Polonya’nın Baltık kıyısındaki **Puck** kasabasında devam ediyor. **Fundacja Autokreacja**’nın ev sahipliğinde düzenlenen projede farklı ülkelerden gençler; yazarlık, fotoğraf, drama ve yapay zekâ gibi araçlarla dijital çağda kendini **bilinçli ve yaratıcı biçimde ifade etmeyi** keşfediyor.
 
 ## Kültür Gecesinde Türkiye
 

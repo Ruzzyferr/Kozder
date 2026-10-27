@@ -15,7 +15,7 @@ featured: true
 
 Hello,
 
-I am **Deniz Leyla Çoban**. Through KOZ-DER I had the chance to volunteer under the European Solidarity Corps **(ESC)** in **Agdz**, Morocco between **14 April and 6 June**.
+I am **Deniz Leyla Çoban**. Through **KOZ-DER** I had the chance to volunteer under the European Solidarity Corps **(ESC)** in **Agdz**, Morocco between **14 April and 6 June**.
 
 I joined to get to know a new culture, gain experience in an international setting and work with different people. But what I gained over almost two months in Morocco went far beyond my expectations.
 
