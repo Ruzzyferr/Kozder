@@ -22,7 +22,7 @@ Bazı deneyimler vardır, sadece yeni yerler görmenizi değil, **yeni insanlar 
 
 ## Öğrenirken Eğlenmek
 
-KOZ-DER’in gönderici kuruluş olarak yer aldığı bu projede, farklı ülkelerden öğrencilerle bir araya geldik. Hafta boyunca **yaratıcı yazarlık, fotoğraf, drama ve dijital iletişim** üzerine çeşitli etkinliklere katıldık. Özellikle etkileşimli oyunlar sayesinde hem çok eğlendik hem de iletişim kurma, takım çalışması ve kendimizi ifade etme konusunda pek çok şey öğrendik.
+**KOZ-DER**’in gönderici kuruluş olarak yer aldığı bu projede, farklı ülkelerden öğrencilerle bir araya geldik. Hafta boyunca **yaratıcı yazarlık, fotoğraf, drama ve dijital iletişim** üzerine çeşitli etkinliklere katıldık. Özellikle etkileşimli oyunlar sayesinde hem çok eğlendik hem de iletişim kurma, takım çalışması ve kendimizi ifade etme konusunda pek çok şey öğrendik.
 
 Ayrıca birbirimiz hakkında notlar yazıp zarflarımıza bıraktığımız **Santa Claus** etkinliğini çok sevdiğimi de belirtmek isterim. :) Bence en güzeli, öğrenirken bunu bir ders gibi değil, birlikte yaşadığımız güzel bir deneyim olarak hissetmemizdi.
 
@@ -40,6 +40,6 @@ Geleneklerimizi merak etmeleri, ikramlarımızı denemeleri ve bizimle birlikte 
 
 Puck’tan ayrılırken yanımda yalnızca güzel fotoğraflar ve anılar değil, **yeni arkadaşlıklar ve farklı bakış açıları** da götürdüm. Bu proje bana iletişimin sadece kelimelerden ibaret olmadığını; dinlemenin, anlamaya çalışmanın ve birlikte bir şeyler üretmenin de en az konuşmak kadar önemli olduğunu hatırlattı.
 
-Bu güzel deneyimin bir parçası olduğum için çok mutluyum. KOZ-DER’e, ev sahibi kuruluş Fundacja Autokreacja’ya ve bu haftayı unutulmaz kılan tüm arkadaşlarıma teşekkür ederim.
+Bu güzel deneyimin bir parçası olduğum için çok mutluyum. **KOZ-DER**’e, ev sahibi kuruluş **Fundacja Autokreacja**’ya ve bu haftayı unutulmaz kılan tüm arkadaşlarıma teşekkür ederim.
 
 **(RE)WRITE YOUR TYPING, benim için yalnızca Polonya’da geçirdiğim bir hafta değil, uzun süre hatırlayacağım özel bir deneyim olarak kalacak.** 💙
