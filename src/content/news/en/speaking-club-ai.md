@@ -26,9 +26,9 @@ Starting from a short reading text, participants discussed in English the place 
 
 The aim of Speaking Club is not perfect English; it is **finding the courage to speak, learning new words, listening to different views and expressing yourself more comfortably.** Practising with topics from today's world makes it both useful and fun. 🌍🤝
 
-With KOZ-DER Speaking Club, we keep meeting every week with **a new topic, a new conversation and a new experience**.
+With **KOZ-DER** Speaking Club, we keep meeting every week with **a new topic, a new conversation and a new experience**.
 
-📅 **In person:** Every Friday at 20:00, KOZ-DER centre, Kilis — [event page](/en/events/speakingclub-2026)
+📅 **In person:** Every Friday at 20:00, **KOZ-DER** centre, Kilis — [event page](/en/events/speakingclub-2026)
 
 💻 **Online:** Every Wednesday at 21:00 on Google Meet (starting 14 October) — [Online Speaking Club](/en/events/online-speaking-club-2026)
 

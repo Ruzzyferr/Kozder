@@ -100,6 +100,6 @@ Life for PRR, yerel, ulusal ve uluslararası düzeyde çevre bilinci oluşturmay
 
 ## Teşekkür
 
-KOZ-DER olarak, **Yaşama Kat! Life for PRR (Protect, Reduce, Reuse)** projesinin gerçekleşmesine katkı sunan tüm paydaşlara, iş birliği için **Kilis 7 Aralık Üniversitesine**, projede yer alan gençlik organizasyonlarına, faaliyetlerde emeği geçen ekip arkadaşlarımıza ve projeye katılan tüm gençlere teşekkür ederiz.
+**KOZ-DER** olarak, **Yaşama Kat! Life for PRR (Protect, Reduce, Reuse)** projesinin gerçekleşmesine katkı sunan tüm paydaşlara, iş birliği için **Kilis 7 Aralık Üniversitesine**, projede yer alan gençlik organizasyonlarına, faaliyetlerde emeği geçen ekip arkadaşlarımıza ve projeye katılan tüm gençlere teşekkür ederiz.
 
 Life for PRR projesi, gençlerin çevreye, kültüre, yerel yaşama ve birbirlerine daha duyarlı bireyler olarak gelişmelerine katkı sağlayan güçlü ve unutulmaz bir Erasmus+ deneyimi olarak hafızalarda yerini aldı.

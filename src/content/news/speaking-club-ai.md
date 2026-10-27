@@ -26,9 +26,9 @@ Katılımcılarımız, önlerindeki okuma metninden yola çıkarak yapay zekân�
 
 Speaking Club’ın amacı kusursuz İngilizce konuşmak değil; **konuşmaya cesaret etmek, yeni kelimeler öğrenmek, farklı görüşleri dinlemek ve kendini daha rahat ifade edebilmek.** Gündemdeki konularla bu pratiği yapmak ise hem öğretici hem de eğlenceli oluyor. 🌍🤝
 
-KOZ-DER Speaking Club ile her hafta **yeni bir konu, yeni bir sohbet ve yeni bir deneyimle** buluşmaya devam ediyoruz.
+**KOZ-DER** Speaking Club ile her hafta **yeni bir konu, yeni bir sohbet ve yeni bir deneyimle** buluşmaya devam ediyoruz.
 
-📅 **Yüz yüze buluşmalar:** Her Cuma 20.00, KOZ-DER Dernek Merkezi, Kilis — [etkinlik sayfası](/etkinlikler/speakingclub-2026)
+📅 **Yüz yüze buluşmalar:** Her Cuma 20.00, **KOZ-DER** Dernek Merkezi, Kilis — [etkinlik sayfası](/etkinlikler/speakingclub-2026)
 
 💻 **Online buluşmalar:** Her Çarşamba 21.00, Google Meet (14 Ekim’de başlıyor) — [Online Speaking Club](/etkinlikler/online-speaking-club-2026)
 

@@ -22,7 +22,7 @@ featured: true
 
 ## Afetten Etkilenen Gençler İçin Psikososyal Destek
 
-KOZ-DER tarafından **T.C. Gençlik ve Spor Bakanlığı desteğiyle** yürütülen **“Zeka Oyunları, Dijitalleşme ve Afet Bilinci: Gençler İçin Geleceğe Bir Yolculuk”** projesi kapsamında, depremden etkilenen gençlere yönelik **psikososyal destek eğitimleri ve grup etkinlikleri** gerçekleştirildi.
+**KOZ-DER** tarafından **T.C. Gençlik ve Spor Bakanlığı desteğiyle** yürütülen **“Zeka Oyunları, Dijitalleşme ve Afet Bilinci: Gençler İçin Geleceğe Bir Yolculuk”** projesi kapsamında, depremden etkilenen gençlere yönelik **psikososyal destek eğitimleri ve grup etkinlikleri** gerçekleştirildi.
 
 **Uzman Psikolojik Danışman Cevher Çetin** tarafından verilen eğitimlerde depremin gençler üzerindeki etkileri ele alındı. Gençlerin yaşadıkları süreci anlamlandırmalarına ve psikolojik dayanıklılıklarını güçlendirmelerine katkı sunan çalışmalar, projenin eğitim ve sosyal katılım faaliyetlerini tamamladı.
 
@@ -46,6 +46,6 @@ Psikososyal destek eğitimleri, bu programın gençlerin afet sonrası toparlanm
 
 ## Teşekkür
 
-KOZ-DER olarak, projenin hayata geçirilmesine verdiği destek için **T.C. Gençlik ve Spor Bakanlığına**, psikososyal destek eğitimlerini ve etkinliklerini gerçekleştiren **Uzman Psikolojik Danışman Cevher Çetin hocamıza**, organizasyon sürecinde emek veren ekibimize ve çalışmalara katılan tüm gençlere teşekkür ederiz.
+**KOZ-DER** olarak, projenin hayata geçirilmesine verdiği destek için **T.C. Gençlik ve Spor Bakanlığına**, psikososyal destek eğitimlerini ve etkinliklerini gerçekleştiren **Uzman Psikolojik Danışman Cevher Çetin hocamıza**, organizasyon sürecinde emek veren ekibimize ve çalışmalara katılan tüm gençlere teşekkür ederiz.
 
 Gençlerin afet sonrası süreçte desteklenmesine, sosyal bağlarının güçlenmesine ve dayanıklılıklarının artırılmasına yönelik çalışmalarımızı dayanışma içinde sürdürmeye devam ediyoruz.

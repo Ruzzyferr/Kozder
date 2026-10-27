@@ -17,7 +17,7 @@ featured: true
 
 Hello, I am **Anıl Görkem KAYA**.
 
-Through KOZ-DER, I had the opportunity to take part in the **Environmental Protection** project in Iceland, hosted by **Veraldarvinir / Worldwide Friends Iceland** within the scope of the European Solidarity Corps. Our project was carried out between **02 July 2026 and 15 August 2026** in **Reykjavík and Brú, Iceland**.
+Through **KOZ-DER**, I had the opportunity to take part in the **Environmental Protection** project in Iceland, hosted by **Veraldarvinir / Worldwide Friends Iceland** within the scope of the European Solidarity Corps. Our project was carried out between **02 July 2026 and 15 August 2026** in **Reykjavík and Brú, Iceland**.
 
 ## Setting Out and Taking the First Step
 

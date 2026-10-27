@@ -16,7 +16,7 @@ featured: true
 
 Merhaba, ben **Ege Şemsettin SÖNMEZ**.
 
-KOZ-DER aracılığıyla Bulgaristan’ın Madan şehrinde gerçekleştirilen **Avrupa Dayanışma Programı (ESC)** kapsamında gönüllü olarak yer alma fırsatı buldum. Yeni kültürler tanımak, farklı insanlarla bir araya gelmek ve toplumsal fayda üretmek amacıyla çıktığım bu yolculuk, bana beklediğimden çok daha derin ve dönüştürücü bir hayat deneyimi kazandırdı.
+**KOZ-DER** aracılığıyla Bulgaristan’ın Madan şehrinde gerçekleştirilen **Avrupa Dayanışma Programı (ESC)** kapsamında gönüllü olarak yer alma fırsatı buldum. Yeni kültürler tanımak, farklı insanlarla bir araya gelmek ve toplumsal fayda üretmek amacıyla çıktığım bu yolculuk, bana beklediğimden çok daha derin ve dönüştürücü bir hayat deneyimi kazandırdı.
 
 ## Sahadaki Görevlerimiz ve Dayanışma
 

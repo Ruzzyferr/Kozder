@@ -24,7 +24,7 @@ draft: false
 
 🗣️💻 **The long-awaited Online Speaking Club has started!**
 
-KOZ-DER's **Online Speaking Club** held its first session on Wednesday evening, 14 October, at **21:00 on Google Meet**. Young people who had filled in the level assessment form joined from different cities and started practising English together. 🌍
+**KOZ-DER**'s **Online Speaking Club** held its first session on Wednesday evening, 14 October, at **21:00 on Google Meet**. Young people who had filled in the level assessment form joined from different cities and started practising English together. 🌍
 
 In the first session, participants got to know each other, introduced themselves in English and joined the conversations guided by our trainers. Everyone who switched on their microphone to say their first sentence, asked a question or raised a hand to share an idea helped create the club's warm and supportive atmosphere. ✨
 
@@ -43,6 +43,6 @@ Thank you to all the young people who joined our first session and to our traine
 
 To join, simply fill in the level assessment form first. For the form and details, see the [Online Speaking Club event page](/en/events/online-speaking-club-2026).
 
-Our in-person sessions also continue every Friday at 20:00 at our centre in Kilis: [KOZ-DER Speaking Club](/en/events/speakingclub-2026)
+Our in-person sessions also continue every Friday at 20:00 at our centre in Kilis: [**KOZ-DER** Speaking Club](/en/events/speakingclub-2026)
 
 **Speak, share, practise and improve your English!**

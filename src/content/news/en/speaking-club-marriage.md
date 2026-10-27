@@ -33,6 +33,6 @@ This is exactly what makes Speaking Club special: it is not only about speaking 
 
 In a friendly and interactive environment, participants actively used English in everyday communication while also listening to different opinions and exchanging perspectives.
 
-With KOZ-DER Speaking Club, we continue to meet every week for **a new topic, a new conversation and a new experience.**
+With **KOZ-DER** Speaking Club, we continue to meet every week for **a new topic, a new conversation and a new experience.**
 
 📅 **See you every Friday at 20:00 at KOZ-DER Speaking Club!**

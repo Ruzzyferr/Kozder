@@ -16,13 +16,13 @@ featured: true
 ---
 Herkese merhaba,
 
-Ben **Sema Nur**. KOZ-DER’in Fas’a gönderdiği ilk Avrupa Dayanışma Programı **(ESC)** gönüllüsüyüm. Fas’ın **Agdz** şehrinde **14 Nisan - 6 Haziran 2026** tarihleri arasında eşsiz bir gönüllülük deneyimi yaşadım.
+Ben **Sema Nur**. **KOZ-DER**’in Fas’a gönderdiği ilk Avrupa Dayanışma Programı **(ESC)** gönüllüsüyüm. Fas’ın **Agdz** şehrinde **14 Nisan - 6 Haziran 2026** tarihleri arasında eşsiz bir gönüllülük deneyimi yaşadım.
 
 Projeye başvururken 11 yıllık gönüllülük maceramı globale taşımak ve yabancı bir kültürde farklı insanlarla tanışıp birinin hayatında iz bırakmak gibi bir amacım vardı. İki aylık maceramın sonunda beklentilerimi aşan deneyimler ve anılar biriktirdim.
 
 ## Projedeki Görevlerim
 
-KOZ-DER aracılığıyla Fas’ta köy okulları ve gençlik merkezlerinde **satranç, Mangala, Reversi, Koridor ve Neşeli Bardaklar** oyunlarını öğretmenin yanı sıra, KOZ-DER temsilcisi olarak ilk defa **Scratch 3 ve algoritma eğitimi** vermek benim için gurur vericiydi.
+**KOZ-DER** aracılığıyla Fas’ta köy okulları ve gençlik merkezlerinde **satranç, Mangala, Reversi, Koridor ve Neşeli Bardaklar** oyunlarını öğretmenin yanı sıra, **KOZ-DER** temsilcisi olarak ilk defa **Scratch 3 ve algoritma eğitimi** vermek benim için gurur vericiydi.
 
 Mühendis kimliğimden sıyrılarak burada bir öğretmen olarak var olmak, çocukların ufkunu genişletmek ve onlara yeni şeyler kazandırmak bana gerçekten bir şeyleri başardığımı hissettirdi.
 

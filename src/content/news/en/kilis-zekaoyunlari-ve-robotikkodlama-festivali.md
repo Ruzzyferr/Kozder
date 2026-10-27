@@ -112,6 +112,6 @@ Thanks to the project, primary, secondary and high school students came together
 
 ## Thank You
 
-As KOZ-DER, we would like to thank the **Ministry of Interior** for its support within the scope of PRODES. We also thank all students, families, trainers, volunteers and stakeholders who contributed to the trainings and festival process.
+As **KOZ-DER**, we would like to thank the **Ministry of Interior** for its support within the scope of PRODES. We also thank all students, families, trainers, volunteers and stakeholders who contributed to the trainings and festival process.
 
 We will continue our efforts to support young people’s digital skills, problem-solving capacities, interest in technology and social participation with the same motivation and excitement.

@@ -23,7 +23,7 @@ draft: false
 
 🎓🇵🇱 **Our young people in Poland received their Youthpass certificates!**
 
-The **(RE)WRITE YOUR TYPING** Erasmus+ youth exchange, in which KOZ-DER took part as a sending organisation, took place from 16 to 23 October 2026 in **Puck**, on Poland's Baltic coast. Our young people attended the **Youthpass ceremony** on the last day of the project, received their certificates and successfully completed the process. 👏
+The **(RE)WRITE YOUR TYPING** Erasmus+ youth exchange, in which **KOZ-DER** took part as a sending organisation, took place from 16 to 23 October 2026 in **Puck**, on Poland's Baltic coast. Our young people attended the **Youthpass ceremony** on the last day of the project, received their certificates and successfully completed the process. 👏
 
 ## What Did They Do?
 
@@ -42,7 +42,7 @@ The project aimed to replace mindless typing in the digital age with **intention
 
 ## Thank You
 
-We sincerely thank the host organisation **Fundacja Autokreacja** for their warm hospitality and their carefully prepared programme. We also thank all partner organisations, the young people from different countries we learned with, and our participants who represented KOZ-DER so well. 💙
+We sincerely thank the host organisation **Fundacja Autokreacja** for their warm hospitality and their carefully prepared programme. We also thank all partner organisations, the young people from different countries we learned with, and our participants who represented **KOZ-DER** so well. 💙
 
 We will keep supporting more young people on these journeys from Kilis to Europe. Follow our [projects](/en/projects) so you don't miss new opportunities.
 

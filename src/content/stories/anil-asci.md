@@ -12,7 +12,7 @@ featured: true
 
 Herkese merhaba,
 
-Ben **Anıl Aşcı**. Bugün sizlere, takvimde sadece bir hafta gibi görünse de benim için bir ömre bedel deneyimler barındıran o kısa ama etkileyici yolculuğumu anlatmak istiyorum. KOZ-DER aracılığıyla Bulgaristan’ın Rodop Dağları arasında yer alan, madenleriyle ünlü şirin kasabası **Madan**’da bir Erasmus+ projesine katıldım. Bu benim ilk projemdi ve açıkçası bir haftada bu kadar çok şeyin değişebileceğini hiç tahmin etmemiştim.
+Ben **Anıl Aşcı**. Bugün sizlere, takvimde sadece bir hafta gibi görünse de benim için bir ömre bedel deneyimler barındıran o kısa ama etkileyici yolculuğumu anlatmak istiyorum. **KOZ-DER** aracılığıyla Bulgaristan’ın Rodop Dağları arasında yer alan, madenleriyle ünlü şirin kasabası **Madan**’da bir Erasmus+ projesine katıldım. Bu benim ilk projemdi ve açıkçası bir haftada bu kadar çok şeyin değişebileceğini hiç tahmin etmemiştim.
 
 ## Sosyal Etkileşim ve İlk Adımlar
 

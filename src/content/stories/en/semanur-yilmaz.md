@@ -17,13 +17,13 @@ featured: true
 
 Hello everyone,
 
-I am **Sema Nur**. I am the first European Solidarity Corps **(ESC)** volunteer KOZ-DER sent to Morocco. I had a unique volunteering experience in **Agdz**, Morocco between **14 April and 6 June 2026**.
+I am **Sema Nur**. I am the first European Solidarity Corps **(ESC)** volunteer **KOZ-DER** sent to Morocco. I had a unique volunteering experience in **Agdz**, Morocco between **14 April and 6 June 2026**.
 
 When I applied, my aim was to take my eleven-year volunteering adventure global, meet different people in an unfamiliar culture and leave a mark on someone's life. By the end of those two months I had collected experiences and memories that went well beyond my expectations.
 
 ## My Role in the Project
 
-Through KOZ-DER I taught **chess, Mangala, Reversi, Quoridor and Cup Stacking** in village schools and youth centres in Morocco, and — as a KOZ-DER representative — gave **Scratch 3 and algorithm lessons** for the first time, which made me proud.
+Through **KOZ-DER** I taught **chess, Mangala, Reversi, Quoridor and Cup Stacking** in village schools and youth centres in Morocco, and — as a **KOZ-DER** representative — gave **Scratch 3 and algorithm lessons** for the first time, which made me proud.
 
 Stepping out of my engineer identity and existing there as a teacher, widening children's horizons and giving them something new, genuinely made me feel I had achieved something.
 

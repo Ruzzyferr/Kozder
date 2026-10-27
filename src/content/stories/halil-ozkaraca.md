@@ -33,7 +33,7 @@ Etkinlikler boyunca katılımcılarla yapılan tartışmalar, grup çalışmalar
 
 Bu projenin benim açımdan en değerli yönlerinden biri de farklı ülkelerden katılımcılar ve kurum temsilcileriyle yeni bağlantılar kurmak oldu. Var olan ilişkileri güçlendirme ve yeni ortaklarla tanışma fırsatı bulduk.
 
-Uluslararası gençlik çalışmaları açısından bakıldığında, bu tür projeler sadece bireysel öğrenme değil; aynı zamanda gelecekte geliştirilecek ortaklıklar ve yeni iş birlikleri için de çok güçlü bir zemin oluşturuyor. Bu anlamda proje, KOZ-DER adına da oldukça kıymetliydi.
+Uluslararası gençlik çalışmaları açısından bakıldığında, bu tür projeler sadece bireysel öğrenme değil; aynı zamanda gelecekte geliştirilecek ortaklıklar ve yeni iş birlikleri için de çok güçlü bir zemin oluşturuyor. Bu anlamda proje, **KOZ-DER** adına da oldukça kıymetliydi.
 
 ## Eğlence, Gezi ve Güzel Anılar
 

@@ -37,4 +37,4 @@ Bu gönüllülük yolculuğu bana dayanışmanın, anlayışın ve insan bağlar
 
 Son olarak, bu anlamlı yolculuğa adım atmama vesile olan **KOZ-DER’e** içten teşekkürlerimi sunuyorum.
 
-Bulgaristan’da geçirdiğim bu iki ay boyunca edindiğim deneyimler, kurduğum dostluklar ve öğrendiğim hayat dersleri benim için çok kıymetli. Bu fırsatı bana sağlayan ve süreç boyunca destek olan KOZ-DER’in katkılarını her zaman minnetle hatırlayacağım.
+Bulgaristan’da geçirdiğim bu iki ay boyunca edindiğim deneyimler, kurduğum dostluklar ve öğrendiğim hayat dersleri benim için çok kıymetli. Bu fırsatı bana sağlayan ve süreç boyunca destek olan **KOZ-DER**’in katkılarını her zaman minnetle hatırlayacağım.

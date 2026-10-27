@@ -17,7 +17,7 @@ featured: true
 
 Merhaba, ben Emine Akpınar.
 
-Doğup büyüdüğüm, sokaklarını avucumun içi gibi bildiğim memleketim Kilis’te, KOZ-DER ev sahipliğinde gerçekleşen **“No More Walls, Europe Calls”** Erasmus+ gençlik değişimine katıldım. Birçok genç bu deneyimi yaşamak için kilometrelerce uzağa seyahat ederken, benim için uluslararası bir dünyaya açılan kapı tam olarak kendi evimde, Kilis’te aralandı.
+Doğup büyüdüğüm, sokaklarını avucumun içi gibi bildiğim memleketim Kilis’te, **KOZ-DER** ev sahipliğinde gerçekleşen **“No More Walls, Europe Calls”** Erasmus+ gençlik değişimine katıldım. Birçok genç bu deneyimi yaşamak için kilometrelerce uzağa seyahat ederken, benim için uluslararası bir dünyaya açılan kapı tam olarak kendi evimde, Kilis’te aralandı.
 
 Bu 10 günlük süreç, bana sadece yepyeni bakış açıları ve vizyon kazandırmakla kalmadı; her gün yürüdüğüm bu kadim şehre bambaşka bir gözle bakmamı sağladı.
 

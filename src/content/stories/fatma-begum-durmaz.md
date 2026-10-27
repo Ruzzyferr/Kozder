@@ -18,7 +18,7 @@ featured: true
 
 Merhaba, ben **Fatma Begüm DURMAZ**.
 
-**1 Ağustos – 15 Eylül 2026** tarihleri arasında KOZ-DER aracılığıyla, Tinerii 3D ev sahipliğinde Romanya’nın Craiova şehrinde gerçekleştirilen *Go to Romania 2* adlı **Avrupa Dayanışma Programı (ESC)** projesinde yer aldım ve hayatımın en güzel yazını geçirdim.
+**1 Ağustos – 15 Eylül 2026** tarihleri arasında **KOZ-DER** aracılığıyla, **Tinerii 3D** ev sahipliğinde Romanya’nın Craiova şehrinde gerçekleştirilen *Go to Romania 2* adlı **Avrupa Dayanışma Programı (ESC)** projesinde yer aldım ve hayatımın en güzel yazını geçirdim.
 
 ## İki Farklı Merkez, İki Farklı Dünya
 

@@ -28,7 +28,7 @@ featured: true
 
 ## Young People Explore the World of Robotics
 
-As part of **“Mind Games, Digitalisation and Disaster Awareness: A Journey towards the Future for Young People”**, KOZ-DER organised **robotics and coding training** with the support of the **Ministry of Youth and Sports of the Republic of Türkiye**. Guided by **trainer Sami Özkan**, participants were introduced to **SPIKE Prime** and built their own robots.
+As part of **“Mind Games, Digitalisation and Disaster Awareness: A Journey towards the Future for Young People”**, **KOZ-DER** organised **robotics and coding training** with the support of the **Ministry of Youth and Sports of the Republic of Türkiye**. Guided by **trainer Sami Özkan**, participants were introduced to **SPIKE Prime** and built their own robots.
 
 The training created opportunities to work with technology through practical activities and turn ideas into physical models. Sessions using robotics kits and computers brought learning together with designing, assembling and trying out their creations.
 
@@ -58,6 +58,6 @@ Robotics training formed part of the programme’s approach to creating opportun
 
 ## Thank You
 
-KOZ-DER thanks the **Ministry of Youth and Sports of the Republic of Türkiye** for its support, **our trainer Sami Özkan** for guiding young people during the robotics and coding training, our organising team and all participating young people.
+**KOZ-DER** thanks the **Ministry of Youth and Sports of the Republic of Türkiye** for its support, **our trainer Sami Özkan** for guiding young people during the robotics and coding training, our organising team and all participating young people.
 
 We continue to create spaces where young people can explore technology, bring their ideas to life and learn together in solidarity.

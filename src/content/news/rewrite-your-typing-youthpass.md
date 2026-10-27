@@ -23,7 +23,7 @@ draft: false
 
 🎓🇵🇱 **Polonya’daki gençlerimiz Youthpass sertifikalarını aldı!**
 
-KOZ-DER’in gönderici kuruluş olarak yer aldığı **(RE)WRITE YOUR TYPING** Erasmus+ gençlik değişimi, 16–23 Ekim 2026 tarihlerinde Polonya’nın Baltık kıyısındaki **Puck** kasabasında gerçekleştirildi. Gençlerimiz, projenin son gününde düzenlenen **Youthpass törenine** katılarak sertifikalarını aldı ve süreci başarıyla tamamladı. 👏
+**KOZ-DER**’in gönderici kuruluş olarak yer aldığı **(RE)WRITE YOUR TYPING** Erasmus+ gençlik değişimi, 16–23 Ekim 2026 tarihlerinde Polonya’nın Baltık kıyısındaki **Puck** kasabasında gerçekleştirildi. Gençlerimiz, projenin son gününde düzenlenen **Youthpass törenine** katılarak sertifikalarını aldı ve süreci başarıyla tamamladı. 👏
 
 ## Proje Boyunca Neler Yaptılar?
 
@@ -42,7 +42,7 @@ Proje, dijital çağda düşünmeden yazmanın yerine **bilinçli, yaratıcı ve
 
 ## Teşekkürler
 
-Bu güzel deneyim için projenin ev sahibi **Fundacja Autokreacja**’ya, sıcak misafirperverlikleri ve özenle hazırladıkları program için içtenlikle teşekkür ederiz. Projeye katkı sunan tüm ortak kuruluşlara, birlikte öğrendiğimiz farklı ülkelerden gençlere ve KOZ-DER’i başarıyla temsil eden gençlerimize de teşekkür ediyoruz. 💙
+Bu güzel deneyim için projenin ev sahibi **Fundacja Autokreacja**’ya, sıcak misafirperverlikleri ve özenle hazırladıkları program için içtenlikle teşekkür ederiz. Projeye katkı sunan tüm ortak kuruluşlara, birlikte öğrendiğimiz farklı ülkelerden gençlere ve **KOZ-DER**’i başarıyla temsil eden gençlerimize de teşekkür ediyoruz. 💙
 
 Kilis’ten Avrupa’ya uzanan bu yolculuklarda daha fazla gencimizi desteklemeye devam edeceğiz. Yeni fırsatları kaçırmamak için [projelerimizi](/projeler) takip edebilirsiniz.
 

@@ -15,7 +15,7 @@ featured: true
 
 Merhaba,
 
-Ben **İlknur PEHLİVAN**. KOZ-DER aracılığıyla Portekiz’in **Viana do Castelo** şehrinde gerçekleştirilen iki ay süren bir Avrupa Dayanışma Programı projesine katıldım. Hem çocukların dünyasına dokunduğum hem de değerli dostluklar biriktirdiğim bu benzersiz serüveni, benimle aynı yollardan geçmek isteyen herkese ilham olması dileğiyle paylaşıyorum.
+Ben **İlknur PEHLİVAN**. **KOZ-DER** aracılığıyla Portekiz’in **Viana do Castelo** şehrinde gerçekleştirilen iki ay süren bir Avrupa Dayanışma Programı projesine katıldım. Hem çocukların dünyasına dokunduğum hem de değerli dostluklar biriktirdiğim bu benzersiz serüveni, benimle aynı yollardan geçmek isteyen herkese ilham olması dileğiyle paylaşıyorum.
 
 ## Karar Anı: Bilgisayar Mühendisliğinden Gönüllülüğe
 

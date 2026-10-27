@@ -35,6 +35,6 @@ Bu davetin, Kilis ve Madan arasında kurulacak yeni ortaklıkların, gençlik ç
 
 ## Sınırları Aşan Dostluklar
 
-KOZ-DER olarak, gençlik çalışmalarına verdikleri değer, uluslararası iş birliklerine yönelik olumlu yaklaşımları ve nazik kabulleri için Kilis Belediye Başkanımız Sayın **Hakan BİLECEN’e** teşekkür ederiz.
+**KOZ-DER** olarak, gençlik çalışmalarına verdikleri değer, uluslararası iş birliklerine yönelik olumlu yaklaşımları ve nazik kabulleri için Kilis Belediye Başkanımız Sayın **Hakan BİLECEN’e** teşekkür ederiz.
 
 Sınırları aşan dostlukların, şehirleri ve gençleri birbirine yaklaştırdığına inanıyor; Kilis’ten Madan’a uzanan bu iş birliği sürecinin gelecekte daha güçlü ortaklıklara dönüşmesini temenni ediyoruz.

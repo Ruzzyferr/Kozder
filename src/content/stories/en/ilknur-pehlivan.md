@@ -15,7 +15,7 @@ featured: true
 
 Hello,
 
-I am **İlknur Pehlivan**. Through KOZ-DER I took part in a two-month European Solidarity Corps project in **Viana do Castelo**, Portugal. I am sharing this unique adventure — in which I touched children's lives and collected valuable friendships — in the hope that it inspires anyone who wants to walk the same road.
+I am **İlknur Pehlivan**. Through **KOZ-DER** I took part in a two-month European Solidarity Corps project in **Viana do Castelo**, Portugal. I am sharing this unique adventure — in which I touched children's lives and collected valuable friendships — in the hope that it inspires anyone who wants to walk the same road.
 
 ## The Decision: From Computer Engineering to Volunteering
 

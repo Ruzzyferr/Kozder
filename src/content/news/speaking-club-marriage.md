@@ -31,6 +31,6 @@ Speaking Club’ın en güzel yanı da tam olarak bu: sadece İngilizce konuşma
 
 Samimi ve etkileşimli bir ortamda gerçekleştirilen buluşmada katılımcılarımız, İngilizceyi günlük iletişim içerisinde aktif şekilde kullanırken birbirlerinin düşüncelerini dinleme ve farklı görüşleri değerlendirme fırsatı da buldu.
 
-KOZ-DER Speaking Club ile her hafta **yeni bir konu, yeni bir sohbet ve yeni bir deneyimle** buluşmaya devam ediyoruz.
+**KOZ-DER** Speaking Club ile her hafta **yeni bir konu, yeni bir sohbet ve yeni bir deneyimle** buluşmaya devam ediyoruz.
 
 📅 **Her hafta saat 20.00’de KOZ-DER Speaking Club’ta görüşmek üzere!**

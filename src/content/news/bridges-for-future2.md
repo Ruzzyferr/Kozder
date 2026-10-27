@@ -24,22 +24,22 @@ Dernek Başkan Yardımcımız **Halil ÖZKARACA**, **2-8 Ağustos 2026** tarihle
 
 Proje süresince farklı ülkelerden gelen gençlik çalışanları, sivil toplum temsilcileri ve kurum temsilcileriyle bir araya gelinerek gençlik alanındaki iyi uygulamalar, uluslararası proje deneyimleri ve gelecekte geliştirilebilecek ortak çalışmalar üzerine görüşmeler gerçekleştirildi.
 
-KOZ-DER adına yürütülen temaslar kapsamında yeni kurumlarla bağlantılar kurulmuş; Erasmus+ ve Avrupa Dayanışma Programı **(ESC)** çerçevesinde geliştirilebilecek yeni ortaklık fırsatları değerlendirilmiştir.
+**KOZ-DER** adına yürütülen temaslar kapsamında yeni kurumlarla bağlantılar kurulmuş; Erasmus+ ve Avrupa Dayanışma Programı **(ESC)** çerçevesinde geliştirilebilecek yeni ortaklık fırsatları değerlendirilmiştir.
 
 ## Yerelden Avrupa’ya Güçlenen Ağ
 
-Kilis merkezli bir gençlik derneği olarak KOZ-DER, gençlerin uluslararası fırsatlara erişimini artırmak, farklı kültürlerle etkileşimini güçlendirmek ve Avrupa’daki gençlik kuruluşlarıyla sürdürülebilir iş birlikleri kurmak amacıyla çalışmalarını sürdürmektedir.
+Kilis merkezli bir gençlik derneği olarak **KOZ-DER**, gençlerin uluslararası fırsatlara erişimini artırmak, farklı kültürlerle etkileşimini güçlendirmek ve Avrupa’daki gençlik kuruluşlarıyla sürdürülebilir iş birlikleri kurmak amacıyla çalışmalarını sürdürmektedir.
 
-**Bridges for Futures-2** projesi, KOZ-DER’in Avrupa’daki görünürlüğünü artırması, yeni partnerlerle tanışması ve gençlik alanındaki ortaklık ağını genişletmesi açısından önemli bir fırsat olmuştur.
+**Bridges for Futures-2** projesi, **KOZ-DER**’in Avrupa’daki görünürlüğünü artırması, yeni partnerlerle tanışması ve gençlik alanındaki ortaklık ağını genişletmesi açısından önemli bir fırsat olmuştur.
 
 ## Gençler İçin Yeni Fırsatlar
 
 Kurulan yeni bağlantılar sayesinde önümüzdeki dönemde gençlerimizin Erasmus+, ESC, eğitim kursları, gençlik değişimleri ve gönüllülük projeleri kapsamında daha fazla uluslararası fırsata erişmesi hedeflenmektedir.
 
-KOZ-DER olarak gençlerin gelişimine katkı sağlayacak, kültürlerarası öğrenmeyi destekleyecek ve uluslararası dayanışmayı güçlendirecek yeni projeler üretmeye devam edeceğiz.
+**KOZ-DER** olarak gençlerin gelişimine katkı sağlayacak, kültürlerarası öğrenmeyi destekleyecek ve uluslararası dayanışmayı güçlendirecek yeni projeler üretmeye devam edeceğiz.
 
 ## Teşekkür
 
 **Bridges for Futures-2** projesine ev sahipliği yapan **NaturKultur e.V.** ekibine, proje süresince iş birliği geliştirdiğimiz tüm kurumlara ve derneğimizi temsil eden Dernek Başkan Yardımcımız **Halil ÖZKARACA’ya** teşekkür ederiz.
 
-KOZ-DER olarak yerelden Avrupa’ya uzanan gençlik çalışmalarımızı güçlendirmeye ve gençler için yeni fırsatlar oluşturmaya devam edeceğiz.
+**KOZ-DER** olarak yerelden Avrupa’ya uzanan gençlik çalışmalarımızı güçlendirmeye ve gençler için yeni fırsatlar oluşturmaya devam edeceğiz.

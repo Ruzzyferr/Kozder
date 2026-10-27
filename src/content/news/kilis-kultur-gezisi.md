@@ -35,4 +35,4 @@ Her durak, katılımcılar için hem yeni bilgiler edinme hem de kültürleraras
 
 **No More Walls, Europe Calls** projesi, gençlerin farklı kültürlerden akranlarıyla bir araya gelmesini, karşılıklı anlayış geliştirmesini ve ortak öğrenme deneyimleri oluşturmasını amaçlamaktadır. Kilis kültür gezisi de bu amaç doğrultusunda, katılımcıların hem Türkiye’nin yerel kültürünü tanımasına hem de şehirle daha güçlü bir bağ kurmasına katkı sundu.
 
-KOZ-DER olarak, Kilis’in tarihî ve kültürel değerlerinin uluslararası gençlerle buluşmasından büyük mutluluk duyuyor; gezi sürecine katkı sunan tüm paydaşlara ve katılımcılarımıza teşekkür ediyoruz.
+**KOZ-DER** olarak, Kilis’in tarihî ve kültürel değerlerinin uluslararası gençlerle buluşmasından büyük mutluluk duyuyor; gezi sürecine katkı sunan tüm paydaşlara ve katılımcılarımıza teşekkür ediyoruz.

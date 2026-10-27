@@ -35,4 +35,4 @@ Bu kapsamda, **Kilis Kent Konseyi**, **KOZ-DER**, **Children with Special Needs*
 
 Nazik ev sahipliği ve iş birliğine açık yaklaşımları için **Kilis Kent Konseyi Başkanı Sayın Osman ERAY’a** teşekkür ederiz.
 
-KOZ-DER olarak, bu ziyaretin yeni fikirlerin yeni ortaklıklara dönüşeceği güzel çalışmaların başlangıcı olmasını diliyor; gençlerin yerel, ulusal ve uluslararası düzeyde daha aktif rol almasını destekleyen iş birliklerini güçlendirmeye devam ediyoruz.
+**KOZ-DER** olarak, bu ziyaretin yeni fikirlerin yeni ortaklıklara dönüşeceği güzel çalışmaların başlangıcı olmasını diliyor; gençlerin yerel, ulusal ve uluslararası düzeyde daha aktif rol almasını destekleyen iş birliklerini güçlendirmeye devam ediyoruz.

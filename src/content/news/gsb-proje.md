@@ -74,10 +74,10 @@ Katılımcılardan alınan nitel geri bildirimler de programın **öğretici, ka
 
 **“Zeka Oyunları, Dijitalleşme ve Afet Bilinci”** projesi, afetlerden etkilenen gençlerin yalnızca bilgi ve beceri kazanmasını değil, aynı zamanda sosyal olarak güçlenmesini de hedefledi. Proje süresince gençler yeni beceriler edinirken, farklı faaliyetlerde bir araya gelerek sosyal bağlarını güçlendirdi ve kendilerini daha aktif ifade edebilecekleri alanlar buldu.
 
-KOZ-DER olarak, afet sonrası süreçlerde gençlerin desteklenmesinin yalnızca kısa vadeli bir ihtiyaç değil, uzun vadeli toplumsal dayanıklılık açısından da önemli olduğuna inanıyoruz. Bu proje, Kilis’te gençlerin eğitim, teknoloji, sosyal katılım ve psikososyal destek alanlarında güçlendirilmesine yönelik önemli bir adım oldu.
+**KOZ-DER** olarak, afet sonrası süreçlerde gençlerin desteklenmesinin yalnızca kısa vadeli bir ihtiyaç değil, uzun vadeli toplumsal dayanıklılık açısından da önemli olduğuna inanıyoruz. Bu proje, Kilis’te gençlerin eğitim, teknoloji, sosyal katılım ve psikososyal destek alanlarında güçlendirilmesine yönelik önemli bir adım oldu.
 
 ## Teşekkür
 
-KOZ-DER olarak, projenin hayata geçirilmesine sağladığı destek için **T.C. Gençlik ve Spor Bakanlığına**, açılış programına katılım sağlayarak sürece değer katan **Vali Yardımcısı Sayın Okan DAĞLI’ya**, **Belediye Başkan Yardımcısı Cihan Çağlar YAŞAR’a**, kurum müdürlerimize, paydaşlarımıza, faaliyetlere katılan tüm gençlere ve organizasyon sürecinde emeği geçen ekip arkadaşlarımıza teşekkür ederiz.
+**KOZ-DER** olarak, projenin hayata geçirilmesine sağladığı destek için **T.C. Gençlik ve Spor Bakanlığına**, açılış programına katılım sağlayarak sürece değer katan **Vali Yardımcısı Sayın Okan DAĞLI’ya**, **Belediye Başkan Yardımcısı Cihan Çağlar YAŞAR’a**, kurum müdürlerimize, paydaşlarımıza, faaliyetlere katılan tüm gençlere ve organizasyon sürecinde emeği geçen ekip arkadaşlarımıza teşekkür ederiz.
 
 **“Zeka Oyunları, Dijitalleşme ve Afet Bilinci: Gençler İçin Geleceğe Bir Yolculuk”** projesi, Kilis’te afetlerden etkilenen gençlerin dayanıklılığını artırmaya, dijital becerilerini geliştirmeye ve sosyal katılımlarını güçlendirmeye yönelik önemli bir çalışma olarak tamamlandı.

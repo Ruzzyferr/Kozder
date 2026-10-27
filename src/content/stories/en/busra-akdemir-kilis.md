@@ -28,7 +28,7 @@ Beyond teaching me new things, LIFE for PRR made me feel how valuable it is **to
 
 ## Thank You
 
-I would like to thank KOZ-DER for making it possible for me to be part of this wonderful experience, and Halil Hocam and Mevlide Hocam for their effort, support and guidance throughout the process.
+I would like to thank **KOZ-DER** for making it possible for me to be part of this wonderful experience, and Halil Hocam and Mevlide Hocam for their effort, support and guidance throughout the process.
 
 I also want to thank everyone who made this journey so special, and especially Özlem, Sait, Sıla, Hüseyin, Muhammet İkbal and Arek. The time we spent together, the experiences we shared and the beautiful memories we created are among the most precious things this project gave me.
 

@@ -22,7 +22,7 @@ draft: false
 
 🇹🇷✨ **We told the story of Türkiye in Poland and shared our culture!**
 
-The **(RE)WRITE YOUR TYPING** Erasmus+ youth exchange, in which KOZ-DER takes part as a sending organisation, is taking place from 16 to 23 October 2026 in **Puck**, on Poland's Baltic coast. Hosted by Fundacja Autokreacja, the project brings together young people from different countries to explore **intentional, creative self-expression** in the digital age through writing, photography, drama and artificial intelligence.
+The **(RE)WRITE YOUR TYPING** Erasmus+ youth exchange, in which **KOZ-DER** takes part as a sending organisation, is taking place from 16 to 23 October 2026 in **Puck**, on Poland's Baltic coast. Hosted by **Fundacja Autokreacja**, the project brings together young people from different countries to explore **intentional, creative self-expression** in the digital age through writing, photography, drama and artificial intelligence.
 
 ## Türkiye at the Intercultural Evening
 

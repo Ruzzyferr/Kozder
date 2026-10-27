@@ -14,13 +14,13 @@ summary_tr: "As KOZ-DER, we participated in the Civil Voices Festival in Ankara,
 summary_en: "As KOZ-DER, we participated in the Civil Voices Festival in Ankara, met with our volunteers, introduced our projects, shared experiences and connected with new volunteer candidates."
 ---
 
-KOZ-DER took part in the **Civil Voices Festival** in Ankara, meeting our volunteers, young people and participants interested in civil society. At our stand we introduced KOZ-DER's international projects, volunteering opportunities and the ESC and Erasmus+ processes.
+**KOZ-DER** took part in the **Civil Voices Festival** in Ankara, meeting our volunteers, young people and participants interested in civil society. At our stand we introduced **KOZ-DER**'s international projects, volunteering opportunities and the ESC and Erasmus+ processes.
 
 Throughout the event we had the chance to meet volunteers who have taken part in our projects. While our volunteers shared their own experiences, prospective volunteers were able to ask directly about application processes, project content and European opportunities.
 
 ## What We Did at the Festival
 
-- Introduced the international projects KOZ-DER runs
+- Introduced the international projects **KOZ-DER** runs
 - Gave information about ESC and Erasmus+ opportunities
 - Explained volunteering processes and application steps
 - Met volunteers who have taken part in projects before

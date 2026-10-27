@@ -100,6 +100,6 @@ Life for PRR left a lasting impact on participants as a multidimensional youth w
 
 ## Thank You
 
-As KOZ-DER, we would like to thank all stakeholders who contributed to the implementation of **Life for PRR (Protect, Reduce, Reuse)**, **Kilis 7 Aralık University** for its cooperation, the youth organisations involved in the project, our team members who contributed to the activities and all young people who took part in the project.
+As **KOZ-DER**, we would like to thank all stakeholders who contributed to the implementation of **Life for PRR (Protect, Reduce, Reuse)**, **Kilis 7 Aralık University** for its cooperation, the youth organisations involved in the project, our team members who contributed to the activities and all young people who took part in the project.
 
 Life for PRR will remain in memories as a strong and unforgettable Erasmus+ experience that contributed to young people becoming more sensitive to the environment, culture, local life and one another.

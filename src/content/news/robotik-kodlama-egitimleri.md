@@ -28,7 +28,7 @@ featured: true
 
 ## Gençler Robotik Dünyasıyla Buluştu
 
-KOZ-DER tarafından **T.C. Gençlik ve Spor Bakanlığı desteğiyle** yürütülen **“Zeka Oyunları, Dijitalleşme ve Afet Bilinci: Gençler İçin Geleceğe Bir Yolculuk”** projesi kapsamında, gençlere yönelik **robotik kodlama eğitimleri** gerçekleştirildi. **Eğitmen Sami Özkan’ın** rehberliğinde katılımcılar, **SPIKE Prime** ile tanışarak kendi robotlarını yaptı.
+**KOZ-DER** tarafından **T.C. Gençlik ve Spor Bakanlığı desteğiyle** yürütülen **“Zeka Oyunları, Dijitalleşme ve Afet Bilinci: Gençler İçin Geleceğe Bir Yolculuk”** projesi kapsamında, gençlere yönelik **robotik kodlama eğitimleri** gerçekleştirildi. **Eğitmen Sami Özkan’ın** rehberliğinde katılımcılar, **SPIKE Prime** ile tanışarak kendi robotlarını yaptı.
 
 Eğitimler, gençlerin teknolojiyle uygulamalı olarak çalışmasına ve fikirlerini somut modellere dönüştürmesine alan açtı. Robotik setler ve bilgisayarlarla yürütülen çalışmalar, öğrenmeyi tasarlama, birleştirme ve deneme süreciyle buluşturdu.
 
@@ -58,6 +58,6 @@ Robotik eğitimleri, bu programın gençlerin teknolojiyle üretmesine ve yeni �
 
 ## Teşekkür
 
-KOZ-DER olarak, projenin hayata geçirilmesine verdiği destek için **T.C. Gençlik ve Spor Bakanlığına**, robotik kodlama eğitimlerinde gençlere rehberlik eden **eğitmenimiz Sami Özkan’a**, organizasyon sürecinde emek veren ekibimize ve eğitimlere katılan tüm gençlere teşekkür ederiz.
+**KOZ-DER** olarak, projenin hayata geçirilmesine verdiği destek için **T.C. Gençlik ve Spor Bakanlığına**, robotik kodlama eğitimlerinde gençlere rehberlik eden **eğitmenimiz Sami Özkan’a**, organizasyon sürecinde emek veren ekibimize ve eğitimlere katılan tüm gençlere teşekkür ederiz.
 
 Gençlerin teknolojiyle tanışabildiği, kendi fikirlerini üretebildiği ve dayanışma içinde öğrenebildiği alanlar oluşturmaya devam ediyoruz.

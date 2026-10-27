@@ -15,13 +15,13 @@ featured: true
 
 Bazen bir yere veda ettiğinizi sanırsınız ama orası sizin bir parçanız olarak kalmaya devam eder… Benim için **Madan** tam olarak böyle bir yer!
 
-Ben **Simge**. 23 yaşındayım ve KOZ-DER aracılığıyla katıldığım **Truth or Trick** Erasmus+ projesi için tam bir on günlüğüne yeniden Madan yollarındaydım.
+Ben **Simge**. 23 yaşındayım ve **KOZ-DER** aracılığıyla katıldığım **Truth or Trick** Erasmus+ projesi için tam bir on günlüğüne yeniden Madan yollarındaydım.
 
 ## Yeniden Madan’da Olmak
 
 Daha önce çok güzel anılar biriktirdiğim bu kasabaya yeniden adım atmak benim için çok özel bir duyguydu. Madan’ın tanıdık sokakları, sıcak atmosferi ve orada yeniden bir Erasmus+ deneyimi yaşamak, bu projeyi benim için unutulmaz kıldı.
 
-Bu kez KOZ-DER ailesinin bir parçası olarak farklı ülkelerden gelen gençlerle yeniden bir araya geldim. Hem öğrenmenin hem paylaşmanın hem de yeniden ait hissetmenin bir arada olduğu harika bir hafta geçirdim.
+Bu kez **KOZ-DER** ailesinin bir parçası olarak farklı ülkelerden gelen gençlerle yeniden bir araya geldim. Hem öğrenmenin hem paylaşmanın hem de yeniden ait hissetmenin bir arada olduğu harika bir hafta geçirdim.
 
 ## Projenin Odağı
 
@@ -33,7 +33,7 @@ Bu süreçte aslında ne kadar kritik bir konuda farkındalık kazandığımız�
 
 ## Benim İçin Anlamı
 
-Projenin en özel yanı, daha önce güzel anılar biriktirdiğim Madan’a yeniden dönmek ve bu deneyimi KOZ-DER aracılığıyla tekrar yaşamak oldu.
+Projenin en özel yanı, daha önce güzel anılar biriktirdiğim Madan’a yeniden dönmek ve bu deneyimi **KOZ-DER** aracılığıyla tekrar yaşamak oldu.
 
 Hem öğrenmeli, hem bol paylaşımlı, hem de tanıdık sokakların sıcaklığıyla dolu harika bir hafta geride kaldı.
 

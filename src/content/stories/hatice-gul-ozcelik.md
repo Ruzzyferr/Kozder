@@ -14,7 +14,7 @@ featured: true
 
 Herkese merhaba,
 
-Ben **Hatice GÜL**. **10 Nisan - 3 Haziran** tarihleri arasında, KOZ-DER aracılığıyla İtalya’nın **Orta Nova** şehrinde gerçekleştirdiğim gönüllülük projesi, hayatımın en öğretici ve eğlenceli dönemlerinden biri oldu.
+Ben **Hatice GÜL**. **10 Nisan - 3 Haziran** tarihleri arasında, **KOZ-DER** aracılığıyla İtalya’nın **Orta Nova** şehrinde gerçekleştirdiğim gönüllülük projesi, hayatımın en öğretici ve eğlenceli dönemlerinden biri oldu.
 
 Orta Nova, büyük şehirlerin gürültüsünden uzak, küçük ama ruhu olan bir yerleşkeydi. Buraya ilk adım attığımda yerel halkın içtenliği ve misafirperverliği beni karşıladı. İnsanları o kadar sıcakkanlı ve yardımseverdi ki, kendimi kısa sürede oraya ait hissettim.
 

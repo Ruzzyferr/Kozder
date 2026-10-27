@@ -17,13 +17,13 @@ YES ağı; Avrupa genelinde gençlik çalışmaları, aktif vatandaşlık, katı
 
 ## Gençlerin Sesini Avrupa’ya Taşımak
 
-KOZ-DER olarak kurulduğumuz günden bu yana gençlerin sosyal, kültürel, dijital ve kişisel gelişimlerini destekleyen çalışmalar yürütüyoruz. Erasmus+, Avrupa Dayanışma Programı **(ESC)**, gençlik değişimleri, eğitim kursları, gönüllülük faaliyetleri, zeka oyunları, robotik kodlama ve yerel gençlik çalışmaları aracılığıyla gençlere yeni fırsatlar sunmayı amaçlıyoruz.
+**KOZ-DER** olarak kurulduğumuz günden bu yana gençlerin sosyal, kültürel, dijital ve kişisel gelişimlerini destekleyen çalışmalar yürütüyoruz. Erasmus+, Avrupa Dayanışma Programı **(ESC)**, gençlik değişimleri, eğitim kursları, gönüllülük faaliyetleri, zeka oyunları, robotik kodlama ve yerel gençlik çalışmaları aracılığıyla gençlere yeni fırsatlar sunmayı amaçlıyoruz.
 
 Young European Shapers ağına dahil olmamız, bu çalışmalarımızı Avrupa düzeyinde daha güçlü bir iş birliği zeminiyle sürdürmemiz açısından önemli bir adımdır.
 
 ## Yeni İş Birlikleri ve Ortak Fırsatlar
 
-Bu ağ sayesinde KOZ-DER olarak;
+Bu ağ sayesinde **KOZ-DER** olarak;
 
 - Avrupa’daki gençlik kuruluşlarıyla daha güçlü iş birlikleri geliştirmeyi,
 - gençlerin uluslararası projelere erişimini artırmayı,
@@ -35,12 +35,12 @@ hedefliyoruz.
 
 ## Yerelden Avrupa’ya Gençlik Çalışmaları
 
-Kilis merkezli bir gençlik derneği olarak, yerelde yürüttüğümüz çalışmaları uluslararası ağlarla güçlendirmeye devam ediyoruz. KOZ-DER’in Young European Shapers ağına dahil olması, gençlerin yalnızca yerel düzeyde değil, Avrupa düzeyinde de söz sahibi olabilmesi için yeni kapılar açacaktır.
+Kilis merkezli bir gençlik derneği olarak, yerelde yürüttüğümüz çalışmaları uluslararası ağlarla güçlendirmeye devam ediyoruz. **KOZ-DER**’in Young European Shapers ağına dahil olması, gençlerin yalnızca yerel düzeyde değil, Avrupa düzeyinde de söz sahibi olabilmesi için yeni kapılar açacaktır.
 
 Bu üyelik, gençlerin fikirlerini projeye, projeleri ise toplumsal etkiye dönüştürme hedefimizin önemli bir parçasıdır.
 
 ## Teşekkür
 
-KOZ-DER olarak gençlik alanında daha kapsayıcı, daha katılımcı ve daha etkili çalışmalar yürütmek için ulusal ve uluslararası iş birliklerimizi geliştirmeye devam edeceğiz.
+**KOZ-DER** olarak gençlik alanında daha kapsayıcı, daha katılımcı ve daha etkili çalışmalar yürütmek için ulusal ve uluslararası iş birliklerimizi geliştirmeye devam edeceğiz.
 
 Young European Shapers ağı içinde yer almaktan mutluluk duyuyor; bu sürecin gençlerimiz için yeni fırsatlar, yeni ortaklıklar ve yeni hikâyeler oluşturacağına inanıyoruz.

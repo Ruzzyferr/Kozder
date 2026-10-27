@@ -12,7 +12,7 @@ featured: true
 
 Hello everyone,
 
-I am **Hüseyin**. Between **07.04.2025 and 07.06.2025** I had the chance to join a two-month short-term ESC project in Bulgaria through KOZ-DER. It was both instructive and unforgettable.
+I am **Hüseyin**. Between **07.04.2025 and 07.06.2025** I had the chance to join a two-month short-term ESC project in Bulgaria through **KOZ-DER**. It was both instructive and unforgettable.
 
 Throughout my volunteering in Bulgaria we took part in a lot of environment-focused work. Through nature clean-ups, awareness activities and events on sustainable living we contributed to the environment while developing ourselves in these areas. The work increased my sensitivity towards the environment and let me see up close how important sustainable living is in daily life.
 
@@ -26,6 +26,6 @@ Over those two months I learned a great deal not only in project activities but 
 
 Volunteering in Bulgaria did not only give me new knowledge and new friendships; it also helped me discover myself. Sometimes even a short period in another country can shape how you think, how you see life and what you plan for the future. This project was exactly that for me.
 
-Having this opportunity through KOZ-DER meant a great deal to me. This period, in which I both discovered myself and learned to look at the world through a different window, will always hold a special place in my life.
+Having this opportunity through **KOZ-DER** meant a great deal to me. This period, in which I both discovered myself and learned to look at the world through a different window, will always hold a special place in my life.
 
 Thank you to everyone who made this opportunity possible.

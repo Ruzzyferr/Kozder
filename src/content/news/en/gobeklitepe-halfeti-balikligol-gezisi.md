@@ -29,7 +29,7 @@ featured: true
 
 ## From Training to Cultural Discovery
 
-As part of **“Mind Games, Digitalisation and Disaster Awareness: A Journey towards the Future for Young People”**, KOZ-DER organised visits to **Göbeklitepe, Halfeti and Balıklıgöl** following the project’s training activities, with the support of the **Ministry of Youth and Sports of the Republic of Türkiye**. Young people explored the region’s historical, natural and cultural heritage and shared new experiences together.
+As part of **“Mind Games, Digitalisation and Disaster Awareness: A Journey towards the Future for Young People”**, **KOZ-DER** organised visits to **Göbeklitepe, Halfeti and Balıklıgöl** following the project’s training activities, with the support of the **Ministry of Youth and Sports of the Republic of Türkiye**. Young people explored the region’s historical, natural and cultural heritage and shared new experiences together.
 
 The cultural and social activities extended the interaction that began during training into different settings. The visits aimed to bring cultural discovery, shared learning and social participation together.
 
@@ -61,6 +61,6 @@ The trips formed part of this holistic approach to personal development and soci
 
 ## Thank You
 
-KOZ-DER thanks the **Ministry of Youth and Sports of the Republic of Türkiye** for its support, our team for organising the trips and all young people who took part.
+**KOZ-DER** thanks the **Ministry of Youth and Sports of the Republic of Türkiye** for its support, our team for organising the trips and all young people who took part.
 
 We continue to create opportunities for young people to learn, discover and grow stronger together.

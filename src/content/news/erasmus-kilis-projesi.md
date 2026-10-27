@@ -20,7 +20,7 @@ featured: true
 
 **Children with Special Needs** kurumunun Erasmus+ projesi **No More Walls, Europe Calls** kapsamında, projenin Kilis’teki ev sahipliği sürecinde önemli bir kurumsal ziyaret gerçekleştirildi.
 
-Proje faaliyetlerinin Kilis’te yürütülmesi ve katılımcıların üniversite ortamında ağırlanması sürecinde **Kilis 7 Aralık Üniversitesi** önemli bir ev sahipliği rolü üstlendi. Bu kapsamda KOZ-DER temsilcileri ve proje paydaşları olarak **Kilis 7 Aralık Üniversitesi Rektörlüğü** ziyaret edildi.
+Proje faaliyetlerinin Kilis’te yürütülmesi ve katılımcıların üniversite ortamında ağırlanması sürecinde **Kilis 7 Aralık Üniversitesi** önemli bir ev sahipliği rolü üstlendi. Bu kapsamda **KOZ-DER** temsilcileri ve proje paydaşları olarak **Kilis 7 Aralık Üniversitesi Rektörlüğü** ziyaret edildi.
 
 ## İş Birliği ve Gelecek Projeler Görüşüldü
 
@@ -32,10 +32,10 @@ Görüşmede, kurumlar arası iş birliğinin yalnızca mevcut proje süreciyle 
 
 No More Walls, Europe Calls projesinin Kilis’te uygulanmasına sunduğu katkılar ve proje sürecindeki ev sahipliği için **Kilis 7 Aralık Üniversitesi’ne** teşekkür edildi. Üniversitenin uluslararası gençlik projelerine açık yaklaşımı, farklı ülkelerden gelen gençlerin Kilis’i ve üniversite ortamını tanımasına önemli katkı sağladı.
 
-KOZ-DER olarak, gençlerin farklı kültürlerle bir araya gelmesini, ortak öğrenme alanları oluşturmasını ve Avrupa düzeyinde daha aktif bireyler haline gelmesini destekleyen çalışmalarımıza devam ediyoruz.
+**KOZ-DER** olarak, gençlerin farklı kültürlerle bir araya gelmesini, ortak öğrenme alanları oluşturmasını ve Avrupa düzeyinde daha aktif bireyler haline gelmesini destekleyen çalışmalarımıza devam ediyoruz.
 
 ## Yerelden Uluslararası İş Birliğine
 
-Bu ziyaret, KOZ-DER’in yereldeki kurumlarla kurduğu güçlü bağları uluslararası ortaklıklarla birleştirmesi açısından önemli bir adım oldu. **Kilis 7 Aralık Üniversitesi**, **Children with Special Needs** ve **KOZ-DER** arasında gerçekleştirilen görüşmelerin, gelecekte daha kapsayıcı, sürdürülebilir ve genç odaklı projelere zemin hazırlaması hedeflenmektedir.
+Bu ziyaret, **KOZ-DER**’in yereldeki kurumlarla kurduğu güçlü bağları uluslararası ortaklıklarla birleştirmesi açısından önemli bir adım oldu. **Kilis 7 Aralık Üniversitesi**, **Children with Special Needs** ve **KOZ-DER** arasında gerçekleştirilen görüşmelerin, gelecekte daha kapsayıcı, sürdürülebilir ve genç odaklı projelere zemin hazırlaması hedeflenmektedir.
 
-KOZ-DER olarak, iş birliği sürecine katkı sunan **Kilis 7 Aralık Üniversitesi’ne**, **Children with Special Needs** kurumuna ve projede emeği geçen tüm paydaşlara teşekkür ederiz.
+**KOZ-DER** olarak, iş birliği sürecine katkı sunan **Kilis 7 Aralık Üniversitesi’ne**, **Children with Special Needs** kurumuna ve projede emeği geçen tüm paydaşlara teşekkür ederiz.

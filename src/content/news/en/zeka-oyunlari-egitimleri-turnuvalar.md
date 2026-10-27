@@ -41,7 +41,7 @@ featured: true
 
 ## Learning through Play, Growing Stronger Together
 
-As part of **“Mind Games, Digitalisation and Disaster Awareness: A Journey towards the Future for Young People”**, KOZ-DER organised mind games training and tournaments with the support of the **Ministry of Youth and Sports of the Republic of Türkiye**. The activities combined opportunities to learn and practise game rules with a social setting where young people could spend time together.
+As part of **“Mind Games, Digitalisation and Disaster Awareness: A Journey towards the Future for Young People”**, **KOZ-DER** organised mind games training and tournaments with the support of the **Ministry of Youth and Sports of the Republic of Türkiye**. The activities combined opportunities to learn and practise game rules with a social setting where young people could spend time together.
 
 Designed to empower young people in Kilis affected by the 6 February earthquakes, the project received **TRY 910,000 in grant support** and was planned with an implementation schedule of approximately **eight months**. The programme for young people aged **14–29** brought mind games together with robotics and coding, digital skills, disaster awareness, psychosocial support and cultural-social activities.
 
@@ -69,6 +69,6 @@ Learning, social participation and solidarity were addressed within the same pro
 
 ## Thank You
 
-KOZ-DER thanks the **Ministry of Youth and Sports of the Republic of Türkiye** for its support, **our trainers Mevlide Özkaraca and Özlem Çiloğlu** for their work and contributions to the mind games training, our organising team and all young people who took part in the training and tournaments.
+**KOZ-DER** thanks the **Ministry of Youth and Sports of the Republic of Türkiye** for its support, **our trainers Mevlide Özkaraca and Özlem Çiloğlu** for their work and contributions to the mind games training, our organising team and all young people who took part in the training and tournaments.
 
 We continue to create spaces where young people can learn, work together and grow stronger in solidarity.

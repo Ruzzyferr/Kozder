@@ -29,7 +29,7 @@ Even though our cultures, languages and habits differed, seeing how easily we co
 
 I would particularly like to mention the contribution of both the hosting organisation and our sending organisation, **KOZ-DER**.
 
-The care KOZ-DER showed in briefing, preparing and guiding us from before the project began meant we took part far more consciously and with better preparation.
+The care **KOZ-DER** showed in briefing, preparing and guiding us from before the project began meant we took part far more consciously and with better preparation.
 
 In Madan, the hosting organisation's warm approach, careful planning and close attention to participants helped us feel part of the project very quickly.
 

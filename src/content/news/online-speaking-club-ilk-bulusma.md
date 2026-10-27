@@ -24,7 +24,7 @@ draft: false
 
 🗣️💻 **Epeydir beklenen Online Speaking Club başladı!**
 
-KOZ-DER olarak hazırladığımız **Online Speaking Club**, 14 Ekim Çarşamba akşamı saat **21.00’de Google Meet** üzerinden ilk buluşmasını gerçekleştirdi. Seviye belirleme formunu dolduran gençler, farklı şehirlerden ekran başında bir araya gelerek İngilizce konuşma pratiğine birlikte başladı. 🌍
+**KOZ-DER** olarak hazırladığımız **Online Speaking Club**, 14 Ekim Çarşamba akşamı saat **21.00’de Google Meet** üzerinden ilk buluşmasını gerçekleştirdi. Seviye belirleme formunu dolduran gençler, farklı şehirlerden ekran başında bir araya gelerek İngilizce konuşma pratiğine birlikte başladı. 🌍
 
 İlk oturumda katılımcılar birbirleriyle tanıştı, kendilerini İngilizce tanıttı ve eğitmenlerimizin yönlendirmesiyle sohbetlere katıldı. Mikrofonunu açıp ilk cümlesini kuran, soru soran, el kaldırıp fikrini paylaşan herkes kulübün sıcak ve destekleyici havasına katkı sundu. ✨
 
@@ -43,6 +43,6 @@ Online Speaking Club’da amaç kusursuz İngilizce konuşmak değil; **konuşma
 
 Katılmak için önce seviye belirleme formunu doldurman yeterli. Form ve ayrıntılar için [Online Speaking Club etkinlik sayfası](/etkinlikler/online-speaking-club-2026).
 
-Yüz yüze buluşmalarımız da her Cuma 20.00’de Kilis’teki dernek merkezimizde devam ediyor: [KOZ-DER Speaking Club](/etkinlikler/speakingclub-2026)
+Yüz yüze buluşmalarımız da her Cuma 20.00’de Kilis’teki dernek merkezimizde devam ediyor: [**KOZ-DER** Speaking Club](/etkinlikler/speakingclub-2026)
 
 **Konuş, paylaş, pratik yap ve İngilizceni geliştir!**
