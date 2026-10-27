@@ -22,7 +22,7 @@ Some experiences do more than show you new places; they also help you **meet new
 
 ## Having Fun While Learning
 
-In this project, where KOZ-DER took part as the sending organisation, we came together with students from different countries. Throughout the week we took part in activities on **creative writing, photography, drama and digital communication**. Thanks to the interactive games in particular, we had a lot of fun and learned a lot about communicating, working as a team and expressing ourselves.
+In this project, where **KOZ-DER** took part as the sending organisation, we came together with students from different countries. Throughout the week we took part in activities on **creative writing, photography, drama and digital communication**. Thanks to the interactive games in particular, we had a lot of fun and learned a lot about communicating, working as a team and expressing ourselves.
 
 I also have to mention how much I loved the **Santa Claus** activity, where we wrote notes about each other and left them in each other's envelopes. :) For me, the best part was that learning never felt like a lesson, but like a wonderful experience we shared together.
 
@@ -40,6 +40,6 @@ It made me very happy that they were curious about our traditions, tried our tre
 
 When I left Puck, I took with me not only beautiful photos and memories, but also **new friendships and different perspectives**. This project reminded me that communication is not only about words; listening, trying to understand and creating something together matter just as much as speaking.
 
-I am so happy to have been part of this wonderful experience. I would like to thank KOZ-DER, our host organisation Fundacja Autokreacja and all my friends who made this week unforgettable.
+I am so happy to have been part of this wonderful experience. I would like to thank **KOZ-DER**, our host organisation **Fundacja Autokreacja** and all my friends who made this week unforgettable.
 
 **For me, (RE)WRITE YOUR TYPING will remain not just a week I spent in Poland, but a special experience I will remember for a long time.** 💙
