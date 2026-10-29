@@ -113,7 +113,7 @@ const heroMessage = lang === 'en'
         { text: 'Stronger Together.', syllables: ['Strong', 'er ', 'To', 'ge', 'ther.'] },
         { text: 'Start the Change.', syllables: ['Start ', 'the ', 'Change.'] },
       ],
-      lead: 'From Kilis to Europe, volunteer, gain experience and discover the world through Erasmus+ and European Solidarity Corps opportunities.',
+      lead: 'From mind games, coding and English clubs to volunteering abroad: a starting point for every curious young person.',
       primary: 'Explore Opportunities',
       secondary: 'Discover KOZ-DER',
       how: 'How can I join?',
@@ -142,7 +142,7 @@ const heroMessage = lang === 'en'
         { text: 'Birlikte Güçlüyüz.', syllables: ['Bir', 'lik', 'te ', 'Güç', 'lü', 'yüz.'] },
         { text: 'Değişimi Başlat.', syllables: ['De', 'ği', 'şi', 'mi ', 'Baş', 'lat.'] },
       ],
-      lead: "Kilis’ten Avrupa’ya uzanan Erasmus+ ve Avrupa Dayanışma Programı fırsatlarıyla gönüllü ol, deneyim kazan ve dünyayı keşfet.",
+      lead: "Zekâ oyunları, kodlama ve İngilizce kulüplerinden yurt dışında gönüllülüğe: merak eden her genç için bir başlangıç noktası.",
       primary: 'Fırsatları İncele',
       secondary: 'KOZ-DER’i Tanı',
       how: 'Nasıl katılırım?',
@@ -208,7 +208,7 @@ const stats = [
 <div class="v3-text"><h1><span class="hv-l1 v3-shine">{heroMessage.line1}</span><br /><span class="hv-l2 v3-shine">{heroMessage.line2}</span><span class="rotating" data-rotating-words={JSON.stringify(heroMessage.rotating)} data-rotating-colors={JSON.stringify(heroSyllableColors)} aria-label={heroMessage.rotating[0].text}>{heroMessage.rotating[0].syllables.map((s,i)=><span style={`--syllable:${heroSyllableColors[i%heroSyllableColors.length]}`}>{s}</span>)}</span></h1>
 <p class="v3-lead">{heroMessage.lead}</p><div class="v3-actions"><a href={path(lang,'projects')} class="v3-btn v3-orange"><span class="v3-in">{heroMessage.primary}</span></a><a href={path(lang,'about')} class="v3-btn v3-glassbtn"><span class="v3-in">{heroMessage.secondary}</span></a></div></div>
 <div class="v3-newswrap"><div class="news hv-news v3-deck" aria-roledescription="carousel" aria-label={copy('Son haberler','Latest news')}>
-{heroNews.map((item,i)=><a class:list={['slide',i===0&&'active',i===1&&'is-n1',i===2&&'is-n2',item.data.coverFit==='contain'&&'poster-slide']} href={entryPath(lang,'news',stripLangPrefix(item.slug))} aria-hidden={i===0?'false':'true'} tabindex={i===0?0:-1}><div class="v3-media"><img class="hv-bg" src={smallFor(item.data.coverImage,480)} alt="" aria-hidden="true" loading={i===0?'eager':'lazy'} /><img class="hv-img" src={item.data.coverImage} srcset={srcsetFor(item.data.coverImage)} sizes="(max-width: 900px) 100vw, 50vw" alt={newsTitle(item)} loading={i===0?'eager':'lazy'} /><span class="v3-label">{copy('KOZ-DER’DEN HABERLER','NEWS FROM KOZ-DER')}</span></div><div class="news-copy"><span class="date">{formatEventDate(item.data.date,{lang})}</span><h3>{newsTitle(item)}</h3><span class="read">{copy('Haberi oku →','Read the news →')}</span></div></a>)}
+{heroNews.map((item,i)=><a class:list={['slide',i===0&&'active',i===1&&'is-n1',i===2&&'is-n2',item.data.coverFit==='contain'&&'poster-slide']} href={entryPath(lang,'news',stripLangPrefix(item.slug))} aria-hidden={i===0?'false':'true'} tabindex={i===0?0:-1}><div class="v3-media"><img class="hv-bg" src={smallFor(item.data.coverImage,480)} alt="" aria-hidden="true" loading={i===0?'eager':'lazy'} /><img class="hv-img" src={item.data.coverImage} srcset={srcsetFor(item.data.coverImage)} sizes="(max-width: 900px) 100vw, 50vw" alt={newsTitle(item)} loading={i===0?'eager':'lazy'} /><span class="v3-label">{copy('KOZ-DER’DEN HABERLER','NEWS FROM KOZ-DER')}</span><span class="v3-date">{formatEventDate(item.data.date,{lang})}</span></div><div class="news-copy"><h3>{newsTitle(item)}</h3><span class="read">{copy('Haberi oku →','Read the news →')}</span></div></a>)}
 </div><div class="v3-newsnav"><div class="hv-dots" role="tablist" aria-label={copy('Haber seç','Choose news')}>{heroNews.map((_,i)=><button type="button" data-dot={String(i)} aria-label={`${i+1}`} aria-current={i===0?'true':'false'}></button>)}</div><div class="v3-arrows"><button type="button" class="v3-arrow ghost" data-prev aria-label={copy('Önceki haber','Previous news')}>‹</button><button type="button" class="v3-arrow" data-next aria-label={copy('Sonraki haber','Next news')}>›</button></div></div></div>
 </div></section>
 <div class="wrap"><div class="stats glass" data-home-stats>{stats.map(s=><a class="stat" href={path(lang,'impact')}><i class="glass-sheen" aria-hidden="true"></i><i class="glass-glint" aria-hidden="true"></i><strong>{s.value}</strong><span>{s.label}</span><small>{s.info}</small></a>)}</div></div>
@@ -412,7 +412,9 @@ document.querySelectorAll<HTMLElement>('[data-carousel-root]').forEach(root=>{
 #koz-glass .hero-v3 .v3-media{position:absolute;inset:0;overflow:hidden}
 #koz-glass .hero-v3 .v3-label{position:absolute;left:16px;top:16px;z-index:3;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.92);color:#14213d;font-size:11px;font-weight:800;letter-spacing:.05em}
 #koz-glass .hero-v3 .slide.active:hover img.hv-img{transform:scale(1.05)}
-#koz-glass .hero-v3 .hv-news .news-copy{z-index:3}
+#koz-glass .hero-v3 .hv-news .news-copy{z-index:3;gap:14px!important;padding:14px 20px 16px!important}
+#koz-glass .hero-v3 .hv-news .news-copy h3{white-space:normal!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;text-overflow:clip!important;font-size:clamp(15px,1.3vw,19px)!important;line-height:1.25!important;margin:0!important}
+#koz-glass .hero-v3 .v3-date{position:absolute;right:16px;top:16px;z-index:3;padding:6px 12px;border-radius:999px;background:rgba(20,33,61,.62);color:#fff;font-size:12px;font-weight:700;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.35)}
 #koz-glass .v3-newsnav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding-right:40px}
 #koz-glass .hero-v3 .hv-dots{position:static;display:flex;gap:7px}
 #koz-glass .hero-v3 .hv-dots button{width:10px;height:10px;border-radius:999px;border:0;padding:0;background:rgba(255,255,255,.4);transition:width .35s ease,background .35s ease;cursor:pointer}
@@ -525,7 +527,9 @@ document.querySelectorAll<HTMLElement>('[data-carousel-root]').forEach(root=>{
  #koz-glass .hero-v3 .hv-news .slide{inset:0 16px 12px 0;border-radius:22px;display:flex!important;flex-direction:column}
  #koz-glass .hero-v3 .v3-media{position:relative;inset:auto;flex:1 1 auto;min-height:0}
  #koz-glass .hero-v3 .hv-news .news-copy{position:static!important;flex-wrap:wrap;background:#1f2f52!important;border-top:0!important;padding:14px 16px!important}
- #koz-glass .hero-v3 .hv-news .news-copy .date{display:none}
+ #koz-glass .hero-v3 .hv-news .news-copy h3{font-size:16px!important;flex-basis:100%}
+ #koz-glass .hero-v3 .v3-date{right:10px;top:12px;font-size:10px;padding:5px 9px}
+ #koz-glass .hero-v3 .v3-label{left:10px;top:12px;font-size:9.5px;padding:5px 9px;letter-spacing:.03em}
  #koz-glass .hero-v3 .hv-news .poster-slide img.hv-img{padding:44px 10px 10px!important}
  #koz-glass .v3-newsnav{padding-right:16px}
  #koz-glass .v3-pcard{flex-basis:100%;grid-template-columns:1fr}
