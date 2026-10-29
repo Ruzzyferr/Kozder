@@ -165,11 +165,14 @@ function storyProgramLabel(programName: string) {
 // Etkinlik tarihini gün + kısaltılmış ay olarak parçalar.
 function dateParts(value: string) {
   const key = getEventDateSortKey(value);
-  if (!key) return { day: '·', month: '' };
+  if (!key) return { day: '·', month: '', weekday: '' };
   const d = new Date(key);
+  const loc = lang === 'en' ? 'en-GB' : 'tr-TR';
+  const cap = (x: string) => x.charAt(0).toLocaleUpperCase(loc) + x.slice(1);
   return {
-    day: String(d.getDate()).padStart(2, '0'),
-    month: d.toLocaleDateString(lang === 'en' ? 'en-GB' : 'tr-TR', { month: 'short' }).replace('.', '').toUpperCase(),
+    day: String(d.getDate()),
+    month: cap(d.toLocaleDateString(loc, { month: 'long' })),
+    weekday: cap(d.toLocaleDateString(loc, { weekday: 'short' })).replace('.', ''),
   };
 }
 
@@ -243,7 +246,7 @@ const stats = [
 <div class="v3-dots" role="tablist"></div></div></section>
 <section class="wrap section"><p class="eyebrow">{copy('İlk projen mi?','Your first project?')}</p><h2>{copy('Üç adımda, Avrupa.','Europe in three steps.')}</h2><div class="steps v3-steps">{steps.map(step=><a class="step v3-step" href={step.href}><strong>{step.n}</strong><h3>{step.title}</h3><p>{step.text}</p></a>)}</div></section>
 <section class="wrap section dual v3-dual"><div class="v3-ev"><p class="eyebrow">{copy('Bir araya gelelim','Let’s come together')}</p><h2>{copy('Etkinlik takvimi.','Event calendar.')}</h2><div class="events-list">
-{homeEvents.map(event=>{const d=dateParts(eventDate(event));return <a class="event glass" href={entryPath(lang,'events',stripLangPrefix(event.slug))} data-recurring-event={event.data.recurring} data-start-date={event.data.date} data-weekday={event.data.weekday} data-time={event.data.time} data-timezone={event.data.timezone} data-lang={lang}><span class="event-date"><span data-event-day>{d.day}</span><small data-event-month>{d.month}</small></span><div><strong>{lang==='en'?event.data.title_en:event.data.title_tr}</strong><p>{event.data.time&&`${event.data.time} · `}{event.data.location}</p></div></a>;})}
+{homeEvents.map(event=>{const d=dateParts(eventDate(event));return <a class="event glass" href={entryPath(lang,'events',stripLangPrefix(event.slug))} data-recurring-event={event.data.recurring} data-start-date={event.data.date} data-weekday={event.data.weekday} data-time={event.data.time} data-timezone={event.data.timezone} data-lang={lang}><span class="event-date v3-cal"><small class="v3-wd" data-event-weekday>{d.weekday}</small><span data-event-day data-format="long">{d.day}</span><small data-event-month data-format="long">{d.month}</small></span><div><strong>{lang==='en'?event.data.title_en:event.data.title_tr}</strong><p>{event.data.time&&`${event.data.time} · `}{event.data.location}</p></div></a>;})}
 </div><a class="v3-pill pill-violet v3-more" href={path(lang,'events')}>{t('common.allEvents')} <span class="arr" aria-hidden="true">→</span></a></div>
 <div class="v3-ann"><p class="eyebrow">{copy('Gündem','Updates')}</p><h2>{copy('Duyurular.','Announcements.')}</h2><div class="v3-annlist">{recentPosts.map(post=><a class="announcement" href={entryPath(lang,'posts',stripLangPrefix(post.slug))}><span>{lang==='en'?post.data.title_en:post.data.title_tr}</span><span class="arr" aria-hidden="true">→</span></a>)}</div><a class="v3-pill pill-rose v3-more" href={path(lang,'posts')}>{copy('Tüm duyurular','All announcements')} <span class="arr" aria-hidden="true">→</span></a></div></section>
 <section class="logos" aria-label={t('home.affiliations.title')}>{affiliationRows.map(row=><div><p class="logo-label">{row.label}</p><LogoMarquee lang={lang} label={row.label} items={row.items} direction={row.direction} duration={row.duration}/></div>)}</section>
@@ -504,6 +507,10 @@ document.querySelectorAll<HTMLElement>('[data-carousel-root]').forEach(root=>{
 #koz-glass .v3-ev .event:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 16px 34px rgba(20,33,61,.16)}
 #koz-glass .v3-ev .event-date{background:#6d28d9!important;color:#fff!important}
 #koz-glass .v3-ev .event-date small{color:#ede9fe!important}
+#koz-glass .v3-ev .event-date.v3-cal{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:1px;width:74px!important;min-width:74px;height:80px!important;padding:6px 4px!important;border-radius:18px!important;text-align:center;line-height:1}
+#koz-glass .v3-cal .v3-wd{font-size:10px!important;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+#koz-glass .v3-cal [data-event-day]{font-size:28px!important;font-weight:800;line-height:1.05}
+#koz-glass .v3-cal [data-event-month]{font-size:11px!important;font-weight:700;letter-spacing:.02em;text-transform:none!important}
 #koz-glass .v3-annlist{display:flex;flex-direction:column;gap:10px;margin-top:6px}
 #koz-glass .v3-ann .announcement{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-radius:18px;background:#fff;border:1px solid rgba(255,255,255,.9);color:#14213d;font-weight:700;text-decoration:none;transition:transform .35s ease,box-shadow .35s ease}
 #koz-glass .v3-ann .announcement .arr{color:#be123c;font-weight:800;transition:transform .3s ease}
