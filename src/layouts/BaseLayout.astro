@@ -514,11 +514,16 @@ const other: Lang = lang === 'tr' ? 'en' : 'tr';
           .replace('.', '')
           .toUpperCase();
 
+        const loc = lang === 'en' ? 'en-GB' : 'tr-TR';
+        const cap = (x: string) => x.charAt(0).toLocaleUpperCase(loc) + x.slice(1);
         element.querySelectorAll<HTMLElement>('[data-event-day]').forEach(node => {
-          node.textContent = day;
+          node.textContent = node.dataset.format === 'long' ? String(date.getDate()) : day;
         });
         element.querySelectorAll<HTMLElement>('[data-event-month]').forEach(node => {
-          node.textContent = month;
+          node.textContent = node.dataset.format === 'long' ? cap(date.toLocaleDateString(loc, { month: 'long' })) : month;
+        });
+        element.querySelectorAll<HTMLElement>('[data-event-weekday]').forEach(node => {
+          node.textContent = cap(date.toLocaleDateString(loc, { weekday: 'short' })).replace('.', '');
         });
       }
 

@@ -70,6 +70,7 @@ const getInitials = (name: string) => {
                     {getInitials(story.data.name)}
                   </div>
                 )}
+                {(() => { const lbl = storyProgramLabel(story.data.programName); return (lbl === 'Erasmus+' || lbl === 'ESC') ? <span class="absolute right-3 top-3 z-10 rounded-full px-3 py-1.5 text-[11px] font-extrabold tracking-wide text-white shadow-md" style={`background:${lbl === 'ESC' ? '#0f766e' : '#1d4ed8'}`}>{lbl}</span> : null; })()}
               </div>
 
               <div class="p-5 sm:p-6">
