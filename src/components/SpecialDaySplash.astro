@@ -4,7 +4,7 @@ interface Props { lang: 'tr' | 'en' }
 const { lang } = Astro.props;
 const data = (specialDays.days as any[]).map(d => ({
   id: d.id, month: d.month, day: d.day, endMonth: d.endMonth, endDay: d.endDay, year: d.year,
-  image: d.image, title: lang === 'en' ? d.title_en : d.title_tr, tone: d.tone || 'festive',
+  image: d.image, images: d.images, title: lang === 'en' ? d.title_en : d.title_tr, tone: d.tone || 'festive',
 }));
 const labels = lang === 'en'
   ? { cont: 'Continue to the website', close: 'Close' }
@@ -34,6 +34,7 @@ const labels = lang === 'en'
           // aynı güne iki kayıt düşerse tek günlük (daha özel) olan öne çıkar
           .sort((a: any, b: any) => (md(a.endMonth || a.month, a.endDay || a.day) - md(a.month, a.day)) - (md(b.endMonth || b.month, b.endDay || b.day) - md(b.month, b.day)))[0];
     if (!match) return;
+    if (Array.isArray(match.images) && match.images.length) match.image = match.images[Math.floor(Math.random() * match.images.length)];
     const key = `kz-special-${match.id}-${today}`;
     try { if (!preview && localStorage.getItem(key)) return; } catch {}
     const wrap = document.createElement('div');

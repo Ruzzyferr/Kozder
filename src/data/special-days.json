@@ -1,6 +1,44 @@
 {
-  "_note": "Önemli gün ve haftalarda site girişinde gösterilen görseller. Her yıl tekrar eder (month/day). Birden fazla gün için endMonth/endDay; sadece belirli bir yıl için 'year' (dini bayramlar her yıl yeniden girilmeli). Aynı güne iki kayıt düşerse tek günlük olan önceliklidir. Önizleme: ?ozel-gun=<id>",
+  "_note": "Önemli gün ve haftalarda site girişinde gösterilen görseller. Her yıl tekrar eder (month/day). Birden fazla gün için endMonth/endDay; sadece belirli bir yıl için 'year' (dini bayramlar her yıl yeniden girilmeli). Aynı güne iki kayıt düşerse tek günlük olan önceliklidir. Önizleme: ?ozel-gun=<id> Bir günün birden fazla görseli varsa 'images' listesine eklenir; ziyaretçiye rastgele biri gösterilir.",
   "days": [
+    {
+      "id": "1-ocak",
+      "month": 1,
+      "day": 1,
+      "image": "/images/special-days/1-ocak.webp",
+      "title_tr": "1 Ocak Mutlu Yıllar",
+      "title_en": "Happy New Year",
+      "tone": "festive"
+    },
+    {
+      "id": "6-subat",
+      "month": 2,
+      "day": 6,
+      "image": "/images/special-days/6-subat.webp",
+      "title_tr": "6 Şubat Depremleri Unutmadık",
+      "title_en": "We remember the 6 February earthquakes",
+      "tone": "solemn"
+    },
+    {
+      "id": "deprem-haftasi",
+      "month": 3,
+      "day": 1,
+      "endMonth": 3,
+      "endDay": 7,
+      "image": "/images/special-days/deprem-haftasi.webp",
+      "title_tr": "1–7 Mart Deprem Haftası",
+      "title_en": "1–7 March, Earthquake Awareness Week",
+      "tone": "festive"
+    },
+    {
+      "id": "8-mart",
+      "month": 3,
+      "day": 8,
+      "image": "/images/special-days/8-mart.webp",
+      "title_tr": "8 Mart Dünya Kadınlar Günü",
+      "title_en": "8 March, International Women’s Day",
+      "tone": "festive"
+    },
     {
       "id": "ramazan-bayrami",
       "year": 2027,
@@ -14,6 +52,15 @@
       "tone": "festive"
     },
     {
+      "id": "12-mart",
+      "month": 3,
+      "day": 12,
+      "image": "/images/special-days/12-mart.webp",
+      "title_tr": "12 Mart İstiklal Marşı’nın Kabulü ve Mehmet Akif Ersoy’u Anma Günü",
+      "title_en": "12 March, Adoption of the National Anthem and Mehmet Akif Ersoy Remembrance Day",
+      "tone": "festive"
+    },
+    {
       "id": "18-mart",
       "month": 3,
       "day": 18,
@@ -23,12 +70,39 @@
       "tone": "solemn"
     },
     {
+      "id": "2-nisan",
+      "month": 4,
+      "day": 2,
+      "image": "/images/special-days/2-nisan.webp",
+      "title_tr": "2 Nisan Dünya Otizm Farkındalık Günü",
+      "title_en": "2 April, World Autism Awareness Day",
+      "tone": "festive"
+    },
+    {
+      "id": "22-nisan",
+      "month": 4,
+      "day": 22,
+      "image": "/images/special-days/22-nisan.webp",
+      "title_tr": "22 Nisan Dünya Günü",
+      "title_en": "22 April, Earth Day",
+      "tone": "festive"
+    },
+    {
       "id": "23-nisan",
       "month": 4,
       "day": 23,
       "image": "/images/special-days/23-nisan.webp",
       "title_tr": "23 Nisan Ulusal Egemenlik ve Çocuk Bayramı",
       "title_en": "23 April, National Sovereignty and Children’s Day",
+      "tone": "festive"
+    },
+    {
+      "id": "9-mayis",
+      "month": 5,
+      "day": 9,
+      "image": "/images/special-days/9-mayis.webp",
+      "title_tr": "9 Mayıs Avrupa Günü",
+      "title_en": "9 May, Europe Day",
       "tone": "festive"
     },
     {
@@ -53,6 +127,15 @@
       "tone": "festive"
     },
     {
+      "id": "5-haziran",
+      "month": 6,
+      "day": 5,
+      "image": "/images/special-days/5-haziran.webp",
+      "title_tr": "5 Haziran Dünya Çevre Günü",
+      "title_en": "5 June, World Environment Day",
+      "tone": "festive"
+    },
+    {
       "id": "15-temmuz",
       "month": 7,
       "day": 15,
@@ -62,12 +145,30 @@
       "tone": "solemn"
     },
     {
+      "id": "12-agustos",
+      "month": 8,
+      "day": 12,
+      "image": "/images/special-days/12-agustos.webp",
+      "title_tr": "12 Ağustos Uluslararası Gençlik Günü",
+      "title_en": "12 August, International Youth Day",
+      "tone": "festive"
+    },
+    {
       "id": "30-agustos",
       "month": 8,
       "day": 30,
       "image": "/images/special-days/30-agustos.webp",
       "title_tr": "30 Ağustos Zafer Bayramı Kutlu Olsun",
       "title_en": "30 August, Victory Day",
+      "tone": "festive"
+    },
+    {
+      "id": "21-eylul",
+      "month": 9,
+      "day": 21,
+      "image": "/images/special-days/21-eylul.webp",
+      "title_tr": "21 Eylül Uluslararası Barış Günü",
+      "title_en": "21 September, International Day of Peace",
       "tone": "festive"
     },
     {
@@ -89,6 +190,28 @@
       "tone": "solemn"
     },
     {
+      "id": "16-kasim",
+      "month": 11,
+      "day": 16,
+      "image": "/images/special-days/16-kasim.webp",
+      "title_tr": "16 Kasım Uluslararası Hoşgörü Günü",
+      "title_en": "16 November, International Day for Tolerance",
+      "tone": "festive",
+      "images": [
+        "/images/special-days/16-kasim.webp",
+        "/images/special-days/16-kasim-2.webp"
+      ]
+    },
+    {
+      "id": "20-kasim",
+      "month": 11,
+      "day": 20,
+      "image": "/images/special-days/20-kasim.webp",
+      "title_tr": "20 Kasım Dünya Çocuk Hakları Günü",
+      "title_en": "20 November, World Children’s Day",
+      "tone": "festive"
+    },
+    {
       "id": "24-kasim",
       "month": 11,
       "day": 24,
@@ -98,12 +221,30 @@
       "tone": "festive"
     },
     {
+      "id": "3-aralik",
+      "month": 12,
+      "day": 3,
+      "image": "/images/special-days/3-aralik.webp",
+      "title_tr": "3 Aralık Dünya Engelliler Günü",
+      "title_en": "3 December, International Day of Persons with Disabilities",
+      "tone": "festive"
+    },
+    {
       "id": "5-aralik",
       "month": 12,
       "day": 5,
       "image": "/images/special-days/5-aralik.webp",
       "title_tr": "5 Aralık Uluslararası Gönüllüler Günü",
       "title_en": "5 December, International Volunteer Day",
+      "tone": "festive"
+    },
+    {
+      "id": "7-aralik",
+      "month": 12,
+      "day": 7,
+      "image": "/images/special-days/7-aralik.webp",
+      "title_tr": "7 Aralık Kilis’in Kurtuluşu",
+      "title_en": "7 December, Liberation of Kilis",
       "tone": "festive"
     }
   ]
