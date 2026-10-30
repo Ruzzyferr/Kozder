@@ -3,7 +3,7 @@ title_tr: "KOZ-DER Kitap Kulübü — İlk Buluşma: Martı"
 title_en: "KOZ-DER Book Club — First Meeting: Jonathan Livingston Seagull"
 date: "2026-11-30"
 time: "21:00"
-location: "To be shared with participants"
+location: "Online · Google Meet"
 coverImage: "/images/events/kitap-kulubu-2026.webp"
 coverFit: "contain"
 registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeH4EYredHEo9PXbNudcVb64hORTGzmCSYEDuAvSl-4AX6MMQ/viewform?usp=sharing&ouid=111663594843225295104"
@@ -27,6 +27,7 @@ Together, we are opening the first page of new beginnings, inspiring conversatio
 
 - **First meeting:** Monday, 30 November 2026
 - **Time:** 21:00 (Türkiye time)
+- **Where:** Online · Google Meet
 - **First book:** *Jonathan Livingston Seagull* – Richard Bach
 - **Frequency:** A different book every month
 - **Coordinator:** Elmira Dursun
@@ -34,7 +35,7 @@ Together, we are opening the first page of new beginnings, inspiring conversatio
 
 ## How Do I Join?
 
-Don't forget to fill in the **application form** to join our Book Club. Meeting details will be shared with those who complete the form.
+Don't forget to fill in the **application form** to join our Book Club. Meetings take place online on **Google Meet**; the meeting link will be shared with those who complete the form.
 
 To open the application form, [click here](https://docs.google.com/forms/d/e/1FAIpQLSeH4EYredHEo9PXbNudcVb64hORTGzmCSYEDuAvSl-4AX6MMQ/viewform?usp=sharing&ouid=111663594843225295104).
 
