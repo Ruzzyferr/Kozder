@@ -1,6 +1,18 @@
 {
-  "_note": "Önemli gün ve haftalarda site girişinde gösterilen görseller. Her yıl tekrar eder (month/day). Bir hafta için 'endMonth'/'endDay', tek yıllık için 'year' eklenebilir. Önizleme: siteye ?ozel-gun=<id> ile girin.",
+  "_note": "Önemli gün ve haftalarda site girişinde gösterilen görseller. Her yıl tekrar eder (month/day). Birden fazla gün için endMonth/endDay; sadece belirli bir yıl için 'year' (dini bayramlar her yıl yeniden girilmeli). Aynı güne iki kayıt düşerse tek günlük olan önceliklidir. Önizleme: ?ozel-gun=<id>",
   "days": [
+    {
+      "id": "ramazan-bayrami",
+      "year": 2027,
+      "month": 3,
+      "day": 9,
+      "endMonth": 3,
+      "endDay": 11,
+      "image": "/images/special-days/ramazan-bayrami.webp",
+      "title_tr": "Ramazan Bayramınız Kutlu Olsun",
+      "title_en": "Happy Eid al-Fitr",
+      "tone": "festive"
+    },
     {
       "id": "18-mart",
       "month": 3,
@@ -17,6 +29,54 @@
       "image": "/images/special-days/23-nisan.webp",
       "title_tr": "23 Nisan Ulusal Egemenlik ve Çocuk Bayramı",
       "title_en": "23 April, National Sovereignty and Children’s Day",
+      "tone": "festive"
+    },
+    {
+      "id": "kurban-bayrami",
+      "year": 2027,
+      "month": 5,
+      "day": 16,
+      "endMonth": 5,
+      "endDay": 19,
+      "image": "/images/special-days/kurban-bayrami.webp",
+      "title_tr": "Kurban Bayramınız Kutlu Olsun",
+      "title_en": "Happy Eid al-Adha",
+      "tone": "festive"
+    },
+    {
+      "id": "19-mayis",
+      "month": 5,
+      "day": 19,
+      "image": "/images/special-days/19-mayis.webp",
+      "title_tr": "19 Mayıs Atatürk’ü Anma, Gençlik ve Spor Bayramı",
+      "title_en": "19 May, Commemoration of Atatürk, Youth and Sports Day",
+      "tone": "festive"
+    },
+    {
+      "id": "15-temmuz",
+      "month": 7,
+      "day": 15,
+      "image": "/images/special-days/15-temmuz.webp",
+      "title_tr": "15 Temmuz Demokrasi ve Milli Birlik Günü",
+      "title_en": "15 July, Democracy and National Unity Day",
+      "tone": "solemn"
+    },
+    {
+      "id": "30-agustos",
+      "month": 8,
+      "day": 30,
+      "image": "/images/special-days/30-agustos.webp",
+      "title_tr": "30 Ağustos Zafer Bayramı Kutlu Olsun",
+      "title_en": "30 August, Victory Day",
+      "tone": "festive"
+    },
+    {
+      "id": "29-ekim",
+      "month": 10,
+      "day": 29,
+      "image": "/images/special-days/29-ekim.webp",
+      "title_tr": "29 Ekim Cumhuriyet Bayramı Kutlu Olsun",
+      "title_en": "29 October, Republic Day",
       "tone": "festive"
     },
     {

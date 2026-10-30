@@ -25,11 +25,14 @@ const labels = lang === 'en'
     const preview = new URLSearchParams(location.search).get('ozel-gun');
     const match = preview
       ? days.find((d: any) => d.id === preview)
-      : days.find((d: any) => {
-          if (d.year && d.year !== Y) return false;
-          const start = md(d.month, d.day), end = md(d.endMonth || d.month, d.endDay || d.day), now = md(M, D);
-          return start <= end ? now >= start && now <= end : now >= start || now <= end;
-        });
+      : days
+          .filter((d: any) => {
+            if (d.year && d.year !== Y) return false;
+            const start = md(d.month, d.day), end = md(d.endMonth || d.month, d.endDay || d.day), now = md(M, D);
+            return start <= end ? now >= start && now <= end : now >= start || now <= end;
+          })
+          // aynı güne iki kayıt düşerse tek günlük (daha özel) olan öne çıkar
+          .sort((a: any, b: any) => (md(a.endMonth || a.month, a.endDay || a.day) - md(a.month, a.day)) - (md(b.endMonth || b.month, b.endDay || b.day) - md(b.month, b.day)))[0];
     if (!match) return;
     const key = `kz-special-${match.id}-${today}`;
     try { if (!preview && localStorage.getItem(key)) return; } catch {}
