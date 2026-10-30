@@ -47,6 +47,7 @@ const ogImageType = cleanImagePath.endsWith('.png')
 // canonical'lar sonda eğik çizgi taşıyor.
 const altURL = alternate ? new URL(alternate.endsWith('/') ? alternate : `${alternate}/`, Astro.site) : null;
 const other: Lang = lang === 'tr' ? 'en' : 'tr';
+import SpecialDaySplash from '../components/SpecialDaySplash.astro';
 ---
 
 <!doctype html>
@@ -121,6 +122,7 @@ const other: Lang = lang === 'tr' ? 'en' : 'tr';
     </main>
 
     <Footer lang={lang} />
+    <SpecialDaySplash lang={lang} />
   </body>
 </html>
 
