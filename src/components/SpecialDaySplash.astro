@@ -1,0 +1,80 @@
+---
+import specialDays from '../data/special-days.json';
+interface Props { lang: 'tr' | 'en' }
+const { lang } = Astro.props;
+const data = (specialDays.days as any[]).map(d => ({
+  id: d.id, month: d.month, day: d.day, endMonth: d.endMonth, endDay: d.endDay, year: d.year,
+  image: d.image, title: lang === 'en' ? d.title_en : d.title_tr, tone: d.tone || 'festive',
+}));
+const labels = lang === 'en'
+  ? { cont: 'Continue to the website', close: 'Close' }
+  : { cont: 'Siteye devam et', close: 'Kapat' };
+---
+<script type="application/json" id="kz-special-days" set:html={JSON.stringify({ days: data, labels })}></script>
+<script>
+  (() => {
+    const el = document.getElementById('kz-special-days');
+    if (!el) return;
+    const { days, labels } = JSON.parse(el.textContent || '{}');
+    // Türkiye saatine göre bugünün tarihi
+    const parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Istanbul', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date());
+    const g = (t: string) => Number(parts.find(p => p.type === t)?.value);
+    const Y = g('year'), M = g('month'), D = g('day');
+    const today = `${Y}-${String(M).padStart(2, '0')}-${String(D).padStart(2, '0')}`;
+    const md = (m: number, d: number) => m * 100 + d;
+    const preview = new URLSearchParams(location.search).get('ozel-gun');
+    const match = preview
+      ? days.find((d: any) => d.id === preview)
+      : days.find((d: any) => {
+          if (d.year && d.year !== Y) return false;
+          const start = md(d.month, d.day), end = md(d.endMonth || d.month, d.endDay || d.day), now = md(M, D);
+          return start <= end ? now >= start && now <= end : now >= start || now <= end;
+        });
+    if (!match) return;
+    const key = `kz-special-${match.id}-${today}`;
+    try { if (!preview && localStorage.getItem(key)) return; } catch {}
+    const wrap = document.createElement('div');
+    wrap.className = `kz-splash ${match.tone === 'solemn' ? 'is-solemn' : ''}`;
+    wrap.setAttribute('role', 'dialog');
+    wrap.setAttribute('aria-modal', 'true');
+    wrap.setAttribute('aria-label', match.title);
+    wrap.innerHTML = `
+      <div class="kz-splash-bg" style="background-image:url('${match.image}')"></div>
+      <div class="kz-splash-box">
+        <button type="button" class="kz-splash-x" aria-label="${labels.close}">×</button>
+        <img src="${match.image}" alt="${match.title.replace(/"/g, '&quot;')}" />
+        <button type="button" class="kz-splash-go">${labels.cont} <span aria-hidden="true">→</span></button>
+      </div>`;
+    const prevOverflow = document.documentElement.style.overflow;
+    const close = () => {
+      try { localStorage.setItem(key, '1'); } catch {}
+      wrap.classList.add('is-out');
+      document.documentElement.style.overflow = prevOverflow;
+      document.removeEventListener('keydown', onKey);
+      setTimeout(() => wrap.remove(), 350);
+    };
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') close(); };
+    wrap.addEventListener('click', e => { if (e.target === wrap || (e.target as HTMLElement).classList.contains('kz-splash-bg')) close(); });
+    wrap.querySelector('.kz-splash-x')?.addEventListener('click', close);
+    wrap.querySelector('.kz-splash-go')?.addEventListener('click', close);
+    document.addEventListener('keydown', onKey);
+    document.documentElement.style.overflow = 'hidden';
+    document.body.appendChild(wrap);
+    requestAnimationFrame(() => wrap.classList.add('is-in'));
+    (wrap.querySelector('.kz-splash-go') as HTMLElement)?.focus();
+  })();
+</script>
+<style is:global>
+  .kz-splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(8,14,28,.82);opacity:0;transition:opacity .35s ease}
+  .kz-splash.is-in{opacity:1}.kz-splash.is-out{opacity:0}
+  .kz-splash-bg{position:absolute;inset:-40px;background-size:cover;background-position:center;filter:blur(30px) brightness(.45) saturate(1.1)}
+  .kz-splash.is-solemn .kz-splash-bg{filter:blur(30px) brightness(.35) grayscale(1)}
+  .kz-splash-box{position:relative;display:flex;flex-direction:column;align-items:center;gap:16px;max-width:min(1200px,100%);transform:scale(.96);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+  .kz-splash.is-in .kz-splash-box{transform:none}
+  .kz-splash-box img{display:block;max-width:100%;max-height:calc(100vh - 140px);max-height:calc(100dvh - 140px);width:auto;height:auto;border-radius:20px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
+  .kz-splash-go{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.7);background:rgba(255,255,255,.92);color:#14213d;font:800 16px/1 'Instrument Sans',system-ui,sans-serif;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.35);transition:transform .25s ease,box-shadow .25s ease}
+  .kz-splash-go:hover,.kz-splash-go:focus-visible{transform:translateY(-3px) scale(1.04);box-shadow:0 18px 40px rgba(0,0,0,.45);outline:none}
+  .kz-splash-x{position:absolute;top:-14px;right:-14px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(20,33,61,.85);color:#fff;font-size:26px;line-height:1;cursor:pointer}
+  @media(max-width:600px){.kz-splash{padding:14px}.kz-splash-box img{border-radius:14px}.kz-splash-x{top:-10px;right:-6px;width:40px;height:40px}}
+  @media(prefers-reduced-motion:reduce){.kz-splash,.kz-splash-box{transition:none}}
+</style>

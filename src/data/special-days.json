@@ -1,0 +1,50 @@
+{
+  "_note": "Önemli gün ve haftalarda site girişinde gösterilen görseller. Her yıl tekrar eder (month/day). Bir hafta için 'endMonth'/'endDay', tek yıllık için 'year' eklenebilir. Önizleme: siteye ?ozel-gun=<id> ile girin.",
+  "days": [
+    {
+      "id": "18-mart",
+      "month": 3,
+      "day": 18,
+      "image": "/images/special-days/18-mart.webp",
+      "title_tr": "18 Mart Çanakkale Zaferi ve Şehitleri Anma Günü",
+      "title_en": "18 March, Çanakkale Victory and Martyrs’ Remembrance Day",
+      "tone": "solemn"
+    },
+    {
+      "id": "23-nisan",
+      "month": 4,
+      "day": 23,
+      "image": "/images/special-days/23-nisan.webp",
+      "title_tr": "23 Nisan Ulusal Egemenlik ve Çocuk Bayramı",
+      "title_en": "23 April, National Sovereignty and Children’s Day",
+      "tone": "festive"
+    },
+    {
+      "id": "10-kasim",
+      "month": 11,
+      "day": 10,
+      "image": "/images/special-days/10-kasim.webp",
+      "title_tr": "10 Kasım Atatürk’ü Anma Günü",
+      "title_en": "10 November, Atatürk Remembrance Day",
+      "tone": "solemn"
+    },
+    {
+      "id": "24-kasim",
+      "month": 11,
+      "day": 24,
+      "image": "/images/special-days/24-kasim.webp",
+      "title_tr": "24 Kasım Öğretmenler Günü",
+      "title_en": "24 November, Teachers’ Day",
+      "tone": "festive"
+    },
+    {
+      "id": "5-aralik",
+      "month": 12,
+      "day": 5,
+      "image": "/images/special-days/5-aralik.webp",
+      "title_tr": "5 Aralık Uluslararası Gönüllüler Günü",
+      "title_en": "5 December, International Volunteer Day",
+      "tone": "festive"
+    }
+  ]
+}
