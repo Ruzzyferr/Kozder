@@ -27,6 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -45,7 +47,12 @@ jobs:
             git config user.email "kozder2018@gmail.com"
             git add public
             git commit -m "Fotoğraflar otomatik küçültüldü"
-            git push
+            # Bu sırada master'a yeni bir commit gelmiş olabilir: önce üstüne al, sonra yükle (3 deneme)
+            for i in 1 2 3; do
+              git pull --rebase origin master && git push origin HEAD:master && exit 0
+              echo "Yükleme denemesi $i başarısız, tekrar deneniyor..."; sleep 5
+            done
+            exit 1
           else
             echo "Küçültülecek fotoğraf yok."
           fi
