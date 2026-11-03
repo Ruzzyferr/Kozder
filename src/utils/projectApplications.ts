@@ -1,6 +1,7 @@
 export interface ProjectApplicationData {
   status: 'Aktif' | 'Tamamlandı';
   startDate: string;
+  endDate?: string;
   applicationDeadline?: string;
 }
 
@@ -21,12 +22,17 @@ function turkeyDate(value: string, endOfDay: boolean): number | null {
   return parsed - 3 * 60 * 60 * 1000 + (endOfDay ? 24 * 60 * 60 * 1000 : 0);
 }
 
-export function isProjectApplicationOpen(project: ProjectApplicationData, now = Date.now()): boolean {
-  if (project.status !== 'Aktif') return false;
+export function projectPhase(project: ProjectApplicationData, now = Date.now()): 'open' | 'closed' | 'done' {
+  const end = project.endDate ? turkeyDate(project.endDate, true) : null;
+  if (project.status === 'Tamamlandı' || (end !== null && now >= end)) return 'done';
   // Son başvuru tarihi girilmişse günün sonuna kadar başvuru alınır. Girilmemişse
   // faaliyet başladığında çağrı kapanır; endDate başvuru tarihi değildir.
   const closesAt = project.applicationDeadline
     ? turkeyDate(project.applicationDeadline, true)
     : turkeyDate(project.startDate, false);
-  return closesAt !== null && now < closesAt;
+  return closesAt !== null && now < closesAt ? 'open' : 'closed';
+}
+
+export function isProjectApplicationOpen(project: ProjectApplicationData, now = Date.now()): boolean {
+  return projectPhase(project, now) === 'open';
 }
