@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, entryPath, stripLangPrefix, useTranslations, type Lang } from '../i18n';
 import CardMedia from './CardMedia.astro';
-import { isProjectApplicationOpen } from '../utils/projectApplications';
+import { projectPhase } from '../utils/projectApplications';
 
 interface Props {
   title: string;
@@ -12,15 +12,17 @@ interface Props {
   year: number;
   status: 'Aktif' | 'Tamamlandı';
   startDate: string;
+  endDate?: string;
   applicationDeadline?: string;
   slug: string;
   lang?: Lang;
 }
 
-const { title, summary, coverImage, coverFit = 'cover', programType, year, status, startDate, applicationDeadline, slug, lang: langProp } = Astro.props;
+const { title, summary, coverImage, coverFit = 'cover', programType, year, status, startDate, endDate, applicationDeadline, slug, lang: langProp } = Astro.props;
 const lang: Lang = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const isActive = isProjectApplicationOpen({ status, startDate, applicationDeadline });
+const phase = projectPhase({ status, startDate, endDate, applicationDeadline });
+const isActive = phase === 'open';
 import { programLabel } from '../utils/programLabel';
 ---
 
@@ -39,8 +41,8 @@ import { programLabel } from '../utils/programLabel';
     </CardMedia>
 
     <div class="p-5 sm:p-6 flex-1 flex flex-col">
-      <p data-project-status-label data-open-label={t('projects.applyOpen')} data-closed-label={t('projects.applicationClosed')} class="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-muted mb-3">
-        {year} · {isActive ? t('projects.applyOpen') : t('projects.applicationClosed')}
+      <p data-project-status-label data-open-label={t('projects.applyOpen')} data-done-label={(lang === 'en' ? 'Completed' : 'Tamamlandı')} data-closed-label={t('projects.applicationClosed')} class="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-muted mb-3">
+        {year} · {isActive ? t('projects.applyOpen') : phase === 'done' ? (lang === 'en' ? 'Completed' : 'Tamamlandı') : t('projects.applicationClosed')}
       </p>
 
       <h3 class="font-display font-bold text-xl sm:text-[1.4rem] text-brand-ink leading-[1.12] tracking-tight line-clamp-2 group-hover:text-brand-stamp transition-colors duration-300">
