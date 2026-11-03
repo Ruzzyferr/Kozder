@@ -10,14 +10,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import DetailCover from '../../components/DetailCover.astro';
 import { getCollection } from 'astro:content';
 import ShareBox from '../../components/ShareBox.astro';
-import { isProjectApplicationOpen } from '../../utils/projectApplications';
+import { projectPhase } from '../../utils/projectApplications';
 import { programLabel } from '../../utils/programLabel';
 import { formatEventDate } from '../../utils/date';
 
 
 
 const { Content } = await project.render();
-const isActive = isProjectApplicationOpen(project.data);
+const phase = projectPhase(project.data);
+const isActive = phase === 'open';
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const alternate = alternatePath(lang, 'projects', stripLangPrefix(project.slug));
 const title = lang === 'en' ? project.data.title_en : project.data.title_tr;
@@ -98,13 +99,14 @@ const showChecklist = Boolean(project.data.eligibility);
               data-project-status-panel
               data-project-static-status={project.data.status}
               data-project-start-date={project.data.startDate}
+              data-project-end-date={project.data.endDate}
               data-project-deadline={project.data.applicationDeadline}
               data-project-application-url={project.data.applicationUrl}
               class={`card card-2 p-6 ${isActive ? 'bg-brand-stamp text-brand-cream' : 'bg-brand-cream text-brand-ink'}`}
             >
               <p data-project-status-heading class={`text-xs font-bold uppercase tracking-[0.2em] mb-2 ${isActive ? 'text-brand-cream' : 'text-brand-stamp'}`}>{t('common.status')}</p>
-              <p data-project-status-text data-open-label={t('projects.activeApplication')} data-closed-label={t('projects.applicationClosed')} class="font-display font-black text-3xl tracking-tight leading-none">
-                {isActive ? t('projects.activeApplication') : t('projects.applicationClosed')}
+              <p data-project-status-text data-open-label={t('projects.activeApplication')} data-done-label={(lang === 'en' ? 'Completed' : 'Tamamlandı')} data-closed-label={t('projects.applicationClosed')} class="font-display font-black text-3xl tracking-tight leading-none">
+                {isActive ? t('projects.activeApplication') : phase === 'done' ? (lang === 'en' ? 'Completed' : 'Tamamlandı') : t('projects.applicationClosed')}
               </p>
             </div>
 
@@ -175,7 +177,7 @@ const showChecklist = Boolean(project.data.eligibility);
 </BaseLayout>
 
 <script>
-  import { isProjectApplicationOpen } from '../../utils/projectApplications';
+  import { projectPhase } from '../../utils/projectApplications';
 
   const panel = document.querySelector<HTMLElement>('[data-project-status-panel]');
   const heading = panel?.querySelector<HTMLElement>('[data-project-status-heading]');
@@ -186,18 +188,20 @@ const showChecklist = Boolean(project.data.eligibility);
   function syncProjectApplication() {
     const status = panel?.dataset.projectStaticStatus;
     if (!panel || (status !== 'Aktif' && status !== 'Tamamlandı')) return;
-    const open = isProjectApplicationOpen({
+    const phase = projectPhase({
+      endDate: panel.dataset.projectEndDate,
       status,
       startDate: panel.dataset.projectStartDate ?? '',
       applicationDeadline: panel.dataset.projectDeadline,
     });
+    const open = phase === 'open';
     panel.classList.toggle('bg-brand-stamp', open);
     panel.classList.toggle('text-brand-cream', open);
     panel.classList.toggle('bg-brand-cream', !open);
     panel.classList.toggle('text-brand-ink', !open);
     heading?.classList.toggle('text-brand-cream', open);
     heading?.classList.toggle('text-brand-stamp', !open);
-    if (label) label.textContent = open ? label.dataset.openLabel ?? '' : label.dataset.closedLabel ?? '';
+    if (label) label.textContent = open ? label.dataset.openLabel ?? '' : (phase === 'done' ? label.dataset.doneLabel : label.dataset.closedLabel) ?? '';
     button?.classList.toggle('hidden', !open);
     notice?.classList.toggle('hidden', open);
     if (!open) {

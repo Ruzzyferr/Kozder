@@ -11,7 +11,7 @@ import ProjectCard from '../../components/ProjectCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import { byNewest } from '../../utils/contentSort';
-import { isProjectApplicationOpen } from '../../utils/projectApplications';
+import { projectPhase, isProjectApplicationOpen } from '../../utils/projectApplications';
 import { programLabel } from '../../utils/programLabel';
 
 const allProjects = (await getCollection('projects', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(p => !p.data.draft);
@@ -28,7 +28,7 @@ const projects = allProjects.sort((a, b) => {
 
 const allPrograms = [...new Set(projects.map(p => p.data.programType))];
 const allYears = [...new Set(projects.map(p => p.data.year))].sort((a, b) => b - a);
-const allStatuses = ['Aktif', 'Tamamlandı'] as const;
+const allStatuses = ['open', 'closed', 'done'] as const;
 const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
 ---
 
@@ -81,7 +81,7 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
           <select id="filter-status">
             <option value="">{t('common.all')}</option>
             {allStatuses.map(status => (
-              <option value={status}>{status === 'Aktif' ? t('common.open') : t('projects.applicationClosed')}</option>
+              <option value={status}>{status === 'open' ? t('common.open') : status === 'done' ? (lang === 'en' ? 'Completed' : 'Tamamlandı') : t('projects.applicationClosed')}</option>
             ))}
           </select>
         </div>
@@ -101,8 +101,9 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
           class="project-item reveal"
           data-program={project.data.programType}
           data-year={project.data.year}
-          data-status={isProjectApplicationOpen(project.data) ? 'Aktif' : 'Tamamlandı'}
+          data-status={projectPhase(project.data)}
           data-project-static-status={project.data.status}
+          data-project-end-date={project.data.endDate}
           data-project-start-date={project.data.startDate}
           data-project-deadline={project.data.applicationDeadline}
           data-themes={project.data.themes.join(',')}
@@ -115,6 +116,7 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
               coverFit={project.data.coverFit}
             programType={project.data.programType}
             year={project.data.year}
+            endDate={project.data.endDate}
             status={project.data.status}
             startDate={project.data.startDate}
             applicationDeadline={project.data.applicationDeadline}
@@ -132,7 +134,7 @@ const allThemes = [...new Set(projects.flatMap(p => p.data.themes))];
 </BaseLayout>
 
 <script>
-  import { isProjectApplicationOpen } from '../../utils/projectApplications';
+  import { projectPhase, isProjectApplicationOpen } from '../../utils/projectApplications';
 import { programLabel } from '../../utils/programLabel';
   const ids = ['filter-program', 'filter-year', 'filter-status', 'filter-theme'];
   const selects = ids.map(id => document.getElementById(id) as HTMLSelectElement | null);
@@ -145,20 +147,22 @@ import { programLabel } from '../../utils/programLabel';
     items.forEach(item => {
       const status = item.dataset.projectStaticStatus;
       if (status !== 'Aktif' && status !== 'Tamamlandı') return;
-      const open = isProjectApplicationOpen({
+      const phase = projectPhase({
+        endDate: item.dataset.projectEndDate,
         status,
         startDate: item.dataset.projectStartDate ?? '',
         applicationDeadline: item.dataset.projectDeadline,
       });
-      item.dataset.status = open ? 'Aktif' : 'Tamamlandı';
+      const open = phase === 'open';
+      item.dataset.status = phase;
       item.querySelector('[data-project-open-badge]')?.classList.toggle('hidden', !open);
       const label = item.querySelector<HTMLElement>('[data-project-status-label]');
       if (label) {
         const year = item.dataset.year ?? '';
-        label.textContent = `${year} · ${open ? label.dataset.openLabel : label.dataset.closedLabel}`;
+        label.textContent = `${year} · ${open ? label.dataset.openLabel : phase === 'done' ? label.dataset.doneLabel : label.dataset.closedLabel}`;
       }
     });
-    const sorted = Array.from(items).sort((a, b) => Number(b.dataset.status === 'Aktif') - Number(a.dataset.status === 'Aktif'));
+    const sorted = Array.from(items).sort((a, b) => Number(b.dataset.status === 'open') - Number(a.dataset.status === 'open'));
     sorted.forEach(item => container?.append(item));
     applyFilters();
   }

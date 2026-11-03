@@ -13,7 +13,7 @@ import affiliations from '../../data/affiliations.json';
 import { getCollection } from 'astro:content';
 import { getEffectiveEventDate, getEventDateSortKey, formatEventDate } from '../../utils/date';
 import { byNewest } from '../../utils/contentSort';
-import { isProjectApplicationOpen } from '../../utils/projectApplications';
+import { isProjectApplicationOpen, projectPhase } from '../../utils/projectApplications';
 
 const projects = (await getCollection('projects', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(p => !p.data.draft);
 const events = (await getCollection('events', e => lang === 'en' ? e.slug.startsWith('en/') : !e.slug.startsWith('en/'))).filter(e => !e.data.draft);
@@ -177,17 +177,7 @@ function dateParts(value: string) {
 }
 
 const copy = (tr: string, en: string) => lang === 'en' ? en : tr;
-// Proje kartı durumu: başvuru açık / devam ediyor / tamamlandı / başvurular kapandı
-function projectPhase(d: { status: string; startDate: string; endDate?: string; applicationDeadline?: string }) {
-  if (isProjectApplicationOpen(d as any)) return 'open';
-  const now = Date.now();
-  const st = getEventDateSortKey(d.startDate || '');
-  const en = d.endDate ? getEventDateSortKey(d.endDate) + 86399000 : 0;
-  if (d.status === 'Tamamlandı' || (en && en < now)) return 'done';
-  if (st && st <= now && (!en || en >= now)) return 'running';
-  return 'closed';
-}
-const phaseLabel = (ph: string) => ph === 'open' ? copy('Başvuru açık', 'Applications open') : ph === 'running' ? copy('Devam ediyor', 'In progress') : ph === 'done' ? copy('Tamamlandı', 'Completed') : copy('Başvurular kapandı', 'Applications closed');
+const phaseLabel = (ph: string) => ph === 'open' ? copy('Başvuru açık', 'Applications open') : ph === 'done' ? copy('Tamamlandı', 'Completed') : copy('Başvurular kapandı', 'Applications closed');
 const newsTitle = (item: (typeof news)[number]) => lang === 'en' ? item.data.title_en : item.data.title_tr;
 const profileCards = [
  {code:'KA1', css:'profile-ka1', description:copy('Gençlik hareketliliği projeleri için kurumsal profil, düzenli gençlik çalışmaları, kilit ekip, hareketlilik deneyimi ve ilişkili kişiler.','Organisation profile for youth mobility projects, including regular youth work, key team members, mobility experience and contact persons.')},
@@ -239,7 +229,7 @@ const stats = [
   </div>
 </section>
 <section class="v3-band v3-proj" data-carousel-root><div class="wrap"><div class="v3-head"><div><p class="eyebrow">{copy('Sıradaki yolculuğun','Your next journey')}</p><h2>{t('home.projects.title')}</h2></div><div class="v3-ctrl"><a class="v3-pill pill-blue" href={path(lang,'projects')}>{t('common.allProjects')} <span class="arr" aria-hidden="true">→</span></a><button type="button" class="v3-arrow ghost dark" data-c-prev aria-label={copy('Önceki projeler','Previous projects')}>‹</button><button type="button" class="v3-arrow dark" data-c-next aria-label={copy('Sonraki projeler','Next projects')}>›</button></div></div>
-<div class="v3-viewport"><div class="v3-track">{featuredProjects.map(project=>{const ph=projectPhase(project.data as any);return <a class="v3-pcard v3-lift" href={entryPath(lang,'projects',stripLangPrefix(project.slug))} data-v3-project data-status={project.data.status} data-start={project.data.startDate} data-end={project.data.endDate} data-deadline={project.data.applicationDeadline}><div class="v3-pimg">{project.data.coverImage&&<><img class="v3-blur" src={smallFor(project.data.coverImage,480)} alt="" aria-hidden="true" loading="lazy" /><img class="v3-main" src={project.data.coverImage} srcset={srcsetFor(project.data.coverImage)} sizes="(max-width: 760px) 100vw, 25vw" alt={lang==='en'?project.data.title_en:project.data.title_tr} loading="lazy" /></>}</div><div class="v3-pbody"><div class="v3-tags"><span class:list={['v3-type',project.data.programType==='ESC'&&'esc',project.data.programType==='LOCAL'&&'local']}>{programLabel(project.data.programType,lang)}</span><span class={`v3-status ph-${ph}`} data-v3-status>{phaseLabel(ph)}</span></div><h3>{lang==='en'?project.data.title_en:project.data.title_tr}</h3><dl class="v3-meta"><div><dt>{copy('Yer','Place')}</dt><dd>{project.data.location}</dd></div><div><dt>{copy('Tarih','Dates')}</dt><dd>{formatEventDate(project.data.startDate,{lang})}{project.data.endDate&&` – ${formatEventDate(project.data.endDate,{lang})}`}</dd></div><div><dt>{copy('Son başvuru','Deadline')}</dt><dd>{project.data.applicationDeadline?formatEventDate(project.data.applicationDeadline,{lang}):'—'}</dd></div></dl><span class="v3-pill pill-blue">{copy('Projeyi incele','Explore the project')} <span class="arr" aria-hidden="true">→</span></span></div></a>;})}</div></div>
+<div class="v3-viewport"><div class="v3-track">{featuredProjects.map(project=>{const ph=projectPhase(project.data);return <a class="v3-pcard v3-lift" href={entryPath(lang,'projects',stripLangPrefix(project.slug))} data-v3-project data-status={project.data.status} data-start={project.data.startDate} data-end={project.data.endDate} data-deadline={project.data.applicationDeadline}><div class="v3-pimg">{project.data.coverImage&&<><img class="v3-blur" src={smallFor(project.data.coverImage,480)} alt="" aria-hidden="true" loading="lazy" /><img class="v3-main" src={project.data.coverImage} srcset={srcsetFor(project.data.coverImage)} sizes="(max-width: 760px) 100vw, 25vw" alt={lang==='en'?project.data.title_en:project.data.title_tr} loading="lazy" /></>}</div><div class="v3-pbody"><div class="v3-tags"><span class:list={['v3-type',project.data.programType==='ESC'&&'esc',project.data.programType==='LOCAL'&&'local']}>{programLabel(project.data.programType,lang)}</span><span class={`v3-status ph-${ph}`} data-v3-status>{phaseLabel(ph)}</span></div><h3>{lang==='en'?project.data.title_en:project.data.title_tr}</h3><dl class="v3-meta"><div><dt>{copy('Yer','Place')}</dt><dd>{project.data.location}</dd></div><div><dt>{copy('Tarih','Dates')}</dt><dd>{formatEventDate(project.data.startDate,{lang})}{project.data.endDate&&` – ${formatEventDate(project.data.endDate,{lang})}`}</dd></div><div><dt>{copy('Son başvuru','Deadline')}</dt><dd>{project.data.applicationDeadline?formatEventDate(project.data.applicationDeadline,{lang}):'—'}</dd></div></dl><span class="v3-pill pill-blue">{copy('Projeyi incele','Explore the project')} <span class="arr" aria-hidden="true">→</span></span></div></a>;})}</div></div>
 <div class="v3-dots" role="tablist"></div></div></section>
 <section class="v3-band v3-stories" data-carousel-root><div class="wrap"><div class="v3-head"><div><p class="eyebrow">{copy('Gençlerin gözünden','Through young people’s eyes')}</p><h2>{copy('Sınırları aşan hikâyeler.','Stories beyond borders.')}</h2></div><div class="v3-ctrl"><a class="v3-pill pill-orange" href={path(lang,'stories')}>{t('common.allStories')} <span class="arr" aria-hidden="true">→</span></a><button type="button" class="v3-arrow ghost dark" data-c-prev aria-label={copy('Önceki hikâyeler','Previous stories')}>‹</button><button type="button" class="v3-arrow dark" data-c-next aria-label={copy('Sonraki hikâyeler','Next stories')}>›</button></div></div>
 <div class="v3-viewport"><div class="v3-track">{featuredStories.map(story=>{const lbl=storyProgramLabel(story.data.programName);return <a class="v3-scard v3-lift" href={entryPath(lang,'stories',stripLangPrefix(story.slug))}><div class="v3-simg">{story.data.images[0]&&<img src={story.data.images[0]} srcset={srcsetFor(story.data.images[0])} sizes="(max-width: 520px) 100vw, (max-width: 1100px) 33vw, 25vw" alt={story.data.name} loading="lazy" />}<span class:list={['v3-badge',lbl==='ESC'?'esc':lbl==='Erasmus+'?'eplus':'other']}>{lbl==='ESC'||lbl==='Erasmus+'?lbl:copy('Program','Programme')}</span></div><div class="v3-sbody"><h3>{story.data.name}</h3><span class="v3-where">{story.data.country}{story.data.startDate&&` · ${formatEventDate(story.data.startDate,{lang})}`}</span><p>{story.data.summary}</p><span class="v3-pill pill-orange">{copy('Hikâyeyi oku','Read the story')} <span class="arr" aria-hidden="true">→</span></span></div></a>;})}</div></div>
@@ -355,14 +345,12 @@ if(root){
 
 <script>
 // Seçenek 3: proje ve hikâye kaydırıcıları + proje durum rozetleri
-const parseD=(v?:string)=>{if(!v)return 0;let m=v.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);if(m)return new Date(+m[3],+m[2]-1,+m[1]).getTime();m=v.match(/^(\d{4})-(\d{2})-(\d{2})/);if(m)return new Date(+m[1],+m[2]-1,+m[3]).getTime();return 0;};
+import { projectPhase } from '../../utils/projectApplications';
 const lang=document.getElementById('koz-glass')?.dataset.lang==='en'?'en':'tr';
-const L:Record<string,[string,string]>={open:['Başvuru açık','Applications open'],running:['Devam ediyor','In progress'],done:['Tamamlandı','Completed'],closed:['Başvurular kapandı','Applications closed']};
-function phase(el:HTMLElement){const now=Date.now();const st=parseD(el.dataset.start);const enRaw=parseD(el.dataset.end);const en=enRaw?enRaw+86399000:0;const dl=parseD(el.dataset.deadline);const dlEnd=dl?dl+86399000:0;
- if(el.dataset.status==='Aktif'&&(!st||st>now)&&(!dlEnd||dlEnd>=now)&&dl)return 'open';
- if(el.dataset.status==='Tamamlandı'||(en&&en<now))return 'done';
- if(st&&st<=now&&(!en||en>=now))return 'running';
- return 'closed';}
+const L:Record<string,[string,string]>={open:['Başvuru açık','Applications open'],done:['Tamamlandı','Completed'],closed:['Başvurular kapandı','Applications closed']};
+function phase(el: HTMLElement) {
+  return projectPhase({ status: el.dataset.status === 'Aktif' ? 'Aktif' : 'Tamamlandı', startDate: el.dataset.start ?? '', endDate: el.dataset.end, applicationDeadline: el.dataset.deadline });
+}
 function syncPhases(){document.querySelectorAll<HTMLElement>('[data-v3-project]').forEach(el=>{const b=el.querySelector<HTMLElement>('[data-v3-status]');if(!b)return;const ph=phase(el);b.className='v3-status ph-'+ph;b.textContent=L[ph][lang==='en'?1:0];});}
 syncPhases();setInterval(syncPhases,60000);
 document.querySelectorAll<HTMLElement>('[data-carousel-root]').forEach(root=>{
