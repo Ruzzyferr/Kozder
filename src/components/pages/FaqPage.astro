@@ -31,6 +31,11 @@ const ld = faqSchema(faqs.map(f => ({ question: f.q, answer: f.a })));
   />
 
   <div class="container mx-auto px-4 py-12 sm:py-20 max-w-4xl">
+    <a href={path(lang, 'guide')} class="faq-guide">
+      <span class="faq-guide-ic" aria-hidden="true">🧭</span>
+      <span><strong>{lang === 'en' ? 'How do we select participants? What does the form ask?' : 'Katılımcıları nasıl seçiyoruz? Formda neler soruluyor?'}</strong><br />{lang === 'en' ? 'Our illustrated application guide explains every step from application to departure.' : 'Başvurudan yolculuğa her adımı resimli başvuru rehberimizde anlattık.'}</span>
+      <span class="faq-guide-go" aria-hidden="true">→</span>
+    </a>
     <div class="bg-brand-cream divide-y divide-line card card-2" data-faq-list>
       {faqs.map((f, i) => (
         <details class="group">
@@ -69,6 +74,14 @@ const ld = faqSchema(faqs.map(f => ({ question: f.q, answer: f.a })));
     </div>
   </div>
 </BaseLayout>
+
+<style>
+  .faq-guide{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding:18px 22px;border-radius:22px;background:linear-gradient(120deg,#fff0e8,#eaf1fe);border:2px solid #f08a24;color:#14213d;text-decoration:none;line-height:1.5;transition:transform .3s ease,box-shadow .3s ease}
+  .faq-guide:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(20,33,61,.15)}
+  .faq-guide-ic{font-size:30px}
+  .faq-guide-go{margin-left:auto;font-size:24px;font-weight:900;color:#b4360b;transition:transform .3s}
+  .faq-guide:hover .faq-guide-go{transform:translateX(5px)}
+</style>
 
 <script>
   function initFaqAccordion() {
