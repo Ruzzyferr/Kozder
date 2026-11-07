@@ -38,6 +38,7 @@ const ROUTES = {
   impact: { tr: '/etki-ve-seffaflik', en: '/en/impact-and-transparency' },
   safeguarding: { tr: '/koruma-politikasi', en: '/en/safeguarding' },
   voice: { tr: '/genclerin-sesi', en: '/en/youth-voice' },
+  guide: { tr: '/basvuru-rehberi', en: '/en/application-guide' },
 } as const;
 
 export type RouteKey = keyof typeof ROUTES;

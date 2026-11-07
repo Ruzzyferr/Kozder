@@ -1,0 +1,474 @@
+---
+import { useTranslations, path, alternatePath, type Lang } from '../../i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+interface Props { lang: Lang }
+const lang: Lang = Astro.props.lang;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const c = (tr: string, enText: string) => (en ? enText : tr);
+
+const title = c('Başvuru Rehberi', 'Application Guide');
+const intro = c(
+  'Yurt dışı projelerine nasıl başvurulur, katılımcıları nasıl seçiyoruz, masrafları kim karşılıyor? Kilis’ten Avrupa’ya uzanan yolculuğun her adımı bu sayfada.',
+  'How do you apply for a project abroad, how do we select participants and who covers the costs? Every step of the journey from Kilis to Europe is on this page.',
+);
+const stars = Array.from({ length: 12 }, (_, i) => { const a = (i / 12) * Math.PI * 2; return `translate(${(430 + Math.cos(a) * 38).toFixed(1)} ${(80 + Math.sin(a) * 38).toFixed(1)}) scale(.9)`; });
+const WHATSAPP = 'https://whatsapp.com/channel/0029Va6oBxc4NVis1wo8hl2N';
+
+/* ---------- Temsili gönüllü çizimleri (özgün, basit SVG) ---------- */
+type Look = { skin: string; hair: string; top: string; style: 'short' | 'long' | 'curly' | 'scarf' | 'bun'; glasses?: boolean; bag?: boolean };
+function person(l: Look, size = 96): string {
+  const hair = {
+    short: `<path d="M30 34c0-14 10-22 22-22s22 8 22 22c-4-6-12-9-22-9s-18 3-22 9z" fill="${l.hair}"/>`,
+    long: `<path d="M28 40c0-18 10-28 24-28s24 10 24 28v30c-4 4-8 4-10 0V44H38v26c-2 4-6 4-10 0z" fill="${l.hair}"/>`,
+    curly: `<g fill="${l.hair}"><circle cx="34" cy="28" r="9"/><circle cx="46" cy="20" r="10"/><circle cx="60" cy="21" r="10"/><circle cx="70" cy="30" r="9"/><circle cx="30" cy="40" r="7"/><circle cx="74" cy="41" r="7"/></g>`,
+    scarf: `<path d="M26 44c0-20 11-32 26-32s26 12 26 32v34H26z" fill="${l.hair}"/>`,
+    bun: `<g fill="${l.hair}"><circle cx="52" cy="12" r="8"/><path d="M30 36c0-14 10-22 22-22s22 8 22 22c-4-6-12-9-22-9s-18 3-22 9z"/></g>`,
+  }[l.style];
+  const glasses = l.glasses ? `<g fill="none" stroke="#14213d" stroke-width="2.4"><circle cx="44" cy="44" r="6"/><circle cx="60" cy="44" r="6"/><path d="M50 44h4"/></g>` : '';
+  const bag = l.bag ? `<path d="M30 74 70 108" stroke="#14213d" stroke-width="4" stroke-linecap="round"/><rect x="62" y="98" width="18" height="16" rx="4" fill="#14213d"/>` : '';
+  const back = l.style === 'long' || l.style === 'scarf' ? hair : '';
+  const front = l.style === 'long' || l.style === 'scarf' ? '' : hair;
+  return `<svg viewBox="0 0 104 124" width="${size}" height="${Math.round(size * 1.19)}" aria-hidden="true">${back}<path d="M18 124c0-24 15-40 34-40s34 16 34 40z" fill="${l.top}"/><rect x="45" y="70" width="14" height="16" rx="6" fill="${l.skin}"/><circle cx="52" cy="46" r="22" fill="${l.skin}"/>${front}<circle cx="44" cy="46" r="2.4" fill="#14213d"/><circle cx="60" cy="46" r="2.4" fill="#14213d"/><path d="M45 55q7 6 14 0" stroke="#14213d" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="38" cy="53" r="3.5" fill="#f9a8b8" opacity=".55"/><circle cx="66" cy="53" r="3.5" fill="#f9a8b8" opacity=".55"/>${glasses}${bag}</svg>`;
+}
+const crew: Look[] = [
+  { skin: '#f2c9a0', hair: '#3b2416', top: '#f08a24', style: 'curly', bag: true },
+  { skin: '#e8b48a', hair: '#6d28d9', top: '#0f766e', style: 'scarf' },
+  { skin: '#c98d5e', hair: '#1b1b1b', top: '#1d4ed8', style: 'short', glasses: true },
+  { skin: '#f6d2b4', hair: '#7a4a1e', top: '#be123c', style: 'long' },
+  { skin: '#dba277', hair: '#2b1a10', top: '#ffc93c', style: 'bun', bag: true },
+  { skin: '#b9784f', hair: '#111', top: '#5eead4', style: 'short' },
+  { skin: '#f0c7a5', hair: '#4a2c1a', top: '#c4b5fd', style: 'long', glasses: true },
+  { skin: '#e4ad83', hair: '#0f766e', top: '#f08a24', style: 'scarf', bag: true },
+];
+
+/* ---------- Program kartları ---------- */
+const programs = en ? [
+  { key: 'yx', color: '#1d4ed8', name: 'Erasmus+ Youth Exchange', time: '5–21 days', age: '13–30 (group leaders 18+)', what: 'Young people from several countries meet around a theme: workshops, games, intercultural evenings and a Youthpass certificate at the end.', who: 'Ideal for a first experience abroad.' },
+  { key: 'tc', color: '#6d28d9', name: 'Erasmus+ Training Course', time: '5–10 days', age: '18+ (youth workers, volunteers)', what: 'Trainings for people working with young people: non-formal education methods, project writing, inclusion, digital skills.', who: 'For those active in our clubs and activities.' },
+  { key: 'esc', color: '#0f766e', name: 'European Solidarity Corps (ESC)', time: '2 weeks – 12 months', age: '18–30', what: 'Volunteering in an organisation abroad: travel, accommodation, food, insurance and monthly pocket money are covered by the programme.', who: 'A Youth Portal (PRN) registration is required.' },
+] : [
+  { key: 'yx', color: '#1d4ed8', name: 'Erasmus+ Gençlik Değişimi', time: '5–21 gün', age: '13–30 (grup lideri 18+)', what: 'Farklı ülkelerden gençler bir tema etrafında buluşur: atölyeler, oyunlar, kültürlerarası geceler ve sonunda Youthpass sertifikası.', who: 'Yurt dışında ilk deneyim için ideal.' },
+  { key: 'tc', color: '#6d28d9', name: 'Erasmus+ Eğitim Kursu', time: '5–10 gün', age: '18+ (gençlik çalışanları, gönüllüler)', what: 'Gençlerle çalışanlara yönelik eğitimler: yaygın eğitim yöntemleri, proje yazma, kapsayıcılık, dijital beceriler.', who: 'Kulüplerimizde ve etkinliklerimizde aktif olanlar için.' },
+  { key: 'esc', color: '#0f766e', name: 'Avrupa Dayanışma Programı (ESC)', time: '2 hafta – 12 ay', age: '18–30', what: 'Yurt dışındaki bir kurumda gönüllülük: yol, konaklama, yemek, sigorta ve aylık harçlık programdan karşılanır.', who: 'Youth Portal (PRN) kaydı gerekir.' },
+];
+
+/* ---------- Yolculuk adımları ---------- */
+const steps = en ? [
+  ['Follow the calls', 'New opportunities are announced first on our WhatsApp channel and Instagram (@kozder2018). Each call has an info pack with dates, country, age and deadline.'],
+  ['Fill in the form', 'Apply through the Erasmus+ or ESC application form linked on the project page. It takes about 10–15 minutes.'],
+  ['Pre-evaluation', 'After the deadline, our team reads every application. Your answers about motivation and contribution matter most.'],
+  ['Online interview', 'Shortlisted candidates are invited to a short online interview (Google Meet). We talk in Turkish and English, nothing to be afraid of!'],
+  ['Results', 'We announce main and reserve participants by email or phone. If a main participant cannot go, the next reserve takes the place.'],
+  ['Agreement and preparation', 'You sign the participation agreement and privacy consent, join the preparation meeting and plan tickets with us. Visa support if needed.'],
+  ['The journey', 'Take part fully in the programme, make friends from all over Europe and receive your Youthpass certificate at the end.'],
+  ['Back home, share it', 'Hand in your tickets and boarding passes, share your experience on social media and write your story for our website.'],
+] : [
+  ['Çağrıları takip et', 'Yeni fırsatlar önce WhatsApp kanalımızda ve Instagram’da (@kozder2018) duyurulur. Her çağrının tarih, ülke, yaş ve son başvuru tarihini içeren bir bilgi paketi vardır.'],
+  ['Formu doldur', 'Proje sayfasındaki Erasmus+ veya ESC başvuru formuyla başvurursun. Yaklaşık 10–15 dakika sürer.'],
+  ['Ön değerlendirme', 'Son başvuru tarihinden sonra ekibimiz her başvuruyu okur. En çok motivasyonuna ve katkı sorularına verdiğin cevaplara bakarız.'],
+  ['Online görüşme', 'Ön elemeyi geçen adaylarla kısa bir online görüşme yaparız (Google Meet). Türkçe ve biraz İngilizce sohbet ederiz; korkulacak bir şey yok!'],
+  ['Sonuç', 'Asil ve yedek katılımcıları e-posta ya da telefonla bildiririz. Asil katılımcı gidemezse sıradaki yedek onun yerine geçer.'],
+  ['Sözleşme ve hazırlık', 'Katılım sözleşmesini ve KVKK iznini imzalar, hazırlık toplantısına katılır, biletleri birlikte planlarız. Gerekirse vize sürecinde destek oluruz.'],
+  ['Yolculuk', 'Programa tam katılır, Avrupa’nın dört bir yanından arkadaşlar edinir, sonunda Youthpass sertifikanı alırsın.'],
+  ['Dön ve paylaş', 'Bilet ve biniş kartlarını teslim eder, deneyimini sosyal medyada paylaşır ve web sitemiz için hikâyeni yazarsın.'],
+];
+const stepColors = ['#f08a24', '#1d4ed8', '#0f766e', '#6d28d9', '#be123c', '#d97706', '#0e8fb3', '#16a34a'];
+
+/* ---------- Formda neler soruluyor ---------- */
+const formGroups = en ? [
+  { icon: '🪪', color: '#1d4ed8', title: 'About you', items: ['Name, email and phone number', 'Date of birth and the province you will travel from', 'Passport type (green or burgundy; important for visas)', 'Dietary preferences', 'An emergency contact (optional)'] },
+  { icon: '💬', color: '#f08a24', title: 'Your motivation', items: ['Why do you want to join this project?', 'Why should we choose you?', 'Your previous Erasmus+ or ESC projects, if any (year, country, type)'] },
+  { icon: '🤝', color: '#0f766e', title: 'Your contribution', items: ['How will you contribute to the association after you return?', 'What can you do to introduce our association and our country during the project?', 'Will you share posts before, during and after the project, tagging us and the host organisation?', 'Can you edit and send us content about what you did?'] },
+  { icon: '🗣️', color: '#6d28d9', title: 'Your English', items: ['Self-assessment of speaking, writing, reading and listening'] },
+  { icon: '📱', color: '#be123c', title: 'Social media tasks', items: ['Follow our accounts (linktr.ee/kozder)', 'Tag at least 5 friends under the call post on Instagram and upload a screenshot (checked if you are selected)'] },
+  { icon: '🌍', color: '#d97706', title: 'Only for ESC', items: ['Your Youth Portal PRN number', 'Your CV'] },
+] : [
+  { icon: '🪪', color: '#1d4ed8', title: 'Seninle ilgili', items: ['Ad soyad, e-posta ve telefon', 'Doğum tarihi ve hangi ilden katılacağın', 'Pasaport türü (yeşil ya da bordo; vize açısından önemli)', 'Yemek tercihi', 'Acil durum kişisi (zorunlu değil)'] },
+  { icon: '💬', color: '#f08a24', title: 'Motivasyonun', items: ['Bu projeye neden katılmak istiyorsun?', 'Neden seni seçelim?', 'Varsa daha önce katıldığın Erasmus+ ya da ESC projeleri (yıl, ülke, tür)'] },
+  { icon: '🤝', color: '#0f766e', title: 'Katkın', items: ['Döndükten sonra derneğimize ne gibi katkılar sağlarsın?', 'Proje boyunca derneğimizi ve ülkemizi tanıtmak için neler yapabilirsin?', 'Öncesinde, sırasında ve sonrasında bizi ve ev sahibi kurumu etiketleyerek paylaşım yapar mısın?', 'Yaptıklarını editleyip bize gönderebilir misin?'] },
+  { icon: '🗣️', color: '#6d28d9', title: 'İngilizcen', items: ['Konuşma, yazma, okuma ve dinleme seviyeni kendin değerlendirirsin'] },
+  { icon: '📱', color: '#be123c', title: 'Sosyal medya görevleri', items: ['Hesaplarımızı takip etmek (linktr.ee/kozder)', 'Instagram’daki çağrı postunun altına en az 5 arkadaşını etiketleyip ekran görüntüsünü yüklemek (seçilirsen kontrol edilir)'] },
+  { icon: '🌍', color: '#d97706', title: 'Sadece ESC için', items: ['Youth Portal PRN numaran', 'CV’n'] },
+];
+
+/* ---------- Seçim ölçütleri ---------- */
+const criteria = en ? [
+  ['💡', 'Motivation and answers', 'Sincere, thoughtful answers to “why do you want to join?” and “why should we choose you?” make the biggest difference.'],
+  ['🗣️', 'English level', 'You don’t need perfect English, but you must be able to communicate. Higher levels have an advantage in training courses.'],
+  ['🧩', 'Involvement with KOZ-DER', 'Taking part in our Speaking Clubs, events and volunteering, and completing the social media tasks, count in your favour.'],
+  ['🎯', 'Fit with the project', 'The project’s theme, age range and target group: we look at whether this project is right for you and you for it.'],
+  ['📍', 'Kilis and the region', 'As a Kilis-based association, we give priority to young people from Kilis and the surrounding area.'],
+  ['🌱', 'A fair chance for everyone', 'Those who have never been abroad get a chance; we keep a balance with those who have already participated.'],
+  ['🛂', 'Passport and timing', 'In projects with little time before departure, the visa process matters; this is why we ask about your passport type.'],
+  ['⚠️', 'Keeping your word', 'If you were selected before and withdrew without a valid reason, this is taken into account in later selections.'],
+] : [
+  ['💡', 'Motivasyon ve cevapların', '“Neden katılmak istiyorsun?” ve “Neden seni seçelim?” sorularına verdiğin samimi ve düşünülmüş cevaplar en büyük farkı yaratır.'],
+  ['🗣️', 'İngilizce seviyesi', 'Kusursuz İngilizce gerekmez ama iletişim kurabilmelisin. Eğitim kurslarında daha yüksek seviye avantajlıdır.'],
+  ['🧩', 'KOZ-DER’e katılımın', 'Speaking Club’larımıza, etkinliklerimize ve gönüllü çalışmalarımıza katılman, sosyal medya görevlerini yapman artı puandır.'],
+  ['🎯', 'Projeye uygunluk', 'Projenin teması, yaş aralığı ve hedef kitlesi: bu proje sana, sen de bu projeye uygun musun, ona bakarız.'],
+  ['📍', 'Kilis ve çevresi', 'Kilis merkezli bir dernek olarak Kilis ve çevresindeki gençlere öncelik veririz.'],
+  ['🌱', 'Herkese adil şans', 'Daha önce hiç yurt dışına çıkmamış gençlere de fırsat veririz; daha önce katılanlarla dengeyi gözetiriz.'],
+  ['🛂', 'Pasaport ve zamanlama', 'Gidişe az süre kalan projelerde vize süreci belirleyici olabilir; pasaport türünü bu yüzden sorarız.'],
+  ['⚠️', 'Sözünü tutmak', 'Daha önce seçilip geçerli bir mazeret olmadan vazgeçtiysen, bu durum sonraki seçimlerde dikkate alınır.'],
+];
+
+/* ---------- Masraflar ---------- */
+const covered = en
+  ? ['Travel, up to the programme’s limit', 'Accommodation and meals', 'Insurance', 'Visa fee (when included in the project budget)', 'ESC: monthly pocket money']
+  : ['Yol masrafı (programın belirlediği üst sınıra kadar)', 'Konaklama ve yemek', 'Sigorta', 'Vize ücreti (proje bütçesinde varsa)', 'ESC’de aylık harçlık'];
+const yours = en
+  ? ['Getting a passport', 'Personal spending', 'Costs not approved in advance', 'Keeping tickets, invoices and boarding passes: travel costs are reimbursed only with these documents']
+  : ['Pasaport çıkarmak', 'Kişisel harcamaların', 'Önceden onaylanmamış giderler', 'Bilet, fatura ve biniş kartlarını saklamak: yol masrafı ancak bu belgelerle geri ödenir'];
+
+/* ---------- Kısa sorular ---------- */
+const faqs = en ? [
+  ['Is it free?', 'Yes. There is no participation fee. The programme covers the main costs; you only need your passport and personal spending money.'],
+  ['My English isn’t very good. Can I still apply?', 'Yes. For youth exchanges, basic communication is enough. To improve, join our free Speaking Clubs (Wednesdays online, Fridays in Kilis).'],
+  ['I have joined a project before. Can I apply again?', 'Yes. We try to give priority to first-timers, but active members who have contributed to the association are always welcome.'],
+  ['I don’t live in Kilis. Can I apply?', 'Yes. Priority goes to young people from Kilis and the region, but depending on the project we also select participants from other cities.'],
+  ['When will I hear back?', 'Usually within a few days after the deadline. Shortlisted candidates are invited to an online interview first.'],
+  ['What if my visa is refused or I can’t go?', 'Let us know in writing as soon as possible. Valid reasons such as a visa refusal or illness are assessed with documents; a reserve takes your place.'],
+  ['What happens to my personal data?', 'Your passport, ID and contact details are used only for that project and protected under our privacy notice. Photos are shared only with your separate consent.'],
+] : [
+  ['Ücretli mi?', 'Hayır, katılım ücreti yok. Temel masrafları program karşılar; senin yalnızca pasaportun ve kişisel harçlığın olmalı.'],
+  ['İngilizcem çok iyi değil, yine de başvurabilir miyim?', 'Evet. Gençlik değişimlerinde temel düzeyde iletişim kurabilmek yeterli. Geliştirmek için ücretsiz Speaking Club’larımıza katılabilirsin (Çarşamba online, Cuma Kilis’te).'],
+  ['Daha önce bir projeye katıldım, tekrar başvurabilir miyim?', 'Evet. İlk kez gideceklere öncelik vermeye çalışırız ama derneğe katkı sunan aktif üyelerimize her zaman yer vardır.'],
+  ['Kilis’te yaşamıyorum, başvurabilir miyim?', 'Evet. Kilis ve çevresine öncelik veririz ama projeye göre başka şehirlerden de katılımcı seçiyoruz.'],
+  ['Sonuç ne zaman açıklanır?', 'Genellikle son başvuru tarihinden sonraki birkaç gün içinde. Önce ön elemeyi geçenleri online görüşmeye çağırırız.'],
+  ['Vizem çıkmazsa ya da gidemezsem ne olur?', 'En kısa sürede yazılı olarak haber vermelisin. Vize reddi, hastalık gibi geçerli mazeretler belgesiyle değerlendirilir; yerine yedek aday geçer.'],
+  ['Kişisel verilerime ne oluyor?', 'Pasaport, kimlik ve iletişim bilgilerin yalnızca o proje için kullanılır ve KVKK kapsamında korunur. Fotoğrafların ancak ayrı iznin varsa paylaşılır.'],
+];
+---
+
+<BaseLayout lang={lang} title={`${title} — KOZ-DER`} description={intro} alternate={alternatePath(lang, 'guide')}>
+  <Breadcrumb
+    lang={lang}
+    kicker={c('Yurt dışı fırsatları', 'Opportunities abroad')}
+    items={[{ label: t('nav.home'), href: path(lang, 'home') }, { label: title, href: path(lang, 'guide') }]}
+    pageTitle={title}
+    intro={intro}
+  />
+
+  <div class="ag" data-guide>
+    <!-- KAHRAMAN: Kilis’ten Avrupa’ya yol -->
+    <section class="ag-wrap ag-hero">
+      <div class="ag-hero-copy">
+        <h2>{c('Kilis’ten Avrupa’ya, adım adım.', 'From Kilis to Europe, step by step.')}</h2>
+        <p>{c('Her yıl yüzlerce genç bize başvuruyor ve aynı soruları soruyor: “Nasıl seçiyorsunuz?”, “Ne kadar tutuyor?”, “İngilizcem yeterli mi?” Cevapların hepsi burada.', 'Every year hundreds of young people apply and ask the same questions: “How do you select?”, “How much does it cost?”, “Is my English good enough?” All the answers are here.')}</p>
+        <div class="ag-actions">
+          <a class="ag-btn primary" href={path(lang, 'projects')}>{c('Açık çağrıları gör', 'See open calls')} <span aria-hidden="true">→</span></a>
+          <a class="ag-btn" href="#yolculuk">{c('Yolculuğu incele', 'Explore the journey')} <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="ag-map" aria-hidden="true">
+        <svg viewBox="0 0 520 360" class="ag-route">
+          <defs>
+            <linearGradient id="agRoad" x1="0" x2="1"><stop offset="0" stop-color="#f08a24"/><stop offset=".5" stop-color="#6d28d9"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient>
+          </defs>
+          <circle cx="430" cy="80" r="58" fill="#1d4ed8" opacity=".1"/>
+          {stars.map((st, i) => <path d="M0 -7 2 -2 7 -2 3 1 4.6 6.4 0 3.2 -4.6 6.4 -3 1 -7 -2 -2 -2z" transform={st} fill="#ffc93c" class="ag-star" style={`animation-delay:${i * .15}s`} />)}
+          <path id="agPath" d="M70 300 C 150 300, 140 200, 230 210 S 330 260, 360 170 S 400 110, 430 82" fill="none" stroke="url(#agRoad)" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 14" class="ag-dash"/>
+          <g transform="translate(70 300)"><circle r="16" fill="#be123c"/><circle r="6" fill="#fff"/></g>
+          <text x="40" y="340" class="ag-maplabel">Kilis</text>
+          <text x="392" y="168" class="ag-maplabel">{c('Avrupa', 'Europe')}</text>
+          <g class="ag-traveler">
+            <g transform="translate(-22 -50) scale(.42)" set:html={person({ skin: '#f2c9a0', hair: '#3b2416', top: '#f08a24', style: 'curly', bag: true }, 104)} />
+            <animateMotion dur="7s" repeatCount="indefinite" rotate="0" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#agPath" /></animateMotion>
+          </g>
+        </svg>
+        <div class="ag-crew">
+          {crew.slice(0, 5).map((l, i) => <span class="ag-bob" style={`animation-delay:${i * .25}s`} set:html={person(l, 64)} />)}
+        </div>
+      </div>
+    </section>
+
+    <!-- HANGİ PROGRAM -->
+    <section class="ag-wrap ag-sec">
+      <h2>{c('Hangi program sana uygun?', 'Which programme suits you?')}</h2>
+      <div class="ag-tabs" role="tablist" aria-label={c('Program türleri', 'Programme types')}>
+        {programs.map((p, i) => <button type="button" role="tab" id={`tab-${p.key}`} aria-controls={`panel-${p.key}`} aria-selected={i === 0 ? 'true' : 'false'} style={`--c:${p.color}`} data-tab={p.key}>{p.name}</button>)}
+      </div>
+      {programs.map((p, i) => (
+        <div class="ag-panel" role="tabpanel" id={`panel-${p.key}`} aria-labelledby={`tab-${p.key}`} hidden={i !== 0} style={`--c:${p.color}`}>
+          <div class="ag-panel-art" set:html={person(crew[i * 2 + 1], 120)} />
+          <div>
+            <h3>{p.name}</h3>
+            <dl>
+              <div><dt>{c('Süre', 'Duration')}</dt><dd>{p.time}</dd></div>
+              <div><dt>{c('Yaş', 'Age')}</dt><dd>{p.age}</dd></div>
+            </dl>
+            <p>{p.what}</p>
+            <p class="ag-note">{p.who}</p>
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <!-- YOLCULUK -->
+    <section class="ag-wrap ag-sec" id="yolculuk">
+      <h2>{c('Başvurudan yolculuğa 8 adım', '8 steps from application to departure')}</h2>
+      <p class="ag-lead">{c('Bir adıma dokun, ayrıntısını gör.', 'Tap a step to see the details.')}</p>
+      <ol class="ag-steps">
+        {steps.map(([h, d], i) => (
+          <li class="ag-step" style={`--c:${stepColors[i]}`} data-reveal>
+            <details open={i === 0}>
+              <summary>
+                <span class="ag-num">{i + 1}</span>
+                <span class="ag-face" set:html={person(crew[i % crew.length], 54)} />
+                <span class="ag-step-title">{h}</span>
+                <span class="ag-chev" aria-hidden="true">＋</span>
+              </summary>
+              <p>{d}</p>
+            </details>
+            {i < steps.length - 1 && (
+              <svg class={`ag-arrow ${i % 2 ? 'down' : 'side'}`} viewBox="0 0 60 70" aria-hidden="true"><path d={i % 2 ? 'M52 4 C 42 30, 28 46, 12 60' : 'M6 40 C 20 12, 40 12, 54 34'} fill="none" stroke={stepColors[i + 1]} stroke-width="4" stroke-linecap="round" class="ag-arrow-line"/><path d={i % 2 ? 'M9 47 11 61 25 60' : 'M43 31 55 36 54 23'} fill="none" stroke={stepColors[i + 1]} stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            )}
+            {i < steps.length - 1 && <span class="ag-arrow-m" style={`--c2:${stepColors[i + 1]}`} aria-hidden="true"><svg viewBox="0 0 24 40" width="24" height="40"><path d="M12 2v30M4 25l8 9 8-9" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>}
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <!-- FORMDA NE SORULUYOR -->
+    <section class="ag-band">
+      <div class="ag-wrap ag-sec">
+        <h2>{c('Başvuru formunda neler soruluyor?', 'What does the application form ask?')}</h2>
+        <p class="ag-lead">{c('Hazırlıklı gel: cevaplarını önceden düşünürsen formu dakikalar içinde doldurursun.', 'Come prepared: if you think about your answers beforehand, the form takes minutes.')}</p>
+        <div class="ag-form-grid">
+          {formGroups.map(g => (
+            <div class="ag-card" style={`--c:${g.color}`} data-reveal>
+              <h3><span aria-hidden="true">{g.icon}</span> {g.title}</h3>
+              <ul>{g.items.map(it => <li>{it}</li>)}</ul>
+            </div>
+          ))}
+        </div>
+        <div class="ag-tip">
+          <span set:html={person(crew[4], 70)} />
+          <p><strong>{c('İpucu:', 'Tip:')}</strong> {c('Kopyala-yapıştır cevaplar yerine kendi cümlelerinle yaz. Neden bu projeyi seçtiğini ve döndüğünde ne yapacağını somut anlat: “Speaking Club’da sunum yaparım”, “okulumda tanıtırım” gibi.', 'Write in your own words rather than copy-paste. Be concrete about why you chose this project and what you will do when you return: “I’ll present it at the Speaking Club”, “I’ll introduce it at my school”.')}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NASIL SEÇİYORUZ -->
+    <section class="ag-wrap ag-sec">
+      <h2>{c('Katılımcıları nasıl seçiyoruz?', 'How do we select participants?')}</h2>
+      <p class="ag-lead">{c('Seçimi tek bir ölçüt değil, bunların bir arada değerlendirilmesi belirler. Her projede kontenjan kadar asil ve birkaç yedek belirleriz.', 'No single criterion decides; we look at all of them together. For each project we choose main participants up to the quota, plus reserves.')}</p>
+      <div class="ag-crit">
+        {criteria.map(([ic, h, d], i) => (
+          <div class="ag-crit-item" style={`--c:${stepColors[i]}`} data-reveal>
+            <span class="ag-crit-ic" aria-hidden="true">{ic}</span>
+            <h3>{h}</h3>
+            <p>{d}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- MASRAFLAR -->
+    <section class="ag-wrap ag-sec">
+      <h2>{c('Masrafları kim karşılıyor?', 'Who covers the costs?')}</h2>
+      <div class="ag-cost">
+        <div class="ag-cost-col yes" data-reveal>
+          <h3>{c('Programın karşıladıkları', 'Covered by the programme')}</h3>
+          <ul>{covered.map(x => <li>{x}</li>)}</ul>
+        </div>
+        <div class="ag-cost-col you" data-reveal>
+          <h3>{c('Sana düşenler', 'Up to you')}</h3>
+          <ul>{yours.map(x => <li>{x}</li>)}</ul>
+        </div>
+      </div>
+      <p class="ag-small">{c('Her projenin mali koşulları (seyahat desteği üst sınırı, bileti kimin alacağı, geri ödeme süresi) yola çıkmadan önce sözleşmenin ekinde yazılı olarak paylaşılır. Harcama yapmadan önce mutlaka onay al.', 'The financial terms of each project (travel support limit, who buys the ticket, reimbursement period) are shared in writing in the agreement annex before departure. Always get approval before spending.')}</p>
+    </section>
+
+    <!-- KISA SORULAR -->
+    <section class="ag-band alt">
+      <div class="ag-wrap ag-sec">
+        <h2>{c('Aklına takılanlar', 'Quick questions')}</h2>
+        <div class="ag-faq">
+          {faqs.map(([q, a]) => <details class="ag-q"><summary>{q}<span aria-hidden="true">＋</span></summary><p>{a}</p></details>)}
+        </div>
+        <p class="ag-small">{c('Daha fazla soru için', 'More questions?')} <a href={path(lang, 'faq')}>{c('Sıkça Sorulan Sorular', 'Frequently Asked Questions')}</a> · <a href={path(lang, 'contact')}>{c('Bize yaz', 'Write to us')}</a></p>
+      </div>
+    </section>
+
+    <!-- KAPANIŞ -->
+    <section class="ag-wrap ag-sec">
+      <div class="ag-end">
+        <div class="ag-end-crew">{crew.slice(3, 8).map((l, i) => <span class="ag-bob" style={`animation-delay:${i * .2}s`} set:html={person(l, 58)} />)}</div>
+        <h2>{c('Sıradaki yolculuk senin olabilir.', 'The next journey could be yours.')}</h2>
+        <div class="ag-actions center">
+          <a class="ag-btn light" href={path(lang, 'projects')}>{c('Açık çağrılar', 'Open calls')} <span aria-hidden="true">→</span></a>
+          <a class="ag-btn glass" href={WHATSAPP} target="_blank" rel="noopener noreferrer">{c('WhatsApp kanalına katıl', 'Join the WhatsApp channel')}</a>
+          <a class="ag-btn glass" href={path(lang, 'stories')}>{c('Gönüllü hikâyeleri', 'Volunteer stories')}</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-guide]');
+  if (root) {
+    // Program sekmeleri
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-tab]'));
+    const select = (btn: HTMLButtonElement) => {
+      tabs.forEach(b => {
+        const on = b === btn;
+        b.setAttribute('aria-selected', String(on));
+        b.tabIndex = on ? 0 : -1;
+        const panel = document.getElementById(b.getAttribute('aria-controls') || '');
+        if (panel) panel.hidden = !on;
+      });
+    };
+    tabs.forEach((b, i) => {
+      b.tabIndex = i === 0 ? 0 : -1;
+      b.addEventListener('click', () => select(b));
+      b.addEventListener('keydown', e => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+        select(n); n.focus();
+      });
+    });
+    // Kaydırınca belirme ve ok çizimi
+    const els = root.querySelectorAll<HTMLElement>('[data-reveal]');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { threshold: 0.2 });
+      els.forEach(el => io.observe(el));
+    } else els.forEach(el => el.classList.add('in'));
+    // Hareket azaltma tercihinde yürüyen gönüllüyü durdur
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      root.querySelectorAll('animateMotion').forEach(a => a.remove());
+      root.querySelector('.ag-traveler')?.setAttribute('transform', 'translate(430 82)');
+    }
+  }
+</script>
+
+<style is:global>
+  .ag{--ink:#14213d;--muted:#4a5872;color:var(--ink)}
+  .ag-wrap{max-width:1180px;margin-left:auto;margin-right:auto;padding-left:24px;padding-right:24px}
+  .ag-panel[hidden]{display:none!important}
+  .ag h2{font-size:clamp(28px,3.4vw,42px);line-height:1.1;letter-spacing:-.02em;margin:0 0 12px}
+  .ag h3{margin:0}
+  .ag-sec{padding-top:64px}
+  .ag-lead{color:var(--muted);font-size:17px;margin:0 0 28px;max-width:60ch}
+  .ag-small{color:var(--muted);font-size:14px;margin-top:18px;max-width:75ch}
+  .ag-small a{font-weight:700}
+  /* hero */
+  .ag-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:center;padding-top:36px}
+  .ag-hero-copy p{font-size:18px;line-height:1.6;color:var(--muted);max-width:52ch}
+  .ag-map{position:relative;border-radius:32px;background:linear-gradient(160deg,#eaf1fe,#fff0e8);padding:18px 18px 8px;overflow:hidden}
+  .ag-route{width:100%;height:auto;display:block}
+  .ag-dash{animation:agDash 1.6s linear infinite}
+  @keyframes agDash{to{stroke-dashoffset:-32}}
+  .ag-star{transform-box:fill-box;transform-origin:center;animation:agTwinkle 2.4s ease-in-out infinite}
+  @keyframes agTwinkle{50%{opacity:.35}}
+  .ag-maplabel{font:800 18px/1 system-ui,sans-serif;fill:#14213d}
+  .ag-crew{display:flex;justify-content:center;gap:4px;margin-top:-6px}
+  .ag-bob{display:inline-block;animation:agBob 2.6s ease-in-out infinite}
+  @keyframes agBob{50%{transform:translateY(-6px)}}
+  .ag-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+  .ag-actions.center{justify-content:center}
+  .ag-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:16px;font-weight:800;text-decoration:none;border:2px solid var(--ink);color:var(--ink);background:#fff;transition:transform .3s ease,box-shadow .3s ease}
+  .ag-btn.primary{background:#f08a24;border-color:#f08a24;color:#14213d;box-shadow:0 8px 22px rgba(240,138,36,.35)}
+  .ag-btn.light{background:#fff;border-color:#fff;color:#b4360b}
+  .ag-btn.glass{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.6);color:#fff;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .ag-btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 14px 30px rgba(20,33,61,.2)}
+  /* tabs */
+  .ag-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 18px}
+  .ag-tabs button{padding:12px 18px;border-radius:999px;border:2px solid var(--c);background:#fff;color:var(--c);font-weight:800;font-size:15px;cursor:pointer;transition:background .25s,color .25s,transform .25s}
+  .ag-tabs button[aria-selected='true']{background:var(--c);color:#fff;transform:translateY(-2px)}
+  .ag-panel{display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;padding:28px;border-radius:28px;background:color-mix(in srgb,var(--c) 9%,#fff);border-left:8px solid var(--c);animation:agIn .4s ease}
+  .ag-panel h3{font-size:24px;color:var(--c)}
+  .ag-panel dl{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+  .ag-panel dl div{padding:8px 14px;border-radius:12px;background:#fff}
+  .ag-panel dt{font-size:12px;font-weight:800;color:var(--muted)}
+  .ag-panel dd{margin:2px 0 0;font-weight:800}
+  .ag-panel p{margin:8px 0 0;line-height:1.6}
+  .ag-note{font-weight:700;color:var(--c)}
+  @keyframes agIn{from{opacity:0;transform:translateY(8px)}}
+  /* steps */
+  .ag-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px;max-width:980px}
+  .ag-step{position:relative;margin-bottom:34px;opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .ag-step:nth-child(even){transform:translateY(16px);margin-top:70px}
+  .ag-step.in{opacity:1;transform:none}
+  .ag-step details{border-radius:22px;background:#fff;border:2px solid color-mix(in srgb,var(--c) 35%,#fff);box-shadow:0 6px 18px rgba(20,33,61,.06);transition:box-shadow .3s,transform .3s}
+  .ag-step details:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(20,33,61,.14)}
+  .ag-step summary{list-style:none;display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer}
+  .ag-step summary::-webkit-details-marker{display:none}
+  .ag-num{flex:0 0 auto;width:38px;height:38px;border-radius:50%;background:var(--c);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center}
+  .ag-face{flex:0 0 auto;line-height:0;margin:-8px 0}
+  .ag-step-title{font-weight:900;font-size:18px;flex:1}
+  .ag-chev{color:var(--c);font-weight:900;transition:transform .3s}
+  .ag-step details[open] .ag-chev{transform:rotate(45deg)}
+  .ag-step p{margin:0;padding:0 18px 18px 66px;line-height:1.6;color:#33415c}
+  .ag-arrow{position:absolute;width:60px;height:70px;z-index:2}
+  .ag-arrow-m{display:none}
+  @keyframes agDown{50%{transform:translateY(5px)}}
+  .ag-arrow.side{right:-56px;top:2px}
+  .ag-arrow.down{left:-58px;bottom:-66px}
+  .ag-arrow-line{stroke-dasharray:90;stroke-dashoffset:90;transition:stroke-dashoffset 1s ease .3s}
+  .ag-step.in .ag-arrow-line{stroke-dashoffset:0}
+  /* band */
+  .ag-band{margin-top:64px;background:#eaf1fe;padding-bottom:64px}
+  .ag-band.alt{background:#fff0e8}
+  .ag-form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .ag-card{padding:22px;border-radius:22px;background:#fff;border-top:6px solid var(--c);box-shadow:0 6px 18px rgba(20,33,61,.06);opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s,box-shadow .3s}
+  .ag-card.in{opacity:1;transform:none}
+  .ag-card:hover{box-shadow:0 16px 34px rgba(20,33,61,.14);transform:translateY(-4px)}
+  .ag-card h3{font-size:19px;margin-bottom:10px;color:var(--c)}
+  .ag-card ul{margin:0;padding-left:18px;line-height:1.55}
+  .ag-card li+li{margin-top:6px}
+  .ag-tip{display:flex;align-items:center;gap:18px;margin-top:22px;padding:18px 22px;border-radius:22px;background:#fff;border:2px dashed #f08a24}
+  .ag-tip p{margin:0;line-height:1.6}
+  /* criteria */
+  .ag-crit{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .ag-crit-item{position:relative;padding:22px;border-radius:22px;background:color-mix(in srgb,var(--c) 9%,#fff);opacity:0;transform:scale(.96);transition:opacity .5s,transform .5s}
+  .ag-crit-item.in{opacity:1;transform:none}
+  .ag-crit-item:hover{transform:translateY(-4px) rotate(-.6deg)}
+  .ag-crit-ic{display:inline-flex;width:46px;height:46px;border-radius:14px;background:#fff;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 12px rgba(20,33,61,.08)}
+  .ag-crit-item h3{font-size:18px;margin:12px 0 6px;color:var(--c)}
+  .ag-crit-item p{margin:0;line-height:1.55;color:#33415c;font-size:15px}
+  /* costs */
+  .ag-cost{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .ag-cost-col{padding:24px;border-radius:24px;opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
+  .ag-cost-col.in{opacity:1;transform:none}
+  .ag-cost-col.yes{background:#e3f6f3}
+  .ag-cost-col.you{background:#fff6d8}
+  .ag-cost-col h3{font-size:20px;margin-bottom:12px}
+  .ag-cost-col ul{list-style:none;margin:0;padding:0}
+  .ag-cost-col li{position:relative;padding:8px 0 8px 32px;line-height:1.5}
+  .ag-cost-col.yes li::before{content:'✓';position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:#0f766e;color:#fff;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .ag-cost-col.you li::before{content:'•';position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:#d97706;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center}
+  /* faq */
+  .ag-faq{display:grid;gap:10px;max-width:860px}
+  .ag-q{background:#fff;border-radius:18px;border:1px solid rgba(20,33,61,.08)}
+  .ag-q summary{list-style:none;display:flex;justify-content:space-between;gap:12px;padding:16px 20px;font-weight:800;cursor:pointer}
+  .ag-q summary::-webkit-details-marker{display:none}
+  .ag-q summary span{color:#b4360b;transition:transform .3s}
+  .ag-q[open] summary span{transform:rotate(45deg)}
+  .ag-q p{margin:0;padding:0 20px 18px;line-height:1.6;color:#33415c}
+  /* end */
+  .ag-end{text-align:center;padding:44px 24px;border-radius:36px;background:#b4360b;color:#fff;margin-bottom:24px}
+  .ag-end h2{color:#fff}
+  .ag-end-crew{display:flex;justify-content:center;gap:2px;margin-bottom:10px}
+  @media (max-width:900px){
+    .ag-hero{grid-template-columns:1fr}
+    .ag-steps{grid-template-columns:1fr}
+    .ag-step:nth-child(even){margin-top:0}
+    .ag-arrow{display:none}
+    .ag-arrow-m{display:flex!important;justify-content:center;position:absolute;left:0;right:0;bottom:-44px;color:var(--c2);animation:agDown 1.4s ease-in-out infinite}
+    .ag-step{margin-bottom:46px}
+    .ag-panel{grid-template-columns:1fr}
+    .ag-panel-art{display:none}
+    .ag-step p{padding-left:18px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ag-dash,.ag-star,.ag-bob{animation:none}
+    .ag-step,.ag-card,.ag-crit-item,.ag-cost-col{opacity:1;transform:none;transition:none}
+    .ag-arrow-line{stroke-dashoffset:0;transition:none}
+  }
+  @media (prefers-color-scheme:dark){ }
+</style>
