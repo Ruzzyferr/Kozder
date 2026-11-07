@@ -254,34 +254,44 @@ const faqs = en ? [
     </section>
 
     <!-- NASIL SEÇİYORUZ -->
-    <section class="ag-wrap ag-sec">
-      <h2>{c('Katılımcıları nasıl seçiyoruz?', 'How do we select participants?')}</h2>
-      <p class="ag-lead">{c('Seçimi tek bir ölçüt değil, bunların bir arada değerlendirilmesi belirler. Her projede kontenjan kadar asil ve birkaç yedek belirleriz.', 'No single criterion decides; we look at all of them together. For each project we choose main participants up to the quota, plus reserves.')}</p>
-      <div class="ag-crit">
-        {criteria.map(([ic, h, d], i) => (
-          <div class="ag-crit-item" style={`--c:${stepColors[i]}`} data-reveal>
-            <span class="ag-crit-ic" aria-hidden="true">{ic}</span>
-            <h3>{h}</h3>
-            <p>{d}</p>
-          </div>
-        ))}
+    <section class="ag-band navy">
+      <div class="ag-wrap ag-sec">
+        <h2>{c('Katılımcıları nasıl seçiyoruz?', 'How do we select participants?')}</h2>
+        <p class="ag-lead">{c('Seçimi tek bir ölçüt değil, bunların bir arada değerlendirilmesi belirler. Her projede kontenjan kadar asil ve birkaç yedek belirleriz.', 'No single criterion decides; we look at all of them together. For each project we choose main participants up to the quota, plus reserves.')}</p>
+        <div class="ag-crit">
+          {criteria.map(([ic, h, d], i) => (
+            <div class="ag-crit-item" style={`--c:${stepColors[i]}`} data-reveal tabindex="0">
+              <span class="ag-crit-no" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <span class="ag-crit-ic" aria-hidden="true">{ic}</span>
+              <h3>{h}</h3>
+              <p>{d}</p>
+            </div>
+          ))}
+        </div>
+        <div class="ag-pick" aria-hidden="true">
+          <span class="ag-pick-a">{c('Asil', 'Main')}</span><span class="ag-pick-a">{c('Asil', 'Main')}</span><span class="ag-pick-a">{c('Asil', 'Main')}</span><span class="ag-pick-r">{c('Yedek', 'Reserve')}</span><span class="ag-pick-r">{c('Yedek', 'Reserve')}</span>
+        </div>
       </div>
     </section>
 
     <!-- MASRAFLAR -->
-    <section class="ag-wrap ag-sec">
-      <h2>{c('Masrafları kim karşılıyor?', 'Who covers the costs?')}</h2>
-      <div class="ag-cost">
-        <div class="ag-cost-col yes" data-reveal>
-          <h3>{c('Programın karşıladıkları', 'Covered by the programme')}</h3>
-          <ul>{covered.map(x => <li>{x}</li>)}</ul>
+    <section class="ag-band lilac">
+      <div class="ag-wrap ag-sec">
+        <h2>{c('Masrafları kim karşılıyor?', 'Who covers the costs?')}</h2>
+        <p class="ag-lead">{c('Katılım ücretsiz. Temel masrafları program karşılar; birkaç şey de sana kalır.', 'Taking part is free. The programme covers the main costs; a few things are up to you.')}</p>
+        <div class="ag-cost">
+          <div class="ag-cost-col yes" data-reveal tabindex="0">
+            <div class="ag-cost-head"><span class="ag-cost-ic" aria-hidden="true">🎁</span><h3>{c('Programın karşıladıkları', 'Covered by the programme')}</h3></div>
+            <ul>{covered.map(x => <li><span class="ag-mark" aria-hidden="true">✓</span><span>{x}</span></li>)}</ul>
+          </div>
+          <div class="ag-cost-vs" aria-hidden="true">⚖️</div>
+          <div class="ag-cost-col you" data-reveal tabindex="0">
+            <div class="ag-cost-head"><span class="ag-cost-ic" aria-hidden="true">🎒</span><h3>{c('Sana düşenler', 'Up to you')}</h3></div>
+            <ul>{yours.map(x => <li><span class="ag-mark" aria-hidden="true">!</span><span>{x}</span></li>)}</ul>
+          </div>
         </div>
-        <div class="ag-cost-col you" data-reveal>
-          <h3>{c('Sana düşenler', 'Up to you')}</h3>
-          <ul>{yours.map(x => <li>{x}</li>)}</ul>
-        </div>
+        <p class="ag-cost-note">💡 {c('Her projenin mali koşulları (seyahat desteği üst sınırı, bileti kimin alacağı, geri ödeme süresi) yola çıkmadan önce sözleşmenin ekinde yazılı olarak paylaşılır. Harcama yapmadan önce mutlaka onay al.', 'The financial terms of each project (travel support limit, who buys the ticket, reimbursement period) are shared in writing in the agreement annex before departure. Always get approval before spending.')}</p>
       </div>
-      <p class="ag-small">{c('Her projenin mali koşulları (seyahat desteği üst sınırı, bileti kimin alacağı, geri ödeme süresi) yola çıkmadan önce sözleşmenin ekinde yazılı olarak paylaşılır. Harcama yapmadan önce mutlaka onay al.', 'The financial terms of each project (travel support limit, who buys the ticket, reimbursement period) are shared in writing in the agreement annex before departure. Always get approval before spending.')}</p>
     </section>
 
     <!-- KISA SORULAR -->
@@ -443,25 +453,51 @@ const faqs = en ? [
   .ag-card li:nth-child(5) .ag-box,.ag-card li:nth-child(5) .ag-box::after{transition-delay:.4s}
   .ag-tip{display:flex;align-items:center;gap:18px;margin-top:22px;padding:18px 22px;border-radius:22px;background:#fff;border:2px dashed #f08a24}
   .ag-tip p{margin:0;line-height:1.6}
-  /* criteria */
+  /* criteria — lacivert bant, parlak kartlar */
+  .ag-band.navy{background:radial-gradient(circle at 15% 10%,#22336b 0,#14213d 55%);color:#fff}
+  .ag-band.navy h2{color:#fff}
+  .ag-band.navy .ag-lead{color:#c9d4ea}
   .ag-crit{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-  .ag-crit-item{position:relative;padding:22px;border-radius:22px;background:color-mix(in srgb,var(--c) 9%,#fff);opacity:0;transform:scale(.96);transition:opacity .5s,transform .5s}
+  .ag-crit-item{position:relative;overflow:hidden;padding:22px;border-radius:24px;background:linear-gradient(150deg,var(--c),color-mix(in srgb,var(--c) 70%,#14213d));color:#fff;box-shadow:0 10px 26px rgba(0,0,0,.25);opacity:0;transform:translateY(16px) scale(.97);transition:opacity .5s,transform .4s ease,box-shadow .4s ease;outline:none}
   .ag-crit-item.in{opacity:1;transform:none}
-  .ag-crit-item:hover{transform:translateY(-4px) rotate(-.6deg)}
-  .ag-crit-ic{display:inline-flex;width:46px;height:46px;border-radius:14px;background:#fff;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 12px rgba(20,33,61,.08)}
-  .ag-crit-item h3{font-size:18px;margin:12px 0 6px;color:var(--c)}
-  .ag-crit-item p{margin:0;line-height:1.55;color:#33415c;font-size:15px}
-  /* costs */
-  .ag-cost{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-  .ag-cost-col{padding:24px;border-radius:24px;opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
+  .ag-crit-item::before{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.14)}
+  .ag-crit-item::after{content:"";position:absolute;top:0;bottom:0;left:0;width:45%;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.45),rgba(255,255,255,0));transform:translateX(-140%) skewX(-20deg);pointer-events:none}
+  .ag-crit-item:hover,.ag-crit-item:focus-visible{transform:translateY(-10px) scale(1.04) rotate(-.6deg);box-shadow:0 0 0 3px rgba(255,255,255,.5),0 24px 50px color-mix(in srgb,var(--c) 60%,transparent)}
+  .ag-crit-item:hover::after,.ag-crit-item:focus-visible::after{animation:agShine 1s ease}
+  .ag-crit-no{position:absolute;right:18px;top:14px;font-size:28px;font-weight:900;opacity:.35}
+  .ag-crit-ic{display:inline-flex;width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.95);align-items:center;justify-content:center;font-size:26px;box-shadow:0 6px 16px rgba(0,0,0,.18);transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+  .ag-crit-item:hover .ag-crit-ic{transform:scale(1.18) rotate(-10deg)}
+  .ag-crit-item h3{font-size:19px;margin:14px 0 6px;color:#fff}
+  .ag-crit-item p{margin:0;line-height:1.55;font-size:15px;color:rgba(255,255,255,.92)}
+  .ag-pick{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:30px}
+  .ag-pick span{padding:10px 18px;border-radius:999px;font-weight:800;font-size:14px;animation:agPop 2.4s ease-in-out infinite}
+  .ag-pick-a{background:#ffc93c;color:#14213d}
+  .ag-pick-r{background:rgba(255,255,255,.12);color:#fff;border:1px dashed rgba(255,255,255,.6)}
+  .ag-pick span:nth-child(2){animation-delay:.2s}.ag-pick span:nth-child(3){animation-delay:.4s}.ag-pick span:nth-child(4){animation-delay:.6s}.ag-pick span:nth-child(5){animation-delay:.8s}
+  @keyframes agPop{0%,70%,100%{transform:none}80%{transform:translateY(-6px) scale(1.06)}}
+  /* costs — iki renkli büyük panel */
+  .ag-band.lilac{background:linear-gradient(160deg,#f1ecff,#fff0e8)}
+  .ag-cost{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:18px;align-items:center}
+  .ag-cost-vs{width:60px;height:60px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 10px 24px rgba(20,33,61,.15);animation:agTilt 3s ease-in-out infinite}
+  @keyframes agTilt{25%{transform:rotate(-10deg)}75%{transform:rotate(10deg)}}
+  .ag-cost-col{position:relative;overflow:hidden;align-self:stretch;border-radius:28px;color:#fff;box-shadow:0 14px 34px rgba(20,33,61,.18);opacity:0;transform:translateY(14px);transition:opacity .5s,transform .4s ease,box-shadow .4s ease;outline:none}
   .ag-cost-col.in{opacity:1;transform:none}
-  .ag-cost-col.yes{background:#e3f6f3}
-  .ag-cost-col.you{background:#fff6d8}
-  .ag-cost-col h3{font-size:20px;margin-bottom:12px}
-  .ag-cost-col ul{list-style:none;margin:0;padding:0}
-  .ag-cost-col li{position:relative;padding:8px 0 8px 32px;line-height:1.5}
-  .ag-cost-col.yes li::before{content:'✓';position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:#0f766e;color:#fff;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
-  .ag-cost-col.you li::before{content:'•';position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:#d97706;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center}
+  .ag-cost-col.yes{--c:#0f766e;background:linear-gradient(150deg,#14b8a6,#0f766e)}
+  .ag-cost-col.you{--c:#d97706;background:linear-gradient(150deg,#fbbf24,#ea580c)}
+  .ag-cost-col::after{content:"";position:absolute;top:0;bottom:0;left:0;width:45%;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.4),rgba(255,255,255,0));transform:translateX(-140%) skewX(-20deg);pointer-events:none}
+  .ag-cost-col:hover,.ag-cost-col:focus-visible{transform:translateY(-8px) scale(1.02);box-shadow:0 0 0 4px rgba(255,255,255,.7),0 26px 54px color-mix(in srgb,var(--c) 55%,transparent)}
+  .ag-cost-col:hover::after,.ag-cost-col:focus-visible::after{animation:agShine 1s ease}
+  .ag-cost-head{display:flex;align-items:center;gap:12px;padding:20px 22px 8px}
+  .ag-cost-head h3{font-size:22px;color:#fff}
+  .ag-cost-ic{width:50px;height:50px;border-radius:16px;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;font-size:26px;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+  .ag-cost-col:hover .ag-cost-ic{transform:scale(1.15) rotate(8deg)}
+  .ag-cost-col ul{list-style:none;margin:0;padding:8px 18px 22px;display:flex;flex-direction:column;gap:8px}
+  .ag-cost-col li{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);line-height:1.45;font-weight:600;transition:transform .3s ease,background .3s ease}
+  .ag-cost-col li:hover{transform:translateX(6px);background:rgba(255,255,255,.28)}
+  .ag-mark{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:#fff;color:var(--c);font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+  .ag-cost-col:hover .ag-mark{transform:scale(1.2)}
+  .ag-cost-col li:nth-child(2) .ag-mark{transition-delay:.06s}.ag-cost-col li:nth-child(3) .ag-mark{transition-delay:.12s}.ag-cost-col li:nth-child(4) .ag-mark{transition-delay:.18s}.ag-cost-col li:nth-child(5) .ag-mark{transition-delay:.24s}
+  .ag-cost-note{margin:22px 0 0;padding:16px 20px;border-radius:18px;background:#fff;border:2px dashed #6d28d9;line-height:1.6;max-width:80ch}
   /* faq */
   .ag-faq{display:grid;gap:10px;max-width:860px}
   .ag-q{background:#fff;border-radius:18px;border:1px solid rgba(20,33,61,.08)}
@@ -482,6 +518,8 @@ const faqs = en ? [
     .ag-arrow-m{display:flex!important;justify-content:center;position:absolute;left:0;right:0;bottom:-44px;color:var(--c2);animation:agDown 1.4s ease-in-out infinite}
     .ag-step{margin-bottom:46px}
     .ag-panel{grid-template-columns:1fr}
+    .ag-cost{grid-template-columns:1fr}
+    .ag-cost-vs{justify-self:center;margin:-6px 0}
     .ag-panel-art{display:none}
     .ag-step p{padding-left:18px}
     .ag-card .ag-box{background:var(--c)}
@@ -490,6 +528,7 @@ const faqs = en ? [
   @media (prefers-reduced-motion:reduce){
     .ag-dash,.ag-star,.ag-bob{animation:none}
     .ag-step,.ag-card,.ag-crit-item,.ag-cost-col{opacity:1;transform:none;transition:none}
+    .ag-pick span,.ag-cost-vs{animation:none}
     .ag-arrow-line{stroke-dashoffset:0;transition:none}
   }
   @media (prefers-color-scheme:dark){ }
