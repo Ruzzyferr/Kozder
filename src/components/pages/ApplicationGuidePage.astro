@@ -48,11 +48,11 @@ const crew: Look[] = [
 const programs = en ? [
   { key: 'yx', color: '#1d4ed8', name: 'Erasmus+ Youth Exchange', time: '5–21 days', age: '13–30 (group leaders 18+)', what: 'Young people from several countries meet around a theme: workshops, games, intercultural evenings and a Youthpass certificate at the end.', who: 'Ideal for a first experience abroad.' },
   { key: 'tc', color: '#6d28d9', name: 'Erasmus+ Training Course', time: '5–10 days', age: '18+ (youth workers, volunteers)', what: 'Trainings for people working with young people: non-formal education methods, project writing, inclusion, digital skills.', who: 'For those active in our clubs and activities.' },
-  { key: 'esc', color: '#0f766e', name: 'European Solidarity Corps (ESC)', time: '2 weeks – 12 months', age: '18–30', what: 'Volunteering in an organisation abroad: travel, accommodation, food, insurance and monthly pocket money are covered by the programme.', who: 'A Youth Portal (PRN) registration is required.' },
+  { key: 'esc', color: '#0f766e', name: 'European Solidarity Corps (ESC)', time: '2 weeks – 12 months', age: '18–30', what: 'Volunteering in an organisation abroad: travel, accommodation, food, insurance and pocket money are covered by the programme.', who: 'A Youth Portal (PRN) registration is required.' },
 ] : [
   { key: 'yx', color: '#1d4ed8', name: 'Erasmus+ Gençlik Değişimi', time: '5–21 gün', age: '13–30 (grup lideri 18+)', what: 'Farklı ülkelerden gençler bir tema etrafında buluşur: atölyeler, oyunlar, kültürlerarası geceler ve sonunda Youthpass sertifikası.', who: 'Yurt dışında ilk deneyim için ideal.' },
   { key: 'tc', color: '#6d28d9', name: 'Erasmus+ Eğitim Kursu', time: '5–10 gün', age: '18+ (gençlik çalışanları, gönüllüler)', what: 'Gençlerle çalışanlara yönelik eğitimler: yaygın eğitim yöntemleri, proje yazma, kapsayıcılık, dijital beceriler.', who: 'Kulüplerimizde ve etkinliklerimizde aktif olanlar için.' },
-  { key: 'esc', color: '#0f766e', name: 'Avrupa Dayanışma Programı (ESC)', time: '2 hafta – 12 ay', age: '18–30', what: 'Yurt dışındaki bir kurumda gönüllülük: yol, konaklama, yemek, sigorta ve aylık harçlık programdan karşılanır.', who: 'Youth Portal (PRN) kaydı gerekir.' },
+  { key: 'esc', color: '#0f766e', name: 'Avrupa Dayanışma Programı (ESC)', time: '2 hafta – 12 ay', age: '18–30', what: 'Yurt dışındaki bir kurumda gönüllülük: yol, konaklama, yemek, sigorta ve cep harçlığı programdan karşılanır.', who: 'Youth Portal (PRN) kaydı gerekir.' },
 ];
 
 /* ---------- Yolculuk adımları ---------- */
@@ -75,6 +75,7 @@ const steps = en ? [
   ['Yolculuk', 'Programa tam katılır, Avrupa’nın dört bir yanından arkadaşlar edinir, sonunda Youthpass sertifikanı alırsın.'],
   ['Dön ve paylaş', 'Bilet ve biniş kartlarını teslim eder, deneyimini sosyal medyada paylaşır ve web sitemiz için hikâyeni yazarsın.'],
 ];
+const stepIcons = ['📣', '📝', '🔍', '💻', '🎉', '✍️', '✈️', '📸'];
 const stepColors = ['#f08a24', '#1d4ed8', '#0f766e', '#6d28d9', '#be123c', '#d97706', '#0e8fb3', '#16a34a'];
 
 /* ---------- Formda neler soruluyor ---------- */
@@ -100,7 +101,7 @@ const criteria = en ? [
   ['🗣️', 'English level', 'You don’t need perfect English, but you must be able to communicate. Higher levels have an advantage in training courses.'],
   ['🧩', 'Involvement with KOZ-DER', 'Taking part in our Speaking Clubs, events and volunteering, and completing the social media tasks, count in your favour.'],
   ['🎯', 'Fit with the project', 'The project’s theme, age range and target group: we look at whether this project is right for you and you for it.'],
-  ['📍', 'Kilis and the region', 'As a Kilis-based association, we give priority to young people from Kilis and the surrounding area.'],
+  ['📍', 'Kilis and the region', 'Being from Kilis and the surrounding area is an advantage, but never a requirement: more than 200 of the participants we have sent so far were selected from cities far from Kilis.'],
   ['🌱', 'A fair chance for everyone', 'Those who have never been abroad get a chance; we keep a balance with those who have already participated.'],
   ['🛂', 'Passport and timing', 'In projects with little time before departure, the visa process matters; this is why we ask about your passport type.'],
   ['⚠️', 'Keeping your word', 'If you were selected before and withdrew without a valid reason, this is taken into account in later selections.'],
@@ -109,7 +110,7 @@ const criteria = en ? [
   ['🗣️', 'İngilizce seviyesi', 'Kusursuz İngilizce gerekmez ama iletişim kurabilmelisin. Eğitim kurslarında daha yüksek seviye avantajlıdır.'],
   ['🧩', 'KOZ-DER’e katılımın', 'Speaking Club’larımıza, etkinliklerimize ve gönüllü çalışmalarımıza katılman, sosyal medya görevlerini yapman artı puandır.'],
   ['🎯', 'Projeye uygunluk', 'Projenin teması, yaş aralığı ve hedef kitlesi: bu proje sana, sen de bu projeye uygun musun, ona bakarız.'],
-  ['📍', 'Kilis ve çevresi', 'Kilis merkezli bir dernek olarak Kilis ve çevresindeki gençlere öncelik veririz.'],
+  ['📍', 'Kilis ve çevresi', 'Kilis ve çevresinden olmak bir avantajdır ama kesinlikle şart değildir: bugüne kadar gönderdiğimiz katılımcıların 200’den fazlası Kilis’e uzak şehirlerden seçildi.'],
   ['🌱', 'Herkese adil şans', 'Daha önce hiç yurt dışına çıkmamış gençlere de fırsat veririz; daha önce katılanlarla dengeyi gözetiriz.'],
   ['🛂', 'Pasaport ve zamanlama', 'Gidişe az süre kalan projelerde vize süreci belirleyici olabilir; pasaport türünü bu yüzden sorarız.'],
   ['⚠️', 'Sözünü tutmak', 'Daha önce seçilip geçerli bir mazeret olmadan vazgeçtiysen, bu durum sonraki seçimlerde dikkate alınır.'],
@@ -117,8 +118,8 @@ const criteria = en ? [
 
 /* ---------- Masraflar ---------- */
 const covered = en
-  ? ['Travel, up to the programme’s limit', 'Accommodation and meals', 'Insurance', 'Visa fee (when included in the project budget)', 'ESC: monthly pocket money']
-  : ['Yol masrafı (programın belirlediği üst sınıra kadar)', 'Konaklama ve yemek', 'Sigorta', 'Vize ücreti (proje bütçesinde varsa)', 'ESC’de aylık harçlık'];
+  ? ['Travel, up to the programme’s limit', 'Accommodation and meals (food allowance in ESC)', 'Insurance', 'Visa fee (when included in the project budget)', 'ESC: pocket money']
+  : ['Yol masrafı (programın belirlediği üst sınıra kadar)', 'Konaklama ve yemek (ESC’de yemek ücreti)', 'Sigorta', 'Vize ücreti (proje bütçesinde varsa)', 'ESC’de cep harçlığı'];
 const yours = en
   ? ['Getting a passport', 'Personal spending', 'Costs not approved in advance', 'Keeping tickets, invoices and boarding passes: travel costs are reimbursed only with these documents']
   : ['Pasaport çıkarmak', 'Kişisel harcamaların', 'Önceden onaylanmamış giderler', 'Bilet, fatura ve biniş kartlarını saklamak: yol masrafı ancak bu belgelerle geri ödenir'];
@@ -128,7 +129,7 @@ const faqs = en ? [
   ['Is it free?', 'Yes. There is no participation fee. The programme covers the main costs; you only need your passport and personal spending money.'],
   ['My English isn’t very good. Can I still apply?', 'Yes. For youth exchanges, basic communication is enough. To improve, join our free Speaking Clubs (Wednesdays online, Fridays in Kilis).'],
   ['I have joined a project before. Can I apply again?', 'Yes. We try to give priority to first-timers, but active members who have contributed to the association are always welcome.'],
-  ['I don’t live in Kilis. Can I apply?', 'Yes. Priority goes to young people from Kilis and the region, but depending on the project we also select participants from other cities.'],
+  ['I don’t live in Kilis. Can I apply?', 'Of course. Being from Kilis and the region is only an advantage, not a condition; more than 200 of our participants so far came from cities far from Kilis.'],
   ['When will I hear back?', 'Usually within a few days after the deadline. Shortlisted candidates are invited to an online interview first.'],
   ['What if my visa is refused or I can’t go?', 'Let us know in writing as soon as possible. Valid reasons such as a visa refusal or illness are assessed with documents; a reserve takes your place.'],
   ['What happens to my personal data?', 'Your passport, ID and contact details are used only for that project and protected under our privacy notice. Photos are shared only with your separate consent.'],
@@ -136,7 +137,7 @@ const faqs = en ? [
   ['Ücretli mi?', 'Hayır, katılım ücreti yok. Temel masrafları program karşılar; senin yalnızca pasaportun ve kişisel harçlığın olmalı.'],
   ['İngilizcem çok iyi değil, yine de başvurabilir miyim?', 'Evet. Gençlik değişimlerinde temel düzeyde iletişim kurabilmek yeterli. Geliştirmek için ücretsiz Speaking Club’larımıza katılabilirsin (Çarşamba online, Cuma Kilis’te).'],
   ['Daha önce bir projeye katıldım, tekrar başvurabilir miyim?', 'Evet. İlk kez gideceklere öncelik vermeye çalışırız ama derneğe katkı sunan aktif üyelerimize her zaman yer vardır.'],
-  ['Kilis’te yaşamıyorum, başvurabilir miyim?', 'Evet. Kilis ve çevresine öncelik veririz ama projeye göre başka şehirlerden de katılımcı seçiyoruz.'],
+  ['Kilis’te yaşamıyorum, başvurabilir miyim?', 'Elbette. Kilis ve çevresinden olmak yalnızca bir avantaj, şart değil; bugüne kadarki katılımcılarımızın 200’den fazlası Kilis’e uzak şehirlerden seçildi.'],
   ['Sonuç ne zaman açıklanır?', 'Genellikle son başvuru tarihinden sonraki birkaç gün içinde. Önce ön elemeyi geçenleri online görüşmeye çağırırız.'],
   ['Vizem çıkmazsa ya da gidemezsem ne olur?', 'En kısa sürede yazılı olarak haber vermelisin. Vize reddi, hastalık gibi geçerli mazeretler belgesiyle değerlendirilir; yerine yedek aday geçer.'],
   ['Kişisel verilerime ne oluyor?', 'Pasaport, kimlik ve iletişim bilgilerin yalnızca o proje için kullanılır ve KVKK kapsamında korunur. Fotoğrafların ancak ayrı iznin varsa paylaşılır.'],
@@ -217,7 +218,7 @@ const faqs = en ? [
             <details open={i === 0}>
               <summary>
                 <span class="ag-num">{i + 1}</span>
-                <span class="ag-face" set:html={person(crew[i % crew.length], 54)} />
+                <span class="ag-icon" aria-hidden="true">{stepIcons[i]}</span>
                 <span class="ag-step-title">{h}</span>
                 <span class="ag-chev" aria-hidden="true">＋</span>
               </summary>
@@ -239,15 +240,15 @@ const faqs = en ? [
         <p class="ag-lead">{c('Hazırlıklı gel: cevaplarını önceden düşünürsen formu dakikalar içinde doldurursun.', 'Come prepared: if you think about your answers beforehand, the form takes minutes.')}</p>
         <div class="ag-form-grid">
           {formGroups.map(g => (
-            <div class="ag-card" style={`--c:${g.color}`} data-reveal>
-              <h3><span aria-hidden="true">{g.icon}</span> {g.title}</h3>
-              <ul>{g.items.map(it => <li>{it}</li>)}</ul>
+            <div class="ag-card" style={`--c:${g.color}`} data-reveal tabindex="0">
+              <div class="ag-card-head"><span class="ag-card-ic" aria-hidden="true">{g.icon}</span><h3>{g.title}</h3><span class="ag-card-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+              <ul>{g.items.map(it => <li><span class="ag-box" aria-hidden="true"></span><span>{it}</span></li>)}</ul>
             </div>
           ))}
         </div>
         <div class="ag-tip">
           <span set:html={person(crew[4], 70)} />
-          <p><strong>{c('İpucu:', 'Tip:')}</strong> {c('Kopyala-yapıştır cevaplar yerine kendi cümlelerinle yaz. Neden bu projeyi seçtiğini ve döndüğünde ne yapacağını somut anlat: “Speaking Club’da sunum yaparım”, “okulumda tanıtırım” gibi.', 'Write in your own words rather than copy-paste. Be concrete about why you chose this project and what you will do when you return: “I’ll present it at the Speaking Club”, “I’ll introduce it at my school”.')}</p>
+          <p><strong>{c('İpucu:', 'Tip:')}</strong> {c('Kopyala-yapıştır cevaplar yerine kendi cümlelerinle yaz. Neden bu projeyi seçtiğini ve döndüğünde ne yapacağını somut anlat: “Speaking Club’da sunum yaparım”, “okulumda tanıtırım” gibi. Yapay zekâ (ChatGPT vb.) ile yazılmış cevaplar kabul edilmez; tüm cevaplar bu açıdan kontrol edilir.', 'Write in your own words rather than copy-paste. Be concrete about why you chose this project and what you will do when you return: “I’ll present it at the Speaking Club”, “I’ll introduce it at my school”. Answers written with AI tools (ChatGPT etc.) are not accepted; all answers are checked for this.')}</p>
         </div>
       </div>
     </section>
@@ -399,11 +400,12 @@ const faqs = en ? [
   .ag-step summary{list-style:none;display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer}
   .ag-step summary::-webkit-details-marker{display:none}
   .ag-num{flex:0 0 auto;width:38px;height:38px;border-radius:50%;background:var(--c);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center}
-  .ag-face{flex:0 0 auto;line-height:0;margin:-8px 0}
+  .ag-icon{flex:0 0 auto;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;background:color-mix(in srgb,var(--c) 14%,#fff);transition:transform .35s ease}
+  .ag-step details:hover .ag-icon,.ag-step details[open] .ag-icon{transform:rotate(-8deg) scale(1.12)}
   .ag-step-title{font-weight:900;font-size:18px;flex:1}
   .ag-chev{color:var(--c);font-weight:900;transition:transform .3s}
   .ag-step details[open] .ag-chev{transform:rotate(45deg)}
-  .ag-step p{margin:0;padding:0 18px 18px 66px;line-height:1.6;color:#33415c}
+  .ag-step p{margin:0;padding:0 18px 18px 120px;line-height:1.6;color:#33415c}
   .ag-arrow{position:absolute;width:60px;height:70px;z-index:2}
   .ag-arrow-m{display:none}
   @keyframes agDown{50%{transform:translateY(5px)}}
@@ -415,12 +417,30 @@ const faqs = en ? [
   .ag-band{margin-top:64px;background:#eaf1fe;padding-bottom:64px}
   .ag-band.alt{background:#fff0e8}
   .ag-form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-  .ag-card{padding:22px;border-radius:22px;background:#fff;border-top:6px solid var(--c);box-shadow:0 6px 18px rgba(20,33,61,.06);opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s,box-shadow .3s}
+  .ag-card{position:relative;overflow:hidden;border-radius:22px;background:#fff;border:2px solid color-mix(in srgb,var(--c) 22%,#fff);box-shadow:0 6px 18px rgba(20,33,61,.06);opacity:0;transform:translateY(14px);transition:opacity .5s,transform .4s ease,box-shadow .4s ease,border-color .4s ease;outline:none}
   .ag-card.in{opacity:1;transform:none}
-  .ag-card:hover{box-shadow:0 16px 34px rgba(20,33,61,.14);transform:translateY(-4px)}
-  .ag-card h3{font-size:19px;margin-bottom:10px;color:var(--c)}
-  .ag-card ul{margin:0;padding-left:18px;line-height:1.55}
-  .ag-card li+li{margin-top:6px}
+  .ag-card::after{content:"";position:absolute;top:0;bottom:0;left:0;width:45%;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.7),rgba(255,255,255,0));transform:translateX(-140%) skewX(-20deg);pointer-events:none}
+  .ag-card:hover,.ag-card:focus-visible{transform:translateY(-8px) scale(1.03);border-color:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 22%,transparent),0 22px 44px color-mix(in srgb,var(--c) 35%,transparent)}
+  .ag-card:hover::after,.ag-card:focus-visible::after{animation:agShine 1s ease}
+  @keyframes agShine{to{transform:translateX(260%) skewX(-20deg)}}
+  .ag-card-head{display:flex;align-items:center;gap:10px;padding:14px 18px;background:var(--c);color:#fff}
+  .ag-card-head h3{font-size:18px;color:#fff;flex:1}
+  .ag-card-ic{width:36px;height:36px;border-radius:12px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:20px;transition:transform .35s ease}
+  .ag-card:hover .ag-card-ic{transform:rotate(-10deg) scale(1.15)}
+  .ag-card-dots{display:flex;gap:4px}
+  .ag-card-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.6)}
+  .ag-card ul{list-style:none;margin:0;padding:16px 18px 20px;line-height:1.5}
+  .ag-card li{display:flex;gap:10px;align-items:flex-start;padding-bottom:8px;border-bottom:1px dashed color-mix(in srgb,var(--c) 25%,#fff)}
+  .ag-card li:last-child{border-bottom:0;padding-bottom:0}
+  .ag-card li+li{margin-top:8px}
+  .ag-box{flex:0 0 auto;width:18px;height:18px;margin-top:2px;border-radius:5px;border:2px solid var(--c);position:relative;transition:background .3s}
+  .ag-box::after{content:"";position:absolute;left:4px;top:0;width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) scale(0);transition:transform .3s}
+  .ag-card:hover .ag-box,.ag-card:focus-visible .ag-box{background:var(--c)}
+  .ag-card:hover .ag-box::after,.ag-card:focus-visible .ag-box::after{transform:rotate(45deg) scale(1)}
+  .ag-card li:nth-child(2) .ag-box,.ag-card li:nth-child(2) .ag-box::after{transition-delay:.1s}
+  .ag-card li:nth-child(3) .ag-box,.ag-card li:nth-child(3) .ag-box::after{transition-delay:.2s}
+  .ag-card li:nth-child(4) .ag-box,.ag-card li:nth-child(4) .ag-box::after{transition-delay:.3s}
+  .ag-card li:nth-child(5) .ag-box,.ag-card li:nth-child(5) .ag-box::after{transition-delay:.4s}
   .ag-tip{display:flex;align-items:center;gap:18px;margin-top:22px;padding:18px 22px;border-radius:22px;background:#fff;border:2px dashed #f08a24}
   .ag-tip p{margin:0;line-height:1.6}
   /* criteria */
@@ -464,6 +484,8 @@ const faqs = en ? [
     .ag-panel{grid-template-columns:1fr}
     .ag-panel-art{display:none}
     .ag-step p{padding-left:18px}
+    .ag-card .ag-box{background:var(--c)}
+    .ag-card .ag-box::after{transform:rotate(45deg) scale(1)}
   }
   @media (prefers-reduced-motion:reduce){
     .ag-dash,.ag-star,.ag-bob{animation:none}
