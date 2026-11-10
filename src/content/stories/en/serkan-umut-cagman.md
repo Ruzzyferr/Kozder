@@ -1,6 +1,6 @@
 ---
 name: "Serkan Umut ÇAĞMAN"
-programName: "Digital Democracy: Youth Voices Online! Youth Exchange"
+programName: "Digital Democracy: Youth Voices Online! — Erasmus+ Youth Exchange"
 country: "Bulgaria · Pazardzhik"
 startDate: "28.10.2026"
 images:

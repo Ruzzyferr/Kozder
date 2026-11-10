@@ -1,6 +1,6 @@
 ---
 name: "Serkan Umut ÇAĞMAN"
-programName: "Digital Democracy: Youth Voices Online! Gençlik Değişimi"
+programName: "Digital Democracy: Youth Voices Online! — Erasmus+ Gençlik Değişimi"
 country: "Bulgaristan · Pazardzhik"
 startDate: "28.10.2026"
 images:
